@@ -339,7 +339,7 @@ def update_readme(meta: dict, candidates: int, alive: list[tuple[int, dict]],
     README.write_text(text, encoding="utf-8")
 
 
-def write_outputs(meta: dict, candidates: int, ordered: list[dict],
+def write_outputs(meta: dict, tested: list[dict], ordered: list[dict],
                   delays: dict[str, int], prev_kept: int) -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     (OUT_DIR / "config.yaml").write_text(
@@ -350,10 +350,11 @@ def write_outputs(meta: dict, candidates: int, ordered: list[dict],
         yaml.safe_dump({"proxies": ordered}, allow_unicode=True, sort_keys=False, width=4096),
         encoding="utf-8",
     )
+    alive_names = {p["name"] for p in ordered}
     report = {
         "tested_at": datetime.now(timezone(timedelta(hours=8))).isoformat(timespec="seconds"),
         "source": meta,
-        "candidates": candidates,
+        "candidates": len(tested),
         "alive": len(ordered),
         "new_alive": len(ordered) - prev_kept,
         "prev_kept": prev_kept,
@@ -362,10 +363,13 @@ def write_outputs(meta: dict, candidates: int, ordered: list[dict],
              "port": p["port"], "delay_ms": delays[p["name"]]}
             for p in ordered
         ],
+        "failed": [p["name"] for p in tested if p["name"] not in alive_names],
     }
-    (BUILD_DIR / "report.json").write_text(
-        json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
-    update_readme(meta, candidates, [(delays[p["name"]], p) for p in ordered], prev_kept)
+    report_text = json.dumps(report, ensure_ascii=False, indent=2)
+    (BUILD_DIR / "report.json").write_text(report_text, encoding="utf-8")
+    # 同时发布到 output/，仓库里可查每个节点的实测延迟与未通过名单
+    (OUT_DIR / "report.json").write_text(report_text, encoding="utf-8")
+    update_readme(meta, len(tested), [(delays[p["name"]], p) for p in ordered], prev_kept)
 
 
 def main() -> int:
@@ -446,7 +450,7 @@ def main() -> int:
 
     ordered = [p for _, p in scored]
     delays = {p["name"]: d for d, p in scored}
-    write_outputs(meta, len(remaining), ordered, delays, len(scored_prev))
+    write_outputs(meta, remaining, ordered, delays, len(scored_prev))
     print(f"[OK] 可用 {len(ordered)}/{len(remaining)}"
           f"（新通过 {len(scored_new)} + 旧保留 {len(scored_prev)}），"
           f"最快 {scored[0][0]}ms（{scored[0][1]['name']}），最慢 {scored[-1][0]}ms")
