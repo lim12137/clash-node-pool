@@ -44,6 +44,7 @@ README = ROOT / "README.md"
 
 TEST_URL = "http://www.gstatic.com/generate_204"  # 由内核代为探测的目标，非本脚本直接请求
 DELAY_TIMEOUT_MS = 5000
+PREV_KEEP_DELAY_MS = 1000  # 上一次订阅里的旧节点只有延迟 ≤ 1s 才保留并与新节点合并
 PROBE_WORKERS = 8
 # 本脚本自启内核的专用控制面：固定回环地址 + 白名单端口段（避开常用 9090）
 CONTROLLER_HOST = "127.0.0.1"
@@ -154,6 +155,47 @@ def core_config_ok(core: Path, cfg_path: Path, workdir: Path) -> tuple[bool, str
         capture_output=True, text=True, timeout=60, creationflags=flags,
     )
     return result.returncode == 0, (result.stderr or result.stdout or "")[-400:]
+
+
+def credential_of(node: dict) -> str:
+    for key in ("uuid", "password", "auth_str", "auth", "token", "private-key"):
+        value = node.get(key)
+        if isinstance(value, str) and value.strip():
+            return value.strip()
+    return ""
+
+
+def node_key(node: dict):
+    """节点身份键，与 fetch_merge.py 的去重口径一致。"""
+    return (node.get("type"), node.get("server"), node.get("port"), credential_of(node))
+
+
+def unique_names(nodes: list[dict]) -> list[dict]:
+    used: set[str] = set()
+    for node in nodes:
+        base = str(node.get("name") or "node").strip() or "node"
+        name, counter = base, 1
+        while name in used:
+            counter += 1
+            name = f"{base} #{counter}"
+        node["name"] = name
+        used.add(name)
+    return nodes
+
+
+def load_previous_nodes() -> list[dict]:
+    """读取上一次发布在 output/proxies.yaml 里的旧节点（Actions checkout 自带上一次产物）。"""
+    path = OUT_DIR / "proxies.yaml"
+    if not path.exists():
+        return []
+    try:
+        data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    except (yaml.YAMLError, OSError):
+        return []
+    nodes = data.get("proxies")
+    if not isinstance(nodes, list):
+        return []
+    return [n for n in nodes if isinstance(n, dict) and n.get("type") and n.get("server")]
 
 
 def drop_unsupported_type(proxies: list[dict]) -> str | None:
@@ -271,7 +313,8 @@ def build_client_config(proxies: list[dict]) -> dict:
     }
 
 
-def update_readme(meta: dict, candidates: int, alive: list[tuple[int, dict]]) -> None:
+def update_readme(meta: dict, candidates: int, alive: list[tuple[int, dict]],
+                  prev_kept: int) -> None:
     if not README.exists():
         return
     text = README.read_text(encoding="utf-8")
@@ -285,6 +328,7 @@ def update_readme(meta: dict, candidates: int, alive: list[tuple[int, dict]]) ->
         f"| 原始节点 | {meta.get('raw_count', candidates)} |\n"
         f"| 去重后候选 | {candidates} |\n"
         f"| **可用节点** | **{len(alive)}（{rate:.1f}%）** |\n"
+        f"| 其中：新通过 / 旧保留(≤1s) | {len(alive) - prev_kept} / {prev_kept} |\n"
         f"| 最快节点 | {fastest['name']}（{fastest_delay}ms / {fastest['type']}） |\n"
     )
     pattern = re.compile(r"(<!-- STATS:BEGIN -->\n).*?(<!-- STATS:END -->)", re.S)
@@ -296,7 +340,7 @@ def update_readme(meta: dict, candidates: int, alive: list[tuple[int, dict]]) ->
 
 
 def write_outputs(meta: dict, candidates: int, ordered: list[dict],
-                  delays: dict[str, int]) -> None:
+                  delays: dict[str, int], prev_kept: int) -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     (OUT_DIR / "config.yaml").write_text(
         yaml.safe_dump(build_client_config(ordered), allow_unicode=True, sort_keys=False, width=4096),
@@ -311,6 +355,8 @@ def write_outputs(meta: dict, candidates: int, ordered: list[dict],
         "source": meta,
         "candidates": candidates,
         "alive": len(ordered),
+        "new_alive": len(ordered) - prev_kept,
+        "prev_kept": prev_kept,
         "nodes": [
             {"name": p["name"], "type": p["type"], "server": p["server"],
              "port": p["port"], "delay_ms": delays[p["name"]]}
@@ -319,7 +365,7 @@ def write_outputs(meta: dict, candidates: int, ordered: list[dict],
     }
     (BUILD_DIR / "report.json").write_text(
         json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
-    update_readme(meta, candidates, [(delays[p["name"]], p) for p in ordered])
+    update_readme(meta, candidates, [(delays[p["name"]], p) for p in ordered], prev_kept)
 
 
 def main() -> int:
@@ -329,10 +375,32 @@ def main() -> int:
         return 3
     payload = yaml.safe_load(merged_path.read_text(encoding="utf-8")) or {}
     meta = payload.get("meta") or {}
-    remaining: list[dict] = list(payload.get("proxies") or [])
+    new_nodes: list[dict] = list(payload.get("proxies") or [])
+    prev_nodes = load_previous_nodes()
+
+    # 合并候选：新节点优先；旧节点里与新批次重复的不再单列（按新节点规则测）
+    remaining: list[dict] = []
+    seen: set = set()
+    prev_only_keys: set = set()
+    for node in new_nodes:
+        key = node_key(node)
+        if key in seen:
+            continue
+        seen.add(key)
+        remaining.append(node)
+    for node in prev_nodes:
+        key = node_key(node)
+        if key in seen:
+            continue
+        seen.add(key)
+        prev_only_keys.add(key)
+        remaining.append(node)
     if not remaining:
         print("[SKIP] 候选节点为空，按要求不更新")
         return 3
+    unique_names(remaining)
+    if prev_only_keys:
+        print(f"[INFO] 本轮候选 {len(remaining)} 个 = 新抓取 {len(new_nodes)} + 复测旧节点 {len(prev_only_keys)}")
 
     core = find_core()
     while True:
@@ -358,18 +426,28 @@ def main() -> int:
     finally:
         stop_core(proc)
 
-    scored = sorted(
-        ((alive[p["name"]], p) for p in remaining if p["name"] in alive),
-        key=lambda item: item[0],
-    )
+    # 新节点按可用阈值保留；旧节点额外要求延迟 ≤ 1s 才继续保留
+    scored_new: list[tuple[int, dict]] = []
+    scored_prev: list[tuple[int, dict]] = []
+    for p in remaining:
+        delay = alive.get(p["name"])
+        if not delay:
+            continue
+        if node_key(p) in prev_only_keys:
+            if delay <= PREV_KEEP_DELAY_MS:
+                scored_prev.append((delay, p))
+        else:
+            scored_new.append((delay, p))
+    scored = sorted(scored_new + scored_prev, key=lambda item: item[0])
     if not scored:
         print(f"[SKIP] {len(remaining)} 个候选节点全部不可达，保留上一次订阅、不更新")
         return 3
 
     ordered = [p for _, p in scored]
     delays = {p["name"]: d for d, p in scored}
-    write_outputs(meta, len(remaining), ordered, delays)
-    print(f"[OK] 可用 {len(ordered)}/{len(remaining)}，"
+    write_outputs(meta, len(remaining), ordered, delays, len(scored_prev))
+    print(f"[OK] 可用 {len(ordered)}/{len(remaining)}"
+          f"（新通过 {len(scored_new)} + 旧保留 {len(scored_prev)}），"
           f"最快 {scored[0][0]}ms（{scored[0][1]['name']}），最慢 {scored[-1][0]}ms")
     return 0
 
