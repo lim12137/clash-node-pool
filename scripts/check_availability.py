@@ -378,29 +378,30 @@ def main() -> int:
     new_nodes: list[dict] = list(payload.get("proxies") or [])
     prev_nodes = load_previous_nodes()
 
-    # 合并候选：新节点优先；旧节点里与新批次重复的不再单列（按新节点规则测）
+    # 合并候选：上一轮保活节点全部入池复测（不区分上游新文件里是否还存在），
+    # 新节点随后入池；与旧节点重复的新节点按旧节点规则一起测。
     remaining: list[dict] = []
     seen: set = set()
-    prev_only_keys: set = set()
+    prev_keys: set = set()
+    for node in prev_nodes:
+        key = node_key(node)
+        if key in seen:
+            continue
+        seen.add(key)
+        prev_keys.add(key)
+        remaining.append(node)
     for node in new_nodes:
         key = node_key(node)
         if key in seen:
             continue
         seen.add(key)
         remaining.append(node)
-    for node in prev_nodes:
-        key = node_key(node)
-        if key in seen:
-            continue
-        seen.add(key)
-        prev_only_keys.add(key)
-        remaining.append(node)
     if not remaining:
         print("[SKIP] 候选节点为空，按要求不更新")
         return 3
     unique_names(remaining)
-    if prev_only_keys:
-        print(f"[INFO] 本轮候选 {len(remaining)} 个 = 新抓取 {len(new_nodes)} + 复测旧节点 {len(prev_only_keys)}")
+    if prev_keys:
+        print(f"[INFO] 本轮候选 {len(remaining)} 个 = 新抓取 {len(new_nodes)} + 上轮保活复测 {len(prev_keys)}")
 
     core = find_core()
     while True:
@@ -426,14 +427,14 @@ def main() -> int:
     finally:
         stop_core(proc)
 
-    # 新节点按可用阈值保留；旧节点额外要求延迟 ≤ 1s 才继续保留
+    # 上轮保活节点复测：存活且延迟 ≤1s 保留，其余删除；新节点按可用阈值保留
     scored_new: list[tuple[int, dict]] = []
     scored_prev: list[tuple[int, dict]] = []
     for p in remaining:
         delay = alive.get(p["name"])
         if not delay:
             continue
-        if node_key(p) in prev_only_keys:
+        if node_key(p) in prev_keys:
             if delay <= PREV_KEEP_DELAY_MS:
                 scored_prev.append((delay, p))
         else:
