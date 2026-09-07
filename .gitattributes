@@ -1,0 +1,2 @@
+# 统一 LF，保证 .sh / .py / .yml 在 Linux runner 上不被 CRLF 破坏
+* text=auto eol=lf
