@@ -1,7 +1,7 @@
 {
   "batch_index": 2,
   "batch_size": 40,
-  "tested_at": "2026-09-09T05:27:17+08:00",
+  "tested_at": "2026-09-09T05:55:23+08:00",
   "source_file": "clash20260909.yml",
   "pool_total": 151,
   "tested": 40,
@@ -11,24 +11,24 @@
   "relaxed": true,
   "nodes": [
     {
-      "name": "未知 VLESS-776 | free-nodes",
-      "server": "cf.777791.xyz",
-      "port": 2053,
+      "name": "未知 VLESS-714 | free-nodes",
+      "server": "172.67.156.147",
+      "port": 443,
       "type": "vless",
-      "uuid": "65c56e1f-5c41-40bc-b0b5-9346772476ca",
+      "uuid": "4e4f1f70-5e56-4a76-bb9d-db087f4690c4",
       "tls": true,
       "tfo": false,
       "skip-cert-verify": false,
-      "servername": "us.105794.xyz",
-      "client-fingerprint": "edge",
+      "servername": "jp3.yohototo.top",
+      "client-fingerprint": "chrome",
       "network": "ws",
       "ws-opts": {
-        "path": "/download/v3/installer-x64.bin",
+        "path": "/tyxyws",
         "headers": {
-          "Host": "us.105794.xyz"
+          "Host": "jp3.yohototo.top"
         }
       },
-      "delay_ms": 3668
+      "delay_ms": 3420
     }
   ],
   "failed": [
@@ -38,10 +38,10 @@
     "未知 VLESS-710 | free-nodes",
     "未知 VLESS-711 | free-nodes",
     "未知 VLESS-712 | free-nodes",
-    "未知 VLESS-714 | free-nodes",
     "未知 VLESS-716 | free-nodes",
     "未知 VLESS-720 | free-nodes",
     "未知 VLESS-768 | free-nodes",
+    "未知 VLESS-776 | free-nodes",
     "未知 VLESS-777 | free-nodes",
     "未知 VLESS-779 | free-nodes",
     "未知 VLESS-787 | free-nodes",
