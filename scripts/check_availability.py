@@ -468,18 +468,10 @@ def write_outputs(meta: dict, tested: list[dict], ordered: list[dict],
     update_readme(meta, len(tested), [(delays[p["name"]], p) for p in ordered], prev_kept)
 
 
-def main() -> int:
-    merged_path = BUILD_DIR / "merged.yaml"
-    if not merged_path.exists():
-        print("[SKIP] 没有 build/merged.yaml（上游抓取阶段未产出候选），跳过更新")
-        return 3
-    payload = yaml.safe_load(merged_path.read_text(encoding="utf-8")) or {}
-    meta = payload.get("meta") or {}
-    new_nodes: list[dict] = list(payload.get("proxies") or [])
-    prev_nodes = load_previous_nodes()
-
-    # 合并候选：上一轮保活节点全部入池复测（不区分上游新文件里是否还存在），
-    # 新节点随后入池；与旧节点重复的新节点按旧节点规则一起测。
+def merge_candidates(new_nodes: list[dict],
+                     prev_nodes: list[dict]) -> tuple[list[dict], set]:
+    """合并候选：上一轮保活节点全部入池复测，新节点随后入池；
+    与旧节点重复的新节点按旧节点规则一起测。返回 (remaining, prev_keys)。"""
     remaining: list[dict] = []
     seen: set = set()
     prev_keys: set = set()
@@ -496,17 +488,20 @@ def main() -> int:
             continue
         seen.add(key)
         remaining.append(node)
-    if not remaining:
-        print("[SKIP] 候选节点为空，按要求不更新")
-        return 3
     unique_names(remaining)
-    if prev_keys:
-        print(f"[INFO] 本轮候选 {len(remaining)} 个 = 新抓取 {len(new_nodes)} + 上轮保活复测 {len(prev_keys)}")
+    return remaining, prev_keys
 
+
+def test_pool(remaining: list[dict], prev_keys: set) -> tuple[list, int, bool] | None:
+    """对候选池做两轮探测与筛选。
+
+    返回 (scored, prev_kept, relaxed)；scored = [(delay, node), ...] 按延迟升序，
+    无节点达标（或内核/端口问题）时返回 None，原因已打印。
+    """
     core = find_core()
     if port_in_use(MIXED_PORT):
         print(f"[FAIL] 混合端口 {MIXED_PORT} 已被占用，无法启动测试内核")
-        return 3
+        return None
     while True:
         controller_port = pick_controller_port()
         cfg_path, workdir = write_test_config(remaining, controller_port)
@@ -516,7 +511,7 @@ def main() -> int:
         dropped = drop_unsupported_type(remaining)
         if not dropped or not remaining:
             print(f"[FAIL] 测试配置无法通过内核校验：{message}")
-            return 3
+            return None
         print(f"[INFO] 内核不支持 {dropped} 节点，已丢弃并重试（剩余 {len(remaining)}）")
 
     proc = start_core(core, cfg_path, workdir, controller_port)
@@ -524,7 +519,7 @@ def main() -> int:
         log = BUILD_DIR / "mihomo.log"
         tail = log.read_text(encoding="utf-8", errors="replace")[-500:] if log.exists() else "(无日志)"
         print(f"[FAIL] mihomo 内核启动失败，日志尾部：\n{tail}")
-        return 3
+        return None
     try:
         proxy_ids = list(range(len(remaining)))
         proxy_id_by_name = {node["name"]: proxy_id for proxy_id, node in enumerate(remaining)}
@@ -542,9 +537,9 @@ def main() -> int:
         r1_pass.sort(key=lambda item: item[0])
         if not r1_pass:
             print(f"[SKIP] 第一轮批量测速后无节点达标（候选 {len(remaining)}），保留上一次订阅、不更新")
-            return 3
+            return None
         print(f"[INFO] 第一轮通过 {len(r1_pass)}/{len(remaining)} 个，"
-              f"进入第二轮单发复测（间隔 {STABILITY_PROBE_INTERVAL_S:.0f}s）")
+              f"进入第二轮单发复测（间隔 {STABILITY_PROBE_INTERVAL_S}s）")
 
         alive_r2 = stability_retest(
             controller_port,
@@ -578,7 +573,31 @@ def main() -> int:
     scored = sorted(final, key=lambda item: item[0])
     if not scored:
         print("[SKIP] 无可用节点，保留上一次订阅、不更新")
+        return None
+    return scored, prev_kept, relaxed
+
+
+def main() -> int:
+    merged_path = BUILD_DIR / "merged.yaml"
+    if not merged_path.exists():
+        print("[SKIP] 没有 build/merged.yaml（上游抓取阶段未产出候选），跳过更新")
         return 3
+    payload = yaml.safe_load(merged_path.read_text(encoding="utf-8")) or {}
+    meta = payload.get("meta") or {}
+    new_nodes: list[dict] = list(payload.get("proxies") or [])
+    prev_nodes = load_previous_nodes()
+
+    remaining, prev_keys = merge_candidates(new_nodes, prev_nodes)
+    if not remaining:
+        print("[SKIP] 候选节点为空，按要求不更新")
+        return 3
+    if prev_keys:
+        print(f"[INFO] 本轮候选 {len(remaining)} 个 = 新抓取 {len(new_nodes)} + 上轮保活复测 {len(prev_keys)}")
+
+    result = test_pool(remaining, prev_keys)
+    if result is None:
+        return 3
+    scored, prev_kept, relaxed = result
 
     ordered = [p for _, p in scored]
     delays = {p["name"]: d for d, p in scored}

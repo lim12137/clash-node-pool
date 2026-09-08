@@ -1,0 +1,179 @@
+# 「曲线」双通道 —— GitHub Actions（国外）调度，CNB（国内）分片探测出国。
+# 流程：prepare(国内抓取候选入库) → probe(每 40 个一片并发触发 CNB 短任务) → merge(合并发布)。
+# 每个分片是独立短任务，单任务故障只影响一片且可重试，规避长任务卡死。
+# 前置：仓库 Secret CNB_TOKEN = cnb.cool 访问令牌（具备 repo-cnb-trigger 权限）。
+name: china-net-chunks
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "40 1,9,17 * * *" # UTC，即北京 9:40 / 17:40 / 1:40，与 CNB 原生定时错开
+
+env:
+  CNB_REPO: lim12137/clash-node-pool
+  BATCH_SIZE: "40"
+  MAX_PARALLEL: "6"
+
+permissions:
+  contents: write
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      batches: ${{ steps.plan.outputs.batches }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install -g @cnbcool/cnb-cli
+      - name: trigger CNB prepare (fetch candidates in China)
+        env:
+          CNB_TOKEN: ${{ secrets.CNB_TOKEN }}
+        run: |
+          cnb build start-build --repo "$CNB_REPO" --branch main \
+            --event api_trigger_prepare --title "prepare candidates"
+      - name: wait for fresh candidates.yaml
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          start=$(date -u +%s)
+          for i in $(seq 1 60); do
+            sleep 15
+            date=$(gh api "repos/$GITHUB_REPOSITORY/commits?path=output/candidates.yaml&per_page=1" \
+              --jq '.[0].commit.committer.date' 2>/dev/null || echo "")
+            if [ -n "$date" ]; then
+              ts=$(date -u -d "$date" +%s)
+              if [ "$ts" -ge "$start" ]; then echo "candidates.yaml refreshed"; exit 0; fi
+            fi
+            echo "waiting... ($i)"
+          done
+          echo "candidates.yaml not refreshed in time"; exit 1
+      - name: plan batches
+        id: plan
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/contents/output/candidates.yaml" \
+            --jq .content | base64 -d > candidates.yaml
+          COUNT=$(python -c "import yaml;print(len((yaml.safe_load(open('candidates.yaml',encoding='utf-8')) or {}).get('proxies') or []))")
+          echo "pool=$COUNT"
+          python - "$COUNT" >> "$GITHUB_OUTPUT" <<'PY'
+          import json, math, os, sys
+          count = int(sys.argv[1])
+          size = int(os.environ.get("BATCH_SIZE", "40"))
+          batches = list(range(math.ceil(count / size)))
+          print("batches=" + json.dumps(batches))
+          PY
+
+  probe:
+    needs: prepare
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 6
+      fail-fast: false
+      matrix:
+        batch: ${{ fromJson(needs.prepare.outputs.batches) }}
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install -g @cnbcool/cnb-cli
+      - name: trigger CNB batch and wait
+        id: run
+        env:
+          CNB_TOKEN: ${{ secrets.CNB_TOKEN }}
+          IDX: ${{ matrix.batch }}
+        run: |
+          trigger() {
+            cnb build start-build --repo "$CNB_REPO" --branch main \
+              --event api_trigger_batch --title "batch $IDX" \
+              --env BATCH_SIZE="$BATCH_SIZE" --env BATCH_INDEX="$IDX"
+          }
+          OUT=$(trigger)
+          SN=$(echo "$OUT" | grep -m1 'sn:' | awk '{print $2}')
+          echo "sn=$SN"
+          for i in $(seq 1 40); do
+            sleep 20
+            ST=$(cnb build get-build-status --repo "$CNB_REPO" --sn "$SN" | grep -m1 '^  status:' | awk '{print $2}')
+            echo "[$i] status=$ST"
+            case "$ST" in
+              success) exit 0 ;;
+              error|cancel) exit 1 ;;
+            esac
+          done
+          echo "timeout"; exit 1
+      - name: retry once on failure
+        if: failure()
+        env:
+          CNB_TOKEN: ${{ secrets.CNB_TOKEN }}
+          IDX: ${{ matrix.batch }}
+        run: |
+          OUT=$(cnb build start-build --repo "$CNB_REPO" --branch main \
+            --event api_trigger_batch --title "batch $IDX retry" \
+            --env BATCH_SIZE="$BATCH_SIZE" --env BATCH_INDEX="$IDX")
+          SN=$(echo "$OUT" | grep -m1 'sn:' | awk '{print $2}')
+          for i in $(seq 1 40); do
+            sleep 20
+            ST=$(cnb build get-build-status --repo "$CNB_REPO" --sn "$SN" | grep -m1 '^  status:' | awk '{print $2}')
+            echo "[$i] status=$ST"
+            case "$ST" in
+              success) exit 0 ;;
+              error|cancel) exit 1 ;;
+            esac
+          done
+          exit 1
+
+  merge:
+    needs: [prepare, probe]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - name: merge batch results and publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import glob, json, importlib.util
+          from pathlib import Path
+          spec = importlib.util.spec_from_file_location(
+              "check_availability", "scripts/check_availability.py")
+          ca = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(ca)
+          nodes, delays, failed, prev_kept = [], {}, [], 0
+          relaxed_any = False
+          for f in sorted(glob.glob("output/batches/batch-*.json")):
+              r = json.loads(Path(f).read_text(encoding="utf-8"))
+              prev_kept += r.get("prev_kept", 0)
+              relaxed_any = relaxed_any or r.get("relaxed", False)
+              for n in r.get("nodes", []):
+                  nodes.append({k: v for k, v in n.items() if k != "delay_ms"})
+                  delays[n["name"]] = n["delay_ms"]
+              failed.extend(r.get("failed", []))
+          nodes.sort(key=lambda p: delays[p["name"]])
+          tested = nodes + [{"name": n} for n in failed]
+          if nodes:
+              meta = {"source_file": "chunked-probe", "raw_count": len(nodes) + len(failed)}
+              ca.write_outputs(meta, tested, nodes, delays, prev_kept, relaxed_any)
+              print(f"merged alive={len(nodes)} failed={len(failed)}")
+          else:
+              print("no alive nodes from any batch; keep previous subscription")
+          PY
+          if [ -f output/report.json ]; then
+            python scripts/github_put.py output/config.yaml output/proxies.yaml output/report.json README.md
+          fi
+      - name: commit batch archives to the repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "actions@github.com"
+          git add output README.md
+          if ! git diff --cached --quiet; then
+            git commit -m "china-net(chunks): refresh tested nodes"
+            git pull --rebase origin main || true
+            git push origin HEAD:main
+          fi

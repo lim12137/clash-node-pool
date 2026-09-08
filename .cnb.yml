@@ -1,7 +1,9 @@
 # 腾讯 CNB 云原生构建（cnb.cool）流水线 —— 「国内云端网络」过滤通道。
 # 前置：本仓库托管在 cnb.cool，GITHUB_TOKEN 通过 imports 从密钥仓库 clash-pool-secrets 注入。
-# 北京时间 0:10 / 8:10 / 16:10 自动运行；api_trigger 支持手动/OpenAPI 触发。
-# 注意：不要在 script 里使用 ${VAR:+}、${#VAR}、%{..} 等写法，CNB 的变量替换会破坏 YAML 解析。
+# 北京时间 0:10 / 8:10 / 16:10 自动运行（api_trigger 手动全量）；
+# api_trigger_prepare 抓取候选入库；api_trigger_batch 按 BATCH_INDEX 分片测试（Actions 调度）。
+# 注意：不要在 script 里使用 ${VAR:+}、${#VAR}、$?、%{..} 等写法，CNB 的变量替换会破坏执行；
+#      取退出码统一用 PIPESTATUS。
 # 定时任务文档：https://docs.cnb.cool/zh/build/crontab.html
 main:
   "crontab: 10 0,8,16 * * *":
@@ -32,8 +34,8 @@ main:
             fi
             echo "[CI] phase=mihomo done"
             echo "[CI] phase=fetch start"
-            python scripts/fetch_merge.py > fetch.log 2>&1
-            FETCH_RC=$?
+            python scripts/fetch_merge.py 2>&1 | tee fetch.log
+            FETCH_RC=${PIPESTATUS[0]}
             cat fetch.log
             if [ "$FETCH_RC" = "3" ]; then
               echo "[CI] phase=fetch skipped: upstream empty or unavailable"
@@ -102,8 +104,8 @@ main:
             fi
             echo "[CI] phase=mihomo done"
             echo "[CI] phase=fetch start"
-            python scripts/fetch_merge.py > fetch.log 2>&1
-            FETCH_RC=$?
+            python scripts/fetch_merge.py 2>&1 | tee fetch.log
+            FETCH_RC=${PIPESTATUS[0]}
             cat fetch.log
             if [ "$FETCH_RC" = "3" ]; then
               echo "[CI] phase=fetch skipped: upstream empty or unavailable"
@@ -143,4 +145,87 @@ main:
             if ! git diff --cached --quiet; then
               git commit -m "china-net(CNB): refresh tested nodes"
               git push origin HEAD:main
+            fi
+  api_trigger_prepare:
+    - name: prepare-candidates
+      docker:
+        image: python:3.12
+      runner:
+        cpus: 2
+      imports: https://cnb.cool/lim12137/clash-pool-secrets/-/blob/main/envs.yml
+      stages:
+        - name: fetch-and-commit-candidates
+          script: |
+            set -uo pipefail
+            export PYTHONUNBUFFERED=1
+            echo "[CI] phase=pip start"
+            pip install -r requirements.txt > /dev/null
+            echo "[CI] phase=pip done"
+            echo "[CI] phase=fetch start"
+            python scripts/fetch_merge.py 2>&1 | tee fetch.log
+            FETCH_RC=${PIPESTATUS[0]}
+            cat fetch.log
+            if [ "$FETCH_RC" != "0" ]; then
+              echo "[CI] prepare failed rc=$FETCH_RC (3 = upstream empty)"
+              exit 1
+            fi
+            echo "[CI] phase=fetch done"
+            mkdir -p output/batches
+            cp build/merged.yaml output/candidates.yaml
+            echo "[CI] phase=publish start"
+            python scripts/github_put.py output/candidates.yaml
+            echo "[CI] phase=publish done"
+            git config user.name "cnb-bot"
+            git config user.email "bot@cnb.cool"
+            git add output/candidates.yaml
+            git commit -m "cnb: refresh candidates" || true
+            git push origin HEAD:main
+  api_trigger_batch:
+    - name: test-batch
+      docker:
+        image: python:3.12
+      env:
+        DELAY_LIMIT_MS: "3000"
+        PREV_KEEP_DELAY_MS: "3000"
+        BATCH_SIZE: "40"
+      runner:
+        cpus: 2
+      imports: https://cnb.cool/lim12137/clash-pool-secrets/-/blob/main/envs.yml
+      stages:
+        - name: probe-and-report
+          script: |
+            set -uo pipefail
+            export PYTHONUNBUFFERED=1
+            echo "[CI] batch=$BATCH_INDEX size=$BATCH_SIZE"
+            echo "[CI] phase=pip start"
+            pip install -r requirements.txt > /dev/null
+            echo "[CI] phase=pip done"
+            echo "[CI] phase=mihomo start"
+            if ! bash scripts/install_mihomo.sh; then
+              echo "[CI] phase=mihomo failed"
+              exit 1
+            fi
+            echo "[CI] phase=mihomo done"
+            echo "[CI] phase=batch start"
+            python scripts/test_batch.py 2>&1 | tee batch.log
+            RC=${PIPESTATUS[0]}
+            echo "[CI] phase=batch rc=$RC"
+            if [ "$RC" != "0" ]; then
+              tail -c 3000 batch.log > failure_report.txt
+              git config user.name "cnb-bot"
+              git config user.email "bot@cnb.cool"
+              git add failure_report.txt
+              git commit -m "ci: batch $BATCH_INDEX failed rc=$RC" || true
+              git push origin HEAD:main || true
+              exit 1
+            fi
+            echo "[CI] phase=publish start"
+            python scripts/github_put.py "output/batches/batch-${BATCH_INDEX}.json"
+            echo "[CI] phase=publish done"
+            git config user.name "cnb-bot"
+            git config user.email "bot@cnb.cool"
+            git add output/batches
+            if ! git diff --cached --quiet; then
+              git commit -m "cnb: batch $BATCH_INDEX results"
+              git push origin HEAD:main || true
             fi
