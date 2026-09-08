@@ -22,6 +22,7 @@ import shutil
 import socket
 import subprocess
 import sys
+import threading
 import time
 import urllib.error
 import urllib.parse
@@ -262,11 +263,27 @@ def parse_delay_map(result) -> dict[str, int]:
 
 
 def probe_alive(controller_port: int, names: list[str]) -> dict[str, int]:
-    """先走分组并发测速接口（一次拿到全部结果），失败再退回逐节点并发探测。"""
+    """先走分组并发测速接口（一次拿到全部结果），失败再退回逐节点并发探测。
+
+    两类调用都可能阻塞数分钟，期间每 30s 打印心跳，避免 CI 无输出超时。
+    """
     try:
-        result = api_get(controller_port, "/group/GLOBAL/delay", http_timeout=GROUP_DELAY_TIMEOUT,
-                         url=TEST_URL, timeout=str(DELAY_TIMEOUT_MS))
-        parsed = parse_delay_map(result)
+        holder: dict = {}
+
+        def _group_call():
+            holder["result"] = api_get(
+                controller_port, "/group/GLOBAL/delay", http_timeout=GROUP_DELAY_TIMEOUT,
+                url=TEST_URL, timeout=str(DELAY_TIMEOUT_MS))
+
+        th = threading.Thread(target=_group_call, daemon=True)
+        th.start()
+        waited = 0
+        while th.is_alive():
+            th.join(timeout=30)
+            if th.is_alive():
+                waited += 30
+                print(f"[heartbeat] 分组测速进行中 {waited}s（共 {len(names)} 个节点）", flush=True)
+        parsed = parse_delay_map(holder["result"])
         if parsed:
             print(f"[INFO] 分组测速完成：{len(parsed)}/{len(names)} 个节点有响应")
             return parsed
@@ -285,11 +302,15 @@ def probe_alive(controller_port: int, names: list[str]) -> dict[str, int]:
             return name, None
 
     alive: dict[str, int] = {}
+    done = 0
     print(f"[INFO] 逐节点探测 {len(names)} 个（{PROBE_WORKERS} 并发）...")
     with ThreadPoolExecutor(max_workers=PROBE_WORKERS) as pool:
         for name, delay in pool.map(one, names):
+            done += 1
             if delay:
                 alive[name] = delay
+            if done % 20 == 0:
+                print(f"[heartbeat] 逐节点探测进度 {done}/{len(names)}", flush=True)
     return alive
 
 
