@@ -32,6 +32,8 @@ jobs:
       - name: 抓取并合并最新节点
         id: fetch
         continue-on-error: true # 上游为空(退出码3)时跳过后续步骤但保持任务绿色
+        env:
+          GITHUB_TOKEN: ${{ github.token }} # api.github.com 抓取通道认证，提高限额
         run: python scripts/fetch_merge.py
 
       - name: 可用性过滤（mihomo 内核探测）
