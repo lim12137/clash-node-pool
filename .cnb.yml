@@ -6,6 +6,8 @@
 main:
   "crontab: 10 0,8,16 * * *":
     - name: refresh-nodes-china
+      runner:
+        cpus: 2 # 测活是网络型任务，2 核足够；每月 90 轮 ≈ 9~15 核时，远低于 160 核时免费额度
       stages:
         - name: fetch-test-publish
           script: |
