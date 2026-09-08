@@ -44,8 +44,10 @@ OUT_DIR = ROOT / "output"
 README = ROOT / "README.md"
 
 TEST_URL = "http://www.gstatic.com/generate_204"  # 由内核代为探测的目标，非本脚本直接请求
-DELAY_TIMEOUT_MS = 5000
-PREV_KEEP_DELAY_MS = 1000  # 上一次订阅里的旧节点只有延迟 ≤ 1s 才保留并与新节点合并
+DELAY_TIMEOUT_MS = 5000  # 单次探测超时（探测更慢的节点也最多等这么久）
+# 保留阈值可用环境变量覆盖：国内(CNB)通道建议都放宽到 3000
+DELAY_LIMIT_MS = int(os.environ.get("DELAY_LIMIT_MS", str(DELAY_TIMEOUT_MS)))
+PREV_KEEP_DELAY_MS = int(os.environ.get("PREV_KEEP_DELAY_MS", "1000"))
 STABILITY_PROBE_INTERVAL_S = 1.0  # 第二轮单发复测：逐节点探测，间隔 1 秒
 PROBE_WORKERS = 8
 # 本脚本自启内核的专用控制面：固定回环地址 + 白名单端口段（避开常用 9090）
@@ -484,7 +486,7 @@ def main() -> int:
             delay = alive_r1.get(p["name"])
             if not delay:
                 continue
-            limit = PREV_KEEP_DELAY_MS if node_key(p) in prev_keys else DELAY_TIMEOUT_MS
+            limit = PREV_KEEP_DELAY_MS if node_key(p) in prev_keys else DELAY_LIMIT_MS
             if delay <= limit:
                 r1_pass.append((delay, p))
         r1_pass.sort(key=lambda item: item[0])
@@ -509,7 +511,7 @@ def main() -> int:
             if d2 <= PREV_KEEP_DELAY_MS:
                 final.append((d2, p))
                 prev_kept += 1
-        elif d2 <= DELAY_TIMEOUT_MS:
+        elif d2 <= DELAY_LIMIT_MS:
             final.append((d2, p))
     relaxed = False
     if not final:
