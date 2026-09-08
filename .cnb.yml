@@ -6,7 +6,7 @@
 #      且 $? 会被 CNB 变量替换破坏；结果判定统一用日志标记（[OK]/[SKIP]）+ tee 流式输出。
 # 定时任务文档：https://docs.cnb.cool/zh/build/crontab.html
 main:
-  "crontab: 10 0,8,16 * * *":
+  "crontab: 10 */6 * * *":
     - name: refresh-nodes-china
       docker:
         image: python:3.12
@@ -157,16 +157,17 @@ main:
             echo "[CI] phase=pip start"
             pip install -r requirements.txt > /dev/null
             echo "[CI] phase=pip done"
-            echo "[CI] phase=fetch start"
-            python scripts/fetch_merge.py 2>&1 | tee fetch.log
-            if grep -q "^\[OK\]" fetch.log; then
-              echo "[CI] phase=fetch done"
-            else
-              echo "[CI] prepare failed (OK marker missing; SKIP = upstream empty)"
+            echo "[CI] phase=candidates start"
+            # 从 GitHub（国外初筛产物）拉取候选，不再自己抓上游
+            curl -fsSL -H "Authorization: Bearer $GITHUB_TOKEN" \
+              -H "Accept: application/vnd.github.raw+json" \
+              "https://api.github.com/repos/lim12137/clash-node-pool/contents/output/candidates.yaml" \
+              -o output/candidates.yaml
+            if [ ! -s output/candidates.yaml ]; then
+              echo "[FAIL] 拉取初筛候选失败或为空"
               exit 1
             fi
-            mkdir -p output/batches
-            cp build/merged.yaml output/candidates.yaml
+            echo "[CI] phase=candidates done"
             echo "[CI] phase=publish start"
             python scripts/github_put.py output/candidates.yaml
             echo "[CI] phase=publish done"
