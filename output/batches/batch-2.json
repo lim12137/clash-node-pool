@@ -1,37 +1,15 @@
 {
   "batch_index": 2,
   "batch_size": 40,
-  "tested_at": "2026-09-09T06:03:00+08:00",
+  "tested_at": "2026-09-09T06:08:22+08:00",
   "source_file": "clash20260909.yml",
   "pool_total": 151,
   "tested": 40,
-  "alive": 1,
-  "new_alive": 1,
+  "alive": 0,
+  "new_alive": 0,
   "prev_kept": 0,
-  "relaxed": true,
-  "nodes": [
-    {
-      "name": "未知 VLESS-943 | free-nodes",
-      "server": "185.223.57.16",
-      "port": 33743,
-      "type": "vless",
-      "uuid": "b3a11068-1a7e-4643-85de-7c82cce46943",
-      "tls": true,
-      "tfo": false,
-      "skip-cert-verify": false,
-      "reality-opts": {
-        "public-key": "wGMBs7bvzyzA0-OUiwSkOOTDEMdxEOsSdRzxiP8GGQY"
-      },
-      "servername": "www.google.com",
-      "client-fingerprint": "firefox",
-      "network": "grpc",
-      "grpc-opts": {
-        "grpc-mode": "gun",
-        "grpc-service-name": "TunService"
-      },
-      "delay_ms": 941
-    }
-  ],
+  "relaxed": false,
+  "nodes": [],
   "failed": [
     "未知 VLESS-645 | free-nodes",
     "未知 VLESS-705 | free-nodes",
@@ -66,6 +44,7 @@
     "未知 VLESS-929 | free-nodes",
     "未知 VLESS-932 | free-nodes",
     "未知 VLESS-942 | free-nodes",
+    "未知 VLESS-943 | free-nodes",
     "未知 VLESS-944 | free-nodes",
     "未知 VLESS-945 | free-nodes",
     "未知 VLESS-950 | free-nodes",
