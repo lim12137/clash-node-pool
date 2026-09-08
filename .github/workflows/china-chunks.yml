@@ -171,9 +171,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "actions@github.com"
+          git pull --rebase origin main || true
           git add output README.md
           if ! git diff --cached --quiet; then
             git commit -m "china-net(chunks): refresh tested nodes"
-            git pull --rebase origin main || true
             git push origin HEAD:main
           fi
