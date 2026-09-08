@@ -31,6 +31,10 @@ def check_api_url(url: str) -> str:
         raise ValueError(f"仅允许请求固定的 https://api.github.com，拒绝: {url}")
     for info in socket.getaddrinfo(parsed.hostname, 443, proto=socket.IPPROTO_TCP):
         ip = ipaddress.ip_address(str(info[4][0]).split("%")[0])
+        # CNB 构建机的 DNS 为 fake-IP 模式：外部域名统一解析到 198.18.0.0/15，
+        # 由其网关转发出网（fetch_merge.py 同款豁免），其余内网地址仍拒绝。
+        if ip in ipaddress.ip_network("198.18.0.0/15"):
+            continue
         if ip.is_private or ip.is_loopback or ip.is_reserved or ip.is_link_local or not ip.is_global:
             raise ValueError(f"api.github.com 解析到非公网地址 {ip}，已拒绝")
     return url
