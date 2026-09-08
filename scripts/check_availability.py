@@ -46,7 +46,7 @@ OUT_DIR = ROOT / "output"
 README = ROOT / "README.md"
 
 TEST_URL = "http://www.gstatic.com/generate_204"  # 由内核代为探测的目标，非本脚本直接请求
-DELAY_TIMEOUT_MS = int(os.environ.get("DELAY_TIMEOUT_MS", "3000"))  # 单次探测超时：等 3 秒
+DELAY_TIMEOUT_MS = int(os.environ.get("DELAY_TIMEOUT_MS", "5000"))  # 单次探测超时：等 5 秒
 # 保留阈值可用环境变量覆盖：国内(CNB)通道建议都放宽到 3000
 DELAY_LIMIT_MS = int(os.environ.get("DELAY_LIMIT_MS", str(DELAY_TIMEOUT_MS)))
 PREV_KEEP_DELAY_MS = int(os.environ.get("PREV_KEEP_DELAY_MS", "1000"))

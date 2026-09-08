@@ -21,8 +21,8 @@ def load_module():
 def main() -> int:
     m = load_module()
 
-    # 阈值：单次探测等 3 秒，第二轮间隔 0.5 秒
-    assert m.DELAY_TIMEOUT_MS == 3000
+    # 阈值：单次探测等 5 秒，第二轮间隔 0.5 秒
+    assert m.DELAY_TIMEOUT_MS == 5000
     assert m.STABILITY_PROBE_INTERVAL_S == 0.5
 
     # 控制面配置使用内部编号名 node-XXXXXX，原始节点名（哪怕含穿越字符）不被带入

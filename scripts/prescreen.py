@@ -21,7 +21,7 @@ BUILD_DIR = ROOT / "build"
 OUT_DIR = ROOT / "output"
 
 # 国外初筛用宽松单轮阈值（默认 5 秒），只砍掉明显不通的节点
-PRESCREEN_DELAY_MS = int(os.environ.get("PRESCREEN_DELAY_MS", "5000"))
+PRESCREEN_DELAY_MS = int(os.environ.get("PRESCREEN_DELAY_MS", "3000"))
 
 
 def load_check_module():
