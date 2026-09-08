@@ -22,6 +22,17 @@
 | [`output/proxies.yaml`](output/proxies.yaml) | 仅节点列表（已过滤），可合并进你自己的配置 |
 | [`output/report.json`](output/report.json) | 每轮实测报告：保留节点的实测延迟、未通过节点名单 |
 
+## 为什么 Actions 测通的节点本地可能不通？
+
+GitHub 托管 runner 位于境外机房，而免费节点大量 IP 被墙 / 协议被 DPI 干扰，
+「境外可达」≠「国内可用」。Actions 测活只能保证节点在全球范围存活；要保证国内体验，需要下面的国内网络过滤。
+
+## 用国内网络过滤（三种方案，按推荐排序）
+
+1. **自托管 runner（零成本，网络最真实）**：把家里常开的电脑 / 软路由 / 国内 VPS 注册为本仓库 self-hosted runner（标签填 `china`），之后手动运行 [China Filter (self-hosted)](.github/workflows/china-filter.yml) 工作流，即用真实国内宽带复测同一套节点并覆盖发布产物。入口：仓库 Settings → Actions → Runners → New self-hosted runner。参考 [GitHub 官方文档](https://docs.github.com/actions/hosting-your-own-runners)。
+2. **腾讯 CNB 云原生构建（零成本，云端国内环境，全自动）**：把本仓库导入 [cnb.cool](https://cnb.cool)（公开仓库有免费算力），仓库自带 [.cnb.yml](.cnb.yml)，会在北京时间 0:10 / 8:10 / 16:10 于腾讯云国内环境跑同一套脚本，产物经 Contents API 推回 GitHub（国内直连 api.github.com 可用）。参考 [CNB 定时任务文档](https://docs.cnb.cool/zh/build/crontab.html)。
+3. **国内拨测 API 做补充粗过滤**：[boce.com 批量 TCPing](https://www.boce.com/tcping_batch)、itdog.cn、17ce 等可用国内探测节点测 IP:port 存活；缺点是只到 TCP 层（不含协议握手）、接口非官方且有配额，只适合做前置过滤。
+
 订阅链接（客户端直接添加）：
 
 ```
@@ -32,16 +43,7 @@ https://raw.githubusercontent.com/lim12137/clash-node-pool/main/output/config.ya
 > `https://gh-proxy.com/https://raw.githubusercontent.com/...`。
 
 <!-- STATS:BEGIN -->
-**最近一次成功过滤：2026-09-08 08:04（北京时间，GitHub Actions 自动生成）**
-
-| 指标 | 数值 |
-|---|---|
-| 上游源文件 | `clash20260908.yml` |
-| 原始节点 | 1580 |
-| 去重后候选 | 1327 |
-| **可用节点** | **166（12.5%）** |
-| 其中：新通过 / 旧保留(≤1s) | 12 / 154 |
-| 最快节点 | 未知 SS-512 | free-nodes（103ms / ss） |
+暂无数据，等待首次 Actions 运行。
 <!-- STATS:END -->
 
 ## 本地运行（可选）
