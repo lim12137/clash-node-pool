@@ -1,7 +1,7 @@
 {
   "batch_index": 1,
   "batch_size": 40,
-  "tested_at": "2026-09-09T06:03:04+08:00",
+  "tested_at": "2026-09-09T06:08:26+08:00",
   "source_file": "clash20260909.yml",
   "pool_total": 151,
   "tested": 40,
@@ -11,21 +11,24 @@
   "relaxed": true,
   "nodes": [
     {
-      "name": "未知 TROJAN-534 | free-nodes",
-      "server": "104.21.70.21",
+      "name": "未知 TROJAN-540 | free-nodes",
+      "server": "188.42.145.180",
       "port": 443,
       "type": "trojan",
-      "password": "018b8e7b-7813-4dcb-84a5-3c98f1521e00",
-      "sni": "id1.nathaya.web.id",
+      "password": "humanity",
+      "sni": "www.volumeroot.com",
+      "alpn": [
+        "http/1.1"
+      ],
       "skip-cert-verify": false,
       "network": "ws",
       "ws-opts": {
-        "path": "/trojan",
+        "path": "/assignment",
         "headers": {
-          "Host": "id1.nathaya.web.id"
+          "Host": "www.volumeroot.com"
         }
       },
-      "delay_ms": 2875
+      "delay_ms": 1640
     }
   ],
   "failed": [
@@ -48,7 +51,7 @@
     "未知 SS-524 | free-nodes",
     "未知 SS-525 | free-nodes",
     "未知 SS-529 | free-nodes",
-    "未知 TROJAN-540 | free-nodes",
+    "未知 TROJAN-534 | free-nodes",
     "未知 TROJAN-541 | free-nodes",
     "未知 VLESS-543 | free-nodes",
     "未知 VLESS-544 | free-nodes",
