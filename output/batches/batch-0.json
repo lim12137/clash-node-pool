@@ -1,7 +1,7 @@
 {
   "batch_index": 0,
   "batch_size": 40,
-  "tested_at": "2026-09-09T05:59:41+08:00",
+  "tested_at": "2026-09-09T06:05:02+08:00",
   "source_file": "clash20260909.yml",
   "pool_total": 151,
   "tested": 40,
@@ -26,7 +26,7 @@
       "servername": "localhost",
       "client-fingerprint": "chrome",
       "network": "tcp",
-      "delay_ms": 743
+      "delay_ms": 701
     }
   ],
   "failed": [
