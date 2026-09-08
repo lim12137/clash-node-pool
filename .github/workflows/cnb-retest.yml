@@ -1,7 +1,7 @@
-# CNB 国内复测编排：GitHub Actions（国外）触发 CNB 短任务逐片复测。
+# CNB 国内复测编排：GitHub Actions（国外）触发 CNB 短任务逐片复测，合并后发布。
 # 触发：update.yml（国外初筛）完成后 + 每 6 小时定时。
 # 流程：触发 CNB prepare（从 GitHub 拉初筛候选）→ 计算分片 → 并发触发 api_trigger_batch
-#       → 轮询 get-build-status → 全部完成后 CNB 已发布最终订阅。
+#       → 轮询 get-build-status → 合并分片 → 发布最终订阅。
 # 前置：仓库 Secret CNB_TOKEN（cnb.cool 访问令牌，repo-cnb-trigger 权限）。
 name: cnb-retest
 on:
@@ -21,6 +21,8 @@ jobs:
   retest:
     runs-on: ubuntu-latest
     timeout-minutes: 90
+    outputs:
+      batches: ${{ steps.plan.outputs.batches }}
     steps:
       - uses: actions/checkout@v4
 
@@ -75,9 +77,8 @@ jobs:
           CNB_TOKEN: ${{ secrets.CNB_TOKEN }}
           SN_LIST: ${{ steps.trigger.outputs.sns }}
         run: |
-          DONE=0; TOTAL=0
+          DONE=0
           for SN in $SN_LIST; do
-            TOTAL=$((TOTAL+1))
             for t in $(seq 1 40); do
               sleep 15
               ST=$(cnb build get-build-status --repo "$CNB_REPO" --sn "$SN" | grep -m1 '^  status:' | awk '{print $2}')
@@ -87,4 +88,37 @@ jobs:
               esac
             done
           done
-          echo "completed $DONE / $TOTAL batches"
+          echo "completed $DONE batches"
+
+  publish:
+    needs: retest
+    if: needs.retest.outputs.batches > 0
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      BATCHES: ${{ needs.retest.outputs.batches }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+
+      - name: 下载分片并合并发布
+        run: |
+          for i in $(seq 0 $((BATCHES - 1))); do
+            gh api "repos/$GITHUB_REPOSITORY/contents/output/batches/batch-$i.json" \
+              --jq .content | base64 -d > "output/batches/batch-$i.json"
+          done
+          python scripts/merge_batches.py "$BATCHES"
+
+      - name: 推送最终订阅
+        run: |
+          git pull --rebase origin main
+          git add output README.md
+          if ! git diff --cached --quiet; then
+            git commit -m "retest: $(TZ=Asia/Shanghai date +'%F %T') 合并分片发布"
+            git push
+          fi
