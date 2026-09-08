@@ -47,11 +47,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase origin main
           git add output/candidates.yaml
           if git diff --cached --quiet; then
             echo "候选无变化，跳过提交"
           else
             git commit -m "prescreen: $(TZ=Asia/Shanghai date +'%F %T') 国外初筛候选"
+            git pull --rebase origin main
             git push
           fi
