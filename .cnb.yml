@@ -21,7 +21,18 @@ main:
             pip install -r requirements.txt
             bash scripts/install_mihomo.sh
             python scripts/fetch_merge.py
-            python scripts/check_availability.py
+            python scripts/check_availability.py 2>&1 | tee check.log
+            RC=${PIPESTATUS[0]}
+            if [ "$RC" != "0" ]; then
+              echo "[CI] check_availability 退出码 $RC，无可用产物，保留上一次订阅"
+              tail -c 3000 check.log > failure_report.txt
+              git config user.name "cnb-bot"
+              git config user.email "bot@cnb.cool"
+              git add failure_report.txt
+              git commit -m "ci: check failed rc=$RC" || true
+              git push origin HEAD:main || true
+              exit 0
+            fi
             python scripts/github_put.py output/config.yaml output/proxies.yaml output/report.json README.md
             git config user.name "cnb-bot"
             git config user.email "bot@cnb.cool"
@@ -47,7 +58,18 @@ main:
             pip install -r requirements.txt
             bash scripts/install_mihomo.sh
             python scripts/fetch_merge.py
-            python scripts/check_availability.py
+            python scripts/check_availability.py 2>&1 | tee check.log
+            RC=${PIPESTATUS[0]}
+            if [ "$RC" != "0" ]; then
+              echo "[CI] check_availability 退出码 $RC，无可用产物，保留上一次订阅"
+              tail -c 3000 check.log > failure_report.txt
+              git config user.name "cnb-bot"
+              git config user.email "bot@cnb.cool"
+              git add failure_report.txt
+              git commit -m "ci: check failed rc=$RC" || true
+              git push origin HEAD:main || true
+              exit 0
+            fi
             python scripts/github_put.py output/config.yaml output/proxies.yaml output/report.json README.md
             git config user.name "cnb-bot"
             git config user.email "bot@cnb.cool"
