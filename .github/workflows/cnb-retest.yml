@@ -17,6 +17,9 @@ env:
   CNB_REPO: lim12137/clash-node-pool
   BATCH_SIZE: "40"
 
+permissions:
+  contents: write
+
 jobs:
   retest:
     runs-on: ubuntu-latest
