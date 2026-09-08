@@ -1,17 +1,4 @@
 proxies:
-- name: 未知 VLESS-774 | free-nodes
-  server: freshjuniper.download
-  port: 443
-  type: vless
-  uuid: 6429d27e-a7d4-4e04-ae57-e88243fbbfe3
-  tls: true
-  tfo: false
-  skip-cert-verify: false
-  reality-opts:
-    public-key: F2VfBr2UmjDTErB_oruvW5aIvzH_xGfM2AW5_w-DF0I
-  servername: localhost
-  client-fingerprint: chrome
-  network: tcp
 - name: 未知 VLESS-773 | free-nodes
   server: brightharbor.download
   port: 443
@@ -25,4 +12,18 @@ proxies:
     public-key: F2VfBr2UmjDTErB_oruvW5aIvzH_xGfM2AW5_w-DF0I
   servername: localhost
   client-fingerprint: chrome
+  network: tcp
+- name: 未知 VLESS-916 | free-nodes
+  server: 138.16.141.59
+  port: 7443
+  type: vless
+  uuid: a289a3d3-5833-4b28-8809-ae72898a98d0
+  tls: true
+  tfo: false
+  skip-cert-verify: false
+  reality-opts:
+    public-key: RY7zkFQ01lI92jxNAyCa8T33UBW1fgpJgg8ZEqMA10k
+    short-id: a09ff9f8
+  servername: ibm.com
+  client-fingerprint: firefox
   network: tcp
