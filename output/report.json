@@ -1,34 +1,41 @@
 {
-  "tested_at": "2026-09-09T06:48:57+08:00",
+  "tested_at": "2026-09-09T07:04:35+08:00",
   "source": {
-    "upstream": "free-nodes/clashfree",
-    "source_file": "clash20260909.yml",
-    "source_url": "https://api.github.com/repos/free-nodes/clashfree/contents/clash20260909.yml?ref=main",
-    "fetched_at": "2026-09-09T05:05:48+08:00",
-    "raw_count": 1592,
-    "merged_count": 1333,
-    "prescreened_at": "2026-09-09T05:05:57+08:00",
-    "prescreen_delay_ms": 3000,
-    "prescreen_pool": 1333,
-    "prescreen_survivors": 151
+    "source_file": "prescreen+retest",
+    "raw_count": 151,
+    "prescreen": true,
+    "retest_batches": 6
   },
   "candidates": 151,
-  "alive": 1,
-  "new_alive": 0,
+  "alive": 3,
+  "new_alive": 2,
   "prev_kept": 1,
-  "dual_round_test": true,
-  "relaxed": false,
+  "dual_round_test": false,
+  "relaxed": true,
   "nodes": [
+    {
+      "name": "未知 VMESS-1018 | free-nodes",
+      "type": "vmess",
+      "server": "112.132.215.108",
+      "port": 50002,
+      "delay_ms": 119
+    },
     {
       "name": "未知 VLESS-773 | free-nodes",
       "type": "vless",
       "server": "brightharbor.download",
       "port": 443,
-      "delay_ms": 669
+      "delay_ms": 867
+    },
+    {
+      "name": "未知 VLESS-714 | free-nodes",
+      "type": "vless",
+      "server": "172.67.156.147",
+      "port": 443,
+      "delay_ms": 2757
     }
   ],
   "failed": [
-    "未知 VMESS-1018 | free-nodes",
     "未知 VLESS-916 | free-nodes",
     "未知 SS-186 | free-nodes",
     "未知 SS-218 | free-nodes",
@@ -114,7 +121,6 @@
     "未知 VLESS-710 | free-nodes",
     "未知 VLESS-711 | free-nodes",
     "未知 VLESS-712 | free-nodes",
-    "未知 VLESS-714 | free-nodes",
     "未知 VLESS-716 | free-nodes",
     "未知 VLESS-720 | free-nodes",
     "未知 VLESS-768 | free-nodes",
