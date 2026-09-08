@@ -1,37 +1,53 @@
 {
   "batch_index": 0,
   "batch_size": 40,
-  "tested_at": "2026-09-09T00:50:43+08:00",
+  "tested_at": "2026-09-09T05:06:36+08:00",
   "source_file": "clash20260908.yml",
   "pool_total": 158,
   "tested": 40,
-  "alive": 1,
-  "new_alive": 0,
+  "alive": 2,
+  "new_alive": 1,
   "prev_kept": 1,
   "relaxed": false,
   "nodes": [
     {
-      "name": "未知 VLESS-916 | free-nodes",
-      "server": "138.16.141.59",
-      "port": 7443,
+      "name": "未知 VLESS-774 | free-nodes",
+      "server": "freshjuniper.download",
+      "port": 443,
       "type": "vless",
-      "uuid": "a289a3d3-5833-4b28-8809-ae72898a98d0",
+      "uuid": "6429d27e-a7d4-4e04-ae57-e88243fbbfe3",
       "tls": true,
       "tfo": false,
       "skip-cert-verify": false,
       "reality-opts": {
-        "public-key": "RY7zkFQ01lI92jxNAyCa8T33UBW1fgpJgg8ZEqMA10k",
-        "short-id": "a09ff9f8"
+        "public-key": "F2VfBr2UmjDTErB_oruvW5aIvzH_xGfM2AW5_w-DF0I"
       },
-      "servername": "ibm.com",
-      "client-fingerprint": "firefox",
+      "servername": "localhost",
+      "client-fingerprint": "chrome",
       "network": "tcp",
-      "delay_ms": 923
+      "delay_ms": 482
+    },
+    {
+      "name": "未知 VLESS-773 | free-nodes",
+      "server": "brightharbor.download",
+      "port": 443,
+      "type": "vless",
+      "uuid": "6429d27e-a7d4-4e04-ae57-e88243fbbfe3",
+      "tls": true,
+      "tfo": false,
+      "flow": "xtls-rprx-vision",
+      "skip-cert-verify": false,
+      "reality-opts": {
+        "public-key": "F2VfBr2UmjDTErB_oruvW5aIvzH_xGfM2AW5_w-DF0I"
+      },
+      "servername": "localhost",
+      "client-fingerprint": "chrome",
+      "network": "tcp",
+      "delay_ms": 698
     }
   ],
   "failed": [
-    "未知 VLESS-773 | free-nodes",
-    "未知 VLESS-774 | free-nodes",
+    "未知 VLESS-916 | free-nodes",
     "未知 SS-216 | free-nodes",
     "未知 SS-217 | free-nodes",
     "未知 SS-218 | free-nodes",
