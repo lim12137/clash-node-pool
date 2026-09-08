@@ -7,12 +7,13 @@
 
 ## 自动化流程（每 8 小时一次）
 
-由 [update.yml](.github/workflows/update.yml) 调度，北京时间 08:00 / 16:00 / 24:00 各运行一次（也可在 Actions 页面手动触发）：
+由 [update.yml](.github/workflows/update.yml) 调度，每 **6 小时**运行一次（也可在 Actions 页面手动触发）：
 
 1. **抓取**：按「今天 → 昨天 → 前天」回退尝试上游 `clashYYYYMMDD.yml`（自动跳过 0 字节空文件，直连失败自动切换加速镜像）；
 2. **清洗**：解析 YAML、过滤非法字段、按（协议, 服务器, 端口, 凭据）去重；
-3. **可用性过滤（两轮复测）**：第一轮用 mihomo 内核批量探测，新节点延迟 ≤ 5 秒保留、上一轮保活的旧节点 ≤ 1 秒保留；第二轮对通过者**逐节点单发复测（间隔 1 秒）**，两轮都通过的才发布（按第二轮实测延迟升序）。若两轮后无可用节点，自动放宽为按第一轮结果发布；
-4. **空结果保护**：上游无有效节点、或过滤后可用节点为 0 时，**本次不提交任何改动**，仓库保留上一次有效订阅。
+3. **国外初筛（GitHub Actions，单轮快速探测）**：在国外网络用 mihomo 内核批量探测，延迟 ≤ 3 秒保留，明显不通的节点直接砍掉，幸存者写入 `output/candidates.yaml`；
+4. **国内复测（CNB，严格两轮）**：由 [cnb-retest.yml](.github/workflows/cnb-retest.yml) 自动编排，CNB 在国内环境拉取初筛候选，按 40 个一片逐片复测——第一轮新旧节点统一延迟 ≤ 5 秒保留，第二轮逐节点单发复测（间隔 0.5 秒），两轮都通过才发布（按第二轮实测延迟升序）。若两轮后无可用节点，自动放宽为按第一轮结果发布；
+5. **空结果保护**：上游无有效节点、或过滤后可用节点为 0 时，**本次不提交任何改动**，仓库保留上一次有效订阅。
 
 ## 订阅产物
 
@@ -30,7 +31,7 @@ GitHub 托管 runner 位于境外机房，而免费节点大量 IP 被墙 / 协�
 ## 用国内网络过滤（三种方案，按推荐排序）
 
 1. **自托管 runner（零成本，网络最真实）**：把家里常开的电脑 / 软路由 / 国内 VPS 注册为本仓库 self-hosted runner（标签填 `china`），之后手动运行 [China Filter (self-hosted)](.github/workflows/china-filter.yml) 工作流，即用真实国内宽带复测同一套节点并覆盖发布产物。入口：仓库 Settings → Actions → Runners → New self-hosted runner。参考 [GitHub 官方文档](https://docs.github.com/actions/hosting-your-own-runners)。
-2. **腾讯 CNB 云原生构建（零成本，云端国内环境，全自动）**：把本仓库导入 [cnb.cool](https://cnb.cool)（公开仓库有免费算力），仓库自带 [.cnb.yml](.cnb.yml)，会在北京时间 0:10 / 8:10 / 16:10 于腾讯云国内环境跑同一套脚本，产物经 Contents API 推回 GitHub（国内直连 api.github.com 可用）。参考 [CNB 定时任务文档](https://docs.cnb.cool/zh/build/crontab.html)。
+2. **腾讯 CNB 云原生构建（零成本，云端国内环境，全自动）**：把本仓库导入 [cnb.cool](https://cnb.cool)（公开仓库有免费算力），仓库自带 [.cnb.yml](.cnb.yml)，会在北京时间每 6 小时于腾讯云国内环境跑同一套脚本，产物经 Contents API 推回 GitHub（国内直连 api.github.com 可用）。参考 [CNB 定时任务文档](https://docs.cnb.cool/zh/build/crontab.html)。
 3. **国内拨测 API 做补充粗过滤**：[boce.com 批量 TCPing](https://www.boce.com/tcping_batch)、itdog.cn、17ce 等可用国内探测节点测 IP:port 存活；缺点是只到 TCP 层（不含协议握手）、接口非官方且有配额，只适合做前置过滤。
 
 订阅链接（客户端直接添加）：
@@ -43,16 +44,16 @@ https://raw.githubusercontent.com/lim12137/clash-node-pool/main/output/config.ya
 > `https://gh-proxy.com/https://raw.githubusercontent.com/...`。
 
 <!-- STATS:BEGIN -->
-**最近一次成功过滤：2026-09-08 19:51（北京时间，GitHub Actions 自动生成）**
+**最近一次成功过滤：2026-09-08 20:52（北京时间，GitHub Actions 自动生成）**
 
 | 指标 | 数值 |
 |---|---|
-| 上游源文件 | `clash20260908.yml` |
-| 原始节点 | 1592 |
-| 去重后候选 | 1334 |
-| **可用节点** | **3（0.2%）** |
-| 其中：新通过 / 旧保留(≤1s) | 3 / 0 |
-| 最快节点 | 未知 SS-206 | free-nodes（190ms / ss） |
+| 上游源文件 | `prescreen+retest` |
+| 原始节点 | 160 |
+| 去重后候选 | 160 |
+| **可用节点** | **2（1.2%）** |
+| 其中：新通过 / 旧保留(≤1s) | 0 / 2 |
+| 最快节点 | 未知 VLESS-774 | free-nodes（554ms / vless） |
 <!-- STATS:END -->
 
 ## 本地运行（可选）

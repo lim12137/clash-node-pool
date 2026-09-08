@@ -12,7 +12,6 @@ main:
         image: python:3.12
       env:
         DELAY_LIMIT_MS: "5000" # 国内网络延时门槛放宽：不超过 5 秒
-        PREV_KEEP_DELAY_MS: "5000"
       runner:
         cpus: 2
       imports: https://cnb.cool/lim12137/clash-pool-secrets/-/blob/main/envs.yml
@@ -80,7 +79,6 @@ main:
         image: python:3.12
       env:
         DELAY_LIMIT_MS: "5000" # 国内网络延时门槛放宽：不超过 5 秒
-        PREV_KEEP_DELAY_MS: "5000"
       runner:
         cpus: 2
       imports: https://cnb.cool/lim12137/clash-pool-secrets/-/blob/main/envs.yml
@@ -182,7 +180,6 @@ main:
         image: python:3.12
       env:
         DELAY_LIMIT_MS: "5000"
-        PREV_KEEP_DELAY_MS: "5000"
         BATCH_SIZE: "40"
       runner:
         cpus: 2

@@ -49,7 +49,6 @@ TEST_URL = "http://www.gstatic.com/generate_204"  # 由内核代为探测的目�
 DELAY_TIMEOUT_MS = int(os.environ.get("DELAY_TIMEOUT_MS", "5000"))  # 单次探测超时：等 5 秒
 # 保留阈值可用环境变量覆盖：国内(CNB)通道建议都放宽到 3000
 DELAY_LIMIT_MS = int(os.environ.get("DELAY_LIMIT_MS", str(DELAY_TIMEOUT_MS)))
-PREV_KEEP_DELAY_MS = int(os.environ.get("PREV_KEEP_DELAY_MS", "1000"))
 STABILITY_PROBE_INTERVAL_S = 0.5  # 第二轮单发复测：逐节点探测，间隔 0.5 秒
 # 本脚本自启内核的专用控制面：固定回环地址 + 白名单端口段（避开常用 9090）
 CONTROLLER_HOST = "127.0.0.1"
@@ -525,14 +524,13 @@ def test_pool(remaining: list[dict], prev_keys: set) -> tuple[list, int, bool] |
         proxy_id_by_name = {node["name"]: proxy_id for proxy_id, node in enumerate(remaining)}
         alive_r1 = probe_alive(controller_port, proxy_ids)
 
-        # 第一轮阈值筛选：旧节点 ≤3s，新节点 ≤3s（由 CNB 环境覆盖）
+        # 第一轮阈值筛选：新旧节点统一标准 ≤ DELAY_LIMIT_MS
         r1_pass: list[tuple[int, dict]] = []
         for p in remaining:
             delay = alive_r1.get(proxy_id_by_name[p["name"]])
             if not delay:
                 continue
-            limit = PREV_KEEP_DELAY_MS if node_key(p) in prev_keys else DELAY_LIMIT_MS
-            if delay <= limit:
+            if delay <= DELAY_LIMIT_MS:
                 r1_pass.append((delay, p))
         r1_pass.sort(key=lambda item: item[0])
         if not r1_pass:
@@ -549,19 +547,16 @@ def test_pool(remaining: list[dict], prev_keys: set) -> tuple[list, int, bool] |
     finally:
         stop_core(proc)
 
-    # 第二轮筛选：两轮都通过才保留；旧节点继续执行 ≤1s 门槛
+    # 第二轮筛选：新旧节点统一标准，两轮都通过才保留
     final: list[tuple[int, dict]] = []
     prev_kept = 0
     for d1, p in r1_pass:
         d2 = alive_r2.get(proxy_id_by_name[p["name"]])
-        if not d2:
+        if not d2 or d2 > DELAY_LIMIT_MS:
             continue
+        final.append((d2, p))
         if node_key(p) in prev_keys:
-            if d2 <= PREV_KEEP_DELAY_MS:
-                final.append((d2, p))
-                prev_kept += 1
-        elif d2 <= DELAY_LIMIT_MS:
-            final.append((d2, p))
+            prev_kept += 1
     relaxed = False
     if not final:
         print("[RELAX] 两轮严格筛选后无可用节点，放宽延时与稳定性要求：按第一轮结果发布")
