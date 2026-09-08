@@ -15,7 +15,7 @@ on:
 
 env:
   CNB_REPO: lim12137/clash-node-pool
-  BATCH_SIZE: "40"
+  FIXED_BATCHES: "6" # 固定分 6 片，片大小 = ceil(候选数/6)
 
 permissions:
   contents: write
@@ -45,6 +45,7 @@ jobs:
         id: plan
         env:
           GH_TOKEN: ${{ github.token }}
+          FIXED_BATCHES: "6"
         run: |
           COUNT=$(gh api "repos/$GITHUB_REPOSITORY/contents/output/candidates.yaml" \
             --jq .content | base64 -d | \
@@ -52,8 +53,14 @@ jobs:
           echo "pool=$COUNT"
           python - "$COUNT" >> "$GITHUB_OUTPUT" <<'PY'
           import math, os, sys
-          count = int(sys.argv[1]); size = int(os.environ.get("BATCH_SIZE", "40"))
-          print("batches=" + str(math.ceil(count / size)))
+          count = int(sys.argv[1]); fixed = int(os.environ.get("FIXED_BATCHES", "5"))
+          if count <= 0:
+              batches, size = 0, 40
+          else:
+              batches = min(fixed, count)
+              size = math.ceil(count / batches)
+          print(f"batches={batches}")
+          print(f"size={size}")
           PY
 
       - name: 触发全部分片复测
@@ -62,12 +69,13 @@ jobs:
         env:
           CNB_TOKEN: ${{ secrets.CNB_TOKEN }}
           BATCHES: ${{ steps.plan.outputs.batches }}
+          SIZE: ${{ steps.plan.outputs.size }}
         run: |
           SN_LIST=""
           for i in $(seq 0 $((BATCHES - 1))); do
             OUT=$(cnb build start-build --repo "$CNB_REPO" --branch main \
               --event api_trigger_batch --title "retest batch $i" \
-              --env BATCH_SIZE="$BATCH_SIZE" --env BATCH_INDEX="$i")
+              --env BATCH_SIZE="$SIZE" --env BATCH_INDEX="$i")
             SN=$(echo "$OUT" | grep -m1 'sn:' | awk '{print $2}')
             echo "batch $i -> $SN"
             SN_LIST="$SN_LIST $SN"
