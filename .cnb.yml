@@ -2,8 +2,8 @@
 # 前置：本仓库托管在 cnb.cool，GITHUB_TOKEN 通过 imports 从密钥仓库 clash-pool-secrets 注入。
 # 北京时间 0:10 / 8:10 / 16:10 自动运行（api_trigger 手动全量）；
 # api_trigger_prepare 抓取候选入库；api_trigger_batch 按 BATCH_INDEX 分片测试（Actions 调度）。
-# 注意：不要在 script 里使用 ${VAR:+}、${#VAR}、$?、%{..} 等写法，CNB 的变量替换会破坏执行；
-#      取退出码统一用 PIPESTATUS。
+# 注意：CNB 的 script 用 busybox sh 执行 —— 不支持 ${PIPESTATUS[..]} 数组，
+#      且 $? 会被 CNB 变量替换破坏；结果判定统一用日志标记（[OK]/[SKIP]）+ tee 流式输出。
 # 定时任务文档：https://docs.cnb.cool/zh/build/crontab.html
 main:
   "crontab: 10 0,8,16 * * *":
@@ -19,7 +19,7 @@ main:
       stages:
         - name: fetch-test-publish
           script: |
-            set -uo pipefail
+            set -u
             export PYTHONUNBUFFERED=1
             echo "[CI] phase=pip start"
             if ! pip install -r requirements.txt; then
@@ -35,34 +35,32 @@ main:
             echo "[CI] phase=mihomo done"
             echo "[CI] phase=fetch start"
             python scripts/fetch_merge.py 2>&1 | tee fetch.log
-            FETCH_RC=${PIPESTATUS[0]}
-            cat fetch.log
-            if [ "$FETCH_RC" = "3" ]; then
+            if grep -q "^\[OK\]" fetch.log; then
+              echo "[CI] phase=fetch done"
+            elif grep -q "^\[SKIP\]" fetch.log; then
               echo "[CI] phase=fetch skipped: upstream empty or unavailable"
               exit 0
-            fi
-            if [ "$FETCH_RC" != "0" ]; then
-              echo "[CI] phase=fetch failed rc=$FETCH_RC"
+            else
+              echo "[CI] phase=fetch failed"
               tail -c 3000 fetch.log > failure_report.txt
               git config user.name "cnb-bot"
               git config user.email "bot@cnb.cool"
               git add failure_report.txt
-              git commit -m "ci: fetch failed rc=$FETCH_RC" || true
+              git commit -m "ci: fetch failed" || true
               git push origin HEAD:main || true
               exit 0
             fi
-            echo "[CI] phase=fetch done"
             echo "[CI] phase=availability start"
             python scripts/check_availability.py 2>&1 | tee check.log
-            RC=${PIPESTATUS[0]}
-            echo "[CI] phase=availability rc=$RC"
-            if [ "$RC" != "0" ]; then
+            if grep -q "^\[OK\]" check.log; then
+              echo "[CI] phase=availability done"
+            else
               echo "[CI] availability produced no update; retaining previous subscription"
               tail -c 3000 check.log > failure_report.txt
               git config user.name "cnb-bot"
               git config user.email "bot@cnb.cool"
               git add failure_report.txt
-              git commit -m "ci: check failed rc=$RC" || true
+              git commit -m "ci: check failed" || true
               git push origin HEAD:main || true
               exit 0
             fi
@@ -89,7 +87,7 @@ main:
       stages:
         - name: fetch-test-publish
           script: |
-            set -uo pipefail
+            set -u
             export PYTHONUNBUFFERED=1
             echo "[CI] phase=pip start"
             if ! pip install -r requirements.txt; then
@@ -105,34 +103,32 @@ main:
             echo "[CI] phase=mihomo done"
             echo "[CI] phase=fetch start"
             python scripts/fetch_merge.py 2>&1 | tee fetch.log
-            FETCH_RC=${PIPESTATUS[0]}
-            cat fetch.log
-            if [ "$FETCH_RC" = "3" ]; then
+            if grep -q "^\[OK\]" fetch.log; then
+              echo "[CI] phase=fetch done"
+            elif grep -q "^\[SKIP\]" fetch.log; then
               echo "[CI] phase=fetch skipped: upstream empty or unavailable"
               exit 0
-            fi
-            if [ "$FETCH_RC" != "0" ]; then
-              echo "[CI] phase=fetch failed rc=$FETCH_RC"
+            else
+              echo "[CI] phase=fetch failed"
               tail -c 3000 fetch.log > failure_report.txt
               git config user.name "cnb-bot"
               git config user.email "bot@cnb.cool"
               git add failure_report.txt
-              git commit -m "ci: fetch failed rc=$FETCH_RC" || true
+              git commit -m "ci: fetch failed" || true
               git push origin HEAD:main || true
               exit 0
             fi
-            echo "[CI] phase=fetch done"
             echo "[CI] phase=availability start"
             python scripts/check_availability.py 2>&1 | tee check.log
-            RC=${PIPESTATUS[0]}
-            echo "[CI] phase=availability rc=$RC"
-            if [ "$RC" != "0" ]; then
+            if grep -q "^\[OK\]" check.log; then
+              echo "[CI] phase=availability done"
+            else
               echo "[CI] availability produced no update; retaining previous subscription"
               tail -c 3000 check.log > failure_report.txt
               git config user.name "cnb-bot"
               git config user.email "bot@cnb.cool"
               git add failure_report.txt
-              git commit -m "ci: check failed rc=$RC" || true
+              git commit -m "ci: check failed" || true
               git push origin HEAD:main || true
               exit 0
             fi
@@ -156,20 +152,19 @@ main:
       stages:
         - name: fetch-and-commit-candidates
           script: |
-            set -uo pipefail
+            set -u
             export PYTHONUNBUFFERED=1
             echo "[CI] phase=pip start"
             pip install -r requirements.txt > /dev/null
             echo "[CI] phase=pip done"
             echo "[CI] phase=fetch start"
             python scripts/fetch_merge.py 2>&1 | tee fetch.log
-            FETCH_RC=${PIPESTATUS[0]}
-            cat fetch.log
-            if [ "$FETCH_RC" != "0" ]; then
-              echo "[CI] prepare failed rc=$FETCH_RC (3 = upstream empty)"
+            if grep -q "^\[OK\]" fetch.log; then
+              echo "[CI] phase=fetch done"
+            else
+              echo "[CI] prepare failed (OK marker missing; SKIP = upstream empty)"
               exit 1
             fi
-            echo "[CI] phase=fetch done"
             mkdir -p output/batches
             cp build/merged.yaml output/candidates.yaml
             echo "[CI] phase=publish start"
@@ -194,7 +189,7 @@ main:
       stages:
         - name: probe-and-report
           script: |
-            set -uo pipefail
+            set -u
             export PYTHONUNBUFFERED=1
             echo "[CI] batch=$BATCH_INDEX size=$BATCH_SIZE"
             echo "[CI] phase=pip start"
@@ -208,14 +203,15 @@ main:
             echo "[CI] phase=mihomo done"
             echo "[CI] phase=batch start"
             python scripts/test_batch.py 2>&1 | tee batch.log
-            RC=${PIPESTATUS[0]}
-            echo "[CI] phase=batch rc=$RC"
-            if [ "$RC" != "0" ]; then
+            if grep -q "^\[OK\] 分片" batch.log; then
+              echo "[CI] phase=batch done"
+            else
+              echo "[CI] phase=batch failed"
               tail -c 3000 batch.log > failure_report.txt
               git config user.name "cnb-bot"
               git config user.email "bot@cnb.cool"
               git add failure_report.txt
-              git commit -m "ci: batch $BATCH_INDEX failed rc=$RC" || true
+              git commit -m "ci: batch $BATCH_INDEX failed" || true
               git push origin HEAD:main || true
               exit 1
             fi
