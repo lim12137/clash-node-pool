@@ -1,10 +1,17 @@
 proxies:
-- name: 未知 SS-206 | free-nodes
-  server: ss.047.node-for-bigairport.win
-  port: 19001
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 792e0bdb-01db-450c-94c4-925151eb396e
+- name: 未知 VLESS-774 | free-nodes
+  server: freshjuniper.download
+  port: 443
+  type: vless
+  uuid: 6429d27e-a7d4-4e04-ae57-e88243fbbfe3
+  tls: true
+  tfo: false
+  skip-cert-verify: false
+  reality-opts:
+    public-key: F2VfBr2UmjDTErB_oruvW5aIvzH_xGfM2AW5_w-DF0I
+  servername: localhost
+  client-fingerprint: chrome
+  network: tcp
 - name: 未知 VLESS-773 | free-nodes
   server: brightharbor.download
   port: 443
@@ -13,19 +20,6 @@ proxies:
   tls: true
   tfo: false
   flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: F2VfBr2UmjDTErB_oruvW5aIvzH_xGfM2AW5_w-DF0I
-  servername: localhost
-  client-fingerprint: chrome
-  network: tcp
-- name: 未知 VLESS-774 | free-nodes
-  server: freshjuniper.download
-  port: 443
-  type: vless
-  uuid: 6429d27e-a7d4-4e04-ae57-e88243fbbfe3
-  tls: true
-  tfo: false
   skip-cert-verify: false
   reality-opts:
     public-key: F2VfBr2UmjDTErB_oruvW5aIvzH_xGfM2AW5_w-DF0I
