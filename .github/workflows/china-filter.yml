@@ -1,0 +1,50 @@
+name: China Filter (self-hosted)
+
+# 用位于中国大陆的自托管 runner 以真实国内网络复测节点。
+# 使用前提：在仓库 Settings → Actions → Runners 注册一台带 china 标签的
+# 自托管 runner（家里的常开电脑/软路由/国内 VPS 均可），然后手动触发本工作流。
+# runner 环境要求：Python 3.10+、bash（Windows 需装 Git Bash）、能直连外网。
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-nodes
+  cancel-in-progress: false
+
+jobs:
+  china-probe:
+    runs-on: [self-hosted, china]
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 安装依赖
+        run: pip install -r requirements.txt
+
+      - name: 安装 mihomo 内核
+        run: bash scripts/install_mihomo.sh
+
+      - name: 国内网络抓取并测活
+        run: |
+          python scripts/fetch_merge.py
+          python scripts/check_availability.py
+
+      - name: 提交并推送
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "内容无变化，跳过提交"
+          else
+            git commit -m "china-net: $(TZ=Asia/Shanghai date +'%F %T') 国内网络实测刷新"
+            git push
+          fi
