@@ -1,16 +1,36 @@
 {
   "batch_index": 0,
   "batch_size": 40,
-  "tested_at": "2026-09-08T19:54:35+08:00",
+  "tested_at": "2026-09-08T20:31:15+08:00",
   "source_file": "clash20260908.yml",
   "pool_total": 1334,
   "tested": 40,
-  "alive": 0,
+  "alive": 1,
   "new_alive": 0,
-  "prev_kept": 0,
+  "prev_kept": 1,
   "relaxed": false,
-  "nodes": [],
+  "nodes": [
+    {
+      "name": "未知 VLESS-774 | free-nodes",
+      "server": "freshjuniper.download",
+      "port": 443,
+      "type": "vless",
+      "uuid": "6429d27e-a7d4-4e04-ae57-e88243fbbfe3",
+      "tls": true,
+      "tfo": false,
+      "skip-cert-verify": false,
+      "reality-opts": {
+        "public-key": "F2VfBr2UmjDTErB_oruvW5aIvzH_xGfM2AW5_w-DF0I"
+      },
+      "servername": "localhost",
+      "client-fingerprint": "chrome",
+      "network": "tcp",
+      "delay_ms": 505
+    }
+  ],
   "failed": [
+    "未知 SS-206 | free-nodes",
+    "未知 VLESS-773 | free-nodes",
     "未知 SS-01 | free-nodes",
     "未知 SS-02 | free-nodes",
     "未知 SS-03 | free-nodes",
@@ -47,9 +67,6 @@
     "未知 SS-34 | free-nodes",
     "未知 SS-35 | free-nodes",
     "未知 SS-36 | free-nodes",
-    "未知 SS-37 | free-nodes",
-    "未知 SS-38 | free-nodes",
-    "未知 SS-39 | free-nodes",
-    "未知 SS-40 | free-nodes"
+    "未知 SS-37 | free-nodes"
   ]
 }
