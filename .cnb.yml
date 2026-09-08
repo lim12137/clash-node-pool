@@ -1,0 +1,25 @@
+# 腾讯 CNB 云原生构建（cnb.cool）流水线模板 —— 可选的「国内云端网络」过滤通道。
+# 用法：把本仓库导入 cnb.cool（公开仓库免费算力）后，此配置即在北京时间
+# 0:10 / 8:10 / 16:10 自动在国内环境跑同一套「抓取 → 测活 → 发布」，
+# 产物经 GitHub Contents API 推回本仓库（需在 CNB 仓库环境变量配置 GITHUB_TOKEN）。
+# 定时任务文档：https://docs.cnb.cool/zh/build/crontab.html
+main:
+  "crontab: 10 0,8,16 * * *":
+    - name: refresh-nodes-china
+      stages:
+        - name: fetch-test-publish
+          script: |
+            set -e
+            pip install -r requirements.txt
+            bash scripts/install_mihomo.sh
+            python scripts/fetch_merge.py && python scripts/check_availability.py
+            # 产物推回 GitHub（api.github.com 国内可达，不需要代理）
+            python scripts/github_put.py output/config.yaml output/proxies.yaml output/report.json README.md
+            # 同时回写到 CNB 自己的仓库，保证下一轮读到的是最新上一轮节点
+            git config user.name "cnb-bot"
+            git config user.email "bot@cnb.cool"
+            git add -A
+            if ! git diff --cached --quiet; then
+              git commit -m "china-net(CNB): refresh tested nodes"
+              git push origin HEAD:main
+            fi
