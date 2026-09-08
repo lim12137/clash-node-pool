@@ -414,6 +414,7 @@ def update_readme(meta: dict, candidates: int, alive: list[tuple[int, dict]],
 def write_outputs(meta: dict, tested: list[dict], ordered: list[dict],
                   delays: dict[str, int], prev_kept: int, relaxed: bool = False) -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
+    BUILD_DIR.mkdir(parents=True, exist_ok=True)
     (OUT_DIR / "config.yaml").write_text(
         yaml.safe_dump(build_client_config(ordered), allow_unicode=True, sort_keys=False, width=4096),
         encoding="utf-8",
