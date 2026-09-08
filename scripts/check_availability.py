@@ -46,6 +46,7 @@ README = ROOT / "README.md"
 TEST_URL = "http://www.gstatic.com/generate_204"  # 由内核代为探测的目标，非本脚本直接请求
 DELAY_TIMEOUT_MS = 5000
 PREV_KEEP_DELAY_MS = 1000  # 上一次订阅里的旧节点只有延迟 ≤ 1s 才保留并与新节点合并
+STABILITY_PROBE_INTERVAL_S = 1.0  # 第二轮单发复测：逐节点探测，间隔 1 秒
 PROBE_WORKERS = 8
 # 本脚本自启内核的专用控制面：固定回环地址 + 白名单端口段（避开常用 9090）
 CONTROLLER_HOST = "127.0.0.1"
@@ -262,6 +263,31 @@ def parse_delay_map(result) -> dict[str, int]:
     }
 
 
+def stability_retest(controller_port: int, names: list[str]) -> dict[str, int]:
+    """第二轮稳定性复测：逐节点单发探测，间隔 STABILITY_PROBE_INTERVAL_S 秒。
+
+    每个节点立即打印结果（兼作心跳，避免 CI 无输出超时）。
+    """
+    alive: dict[str, int] = {}
+    total = len(names)
+    for idx, name in enumerate(names, 1):
+        try:
+            data = api_get(controller_port, f"/proxies/{urllib.parse.quote(name, safe='')}",
+                           http_timeout=DELAY_TIMEOUT_MS // 1000 + 8,
+                           url=TEST_URL, timeout=str(DELAY_TIMEOUT_MS))
+            delay = int(data.get("delay", 0))
+        except Exception:
+            delay = 0
+        if delay > 0:
+            alive[name] = delay
+            print(f"[round2 {idx}/{total}] {name} -> {delay}ms", flush=True)
+        else:
+            print(f"[round2 {idx}/{total}] {name} -> FAIL", flush=True)
+        if idx < total:
+            time.sleep(STABILITY_PROBE_INTERVAL_S)
+    return alive
+
+
 def probe_alive(controller_port: int, names: list[str]) -> dict[str, int]:
     """先走分组并发测速接口（一次拿到全部结果），失败再退回逐节点并发探测。
 
@@ -361,7 +387,7 @@ def update_readme(meta: dict, candidates: int, alive: list[tuple[int, dict]],
 
 
 def write_outputs(meta: dict, tested: list[dict], ordered: list[dict],
-                  delays: dict[str, int], prev_kept: int) -> None:
+                  delays: dict[str, int], prev_kept: int, relaxed: bool = False) -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     (OUT_DIR / "config.yaml").write_text(
         yaml.safe_dump(build_client_config(ordered), allow_unicode=True, sort_keys=False, width=4096),
@@ -379,6 +405,8 @@ def write_outputs(meta: dict, tested: list[dict], ordered: list[dict],
         "alive": len(ordered),
         "new_alive": len(ordered) - prev_kept,
         "prev_kept": prev_kept,
+        "dual_round_test": not relaxed,
+        "relaxed": relaxed,
         "nodes": [
             {"name": p["name"], "type": p["type"], "server": p["server"],
              "port": p["port"], "delay_ms": delays[p["name"]]}
@@ -448,32 +476,60 @@ def main() -> int:
         print(f"[FAIL] mihomo 内核启动失败，日志尾部：\n{tail}")
         return 3
     try:
-        alive = probe_alive(controller_port, [p["name"] for p in remaining])
+        alive_r1 = probe_alive(controller_port, [p["name"] for p in remaining])
+
+        # 第一轮阈值筛选：旧节点 ≤1s，新节点 ≤5s
+        r1_pass: list[tuple[int, dict]] = []
+        for p in remaining:
+            delay = alive_r1.get(p["name"])
+            if not delay:
+                continue
+            limit = PREV_KEEP_DELAY_MS if node_key(p) in prev_keys else DELAY_TIMEOUT_MS
+            if delay <= limit:
+                r1_pass.append((delay, p))
+        r1_pass.sort(key=lambda item: item[0])
+        if not r1_pass:
+            print(f"[SKIP] 第一轮批量测速后无节点达标（候选 {len(remaining)}），保留上一次订阅、不更新")
+            return 3
+        print(f"[INFO] 第一轮通过 {len(r1_pass)}/{len(remaining)} 个，"
+              f"进入第二轮单发复测（间隔 {STABILITY_PROBE_INTERVAL_S:.0f}s）")
+
+        alive_r2 = stability_retest(controller_port, [p["name"] for _, p in r1_pass])
     finally:
         stop_core(proc)
 
-    # 上轮保活节点复测：存活且延迟 ≤1s 保留，其余删除；新节点按可用阈值保留
-    scored_new: list[tuple[int, dict]] = []
-    scored_prev: list[tuple[int, dict]] = []
-    for p in remaining:
-        delay = alive.get(p["name"])
-        if not delay:
+    # 第二轮筛选：两轮都通过才保留；旧节点继续执行 ≤1s 门槛
+    final: list[tuple[int, dict]] = []
+    prev_kept = 0
+    for d1, p in r1_pass:
+        d2 = alive_r2.get(p["name"])
+        if not d2:
             continue
         if node_key(p) in prev_keys:
-            if delay <= PREV_KEEP_DELAY_MS:
-                scored_prev.append((delay, p))
-        else:
-            scored_new.append((delay, p))
-    scored = sorted(scored_new + scored_prev, key=lambda item: item[0])
+            if d2 <= PREV_KEEP_DELAY_MS:
+                final.append((d2, p))
+                prev_kept += 1
+        elif d2 <= DELAY_TIMEOUT_MS:
+            final.append((d2, p))
+    relaxed = False
+    if not final:
+        print("[RELAX] 两轮严格筛选后无可用节点，放宽延时与稳定性要求：按第一轮结果发布")
+        relaxed = True
+        for d1, p in r1_pass:
+            final.append((d1, p))
+            if node_key(p) in prev_keys:
+                prev_kept += 1
+    scored = sorted(final, key=lambda item: item[0])
     if not scored:
-        print(f"[SKIP] {len(remaining)} 个候选节点全部不可达，保留上一次订阅、不更新")
+        print("[SKIP] 无可用节点，保留上一次订阅、不更新")
         return 3
 
     ordered = [p for _, p in scored]
     delays = {p["name"]: d for d, p in scored}
-    write_outputs(meta, remaining, ordered, delays, len(scored_prev))
+    write_outputs(meta, remaining, ordered, delays, prev_kept, relaxed)
     print(f"[OK] 可用 {len(ordered)}/{len(remaining)}"
-          f"（新通过 {len(scored_new)} + 旧保留 {len(scored_prev)}），"
+          f"（新通过 {len(scored) - prev_kept} + 旧保留 {prev_kept}，"
+          f"{'放宽模式(仅第一轮)' if relaxed else '两轮复测均通过'}），"
           f"最快 {scored[0][0]}ms（{scored[0][1]['name']}），最慢 {scored[-1][0]}ms")
     return 0
 
