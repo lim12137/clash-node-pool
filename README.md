@@ -32,16 +32,16 @@ https://raw.githubusercontent.com/lim12137/clash-node-pool/main/output/config.ya
 > `https://gh-proxy.com/https://raw.githubusercontent.com/...`。
 
 <!-- STATS:BEGIN -->
-**最近一次成功过滤：2026-09-08 07:58（北京时间，GitHub Actions 自动生成）**
+**最近一次成功过滤：2026-09-08 08:04（北京时间，GitHub Actions 自动生成）**
 
 | 指标 | 数值 |
 |---|---|
 | 上游源文件 | `clash20260908.yml` |
 | 原始节点 | 1580 |
 | 去重后候选 | 1327 |
-| **可用节点** | **185（13.9%）** |
-| 其中：新通过 / 旧保留(≤1s) | 43 / 142 |
-| 最快节点 | 未知 VMESS-1048 | free-nodes（86ms / vmess） |
+| **可用节点** | **166（12.5%）** |
+| 其中：新通过 / 旧保留(≤1s) | 12 / 154 |
+| 最快节点 | 未知 SS-512 | free-nodes（103ms / ss） |
 <!-- STATS:END -->
 
 ## 本地运行（可选）
