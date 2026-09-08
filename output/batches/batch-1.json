@@ -1,36 +1,15 @@
 {
   "batch_index": 1,
   "batch_size": 40,
-  "tested_at": "2026-09-09T06:08:26+08:00",
+  "tested_at": "2026-09-09T06:15:51+08:00",
   "source_file": "clash20260909.yml",
   "pool_total": 151,
   "tested": 40,
-  "alive": 1,
-  "new_alive": 1,
+  "alive": 0,
+  "new_alive": 0,
   "prev_kept": 0,
-  "relaxed": true,
-  "nodes": [
-    {
-      "name": "未知 TROJAN-540 | free-nodes",
-      "server": "188.42.145.180",
-      "port": 443,
-      "type": "trojan",
-      "password": "humanity",
-      "sni": "www.volumeroot.com",
-      "alpn": [
-        "http/1.1"
-      ],
-      "skip-cert-verify": false,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/assignment",
-        "headers": {
-          "Host": "www.volumeroot.com"
-        }
-      },
-      "delay_ms": 1640
-    }
-  ],
+  "relaxed": false,
+  "nodes": [],
   "failed": [
     "未知 SS-475 | free-nodes",
     "未知 SS-476 | free-nodes",
@@ -52,6 +31,7 @@
     "未知 SS-525 | free-nodes",
     "未知 SS-529 | free-nodes",
     "未知 TROJAN-534 | free-nodes",
+    "未知 TROJAN-540 | free-nodes",
     "未知 TROJAN-541 | free-nodes",
     "未知 VLESS-543 | free-nodes",
     "未知 VLESS-544 | free-nodes",
