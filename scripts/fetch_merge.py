@@ -14,6 +14,7 @@
 from __future__ import annotations
 
 import ipaddress
+import os
 import socket
 import sys
 import urllib.error
@@ -33,7 +34,10 @@ ROOT = Path(__file__).resolve().parents[1]
 BUILD_DIR = ROOT / "build"
 
 UPSTREAM_REPO = "free-nodes/clashfree"
+# api.github.com Contents API 放首位：国内（含数据中心）直连可达，
+# 且带令牌时限额 5000 次/小时；raw 与镜像作为备选。
 URL_TEMPLATES = [
+    "https://api.github.com/repos/{repo}/contents/{file}?ref=main",
     "https://raw.githubusercontent.com/{repo}/main/{file}",
     "https://gh-proxy.com/https://raw.githubusercontent.com/{repo}/main/{file}",
     "https://ghproxy.net/https://raw.githubusercontent.com/{repo}/main/{file}",
@@ -79,7 +83,14 @@ def check_public_url(url: str) -> None:
 
 def fetch_text(url: str) -> str | None:
     check_public_url(url)
-    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    headers = {"User-Agent": USER_AGENT}
+    if urllib.parse.urlparse(url).netloc == "api.github.com":
+        # Contents API：要求 raw 输出；有令牌则认证以提高限额
+        headers["Accept"] = "application/vnd.github.raw+json"
+        token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+        if token:
+            headers["Authorization"] = f"Bearer {token}"
+    req = urllib.request.Request(url, headers=headers)
     try:
         with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT) as resp:
             if getattr(resp, "status", 200) != 200:
