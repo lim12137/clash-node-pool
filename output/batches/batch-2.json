@@ -1,7 +1,7 @@
 {
   "batch_index": 2,
   "batch_size": 40,
-  "tested_at": "2026-09-09T06:15:47+08:00",
+  "tested_at": "2026-09-09T06:20:43+08:00",
   "source_file": "clash20260909.yml",
   "pool_total": 151,
   "tested": 40,
