@@ -16,6 +16,7 @@ import json
 import os
 import socket
 import sys
+import time
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -66,23 +67,38 @@ def main() -> int:
             print(f"[SKIP] 文件不存在: {path}")
             continue
         remote = f"/repos/{repo}/contents/{path.as_posix()}"
-        try:
-            sha = None
+        ok = False
+        for attempt in range(3):  # 与 GitHub Actions 并发时可能撞 sha，冲突则重取重试
             try:
-                sha = api("GET", remote, token)["sha"]
-            except Exception:
-                pass  # 文件尚不存在
-            body = {
-                "message": f"{message}: {path.as_posix()}",
-                "content": base64.b64encode(path.read_bytes()).decode(),
-            }
-            if sha:
-                body["sha"] = sha
-            api("PUT", remote, token=token, payload=body)
-            print(f"[OK] pushed: {path}")
-        except Exception as exc:
+                sha = None
+                try:
+                    sha = api("GET", remote, token)["sha"]
+                except Exception:
+                    pass  # 文件尚不存在
+                body = {
+                    "message": f"{message}: {path.as_posix()}",
+                    "content": base64.b64encode(path.read_bytes()).decode(),
+                }
+                if sha:
+                    body["sha"] = sha
+                api("PUT", remote, token=token, payload=body)
+                print(f"[OK] pushed: {path}")
+                ok = True
+                break
+            except urllib.error.HTTPError as exc:
+                if exc.code in (409, 422) and attempt < 2:
+                    print(f"[RETRY] {path}: 冲突({exc.code})，重取 sha 后重试")
+                    time.sleep(3)
+                    continue
+                print(f"[FAIL] {path}: {exc}")
+                failed = True
+                break
+            except Exception as exc:
+                print(f"[FAIL] {path}: {exc}")
+                failed = True
+                break
+        if not ok and not failed:
             failed = True
-            print(f"[FAIL] {path}: {exc}")
     return 1 if failed else 0
 
 
