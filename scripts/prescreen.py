@@ -85,10 +85,13 @@ def main() -> int:
 
     survivors: list[dict] = []
     for p in remaining:
+        is_prev = ca.node_key(p) in prev_keys
         delay = alive_r1.get(proxy_id_by_name[p["name"]])
-        if delay and delay <= PRESCREEN_DELAY_MS:
+        # 旧节点免初筛阈值，无条件带入，由 CNB 第二轮复测决定去留
+        if is_prev or (delay and delay <= PRESCREEN_DELAY_MS):
             survivors.append(p)
-    print(f"[INFO] 国外初筛通过 {len(survivors)}/{len(remaining)} 个（≤{PRESCREEN_DELAY_MS}ms）")
+    print(f"[INFO] 国外初筛通过 {len(survivors)}/{len(remaining)} 个"
+          f"（≤{PRESCREEN_DELAY_MS}ms，含免筛旧节点）")
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     out_payload = {

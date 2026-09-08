@@ -504,13 +504,14 @@ def test_pool(remaining: list[dict], prev_keys: set) -> tuple[list, int, bool] |
         proxy_id_by_name = {node["name"]: proxy_id for proxy_id, node in enumerate(remaining)}
         alive_r1 = probe_alive(controller_port, proxy_ids)
 
-        # 第一轮阈值筛选：新旧节点统一标准 ≤ DELAY_LIMIT_MS
+        # 第一轮阈值筛选：新节点按统一阈值；旧节点免第一轮，直接进入第二轮复测
         r1_pass: list[tuple[int, dict]] = []
         for p in remaining:
+            is_prev = node_key(p) in prev_keys
             delay = alive_r1.get(proxy_id_by_name[p["name"]])
-            if not delay:
-                continue
-            if delay <= DELAY_LIMIT_MS:
+            if is_prev:
+                r1_pass.append((delay or 0, p))
+            elif delay and delay <= DELAY_LIMIT_MS:
                 r1_pass.append((delay, p))
         r1_pass.sort(key=lambda item: item[0])
         if not r1_pass:
@@ -527,7 +528,7 @@ def test_pool(remaining: list[dict], prev_keys: set) -> tuple[list, int, bool] |
     finally:
         stop_core(proc)
 
-    # 第二轮筛选：新旧节点统一标准，两轮都通过才保留
+    # 第二轮筛选：去留只看第二轮结果（旧节点免第一轮，故此处对全体统一判定）
     final: list[tuple[int, dict]] = []
     prev_kept = 0
     for d1, p in r1_pass:
@@ -542,9 +543,9 @@ def test_pool(remaining: list[dict], prev_keys: set) -> tuple[list, int, bool] |
         print("[RELAX] 两轮严格筛选后无可用节点，放宽延时与稳定性要求：按第一轮结果发布")
         relaxed = True
         for d1, p in r1_pass:
-            final.append((d1, p))
             if node_key(p) in prev_keys:
-                prev_kept += 1
+                continue  # 旧节点无第一轮成绩，不参与放宽发布，避免 0ms 假数据
+            final.append((d1, p))
     scored = sorted(final, key=lambda item: item[0])
     if not scored:
         print("[SKIP] 无可用节点，保留上一次订阅、不更新")
