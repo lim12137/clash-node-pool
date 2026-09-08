@@ -1,5 +1,5 @@
 {
-  "tested_at": "2026-09-09T06:35:10+08:00",
+  "tested_at": "2026-09-09T06:48:57+08:00",
   "source": {
     "upstream": "free-nodes/clashfree",
     "source_file": "clash20260909.yml",
@@ -13,9 +13,9 @@
     "prescreen_survivors": 151
   },
   "candidates": 151,
-  "alive": 2,
-  "new_alive": 2,
-  "prev_kept": 0,
+  "alive": 1,
+  "new_alive": 0,
+  "prev_kept": 1,
   "dual_round_test": true,
   "relaxed": false,
   "nodes": [
@@ -24,17 +24,11 @@
       "type": "vless",
       "server": "brightharbor.download",
       "port": 443,
-      "delay_ms": 664
-    },
-    {
-      "name": "未知 VMESS-1018 | free-nodes",
-      "type": "vmess",
-      "server": "112.132.215.108",
-      "port": 50002,
-      "delay_ms": 2745
+      "delay_ms": 669
     }
   ],
   "failed": [
+    "未知 VMESS-1018 | free-nodes",
     "未知 VLESS-916 | free-nodes",
     "未知 SS-186 | free-nodes",
     "未知 SS-218 | free-nodes",
