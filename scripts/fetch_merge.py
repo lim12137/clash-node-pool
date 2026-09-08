@@ -84,6 +84,11 @@ def check_public_url(url: str) -> None:
         raise ValueError(f"主机解析不到地址: {host}")
     for info in addr_infos:
         ip = ipaddress.ip_address(str(info[4][0]).split("%")[0])
+        # CNB 构建机的 DNS 是 fake-IP 模式：外部域名统一解析到 198.18.0.0/15
+        # 基准地址段，再由其网关转发出网（pip 等亦如此）。该段按可出网处理，
+        # 其余保留/私有地址仍然拒绝。
+        if ip in ipaddress.ip_network("198.18.0.0/15"):
+            continue
         if (ip.is_private or ip.is_loopback or ip.is_reserved or ip.is_link_local
                 or ip.is_multicast or ip.is_unspecified or not ip.is_global):
             raise ValueError(f"主机 {host} 解析到非公网地址 {ip}，已拒绝")

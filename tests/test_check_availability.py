@@ -68,6 +68,26 @@ def main() -> int:
         print(f"[FAIL] 抓取地址 {bad_url!r} 未被拒绝")
         return 1
 
+    # CNB fake-IP 段（198.18.0.0/15）按可出网放行，其余内网段仍拒绝
+    real_getaddrinfo = fmod.socket.getaddrinfo
+
+    def fake_getaddrinfo(host, port, proto=0):
+        ip = "198.18.0.19" if host == "api.github.com" else "10.1.2.3"
+        return [(2, 1, 6, "", (ip, port))]
+
+    fmod.socket.getaddrinfo = fake_getaddrinfo
+    try:
+        fmod.check_public_url("https://api.github.com/repos/x/y/contents/z")
+        try:
+            fmod.check_public_url("https://raw.githubusercontent.com/x/y/main/z")
+        except ValueError:
+            pass
+        else:
+            print("[FAIL] 内网解析结果未被拒绝")
+            return 1
+    finally:
+        fmod.socket.getaddrinfo = real_getaddrinfo
+
     print("behavior assertions: PASS")
     return 0
 
