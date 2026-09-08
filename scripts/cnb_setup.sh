@@ -39,7 +39,14 @@ chmod +x "$askpass"
 if [ -z "${CNB_TOKEN:-}" ]; then # 令牌来自 login 时 askpass 拿不到文件，退回 git 默认凭据
   askpass=""
 fi
-git_auth() { if [ -n "$askpass" ]; then GIT_ASKPASS="$askpass" GIT_TERMINAL_PROMPT=0 git "$@"; else git "$@"; fi; }
+git_auth() { if [ -n "$askpass" ]; then
+  # 禁用系统/全局 credential helper（Windows 的 manager 会弹窗阻塞），强制走 askpass
+  GIT_TERMINAL_PROMPT=0 GIT_ASKPASS="$askpass" \
+  GIT_CONFIG_COUNT=2 \
+  GIT_CONFIG_KEY_0="credential.helper"           GIT_CONFIG_VALUE_0= \
+  GIT_CONFIG_KEY_1="credential.https://cnb.cool.helper" GIT_CONFIG_VALUE_1= \
+  git "$@"
+else git "$@"; fi; }
 
 GH_TOKEN_VALUE="${GITHUB_TOKEN:-$(gh auth token 2>/dev/null || true)}"
 [ -n "$GH_TOKEN_VALUE" ] || { echo "缺少 GitHub 令牌：请先 gh auth login，或 export GITHUB_TOKEN=xxx"; exit 1; }
