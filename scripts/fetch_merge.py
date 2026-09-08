@@ -175,6 +175,7 @@ def main() -> int:
         filename = f"clash{date}.yml"
         for template in URL_TEMPLATES:
             url = template.format(repo=UPSTREAM_REPO, file=filename)
+            print(f"[INFO] GET {url}", flush=True)
             text = fetch_text(url)
             if not text or len(text) < MIN_VALID_BYTES:
                 continue
