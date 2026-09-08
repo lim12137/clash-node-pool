@@ -408,28 +408,7 @@ def build_client_config(proxies: list[dict]) -> dict:
 
 def update_readme(meta: dict, candidates: int, alive: list[tuple[int, dict]],
                   prev_kept: int) -> None:
-    if not README.exists():
-        return
-    text = README.read_text(encoding="utf-8")
-    now = datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M")
-    fastest_delay, fastest = alive[0]
-    rate = len(alive) / candidates * 100 if candidates else 0.0
-    block = (
-        f"**最近一次成功过滤：{now}（北京时间，GitHub Actions 自动生成）**\n\n"
-        "| 指标 | 数值 |\n|---|---|\n"
-        f"| 上游源文件 | `{meta.get('source_file', 'N/A')}` |\n"
-        f"| 原始节点 | {meta.get('raw_count', candidates)} |\n"
-        f"| 去重后候选 | {candidates} |\n"
-        f"| **可用节点** | **{len(alive)}（{rate:.1f}%）** |\n"
-        f"| 其中：新通过 / 旧保留(≤1s) | {len(alive) - prev_kept} / {prev_kept} |\n"
-        f"| 最快节点 | {fastest['name']}（{fastest_delay}ms / {fastest['type']}） |\n"
-    )
-    pattern = re.compile(r"(<!-- STATS:BEGIN -->\n).*?(<!-- STATS:END -->)", re.S)
-    if pattern.search(text):
-        text = pattern.sub(lambda m: m.group(1) + block + m.group(2), text, count=1)
-    else:
-        text = text.rstrip("\n") + "\n\n" + block + "\n"
-    README.write_text(text, encoding="utf-8")
+    return  # README 保持极简，不再追加统计
 
 
 def write_outputs(meta: dict, tested: list[dict], ordered: list[dict],
