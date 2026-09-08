@@ -5,34 +5,29 @@ log-level: info
 unified-delay: true
 tcp-concurrent: true
 proxies:
-- name: 未知 VLESS-773 | free-nodes
-  server: brightharbor.download
-  port: 443
-  type: vless
-  uuid: 6429d27e-a7d4-4e04-ae57-e88243fbbfe3
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
+- name: 未知 VMESS-1018 | free-nodes
+  server: 112.132.215.108
+  port: 50002
+  type: vmess
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 64
+  cipher: auto
+  tls: false
   skip-cert-verify: false
-  reality-opts:
-    public-key: F2VfBr2UmjDTErB_oruvW5aIvzH_xGfM2AW5_w-DF0I
-  servername: localhost
-  client-fingerprint: chrome
-  network: tcp
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies:
   - ♻️ 自动选择
   - DIRECT
-  - 未知 VLESS-773 | free-nodes
+  - 未知 VMESS-1018 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 1800
   tolerance: 150
   proxies:
-  - 未知 VLESS-773 | free-nodes
+  - 未知 VMESS-1018 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
