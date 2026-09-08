@@ -13,17 +13,3 @@ proxies:
   servername: localhost
   client-fingerprint: chrome
   network: tcp
-- name: 未知 VLESS-916 | free-nodes
-  server: 138.16.141.59
-  port: 7443
-  type: vless
-  uuid: a289a3d3-5833-4b28-8809-ae72898a98d0
-  tls: true
-  tfo: false
-  skip-cert-verify: false
-  reality-opts:
-    public-key: RY7zkFQ01lI92jxNAyCa8T33UBW1fgpJgg8ZEqMA10k
-    short-id: a09ff9f8
-  servername: ibm.com
-  client-fingerprint: firefox
-  network: tcp
