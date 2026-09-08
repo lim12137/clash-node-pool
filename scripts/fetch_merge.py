@@ -20,6 +20,7 @@ import sys
 import urllib.error
 import urllib.parse
 import urllib.request
+import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -44,9 +45,14 @@ URL_TEMPLATES = [
     "https://cdn.jsdelivr.net/gh/{repo}@main/{file}",
 ]
 LOOKBACK_DAYS = 3
-REQUEST_TIMEOUT = 30
+REQUEST_TIMEOUT = 12
+FETCH_TOTAL_TIMEOUT = 180
 MIN_VALID_BYTES = 256  # 上游偶发提交 0 字节空文件，小于该值按无效处理
 USER_AGENT = "Mozilla/5.0 (compatible; clash-node-pool/1.0)"
+ALLOWED_FETCH_HOSTS = frozenset({
+    "api.github.com", "raw.githubusercontent.com", "gh-proxy.com",
+    "ghproxy.net", "cdn.jsdelivr.net",
+})
 
 SUPPORTED_TYPES = {
     "ss", "ssr", "vmess", "vless", "trojan", "hysteria", "hysteria2",
@@ -66,6 +72,8 @@ def check_public_url(url: str) -> None:
     if not host:
         raise ValueError(f"URL 缺少主机名: {url}")
     lowered = host.lower()
+    if lowered not in ALLOWED_FETCH_HOSTS:
+        raise ValueError(f"拒绝未列入白名单的抓取主机: {host}")
     if lowered == "localhost" or lowered.endswith((".local", ".internal", ".lan", ".home.arpa")):
         raise ValueError(f"拒绝本地主机名: {host}")
     try:
@@ -182,9 +190,13 @@ def unique_names(nodes: list[dict]) -> list[dict]:
 
 
 def main() -> int:
+    started = time.monotonic()
     for date in candidate_dates():
         filename = f"clash{date}.yml"
         for template in URL_TEMPLATES:
+            if time.monotonic() - started >= FETCH_TOTAL_TIMEOUT:
+                print(f"[FAIL] 上游抓取达到总时限 {FETCH_TOTAL_TIMEOUT}s，停止重试", flush=True)
+                return 1
             url = template.format(repo=UPSTREAM_REPO, file=filename)
             print(f"[INFO] GET {url}", flush=True)
             text = fetch_text(url)

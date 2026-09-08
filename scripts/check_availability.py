@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
 """用本地 mihomo 内核对候选节点做连通性探测，只保留可用节点并生成订阅产物。
 
-判定方式：拉起 mihomo 内核，对每个节点发起 generate_204 探测，
-延迟 ≤ 5000ms 视为可用，产物按实际延迟升序排列。
+两轮筛选：第一轮用控制面分组测速批量判活（阈值 ≤3s）；
+第二轮对通过者逐个单发复测——固定端点切换 GLOBAL 选中节点后，
+经内核混合端口端到端请求 generate_204 实测耗时，间隔 0.5 秒；
+两轮都通过才保留，全空时放宽按第一轮结果发布。
 
 请求边界说明：
 - 对远端的任何抓取只发生在 fetch_merge.py（校验公网地址）；
-- 本脚本唯一的 HTTP 访问对象是本脚本自己拉起的 mihomo 控制面，
-  URL 必须通过 check_controller_url() 校验：仅 http 协议、主机只能是
-  固定回环地址 127.0.0.1、端口只能在固定白名单内、禁止重定向；
-  地址是字面量 IP，不经过 DNS，不存在 rebinding 面。
+- 本脚本对控制面的访问只允许固定端点白名单（/version、/proxies/GLOBAL、
+  /group/GLOBAL/delay），URL 路径不含任何动态段，节点名只进 JSON 请求体；
+- 端到端实测只访问常量 TEST_URL，代理地址是固定回环 + 白名单端口；
+- 控制面/混合端口 URL 均经 check_controller_url 校验：仅 http、仅 127.0.0.1、
+  端口在固定白名单内、禁止重定向；地址是字面量 IP，不经过 DNS。
 """
 
 from __future__ import annotations
@@ -27,7 +30,6 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
-from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -44,17 +46,20 @@ OUT_DIR = ROOT / "output"
 README = ROOT / "README.md"
 
 TEST_URL = "http://www.gstatic.com/generate_204"  # 由内核代为探测的目标，非本脚本直接请求
-DELAY_TIMEOUT_MS = 5000  # 单次探测超时（探测更慢的节点也最多等这么久）
+DELAY_TIMEOUT_MS = int(os.environ.get("DELAY_TIMEOUT_MS", "3000"))  # 单次探测超时：等 3 秒
 # 保留阈值可用环境变量覆盖：国内(CNB)通道建议都放宽到 3000
 DELAY_LIMIT_MS = int(os.environ.get("DELAY_LIMIT_MS", str(DELAY_TIMEOUT_MS)))
 PREV_KEEP_DELAY_MS = int(os.environ.get("PREV_KEEP_DELAY_MS", "1000"))
-STABILITY_PROBE_INTERVAL_S = 1.0  # 第二轮单发复测：逐节点探测，间隔 1 秒
-PROBE_WORKERS = 8
+STABILITY_PROBE_INTERVAL_S = 0.5  # 第二轮单发复测：逐节点探测，间隔 0.5 秒
 # 本脚本自启内核的专用控制面：固定回环地址 + 白名单端口段（避开常用 9090）
 CONTROLLER_HOST = "127.0.0.1"
 CONTROLLER_PORTS = range(19090, 19096)
+# 第二轮端到端实测走内核混合端口：纯常量回环地址，不作为参数传递
+MIXED_PORT = 7891
+MIXED_PROXY_URL = f"http://{CONTROLLER_HOST}:{MIXED_PORT}"
 API_TIMEOUT = 15
 GROUP_DELAY_TIMEOUT = 180
+PROXY_ID_RE = re.compile(r"node-(\d{6})\Z")
 DROP_TYPE_ORDER = ["ssr", "snell", "tuic", "hysteria", "http", "socks5"]
 
 RULES_LAN = [
@@ -76,7 +81,7 @@ class _NoRedirect(urllib.request.HTTPRedirectHandler):
 _OPENER = urllib.request.build_opener(_NoRedirect)
 
 
-def check_controller_url(url: str) -> str:
+def check_controller_url(url: str, ports=CONTROLLER_PORTS) -> str:
     """校验控制面 URL：仅 http、仅固定回环地址、仅白名单端口，其余一律拒绝。"""
     parsed = urllib.parse.urlparse(url)
     if parsed.scheme != "http":
@@ -91,14 +96,16 @@ def check_controller_url(url: str) -> str:
     if not ip.is_loopback:
         raise ValueError(f"控制面主机不是回环地址: {host}")
     port = parsed.port
-    if port is None or port not in CONTROLLER_PORTS:
-        raise ValueError(f"控制面端口不在白名单 {list(CONTROLLER_PORTS)} 内: {port}")
+    if port is None or port not in ports:
+        raise ValueError(f"控制面端口不在白名单 {list(ports)} 内: {port}")
     return url
 
 
-def api_get(controller_port: int, path: str, http_timeout: int = API_TIMEOUT, **params: str):
-    if not path.startswith("/"):
-        raise ValueError(f"控制面路径必须以 / 开头: {path!r}")
+def controller_json(controller_port: int, path: str, http_timeout: int = API_TIMEOUT,
+                    **params: str):
+    """GET 控制面。URL 路径只能取固定端点白名单，任何参数只进查询串。"""
+    if path not in {"/version", "/proxies/GLOBAL", "/group/GLOBAL/delay"}:
+        raise ValueError(f"不是固定控制面端点: {path!r}")
     query = urllib.parse.urlencode(params)
     url = check_controller_url(
         f"http://{CONTROLLER_HOST}:{controller_port}{path}" + (f"?{query}" if query else "")
@@ -106,6 +113,36 @@ def api_get(controller_port: int, path: str, http_timeout: int = API_TIMEOUT, **
     req = urllib.request.Request(url)
     with _OPENER.open(req, timeout=http_timeout) as resp:
         return json.loads(resp.read().decode("utf-8"))
+
+
+def select_global_proxy(controller_port: int, proxy_name: str) -> None:
+    """切换 GLOBAL 组的选中节点。节点名只出现在 JSON 请求体里，
+    控制面 URL 不含任何动态路径段。"""
+    url = check_controller_url(f"http://{CONTROLLER_HOST}:{controller_port}/proxies/GLOBAL")
+    body = json.dumps({"name": proxy_name}).encode("utf-8")
+    req = urllib.request.Request(url, data=body, method="PUT",
+                                 headers={"Content-Type": "application/json"})
+    with _OPENER.open(req, timeout=API_TIMEOUT) as resp:
+        resp.read()
+
+
+def measure_via_mixed_port(timeout_s: float) -> int:
+    """通过 mihomo 本地混合端口端到端请求 generate_204，返回实测毫秒数；失败返回 0。
+
+    目标 URL 与代理地址都是模块常量，不涉及任何参数拼接或控制面路径。
+    """
+    check_controller_url(MIXED_PROXY_URL, ports={MIXED_PORT})
+    proxy = urllib.request.ProxyHandler({"http": MIXED_PROXY_URL, "https": MIXED_PROXY_URL})
+    opener = urllib.request.build_opener(proxy, _NoRedirect)
+    started = time.monotonic()
+    try:
+        with opener.open(urllib.request.Request(TEST_URL), timeout=timeout_s) as resp:
+            resp.read()
+            if getattr(resp, "status", 200) != 204:
+                return 0
+    except (urllib.error.URLError, OSError):
+        return 0
+    return int((time.monotonic() - started) * 1000)
 
 
 def find_core() -> Path:
@@ -122,14 +159,36 @@ def find_core() -> Path:
     raise SystemExit("[FAIL] 未找到 mihomo 内核，请先运行 scripts/install_mihomo.sh 或设置 MIHOMO_PATH")
 
 
-def pick_controller_port() -> int:
-    for port in CONTROLLER_PORTS:
+def port_in_use(port: int) -> bool:
+    try:
+        with socket.create_connection((CONTROLLER_HOST, port), timeout=0.3):
+            return True
+    except OSError:
+        return False
+
+
+def pick_free_port(ports) -> int:
+    for port in ports:
         try:
             with socket.create_connection((CONTROLLER_HOST, port), timeout=0.3):
                 pass  # 能连上说明端口已被占用，换下一个
         except OSError:
             return port
-    raise RuntimeError("本机回环测速端口全部被占用")
+    raise RuntimeError(f"本机回环端口 {list(ports)} 全部被占用")
+
+
+def pick_controller_port() -> int:
+    return pick_free_port(CONTROLLER_PORTS)
+
+
+def controller_proxies(proxies: list[dict]) -> list[dict]:
+    """为控制面生成稳定的安全节点名，发布文件仍使用原始节点名。"""
+    result = []
+    for proxy_id, proxy in enumerate(proxies):
+        item = dict(proxy)
+        item["name"] = f"node-{proxy_id:06d}"
+        result.append(item)
+    return result
 
 
 def write_test_config(proxies: list[dict], controller_port: int) -> tuple[Path, Path]:
@@ -141,7 +200,10 @@ def write_test_config(proxies: list[dict], controller_port: int) -> tuple[Path, 
                 "mode": "global",
                 "log-level": "warning",
                 "external-controller": f"{CONTROLLER_HOST}:{controller_port}",
-                "proxies": proxies,
+                "mixed-port": MIXED_PORT,
+                "bind-address": CONTROLLER_HOST,
+                "allow-lan": False,
+                "proxies": controller_proxies(proxies),
             },
             allow_unicode=True,
             sort_keys=False,
@@ -218,22 +280,15 @@ def start_core(core: Path, cfg_path: Path, workdir: Path, controller_port: int):
         [str(core), "-f", str(cfg_path), "-d", str(workdir)],
         stdout=log_handle, stderr=subprocess.STDOUT, creationflags=flags,
     )
-    first_name = None
-    try:
-        cfg = yaml.safe_load(cfg_path.read_text(encoding="utf-8"))
-        first_name = cfg["proxies"][0]["name"]
-    except Exception:
-        pass
     deadline = time.time() + 30
     while time.time() < deadline:
         if proc.poll() is not None:
             return None
         try:
-            api_get(controller_port, "/version", http_timeout=2)
-            if first_name:
-                # 确认控制面属于本脚本启动的内核，而不是端口被其他进程占用
-                api_get(controller_port, f"/proxies/{urllib.parse.quote(first_name, safe='')}",
-                        http_timeout=5)
+            # 就绪判定只用固定端点：/version 确认控制面在线，
+            # GET /proxies/GLOBAL 确认端口属于本配置的内核（GLOBAL 组恒存在）
+            controller_json(controller_port, "/version", http_timeout=2)
+            controller_json(controller_port, "/proxies/GLOBAL", http_timeout=5)
             return proc
         except Exception:
             time.sleep(0.4)
@@ -265,33 +320,35 @@ def parse_delay_map(result) -> dict[str, int]:
     }
 
 
-def stability_retest(controller_port: int, names: list[str]) -> dict[str, int]:
-    """第二轮稳定性复测：逐节点单发探测，间隔 STABILITY_PROBE_INTERVAL_S 秒。
+def stability_retest(controller_port: int, id_names: list[tuple[int, str]],
+                     interval_s: float = STABILITY_PROBE_INTERVAL_S) -> dict[int, int]:
+    """逐节点单发端到端探测：固定端点选中节点（名字在 JSON 请求体里），
+    再经内核混合端口直发 generate_204 实测耗时，节点间停顿 interval_s 秒。
 
-    每个节点立即打印结果（兼作心跳，避免 CI 无输出超时）。
+    第二轮稳定性复测与第一轮回退探测共用本实现；逐节点打印结果（兼作心跳）。
     """
-    alive: dict[str, int] = {}
-    total = len(names)
-    for idx, name in enumerate(names, 1):
+    alive: dict[int, int] = {}
+    total = len(id_names)
+    timeout_s = DELAY_TIMEOUT_MS / 1000 + 2
+    for idx, (proxy_id, proxy_name) in enumerate(id_names, 1):
+        delay = 0
         try:
-            data = api_get(controller_port, f"/proxies/{urllib.parse.quote(name, safe='')}",
-                           http_timeout=DELAY_TIMEOUT_MS // 1000 + 8,
-                           url=TEST_URL, timeout=str(DELAY_TIMEOUT_MS))
-            delay = int(data.get("delay", 0))
+            select_global_proxy(controller_port, proxy_name)
+            delay = measure_via_mixed_port(timeout_s)
         except Exception:
             delay = 0
         if delay > 0:
-            alive[name] = delay
-            print(f"[round2 {idx}/{total}] {name} -> {delay}ms", flush=True)
+            alive[proxy_id] = delay
+            print(f"[probe {idx}/{total}] {proxy_name} -> {delay}ms", flush=True)
         else:
-            print(f"[round2 {idx}/{total}] {name} -> FAIL", flush=True)
-        if idx < total:
-            time.sleep(STABILITY_PROBE_INTERVAL_S)
+            print(f"[probe {idx}/{total}] {proxy_name} -> FAIL", flush=True)
+        if idx < total and interval_s > 0:
+            time.sleep(interval_s)
     return alive
 
 
-def probe_alive(controller_port: int, names: list[str]) -> dict[str, int]:
-    """先走分组并发测速接口（一次拿到全部结果），失败再退回逐节点并发探测。
+def probe_alive(controller_port: int, proxy_ids: list[int]) -> dict[int, int]:
+    """先走分组并发测速接口（一次拿到全部结果），失败再退回逐节点串行实测。
 
     两类调用都可能阻塞数分钟，期间每 30s 打印心跳，避免 CI 无输出超时。
     """
@@ -299,7 +356,7 @@ def probe_alive(controller_port: int, names: list[str]) -> dict[str, int]:
         holder: dict = {}
 
         def _group_call():
-            holder["result"] = api_get(
+            holder["result"] = controller_json(
                 controller_port, "/group/GLOBAL/delay", http_timeout=GROUP_DELAY_TIMEOUT,
                 url=TEST_URL, timeout=str(DELAY_TIMEOUT_MS))
 
@@ -310,36 +367,24 @@ def probe_alive(controller_port: int, names: list[str]) -> dict[str, int]:
             th.join(timeout=30)
             if th.is_alive():
                 waited += 30
-                print(f"[heartbeat] 分组测速进行中 {waited}s（共 {len(names)} 个节点）", flush=True)
-        parsed = parse_delay_map(holder["result"])
+                print(f"[heartbeat] 分组测速进行中 {waited}s（共 {len(proxy_ids)} 个节点）", flush=True)
+        raw = parse_delay_map(holder["result"])
+        parsed = {
+            int(match.group(1)): delay
+            for name, delay in raw.items()
+            if (match := PROXY_ID_RE.fullmatch(str(name)))
+        }
         if parsed:
-            print(f"[INFO] 分组测速完成：{len(parsed)}/{len(names)} 个节点有响应")
+            print(f"[INFO] 分组测速完成：{len(parsed)}/{len(proxy_ids)} 个节点有响应")
             return parsed
         print("[INFO] 分组测速接口返回空结果，改用逐节点探测")
     except Exception as exc:
         print(f"[INFO] 分组测速接口不可用（{exc}），改用逐节点探测")
 
-    def one(name: str):
-        try:
-            data = api_get(controller_port, f"/proxies/{urllib.parse.quote(name, safe='')}",
-                           http_timeout=DELAY_TIMEOUT_MS // 1000 + 8,
-                           url=TEST_URL, timeout=str(DELAY_TIMEOUT_MS))
-            delay = int(data.get("delay", 0))
-            return name, delay if delay > 0 else None
-        except Exception:
-            return name, None
-
-    alive: dict[str, int] = {}
-    done = 0
-    print(f"[INFO] 逐节点探测 {len(names)} 个（{PROBE_WORKERS} 并发）...")
-    with ThreadPoolExecutor(max_workers=PROBE_WORKERS) as pool:
-        for name, delay in pool.map(one, names):
-            done += 1
-            if delay:
-                alive[name] = delay
-            if done % 20 == 0:
-                print(f"[heartbeat] 逐节点探测进度 {done}/{len(names)}", flush=True)
-    return alive
+    # 回退：复用第二轮的串行探测（GLOBAL 选中是共享状态，不能并发），不停顿
+    id_names = [(proxy_id, f"node-{proxy_id:06d}") for proxy_id in proxy_ids]
+    print(f"[INFO] 逐节点探测 {len(id_names)} 个（串行，选中后端到端实测）...")
+    return stability_retest(controller_port, id_names, interval_s=0.0)
 
 
 def build_client_config(proxies: list[dict]) -> dict:
@@ -459,6 +504,9 @@ def main() -> int:
         print(f"[INFO] 本轮候选 {len(remaining)} 个 = 新抓取 {len(new_nodes)} + 上轮保活复测 {len(prev_keys)}")
 
     core = find_core()
+    if port_in_use(MIXED_PORT):
+        print(f"[FAIL] 混合端口 {MIXED_PORT} 已被占用，无法启动测试内核")
+        return 3
     while True:
         controller_port = pick_controller_port()
         cfg_path, workdir = write_test_config(remaining, controller_port)
@@ -478,12 +526,14 @@ def main() -> int:
         print(f"[FAIL] mihomo 内核启动失败，日志尾部：\n{tail}")
         return 3
     try:
-        alive_r1 = probe_alive(controller_port, [p["name"] for p in remaining])
+        proxy_ids = list(range(len(remaining)))
+        proxy_id_by_name = {node["name"]: proxy_id for proxy_id, node in enumerate(remaining)}
+        alive_r1 = probe_alive(controller_port, proxy_ids)
 
-        # 第一轮阈值筛选：旧节点 ≤1s，新节点 ≤5s
+        # 第一轮阈值筛选：旧节点 ≤3s，新节点 ≤3s（由 CNB 环境覆盖）
         r1_pass: list[tuple[int, dict]] = []
         for p in remaining:
-            delay = alive_r1.get(p["name"])
+            delay = alive_r1.get(proxy_id_by_name[p["name"]])
             if not delay:
                 continue
             limit = PREV_KEEP_DELAY_MS if node_key(p) in prev_keys else DELAY_LIMIT_MS
@@ -496,7 +546,11 @@ def main() -> int:
         print(f"[INFO] 第一轮通过 {len(r1_pass)}/{len(remaining)} 个，"
               f"进入第二轮单发复测（间隔 {STABILITY_PROBE_INTERVAL_S:.0f}s）")
 
-        alive_r2 = stability_retest(controller_port, [p["name"] for _, p in r1_pass])
+        alive_r2 = stability_retest(
+            controller_port,
+            [(proxy_id_by_name[p["name"]], f"node-{proxy_id_by_name[p['name']]:06d}")
+             for _, p in r1_pass],
+        )
     finally:
         stop_core(proc)
 
@@ -504,7 +558,7 @@ def main() -> int:
     final: list[tuple[int, dict]] = []
     prev_kept = 0
     for d1, p in r1_pass:
-        d2 = alive_r2.get(p["name"])
+        d2 = alive_r2.get(proxy_id_by_name[p["name"]])
         if not d2:
             continue
         if node_key(p) in prev_keys:

@@ -17,14 +17,45 @@ main:
       stages:
         - name: fetch-test-publish
           script: |
-            set -e
-            pip install -r requirements.txt
-            bash scripts/install_mihomo.sh
-            python scripts/fetch_merge.py
+            set -uo pipefail
+            export PYTHONUNBUFFERED=1
+            echo "[CI] phase=pip start"
+            if ! pip install -r requirements.txt; then
+              echo "[CI] phase=pip failed"
+              exit 1
+            fi
+            echo "[CI] phase=pip done"
+            echo "[CI] phase=mihomo start"
+            if ! bash scripts/install_mihomo.sh; then
+              echo "[CI] phase=mihomo failed"
+              exit 1
+            fi
+            echo "[CI] phase=mihomo done"
+            echo "[CI] phase=fetch start"
+            python scripts/fetch_merge.py > fetch.log 2>&1
+            FETCH_RC=$?
+            cat fetch.log
+            if [ "$FETCH_RC" = "3" ]; then
+              echo "[CI] phase=fetch skipped: upstream empty or unavailable"
+              exit 0
+            fi
+            if [ "$FETCH_RC" != "0" ]; then
+              echo "[CI] phase=fetch failed rc=$FETCH_RC"
+              tail -c 3000 fetch.log > failure_report.txt
+              git config user.name "cnb-bot"
+              git config user.email "bot@cnb.cool"
+              git add failure_report.txt
+              git commit -m "ci: fetch failed rc=$FETCH_RC" || true
+              git push origin HEAD:main || true
+              exit 0
+            fi
+            echo "[CI] phase=fetch done"
+            echo "[CI] phase=availability start"
             python scripts/check_availability.py 2>&1 | tee check.log
             RC=${PIPESTATUS[0]}
+            echo "[CI] phase=availability rc=$RC"
             if [ "$RC" != "0" ]; then
-              echo "[CI] check_availability 退出码 $RC，无可用产物，保留上一次订阅"
+              echo "[CI] availability produced no update; retaining previous subscription"
               tail -c 3000 check.log > failure_report.txt
               git config user.name "cnb-bot"
               git config user.email "bot@cnb.cool"
@@ -33,7 +64,9 @@ main:
               git push origin HEAD:main || true
               exit 0
             fi
+            echo "[CI] phase=publish start"
             python scripts/github_put.py output/config.yaml output/proxies.yaml output/report.json README.md
+            echo "[CI] phase=publish done"
             git config user.name "cnb-bot"
             git config user.email "bot@cnb.cool"
             git add -A
@@ -54,14 +87,45 @@ main:
       stages:
         - name: fetch-test-publish
           script: |
-            set -e
-            pip install -r requirements.txt
-            bash scripts/install_mihomo.sh
-            python scripts/fetch_merge.py
+            set -uo pipefail
+            export PYTHONUNBUFFERED=1
+            echo "[CI] phase=pip start"
+            if ! pip install -r requirements.txt; then
+              echo "[CI] phase=pip failed"
+              exit 1
+            fi
+            echo "[CI] phase=pip done"
+            echo "[CI] phase=mihomo start"
+            if ! bash scripts/install_mihomo.sh; then
+              echo "[CI] phase=mihomo failed"
+              exit 1
+            fi
+            echo "[CI] phase=mihomo done"
+            echo "[CI] phase=fetch start"
+            python scripts/fetch_merge.py > fetch.log 2>&1
+            FETCH_RC=$?
+            cat fetch.log
+            if [ "$FETCH_RC" = "3" ]; then
+              echo "[CI] phase=fetch skipped: upstream empty or unavailable"
+              exit 0
+            fi
+            if [ "$FETCH_RC" != "0" ]; then
+              echo "[CI] phase=fetch failed rc=$FETCH_RC"
+              tail -c 3000 fetch.log > failure_report.txt
+              git config user.name "cnb-bot"
+              git config user.email "bot@cnb.cool"
+              git add failure_report.txt
+              git commit -m "ci: fetch failed rc=$FETCH_RC" || true
+              git push origin HEAD:main || true
+              exit 0
+            fi
+            echo "[CI] phase=fetch done"
+            echo "[CI] phase=availability start"
             python scripts/check_availability.py 2>&1 | tee check.log
             RC=${PIPESTATUS[0]}
+            echo "[CI] phase=availability rc=$RC"
             if [ "$RC" != "0" ]; then
-              echo "[CI] check_availability 退出码 $RC，无可用产物，保留上一次订阅"
+              echo "[CI] availability produced no update; retaining previous subscription"
               tail -c 3000 check.log > failure_report.txt
               git config user.name "cnb-bot"
               git config user.email "bot@cnb.cool"
@@ -70,7 +134,9 @@ main:
               git push origin HEAD:main || true
               exit 0
             fi
+            echo "[CI] phase=publish start"
             python scripts/github_put.py output/config.yaml output/proxies.yaml output/report.json README.md
+            echo "[CI] phase=publish done"
             git config user.name "cnb-bot"
             git config user.email "bot@cnb.cool"
             git add -A
