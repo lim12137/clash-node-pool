@@ -1,31 +1,52 @@
 # 腾讯 CNB 云原生构建（cnb.cool）流水线 —— 「国内云端网络」过滤通道。
-# 前置：本仓库托管在 cnb.cool（用 scripts/cnb_setup.sh 一键初始化），
-# GITHUB_TOKEN 通过 imports 从密钥仓库注入，产物经 Contents API 推回 GitHub。
-# 北京时间 0:10 / 8:10 / 16:10 自动运行；计费：2 核 × 每月 90 轮 ≈ 15 核时，远低于 160 核时免费额度。
+# 前置：本仓库托管在 cnb.cool，GITHUB_TOKEN 通过 imports 从密钥仓库 clash-pool-secrets 注入。
+# 北京时间 0:10 / 8:10 / 16:10 自动运行；api_trigger 支持手动/OpenAPI 触发。
+# 注意：不要在 script 里使用 ${VAR:+}、${#VAR}、%{..} 等写法，CNB 的变量替换会破坏 YAML 解析。
 # 定时任务文档：https://docs.cnb.cool/zh/build/crontab.html
 main:
   "crontab: 10 0,8,16 * * *":
     - name: refresh-nodes-china
       docker:
-        image: python:3.12 # 自带 pip / curl / gzip，满足全部脚本依赖
+        image: python:3.12
       runner:
-        cpus: 2 # 测活是网络型任务，2 核足够
-      imports: https://cnb.cool/ORG/clash-pool-secrets/-/blob/main/envs.yml # 提供 GITHUB_TOKEN
+        cpus: 2
+      imports: https://cnb.cool/lim12137/clash-pool-secrets/-/blob/main/envs.yml
       stages:
         - name: fetch-test-publish
           script: |
             set -e
             pip install -r requirements.txt
             bash scripts/install_mihomo.sh
-            python scripts/fetch_merge.py && python scripts/check_availability.py
-            # 产物推回 GitHub（api.github.com 国内可达）
+            python scripts/fetch_merge.py
+            python scripts/check_availability.py
             python scripts/github_put.py output/config.yaml output/proxies.yaml output/report.json README.md
-            # 回写 CNB 自己的仓库，保证下一轮复测读到的是最新上一轮节点
             git config user.name "cnb-bot"
             git config user.email "bot@cnb.cool"
             git add -A
             if ! git diff --cached --quiet; then
               git commit -m "china-net(CNB): refresh tested nodes"
-              git remote set-url origin "https://cnb:${CNB_TOKEN}@cnb.cool/ORG/clash-node-pool.git"
+              git push origin HEAD:main
+            fi
+  api_trigger:
+    - name: refresh-nodes-china
+      docker:
+        image: python:3.12
+      runner:
+        cpus: 2
+      imports: https://cnb.cool/lim12137/clash-pool-secrets/-/blob/main/envs.yml
+      stages:
+        - name: fetch-test-publish
+          script: |
+            set -e
+            pip install -r requirements.txt
+            bash scripts/install_mihomo.sh
+            python scripts/fetch_merge.py
+            python scripts/check_availability.py
+            python scripts/github_put.py output/config.yaml output/proxies.yaml output/report.json README.md
+            git config user.name "cnb-bot"
+            git config user.email "bot@cnb.cool"
+            git add -A
+            if ! git diff --cached --quiet; then
+              git commit -m "china-net(CNB): refresh tested nodes"
               git push origin HEAD:main
             fi
