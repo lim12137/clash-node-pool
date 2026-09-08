@@ -29,11 +29,11 @@ case "$(uname -s)" in
   *)       asset="mihomo-windows-amd64-${VER}.zip"; final="mihomo.exe" ;;
 esac
 
-# 直连失败时自动尝试加速镜像
+# 下载：国内环境优先走加速镜像，直连放最后（避免静默挂起触发 CI 无输出超时）
 download() {
-  for prefix in "" "https://gh-proxy.com/" "https://ghproxy.net/"; do
+  for prefix in "https://gh-proxy.com/" "https://ghproxy.net/" ""; do
     echo "尝试下载: ${prefix}https://github.com/MetaCubeX/mihomo/releases/download/${VER}/${asset}"
-    if curl -fsSL --retry 2 --max-time 300 -o "bin/${asset}" \
+    if curl -fsSL --retry 1 --max-time 180 -o "bin/${asset}" \
       "${prefix}https://github.com/MetaCubeX/mihomo/releases/download/${VER}/${asset}"; then
       return 0
     fi
