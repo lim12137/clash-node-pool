@@ -1,7 +1,7 @@
 {
   "batch_index": 2,
   "batch_size": 40,
-  "tested_at": "2026-09-09T05:55:23+08:00",
+  "tested_at": "2026-09-09T06:03:00+08:00",
   "source_file": "clash20260909.yml",
   "pool_total": 151,
   "tested": 40,
@@ -11,24 +11,25 @@
   "relaxed": true,
   "nodes": [
     {
-      "name": "未知 VLESS-714 | free-nodes",
-      "server": "172.67.156.147",
-      "port": 443,
+      "name": "未知 VLESS-943 | free-nodes",
+      "server": "185.223.57.16",
+      "port": 33743,
       "type": "vless",
-      "uuid": "4e4f1f70-5e56-4a76-bb9d-db087f4690c4",
+      "uuid": "b3a11068-1a7e-4643-85de-7c82cce46943",
       "tls": true,
       "tfo": false,
       "skip-cert-verify": false,
-      "servername": "jp3.yohototo.top",
-      "client-fingerprint": "chrome",
-      "network": "ws",
-      "ws-opts": {
-        "path": "/tyxyws",
-        "headers": {
-          "Host": "jp3.yohototo.top"
-        }
+      "reality-opts": {
+        "public-key": "wGMBs7bvzyzA0-OUiwSkOOTDEMdxEOsSdRzxiP8GGQY"
       },
-      "delay_ms": 3420
+      "servername": "www.google.com",
+      "client-fingerprint": "firefox",
+      "network": "grpc",
+      "grpc-opts": {
+        "grpc-mode": "gun",
+        "grpc-service-name": "TunService"
+      },
+      "delay_ms": 941
     }
   ],
   "failed": [
@@ -38,6 +39,7 @@
     "未知 VLESS-710 | free-nodes",
     "未知 VLESS-711 | free-nodes",
     "未知 VLESS-712 | free-nodes",
+    "未知 VLESS-714 | free-nodes",
     "未知 VLESS-716 | free-nodes",
     "未知 VLESS-720 | free-nodes",
     "未知 VLESS-768 | free-nodes",
@@ -64,7 +66,6 @@
     "未知 VLESS-929 | free-nodes",
     "未知 VLESS-932 | free-nodes",
     "未知 VLESS-942 | free-nodes",
-    "未知 VLESS-943 | free-nodes",
     "未知 VLESS-944 | free-nodes",
     "未知 VLESS-945 | free-nodes",
     "未知 VLESS-950 | free-nodes",
