@@ -7,4 +7,16 @@ proxies:
   alterId: 64
   cipher: auto
   tls: false
+<<<<<<< HEAD
+=======
+  skip-cert-verify: false
+- name: 未知 VLESS-773 | free-nodes
+  server: brightharbor.download
+  port: 443
+  type: vless
+  uuid: 6429d27e-a7d4-4e04-ae57-e88243fbbfe3
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+>>>>>>> 19e83a8 (home-retest: 家宽复测 2 alive)
   skip-cert-verify: false
