@@ -8,3 +8,20 @@ proxies:
   cipher: auto
   tls: false
   skip-cert-verify: false
+- name: 未知 VLESS-982 | free-nodes
+  server: 77.110.104.125
+  port: 8443
+  type: vless
+  uuid: e0b9fb0f-1bbd-478b-9580-c2294778338b
+  tls: true
+  tfo: false
+  skip-cert-verify: false
+  reality-opts:
+    public-key: OMlQAFrCMZ3DX0xlnbEZiByLBFzpUE8XJHJsrBzLdlY
+    short-id: 2da4299da566b7
+  servername: maps.apple.com
+  client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: your-custom-path

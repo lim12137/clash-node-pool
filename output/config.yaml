@@ -14,6 +14,23 @@ proxies:
   cipher: auto
   tls: false
   skip-cert-verify: false
+- name: 未知 VLESS-982 | free-nodes
+  server: 77.110.104.125
+  port: 8443
+  type: vless
+  uuid: e0b9fb0f-1bbd-478b-9580-c2294778338b
+  tls: true
+  tfo: false
+  skip-cert-verify: false
+  reality-opts:
+    public-key: OMlQAFrCMZ3DX0xlnbEZiByLBFzpUE8XJHJsrBzLdlY
+    short-id: 2da4299da566b7
+  servername: maps.apple.com
+  client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: your-custom-path
 proxy-groups:
 - name: 🚀 节点选择
   type: select
@@ -21,6 +38,7 @@ proxy-groups:
   - ♻️ 自动选择
   - DIRECT
   - 未知 VMESS-1027 | free-nodes
+  - 未知 VLESS-982 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
@@ -28,6 +46,7 @@ proxy-groups:
   tolerance: 150
   proxies:
   - 未知 VMESS-1027 | free-nodes
+  - 未知 VLESS-982 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
