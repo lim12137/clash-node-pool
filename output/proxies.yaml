@@ -8,12 +8,6 @@ proxies:
   cipher: auto
   tls: false
   skip-cert-verify: false
-- name: 未知 SS-529 | free-nodes
-  server: 64.177.32.29
-  port: 8388
-  type: ss
-  cipher: aes-256-gcm
-  password: wBYiDjDDyFqcBnNl
 - name: 未知 VLESS-771 | free-nodes
   server: brightharbor.download
   port: 443
@@ -28,3 +22,9 @@ proxies:
   servername: localhost
   client-fingerprint: chrome
   network: tcp
+- name: 未知 SS-510 | free-nodes
+  server: k6p9tz.5tencent.asia
+  port: 22019
+  type: ss
+  cipher: aes-256-gcm
+  password: 6089784c-6fa1-4c5f-b678-f2917a70f179
