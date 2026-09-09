@@ -1,25 +1,41 @@
 {
   "batch_index": 2,
-  "batch_size": 26,
-  "tested_at": "2026-09-09T07:02:45+08:00",
+  "batch_size": 28,
+  "tested_at": "2026-09-09T12:35:11+08:00",
   "source_file": "clash20260909.yml",
   "pool_total": 151,
-  "tested": 26,
-  "alive": 0,
-  "new_alive": 0,
+  "tested": 28,
+  "alive": 1,
+  "new_alive": 1,
   "prev_kept": 0,
-  "relaxed": false,
-  "nodes": [],
+  "relaxed": true,
+  "nodes": [
+    {
+      "name": "未知 TROJAN-540 | free-nodes",
+      "server": "188.42.145.180",
+      "port": 443,
+      "type": "trojan",
+      "password": "humanity",
+      "sni": "www.volumeroot.com",
+      "alpn": [
+        "http/1.1"
+      ],
+      "skip-cert-verify": false,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/assignment",
+        "headers": {
+          "Host": "www.volumeroot.com"
+        }
+      },
+      "delay_ms": 2595
+    }
+  ],
   "failed": [
-    "未知 SS-518 | free-nodes",
-    "未知 SS-519 | free-nodes",
-    "未知 SS-521 | free-nodes",
-    "未知 SS-522 | free-nodes",
     "未知 SS-524 | free-nodes",
     "未知 SS-525 | free-nodes",
     "未知 SS-529 | free-nodes",
     "未知 TROJAN-534 | free-nodes",
-    "未知 TROJAN-540 | free-nodes",
     "未知 TROJAN-541 | free-nodes",
     "未知 VLESS-543 | free-nodes",
     "未知 VLESS-544 | free-nodes",
@@ -36,6 +52,12 @@
     "未知 VLESS-567 | free-nodes",
     "未知 VLESS-574 | free-nodes",
     "未知 VLESS-575 | free-nodes",
-    "未知 VLESS-632 | free-nodes"
+    "未知 VLESS-632 | free-nodes",
+    "未知 VLESS-637 | free-nodes",
+    "未知 VLESS-641 | free-nodes",
+    "未知 VLESS-645 | free-nodes",
+    "未知 VLESS-705 | free-nodes",
+    "未知 VLESS-706 | free-nodes",
+    "未知 VLESS-710 | free-nodes"
   ]
 }
