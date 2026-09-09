@@ -1,10 +1,12 @@
 {
-  "tested_at": "2026-09-10T04:14:32+08:00",
+  "tested_at": "2026-09-10T04:58:07+08:00",
   "source": {
-    "source_file": "chunked-probe",
-    "raw_count": 139
+    "source_file": "prescreen+retest",
+    "raw_count": 158,
+    "prescreen": true,
+    "retest_batches": 6
   },
-  "candidates": 139,
+  "candidates": 158,
   "alive": 2,
   "new_alive": 0,
   "prev_kept": 2,
@@ -16,14 +18,14 @@
       "type": "vmess",
       "server": "112.132.215.108",
       "port": 50002,
-      "delay_ms": 122
+      "delay_ms": 117
     },
     {
       "name": "未知 SS-510 | free-nodes",
       "type": "ss",
       "server": "k6p9tz.5tencent.asia",
       "port": 22019,
-      "delay_ms": 656
+      "delay_ms": 4745
     }
   ],
   "failed": [
@@ -145,6 +147,25 @@
     "未知 VLESS-973 | free-nodes",
     "未知 VLESS-974 | free-nodes",
     "未知 VLESS-976 | free-nodes",
+    "未知 VLESS-977 | free-nodes",
+    "未知 VLESS-980 | free-nodes",
+    "未知 VLESS-986 | free-nodes",
+    "未知 VLESS-994 | free-nodes",
+    "未知 VLESS-995 | free-nodes",
+    "未知 VLESS-998 | free-nodes",
+    "未知 VLESS-999 | free-nodes",
+    "未知 VMESS-1013 | free-nodes",
+    "未知 VMESS-1033 | free-nodes",
+    "未知 VMESS-1034 | free-nodes",
+    "未知 VMESS-1036 | free-nodes",
+    "未知 VMESS-1045 | free-nodes",
+    "未知 VMESS-1091 | free-nodes",
+    "未知 VMESS-1267 | free-nodes",
+    "未知 VMESS-1307 | free-nodes",
+    "未知 VMESS-1321 | free-nodes",
+    "未知 VMESS-1361 | free-nodes",
+    "未知 VMESS-1368 | free-nodes",
+    "未知 VMESS-1430 | free-nodes",
     "未知 VLESS-977 | free-nodes",
     "未知 VLESS-980 | free-nodes",
     "未知 VLESS-986 | free-nodes",
