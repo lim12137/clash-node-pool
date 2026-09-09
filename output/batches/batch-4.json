@@ -1,24 +1,29 @@
 {
   "batch_index": 4,
-  "batch_size": 26,
-  "tested_at": "2026-09-09T07:02:50+08:00",
+  "batch_size": 28,
+  "tested_at": "2026-09-09T12:37:30+08:00",
   "source_file": "clash20260909.yml",
   "pool_total": 151,
-  "tested": 26,
-  "alive": 0,
-  "new_alive": 0,
+  "tested": 28,
+  "alive": 1,
+  "new_alive": 1,
   "prev_kept": 0,
   "relaxed": false,
-  "nodes": [],
+  "nodes": [
+    {
+      "name": "未知 VMESS-1018 | free-nodes",
+      "server": "112.132.215.108",
+      "port": 50002,
+      "type": "vmess",
+      "uuid": "418048af-a293-4b99-9b0c-98ca3580dd24",
+      "alterId": 64,
+      "cipher": "auto",
+      "tls": false,
+      "skip-cert-verify": false,
+      "delay_ms": 2893
+    }
+  ],
   "failed": [
-    "未知 VLESS-917 | free-nodes",
-    "未知 VLESS-921 | free-nodes",
-    "未知 VLESS-923 | free-nodes",
-    "未知 VLESS-924 | free-nodes",
-    "未知 VLESS-927 | free-nodes",
-    "未知 VLESS-928 | free-nodes",
-    "未知 VLESS-929 | free-nodes",
-    "未知 VLESS-932 | free-nodes",
     "未知 VLESS-942 | free-nodes",
     "未知 VLESS-943 | free-nodes",
     "未知 VLESS-944 | free-nodes",
@@ -36,6 +41,15 @@
     "未知 VLESS-979 | free-nodes",
     "未知 VLESS-982 | free-nodes",
     "未知 VLESS-983 | free-nodes",
-    "未知 VLESS-986 | free-nodes"
+    "未知 VLESS-986 | free-nodes",
+    "未知 VLESS-992 | free-nodes",
+    "未知 VLESS-1001 | free-nodes",
+    "未知 VLESS-1003 | free-nodes",
+    "未知 VLESS-1004 | free-nodes",
+    "未知 VLESS-1005 | free-nodes",
+    "未知 VLESS-1006 | free-nodes",
+    "未知 VMESS-1040 | free-nodes",
+    "未知 VMESS-1041 | free-nodes",
+    "未知 VMESS-1043 | free-nodes"
   ]
 }
