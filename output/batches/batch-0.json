@@ -1,17 +1,38 @@
 {
   "batch_index": 0,
-  "batch_size": 27,
-  "tested_at": "2026-09-09T19:49:51+08:00",
+  "batch_size": 24,
+  "tested_at": "2026-09-10T00:35:09+08:00",
   "source_file": "clash20260909.yml",
-  "pool_total": 159,
-  "tested": 27,
-  "alive": 0,
+  "pool_total": 160,
+  "tested": 24,
+  "alive": 2,
   "new_alive": 0,
-  "prev_kept": 0,
+  "prev_kept": 2,
   "relaxed": false,
-  "nodes": [],
+  "nodes": [
+    {
+      "name": "未知 VMESS-1027 | free-nodes",
+      "server": "112.132.215.108",
+      "port": 50002,
+      "type": "vmess",
+      "uuid": "418048af-a293-4b99-9b0c-98ca3580dd24",
+      "alterId": 64,
+      "cipher": "auto",
+      "tls": false,
+      "skip-cert-verify": false,
+      "delay_ms": 122
+    },
+    {
+      "name": "未知 SS-510 | free-nodes",
+      "server": "k6p9tz.5tencent.asia",
+      "port": 22019,
+      "type": "ss",
+      "cipher": "aes-256-gcm",
+      "password": "6089784c-6fa1-4c5f-b678-f2917a70f179",
+      "delay_ms": 822
+    }
+  ],
   "failed": [
-    "未知 VMESS-1027 | free-nodes",
     "未知 SS-187 | free-nodes",
     "未知 SS-214 | free-nodes",
     "未知 SS-218 | free-nodes",
@@ -33,10 +54,6 @@
     "未知 SS-447 | free-nodes",
     "未知 SS-448 | free-nodes",
     "未知 SS-449 | free-nodes",
-    "未知 SS-450 | free-nodes",
-    "未知 SS-451 | free-nodes",
-    "未知 SS-452 | free-nodes",
-    "未知 SS-453 | free-nodes",
-    "未知 SS-454 | free-nodes"
+    "未知 SS-450 | free-nodes"
   ]
 }
