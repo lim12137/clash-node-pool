@@ -1,10 +1,10 @@
 {
   "batch_index": 0,
-  "batch_size": 24,
-  "tested_at": "2026-09-10T00:54:02+08:00",
+  "batch_size": 29,
+  "tested_at": "2026-09-10T04:54:13+08:00",
   "source_file": "clash20260909.yml",
   "pool_total": 139,
-  "tested": 24,
+  "tested": 29,
   "alive": 2,
   "new_alive": 0,
   "prev_kept": 2,
@@ -20,7 +20,7 @@
       "cipher": "auto",
       "tls": false,
       "skip-cert-verify": false,
-      "delay_ms": 122
+      "delay_ms": 117
     },
     {
       "name": "未知 SS-510 | free-nodes",
@@ -29,7 +29,7 @@
       "type": "ss",
       "cipher": "aes-256-gcm",
       "password": "6089784c-6fa1-4c5f-b678-f2917a70f179",
-      "delay_ms": 656
+      "delay_ms": 4745
     }
   ],
   "failed": [
@@ -54,6 +54,11 @@
     "未知 SS-447 | free-nodes",
     "未知 SS-453 | free-nodes",
     "未知 SS-454 | free-nodes",
-    "未知 SS-455 | free-nodes"
+    "未知 SS-455 | free-nodes",
+    "未知 SS-456 | free-nodes",
+    "未知 SS-457 | free-nodes",
+    "未知 SS-458 | free-nodes",
+    "未知 SS-459 | free-nodes",
+    "未知 SS-460 | free-nodes"
   ]
 }
