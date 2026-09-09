@@ -1,4 +1,18 @@
 proxies:
+- name: 未知 TROJAN-540 | free-nodes
+  server: 188.42.145.180
+  port: 443
+  type: trojan
+  password: humanity
+  sni: www.volumeroot.com
+  alpn:
+  - http/1.1
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.volumeroot.com
 - name: 未知 VLESS-773 | free-nodes
   server: brightharbor.download
   port: 443
@@ -13,3 +27,12 @@ proxies:
   servername: localhost
   client-fingerprint: chrome
   network: tcp
+- name: 未知 VMESS-1018 | free-nodes
+  server: 112.132.215.108
+  port: 50002
+  type: vmess
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 64
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
