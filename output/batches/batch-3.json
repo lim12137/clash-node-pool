@@ -1,37 +1,26 @@
 {
   "batch_index": 3,
-  "batch_size": 27,
-  "tested_at": "2026-09-09T19:49:53+08:00",
+  "batch_size": 24,
+  "tested_at": "2026-09-10T00:37:14+08:00",
   "source_file": "clash20260909.yml",
-  "pool_total": 159,
-  "tested": 27,
-  "alive": 1,
-  "new_alive": 1,
+  "pool_total": 160,
+  "tested": 24,
+  "alive": 0,
+  "new_alive": 0,
   "prev_kept": 0,
-  "relaxed": true,
-  "nodes": [
-    {
-      "name": "未知 VLESS-717 | free-nodes",
-      "server": "162.159.254.3",
-      "port": 443,
-      "type": "vless",
-      "uuid": "4e4f1f70-5e56-4a76-bb9d-db087f4690c4",
-      "tls": true,
-      "tfo": false,
-      "skip-cert-verify": false,
-      "servername": "jp3.yohototo.top",
-      "client-fingerprint": "chrome",
-      "network": "ws",
-      "ws-opts": {
-        "path": "/tyxyws",
-        "headers": {
-          "Host": "jp3.yohototo.top"
-        }
-      },
-      "delay_ms": 1088
-    }
-  ],
+  "relaxed": false,
+  "nodes": [],
   "failed": [
+    "未知 VLESS-558 | free-nodes",
+    "未知 VLESS-563 | free-nodes",
+    "未知 VLESS-565 | free-nodes",
+    "未知 VLESS-566 | free-nodes",
+    "未知 VLESS-568 | free-nodes",
+    "未知 VLESS-569 | free-nodes",
+    "未知 VLESS-570 | free-nodes",
+    "未知 VLESS-575 | free-nodes",
+    "未知 VLESS-632 | free-nodes",
+    "未知 VLESS-634 | free-nodes",
     "未知 VLESS-635 | free-nodes",
     "未知 VLESS-639 | free-nodes",
     "未知 VLESS-643 | free-nodes",
@@ -40,23 +29,11 @@
     "未知 VLESS-711 | free-nodes",
     "未知 VLESS-714 | free-nodes",
     "未知 VLESS-715 | free-nodes",
+    "未知 VLESS-717 | free-nodes",
     "未知 VLESS-725 | free-nodes",
     "未知 VLESS-726 | free-nodes",
     "未知 VLESS-727 | free-nodes",
     "未知 VLESS-733 | free-nodes",
-    "未知 VLESS-775 | free-nodes",
-    "未知 VLESS-777 | free-nodes",
-    "未知 VLESS-778 | free-nodes",
-    "未知 VLESS-779 | free-nodes",
-    "未知 VLESS-783 | free-nodes",
-    "未知 VLESS-784 | free-nodes",
-    "未知 VLESS-786 | free-nodes",
-    "未知 VLESS-793 | free-nodes",
-    "未知 VLESS-796 | free-nodes",
-    "未知 VLESS-799 | free-nodes",
-    "未知 VLESS-801 | free-nodes",
-    "未知 VLESS-805 | free-nodes",
-    "未知 VLESS-807 | free-nodes",
-    "未知 VLESS-808 | free-nodes"
+    "未知 VLESS-775 | free-nodes"
   ]
 }
