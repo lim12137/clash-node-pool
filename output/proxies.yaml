@@ -1,14 +1,20 @@
 proxies:
-- name: 未知 VMESS-1027 | free-nodes
-  server: 112.132.215.108
-  port: 50002
-  type: vmess
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 64
-  cipher: auto
-  tls: false
+- name: 未知 VLESS-717 | free-nodes
+  server: 162.159.254.3
+  port: 443
+  type: vless
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  tls: true
+  tfo: false
   skip-cert-verify: false
-- name: 未知 VLESS-982 | free-nodes
+  servername: jp3.yohototo.top
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /tyxyws
+    headers:
+      Host: jp3.yohototo.top
+- name: 未知 VLESS-990 | free-nodes
   server: 77.110.104.125
   port: 8443
   type: vless
