@@ -1,29 +1,44 @@
 {
   "batch_index": 5,
-  "batch_size": 28,
-  "tested_at": "2026-09-09T13:14:02+08:00",
+  "batch_size": 27,
+  "tested_at": "2026-09-09T19:16:07+08:00",
   "source_file": "clash20260909.yml",
   "pool_total": 167,
   "tested": 27,
   "alive": 1,
   "new_alive": 1,
   "prev_kept": 0,
-  "relaxed": true,
+  "relaxed": false,
   "nodes": [
     {
-      "name": "未知 VMESS-1021 | free-nodes",
-      "server": "112.132.215.108",
-      "port": 50002,
-      "type": "vmess",
-      "uuid": "418048af-a293-4b99-9b0c-98ca3580dd24",
-      "alterId": 64,
-      "cipher": "auto",
-      "tls": false,
+      "name": "未知 VLESS-982 | free-nodes",
+      "server": "77.110.104.125",
+      "port": 8443,
+      "type": "vless",
+      "uuid": "e0b9fb0f-1bbd-478b-9580-c2294778338b",
+      "tls": true,
+      "tfo": false,
       "skip-cert-verify": false,
-      "delay_ms": 391
+      "reality-opts": {
+        "public-key": "OMlQAFrCMZ3DX0xlnbEZiByLBFzpUE8XJHJsrBzLdlY",
+        "short-id": "2da4299da566b7"
+      },
+      "servername": "maps.apple.com",
+      "client-fingerprint": "chrome",
+      "network": "grpc",
+      "grpc-opts": {
+        "grpc-mode": "gun",
+        "grpc-service-name": "your-custom-path"
+      },
+      "delay_ms": 398
     }
   ],
   "failed": [
+    "未知 VLESS-983 | free-nodes",
+    "未知 VLESS-985 | free-nodes",
+    "未知 VLESS-988 | free-nodes",
+    "未知 VLESS-994 | free-nodes",
+    "未知 VLESS-999 | free-nodes",
     "未知 VLESS-1004 | free-nodes",
     "未知 VLESS-1006 | free-nodes",
     "未知 VLESS-1007 | free-nodes",
@@ -44,11 +59,6 @@
     "未知 VMESS-1273 | free-nodes",
     "未知 VMESS-1295 | free-nodes",
     "未知 VMESS-1326 | free-nodes",
-    "未知 VMESS-1344 | free-nodes",
-    "未知 VMESS-1364 | free-nodes",
-    "未知 VMESS-1371 | free-nodes",
-    "未知 VMESS-1480 | free-nodes",
-    "未知 VMESS-1484 | free-nodes",
-    "未知 VMESS-1489 | free-nodes"
+    "未知 VMESS-1344 | free-nodes"
   ]
 }
