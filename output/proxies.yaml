@@ -1,13 +1,4 @@
 proxies:
-- name: 未知 VMESS-1022 | free-nodes
-  server: 112.132.215.108
-  port: 50002
-  type: vmess
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 64
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
 - name: 未知 VLESS-952 | free-nodes
   server: 178.105.61.61
   port: 2083
@@ -37,17 +28,6 @@ proxies:
   servername: localhost
   client-fingerprint: chrome
   network: tcp
-- name: 未知 VLESS-964 | free-nodes
-  server: 94.183.209.59
-  port: 443
-  type: vless
-  uuid: d23cb516-40db-4aa4-8142-6b45ff882f90
-  tls: false
-  tfo: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
 - name: 未知 VLESS-936 | free-nodes
   server: aljha.typeshoes.online
   port: 443
@@ -63,6 +43,17 @@ proxies:
     path: /kdi
     headers:
       Host: aljha.typeshoes.online
+- name: 未知 VLESS-964 | free-nodes
+  server: 94.183.209.59
+  port: 443
+  type: vless
+  uuid: d23cb516-40db-4aa4-8142-6b45ff882f90
+  tls: false
+  tfo: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
 - name: 未知 VLESS-687 | free-nodes
   server: 45.74.158.180
   port: 443
@@ -83,18 +74,15 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: 72553320ae6bcc8f
-- name: 未知 VLESS-549 | free-nodes
-  server: 82.118.22.161
+- name: 未知 TROJAN-539 | free-nodes
+  server: 104.21.70.21
   port: 443
-  type: vless
-  uuid: 05488656-d4bf-4634-8b2e-e4ff5a56c7e2
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
+  type: trojan
+  password: 018b8e7b-7813-4dcb-84a5-3c98f1521e00
+  sni: id1.nathaya.web.id
   skip-cert-verify: false
-  reality-opts:
-    public-key: xY1KpNxaIGmi6jfeudYQ_aaLGQqWK_uHStnwUFd2_2E
-    short-id: fa3ea655619a3e78
-  servername: www.cloudflare.com
-  client-fingerprint: safari
-  network: tcp
+  network: ws
+  ws-opts:
+    path: /trojan
+    headers:
+      Host: id1.nathaya.web.id
