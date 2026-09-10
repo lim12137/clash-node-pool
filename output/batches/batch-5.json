@@ -1,16 +1,22 @@
 {
   "batch_index": 5,
-  "batch_size": 29,
-  "tested_at": "2026-09-10T05:11:53+08:00",
+  "batch_size": 28,
+  "tested_at": "2026-09-10T12:36:36+08:00",
   "source_file": "clash20260910.yml",
-  "pool_total": 170,
-  "tested": 25,
+  "pool_total": 171,
+  "tested": 28,
   "alive": 0,
   "new_alive": 0,
   "prev_kept": 0,
   "relaxed": false,
   "nodes": [],
   "failed": [
+    "未知 VLESS-998 | free-nodes",
+    "未知 VLESS-1000 | free-nodes",
+    "未知 VLESS-1006 | free-nodes",
+    "未知 VLESS-1008 | free-nodes",
+    "未知 VLESS-1009 | free-nodes",
+    "未知 VLESS-1010 | free-nodes",
     "未知 VMESS-1020 | free-nodes",
     "未知 VMESS-1044 | free-nodes",
     "未知 VMESS-1045 | free-nodes",
@@ -32,9 +38,6 @@
     "未知 VMESS-1307 | free-nodes",
     "未知 VMESS-1368 | free-nodes",
     "未知 VMESS-1375 | free-nodes",
-    "未知 VMESS-1391 | free-nodes",
-    "未知 VMESS-1394 | free-nodes",
-    "未知 VMESS-1438 | free-nodes",
-    "未知 VMESS-1459 | free-nodes"
+    "未知 VMESS-1391 | free-nodes"
   ]
 }
