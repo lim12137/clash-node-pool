@@ -1,19 +1,26 @@
 {
   "batch_index": 1,
-  "batch_size": 22,
-  "tested_at": "2026-09-11T00:42:32+08:00",
+  "batch_size": 25,
+  "tested_at": "2026-09-11T04:51:38+08:00",
   "source_file": "clash20260910.yml",
   "pool_total": 129,
-  "tested": 22,
-  "alive": 0,
-  "new_alive": 0,
+  "tested": 25,
+  "alive": 1,
+  "new_alive": 1,
   "prev_kept": 0,
-  "relaxed": false,
-  "nodes": [],
+  "relaxed": true,
+  "nodes": [
+    {
+      "name": "未知 SS-513 | free-nodes",
+      "server": "64.177.90.30",
+      "port": 8388,
+      "type": "ss",
+      "cipher": "aes-256-gcm",
+      "password": "BWyPPTusFKhGgzKh",
+      "delay_ms": 441
+    }
+  ],
   "failed": [
-    "未知 SS-450 | free-nodes",
-    "未知 SS-451 | free-nodes",
-    "未知 SS-452 | free-nodes",
     "未知 SS-453 | free-nodes",
     "未知 SS-454 | free-nodes",
     "未知 SS-455 | free-nodes",
@@ -32,6 +39,11 @@
     "未知 SS-479 | free-nodes",
     "未知 SS-480 | free-nodes",
     "未知 SS-481 | free-nodes",
-    "未知 SS-482 | free-nodes"
+    "未知 SS-482 | free-nodes",
+    "未知 SS-484 | free-nodes",
+    "未知 SS-507 | free-nodes",
+    "未知 SS-515 | free-nodes",
+    "未知 SS-518 | free-nodes",
+    "未知 SS-519 | free-nodes"
   ]
 }
