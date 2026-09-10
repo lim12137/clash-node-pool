@@ -1,12 +1,12 @@
 {
   "batch_index": 2,
-  "batch_size": 22,
-  "tested_at": "2026-09-11T00:40:28+08:00",
+  "batch_size": 25,
+  "tested_at": "2026-09-11T04:51:43+08:00",
   "source_file": "clash20260910.yml",
   "pool_total": 129,
-  "tested": 22,
-  "alive": 1,
-  "new_alive": 1,
+  "tested": 25,
+  "alive": 2,
+  "new_alive": 2,
   "prev_kept": 0,
   "relaxed": true,
   "nodes": [
@@ -25,16 +25,30 @@
           "Host": "id1.nathaya.web.id"
         }
       },
-      "delay_ms": 2229
+      "delay_ms": 1360
+    },
+    {
+      "name": "未知 TROJAN-546 | free-nodes",
+      "server": "188.42.145.180",
+      "port": 443,
+      "type": "trojan",
+      "password": "humanity",
+      "sni": "www.volumeroot.com",
+      "alpn": [
+        "http/1.1"
+      ],
+      "skip-cert-verify": false,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/assignment",
+        "headers": {
+          "Host": "www.volumeroot.com"
+        }
+      },
+      "delay_ms": 2494
     }
   ],
   "failed": [
-    "未知 SS-484 | free-nodes",
-    "未知 SS-507 | free-nodes",
-    "未知 SS-513 | free-nodes",
-    "未知 SS-515 | free-nodes",
-    "未知 SS-518 | free-nodes",
-    "未知 SS-519 | free-nodes",
     "未知 SS-520 | free-nodes",
     "未知 SS-521 | free-nodes",
     "未知 SS-528 | free-nodes",
@@ -43,12 +57,20 @@
     "未知 SS-531 | free-nodes",
     "未知 SS-534 | free-nodes",
     "未知 TROJAN-543 | free-nodes",
-    "未知 TROJAN-546 | free-nodes",
     "未知 TROJAN-547 | free-nodes",
     "未知 VLESS-551 | free-nodes",
     "未知 VLESS-554 | free-nodes",
     "未知 VLESS-556 | free-nodes",
     "未知 VLESS-558 | free-nodes",
-    "未知 VLESS-561 | free-nodes"
+    "未知 VLESS-561 | free-nodes",
+    "未知 VLESS-564 | free-nodes",
+    "未知 VLESS-566 | free-nodes",
+    "未知 VLESS-567 | free-nodes",
+    "未知 VLESS-569 | free-nodes",
+    "未知 VLESS-570 | free-nodes",
+    "未知 VLESS-578 | free-nodes",
+    "未知 VLESS-638 | free-nodes",
+    "未知 VLESS-641 | free-nodes",
+    "未知 VLESS-642 | free-nodes"
   ]
 }
