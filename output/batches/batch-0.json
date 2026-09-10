@@ -1,15 +1,27 @@
 {
   "batch_index": 0,
-  "batch_size": 22,
-  "tested_at": "2026-09-11T00:41:09+08:00",
+  "batch_size": 25,
+  "tested_at": "2026-09-11T04:50:01+08:00",
   "source_file": "clash20260910.yml",
   "pool_total": 129,
-  "tested": 22,
-  "alive": 6,
+  "tested": 25,
+  "alive": 2,
   "new_alive": 0,
-  "prev_kept": 6,
+  "prev_kept": 2,
   "relaxed": false,
   "nodes": [
+    {
+      "name": "未知 VMESS-1022 | free-nodes",
+      "server": "112.132.215.108",
+      "port": 50002,
+      "type": "vmess",
+      "uuid": "418048af-a293-4b99-9b0c-98ca3580dd24",
+      "alterId": 64,
+      "cipher": "auto",
+      "tls": false,
+      "skip-cert-verify": false,
+      "delay_ms": 91
+    },
     {
       "name": "未知 VLESS-952 | free-nodes",
       "server": "178.105.61.61",
@@ -27,91 +39,15 @@
       "servername": "178.105.61.61",
       "client-fingerprint": "chrome",
       "network": "tcp",
-      "delay_ms": 666
-    },
-    {
-      "name": "未知 VLESS-771 | free-nodes",
-      "server": "brightharbor.download",
-      "port": 443,
-      "type": "vless",
-      "uuid": "6429d27e-a7d4-4e04-ae57-e88243fbbfe3",
-      "tls": true,
-      "tfo": false,
-      "flow": "xtls-rprx-vision",
-      "skip-cert-verify": false,
-      "reality-opts": {
-        "public-key": "F2VfBr2UmjDTErB_oruvW5aIvzH_xGfM2AW5_w-DF0I"
-      },
-      "servername": "localhost",
-      "client-fingerprint": "chrome",
-      "network": "tcp",
-      "delay_ms": 706
-    },
-    {
-      "name": "未知 VLESS-936 | free-nodes",
-      "server": "aljha.typeshoes.online",
-      "port": 443,
-      "type": "vless",
-      "uuid": "acc591a0-04ae-4676-996a-e6fe01b26ed2",
-      "tls": true,
-      "tfo": false,
-      "skip-cert-verify": false,
-      "servername": "aljha.typeshoes.online",
-      "client-fingerprint": "chrome",
-      "network": "ws",
-      "ws-opts": {
-        "path": "/kdi",
-        "headers": {
-          "Host": "aljha.typeshoes.online"
-        }
-      },
-      "delay_ms": 872
-    },
-    {
-      "name": "未知 VLESS-964 | free-nodes",
-      "server": "94.183.209.59",
-      "port": 443,
-      "type": "vless",
-      "uuid": "d23cb516-40db-4aa4-8142-6b45ff882f90",
-      "tls": false,
-      "tfo": false,
-      "skip-cert-verify": false,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/"
-      },
-      "delay_ms": 879
-    },
-    {
-      "name": "未知 VLESS-687 | free-nodes",
-      "server": "45.74.158.180",
-      "port": 443,
-      "type": "vless",
-      "uuid": "42994234-1689-48bc-8d01-cfb16e7b017a",
-      "tls": true,
-      "tfo": false,
-      "skip-cert-verify": false,
-      "reality-opts": {
-        "public-key": "MgyA2FY0p2q_VOwoL9T1Z3rzpKEcGjfN61QliGcyHA8",
-        "short-id": "ca41ef1263c02279"
-      },
-      "servername": "refersion.com",
-      "client-fingerprint": "chrome",
-      "network": "tcp",
-      "delay_ms": 1047
-    },
-    {
-      "name": "未知 SS-509 | free-nodes",
-      "server": "212.192.15.86",
-      "port": 20111,
-      "type": "ss",
-      "cipher": "aes-256-gcm",
-      "password": "72553320ae6bcc8f",
-      "delay_ms": 1309
+      "delay_ms": 645
     }
   ],
   "failed": [
-    "未知 VMESS-1022 | free-nodes",
+    "未知 VLESS-771 | free-nodes",
+    "未知 VLESS-687 | free-nodes",
+    "未知 SS-509 | free-nodes",
+    "未知 VLESS-964 | free-nodes",
+    "未知 VLESS-936 | free-nodes",
     "未知 VLESS-549 | free-nodes",
     "未知 SS-255 | free-nodes",
     "未知 SS-307 | free-nodes",
@@ -126,6 +62,9 @@
     "未知 SS-446 | free-nodes",
     "未知 SS-447 | free-nodes",
     "未知 SS-448 | free-nodes",
-    "未知 SS-449 | free-nodes"
+    "未知 SS-449 | free-nodes",
+    "未知 SS-450 | free-nodes",
+    "未知 SS-451 | free-nodes",
+    "未知 SS-452 | free-nodes"
   ]
 }
