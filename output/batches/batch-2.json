@@ -1,14 +1,14 @@
 {
   "batch_index": 2,
-  "batch_size": 29,
-  "tested_at": "2026-09-10T05:09:45+08:00",
+  "batch_size": 28,
+  "tested_at": "2026-09-10T12:34:18+08:00",
   "source_file": "clash20260910.yml",
-  "pool_total": 170,
-  "tested": 29,
+  "pool_total": 171,
+  "tested": 28,
   "alive": 1,
   "new_alive": 1,
   "prev_kept": 0,
-  "relaxed": false,
+  "relaxed": true,
   "nodes": [
     {
       "name": "未知 SS-529 | free-nodes",
@@ -17,10 +17,14 @@
       "type": "ss",
       "cipher": "aes-256-gcm",
       "password": "wBYiDjDDyFqcBnNl",
-      "delay_ms": 527
+      "delay_ms": 575
     }
   ],
   "failed": [
+    "未知 SS-517 | free-nodes",
+    "未知 SS-518 | free-nodes",
+    "未知 SS-519 | free-nodes",
+    "未知 SS-523 | free-nodes",
     "未知 SS-525 | free-nodes",
     "未知 SS-526 | free-nodes",
     "未知 SS-527 | free-nodes",
@@ -43,11 +47,6 @@
     "未知 VLESS-632 | free-nodes",
     "未知 VLESS-633 | free-nodes",
     "未知 VLESS-635 | free-nodes",
-    "未知 VLESS-638 | free-nodes",
-    "未知 VLESS-639 | free-nodes",
-    "未知 VLESS-643 | free-nodes",
-    "未知 VLESS-707 | free-nodes",
-    "未知 VLESS-708 | free-nodes",
-    "未知 VLESS-712 | free-nodes"
+    "未知 VLESS-638 | free-nodes"
   ]
 }
