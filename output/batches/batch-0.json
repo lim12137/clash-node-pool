@@ -1,26 +1,33 @@
 {
   "batch_index": 0,
   "batch_size": 28,
-  "tested_at": "2026-09-10T12:34:20+08:00",
+  "tested_at": "2026-09-10T13:14:35+08:00",
   "source_file": "clash20260910.yml",
-  "pool_total": 171,
+  "pool_total": 166,
   "tested": 28,
   "alive": 2,
-  "new_alive": 1,
-  "prev_kept": 1,
+  "new_alive": 0,
+  "prev_kept": 2,
   "relaxed": false,
   "nodes": [
     {
-      "name": "未知 VMESS-1027 | free-nodes",
-      "server": "112.132.215.108",
-      "port": 50002,
-      "type": "vmess",
-      "uuid": "418048af-a293-4b99-9b0c-98ca3580dd24",
-      "alterId": 64,
-      "cipher": "auto",
-      "tls": false,
+      "name": "未知 VLESS-975 | free-nodes",
+      "server": "gr.freeinternat.com",
+      "port": 443,
+      "type": "vless",
+      "uuid": "dabb9a19-03ab-4cdf-8963-d3c45eb0f80d",
+      "tls": true,
+      "tfo": false,
+      "flow": "xtls-rprx-vision",
       "skip-cert-verify": false,
-      "delay_ms": 306
+      "reality-opts": {
+        "public-key": "bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk",
+        "short-id": "ff776ff77be48b88"
+      },
+      "servername": "gr.freeinternat.com",
+      "client-fingerprint": "chrome",
+      "network": "tcp",
+      "delay_ms": 827
     },
     {
       "name": "未知 VLESS-771 | free-nodes",
@@ -38,23 +45,16 @@
       "servername": "localhost",
       "client-fingerprint": "chrome",
       "network": "tcp",
-      "delay_ms": 1600
+      "delay_ms": 3529
     }
   ],
   "failed": [
-    "未知 VLESS-975 | free-nodes",
-    "未知 SS-510 | free-nodes",
-    "未知 SS-216 | free-nodes",
     "未知 SS-217 | free-nodes",
-    "未知 SS-219 | free-nodes",
-    "未知 SS-222 | free-nodes",
     "未知 SS-235 | free-nodes",
     "未知 SS-255 | free-nodes",
     "未知 SS-278 | free-nodes",
     "未知 SS-307 | free-nodes",
     "未知 SS-313 | free-nodes",
-    "未知 SS-415 | free-nodes",
-    "未知 SS-419 | free-nodes",
     "未知 SS-428 | free-nodes",
     "未知 SS-432 | free-nodes",
     "未知 SS-441 | free-nodes",
@@ -67,6 +67,13 @@
     "未知 SS-448 | free-nodes",
     "未知 SS-449 | free-nodes",
     "未知 SS-450 | free-nodes",
-    "未知 SS-451 | free-nodes"
+    "未知 SS-451 | free-nodes",
+    "未知 SS-452 | free-nodes",
+    "未知 SS-453 | free-nodes",
+    "未知 SS-454 | free-nodes",
+    "未知 SS-455 | free-nodes",
+    "未知 SS-456 | free-nodes",
+    "未知 SS-457 | free-nodes",
+    "未知 SS-458 | free-nodes"
   ]
 }
