@@ -1,34 +1,25 @@
 {
   "batch_index": 1,
-  "batch_size": 28,
-  "tested_at": "2026-09-10T13:14:44+08:00",
+  "batch_size": 22,
+  "tested_at": "2026-09-10T19:14:23+08:00",
   "source_file": "clash20260910.yml",
-  "pool_total": 166,
-  "tested": 28,
-  "alive": 1,
-  "new_alive": 1,
+  "pool_total": 169,
+  "tested": 22,
+  "alive": 0,
+  "new_alive": 0,
   "prev_kept": 0,
-  "relaxed": true,
-  "nodes": [
-    {
-      "name": "未知 TROJAN-533 | free-nodes",
-      "server": "104.21.70.21",
-      "port": 443,
-      "type": "trojan",
-      "password": "018b8e7b-7813-4dcb-84a5-3c98f1521e00",
-      "sni": "id1.nathaya.web.id",
-      "skip-cert-verify": false,
-      "network": "ws",
-      "ws-opts": {
-        "path": "/trojan",
-        "headers": {
-          "Host": "id1.nathaya.web.id"
-        }
-      },
-      "delay_ms": 2589
-    }
-  ],
+  "relaxed": false,
+  "nodes": [],
   "failed": [
+    "未知 SS-450 | free-nodes",
+    "未知 SS-451 | free-nodes",
+    "未知 SS-452 | free-nodes",
+    "未知 SS-453 | free-nodes",
+    "未知 SS-454 | free-nodes",
+    "未知 SS-455 | free-nodes",
+    "未知 SS-456 | free-nodes",
+    "未知 SS-457 | free-nodes",
+    "未知 SS-458 | free-nodes",
     "未知 SS-459 | free-nodes",
     "未知 SS-460 | free-nodes",
     "未知 SS-470 | free-nodes",
@@ -41,20 +32,6 @@
     "未知 SS-479 | free-nodes",
     "未知 SS-480 | free-nodes",
     "未知 SS-481 | free-nodes",
-    "未知 SS-482 | free-nodes",
-    "未知 SS-484 | free-nodes",
-    "未知 SS-514 | free-nodes",
-    "未知 SS-515 | free-nodes",
-    "未知 SS-516 | free-nodes",
-    "未知 SS-517 | free-nodes",
-    "未知 SS-520 | free-nodes",
-    "未知 SS-522 | free-nodes",
-    "未知 SS-523 | free-nodes",
-    "未知 SS-525 | free-nodes",
-    "未知 SS-528 | free-nodes",
-    "未知 TROJAN-537 | free-nodes",
-    "未知 VLESS-543 | free-nodes",
-    "未知 VLESS-544 | free-nodes",
-    "未知 VLESS-549 | free-nodes"
+    "未知 SS-482 | free-nodes"
   ]
 }
