@@ -8,27 +8,6 @@ proxies:
   cipher: auto
   tls: false
   skip-cert-verify: false
-- name: 未知 SS-143 | free-nodes
-  server: 146.235.19.129
-  port: 56927
-  type: ss
-  cipher: 2022-blake3-chacha20-poly1305
-  password: i699dvro3+yyb9U6o3qsojnoZw2MsymfU8jhW6SzVLg=
-- name: 未知 VLESS-952 | free-nodes
-  server: 178.105.61.61
-  port: 2083
-  type: vless
-  uuid: cb077bf2-70b7-457b-af42-27cdc3e0e544
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: H0nCazQFHVhSObfqSUhGLhK7KRwKzTMggIBPjnMMqhk
-    short-id: af04ff8094115e93
-  servername: 178.105.61.61
-  client-fingerprint: chrome
-  network: tcp
 - name: 未知 VLESS-821 | free-nodes
   server: 31.59.150.174
   port: 9443
@@ -44,3 +23,18 @@ proxies:
   servername: hotcoals.aeternavpn.space
   client-fingerprint: firefox
   network: tcp
+- name: 未知 VLESS-717 | free-nodes
+  server: 172.67.217.240
+  port: 443
+  type: vless
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  tls: true
+  tfo: false
+  skip-cert-verify: false
+  servername: jp3.yohototo.top
+  client-fingerprint: unsafe
+  network: ws
+  ws-opts:
+    path: /tyxyws
+    headers:
+      Host: jp3.yohototo.top
