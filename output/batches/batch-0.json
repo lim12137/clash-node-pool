@@ -1,34 +1,15 @@
 {
   "batch_index": 0,
   "batch_size": 22,
-  "tested_at": "2026-09-10T19:12:44+08:00",
+  "tested_at": "2026-09-10T19:47:50+08:00",
   "source_file": "clash20260910.yml",
-  "pool_total": 169,
+  "pool_total": 128,
   "tested": 22,
   "alive": 4,
-  "new_alive": 1,
-  "prev_kept": 3,
+  "new_alive": 0,
+  "prev_kept": 4,
   "relaxed": false,
   "nodes": [
-    {
-      "name": "未知 VLESS-952 | free-nodes",
-      "server": "178.105.61.61",
-      "port": 2083,
-      "type": "vless",
-      "uuid": "cb077bf2-70b7-457b-af42-27cdc3e0e544",
-      "tls": true,
-      "tfo": false,
-      "flow": "xtls-rprx-vision",
-      "skip-cert-verify": false,
-      "reality-opts": {
-        "public-key": "H0nCazQFHVhSObfqSUhGLhK7KRwKzTMggIBPjnMMqhk",
-        "short-id": "af04ff8094115e93"
-      },
-      "servername": "178.105.61.61",
-      "client-fingerprint": "chrome",
-      "network": "tcp",
-      "delay_ms": 679
-    },
     {
       "name": "未知 VLESS-771 | free-nodes",
       "server": "brightharbor.download",
@@ -45,26 +26,7 @@
       "servername": "localhost",
       "client-fingerprint": "chrome",
       "network": "tcp",
-      "delay_ms": 706
-    },
-    {
-      "name": "未知 VLESS-975 | free-nodes",
-      "server": "gr.freeinternat.com",
-      "port": 443,
-      "type": "vless",
-      "uuid": "dabb9a19-03ab-4cdf-8963-d3c45eb0f80d",
-      "tls": true,
-      "tfo": false,
-      "flow": "xtls-rprx-vision",
-      "skip-cert-verify": false,
-      "reality-opts": {
-        "public-key": "bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk",
-        "short-id": "ff776ff77be48b88"
-      },
-      "servername": "gr.freeinternat.com",
-      "client-fingerprint": "chrome",
-      "network": "tcp",
-      "delay_ms": 766
+      "delay_ms": 682
     },
     {
       "name": "未知 VLESS-687 | free-nodes",
@@ -82,20 +44,57 @@
       "servername": "refersion.com",
       "client-fingerprint": "chrome",
       "network": "tcp",
-      "delay_ms": 811
+      "delay_ms": 754
+    },
+    {
+      "name": "未知 VLESS-549 | free-nodes",
+      "server": "82.118.22.161",
+      "port": 443,
+      "type": "vless",
+      "uuid": "05488656-d4bf-4634-8b2e-e4ff5a56c7e2",
+      "tls": true,
+      "tfo": false,
+      "flow": "xtls-rprx-vision",
+      "skip-cert-verify": false,
+      "reality-opts": {
+        "public-key": "xY1KpNxaIGmi6jfeudYQ_aaLGQqWK_uHStnwUFd2_2E",
+        "short-id": "fa3ea655619a3e78"
+      },
+      "servername": "www.cloudflare.com",
+      "client-fingerprint": "safari",
+      "network": "tcp",
+      "delay_ms": 1251
+    },
+    {
+      "name": "未知 VLESS-952 | free-nodes",
+      "server": "178.105.61.61",
+      "port": 2083,
+      "type": "vless",
+      "uuid": "cb077bf2-70b7-457b-af42-27cdc3e0e544",
+      "tls": true,
+      "tfo": false,
+      "flow": "xtls-rprx-vision",
+      "skip-cert-verify": false,
+      "reality-opts": {
+        "public-key": "H0nCazQFHVhSObfqSUhGLhK7KRwKzTMggIBPjnMMqhk",
+        "short-id": "af04ff8094115e93"
+      },
+      "servername": "178.105.61.61",
+      "client-fingerprint": "chrome",
+      "network": "tcp",
+      "delay_ms": 1556
     }
   ],
   "failed": [
-    "未知 VLESS-549 | free-nodes",
-    "未知 SS-217 | free-nodes",
+    "未知 SS-216 | free-nodes",
     "未知 SS-235 | free-nodes",
     "未知 SS-255 | free-nodes",
     "未知 SS-278 | free-nodes",
     "未知 SS-307 | free-nodes",
     "未知 SS-313 | free-nodes",
-    "未知 SS-428 | free-nodes",
-    "未知 SS-432 | free-nodes",
-    "未知 SS-441 | free-nodes",
+    "未知 SS-415 | free-nodes",
+    "未知 SS-429 | free-nodes",
+    "未知 SS-433 | free-nodes",
     "未知 SS-442 | free-nodes",
     "未知 SS-443 | free-nodes",
     "未知 SS-444 | free-nodes",
@@ -103,6 +102,7 @@
     "未知 SS-446 | free-nodes",
     "未知 SS-447 | free-nodes",
     "未知 SS-448 | free-nodes",
-    "未知 SS-449 | free-nodes"
+    "未知 SS-449 | free-nodes",
+    "未知 SS-450 | free-nodes"
   ]
 }
