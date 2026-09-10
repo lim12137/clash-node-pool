@@ -1,37 +1,54 @@
 {
   "batch_index": 2,
   "batch_size": 22,
-  "tested_at": "2026-09-11T00:23:42+08:00",
+  "tested_at": "2026-09-11T00:40:28+08:00",
   "source_file": "clash20260910.yml",
-  "pool_total": 132,
+  "pool_total": 129,
   "tested": 22,
-  "alive": 0,
-  "new_alive": 0,
+  "alive": 1,
+  "new_alive": 1,
   "prev_kept": 0,
-  "relaxed": false,
-  "nodes": [],
+  "relaxed": true,
+  "nodes": [
+    {
+      "name": "未知 TROJAN-539 | free-nodes",
+      "server": "104.21.70.21",
+      "port": 443,
+      "type": "trojan",
+      "password": "018b8e7b-7813-4dcb-84a5-3c98f1521e00",
+      "sni": "id1.nathaya.web.id",
+      "skip-cert-verify": false,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/trojan",
+        "headers": {
+          "Host": "id1.nathaya.web.id"
+        }
+      },
+      "delay_ms": 2229
+    }
+  ],
   "failed": [
-    "未知 SS-480 | free-nodes",
-    "未知 SS-481 | free-nodes",
-    "未知 SS-482 | free-nodes",
-    "未知 SS-483 | free-nodes",
-    "未知 SS-485 | free-nodes",
+    "未知 SS-484 | free-nodes",
+    "未知 SS-507 | free-nodes",
     "未知 SS-513 | free-nodes",
-    "未知 SS-517 | free-nodes",
+    "未知 SS-515 | free-nodes",
     "未知 SS-518 | free-nodes",
     "未知 SS-519 | free-nodes",
-    "未知 SS-522 | free-nodes",
-    "未知 SS-523 | free-nodes",
-    "未知 SS-524 | free-nodes",
-    "未知 SS-526 | free-nodes",
-    "未知 SS-527 | free-nodes",
+    "未知 SS-520 | free-nodes",
+    "未知 SS-521 | free-nodes",
     "未知 SS-528 | free-nodes",
-    "未知 TROJAN-534 | free-nodes",
-    "未知 TROJAN-540 | free-nodes",
+    "未知 SS-529 | free-nodes",
+    "未知 SS-530 | free-nodes",
+    "未知 SS-531 | free-nodes",
+    "未知 SS-534 | free-nodes",
     "未知 TROJAN-543 | free-nodes",
-    "未知 TROJAN-544 | free-nodes",
-    "未知 VLESS-546 | free-nodes",
-    "未知 VLESS-547 | free-nodes",
-    "未知 VLESS-553 | free-nodes"
+    "未知 TROJAN-546 | free-nodes",
+    "未知 TROJAN-547 | free-nodes",
+    "未知 VLESS-551 | free-nodes",
+    "未知 VLESS-554 | free-nodes",
+    "未知 VLESS-556 | free-nodes",
+    "未知 VLESS-558 | free-nodes",
+    "未知 VLESS-561 | free-nodes"
   ]
 }
