@@ -1,37 +1,57 @@
 {
   "batch_index": 2,
   "batch_size": 22,
-  "tested_at": "2026-09-10T19:14:24+08:00",
+  "tested_at": "2026-09-10T19:47:52+08:00",
   "source_file": "clash20260910.yml",
-  "pool_total": 169,
+  "pool_total": 128,
   "tested": 22,
-  "alive": 0,
-  "new_alive": 0,
+  "alive": 1,
+  "new_alive": 1,
   "prev_kept": 0,
-  "relaxed": false,
-  "nodes": [],
+  "relaxed": true,
+  "nodes": [
+    {
+      "name": "未知 TROJAN-543 | free-nodes",
+      "server": "188.42.145.180",
+      "port": 443,
+      "type": "trojan",
+      "password": "humanity",
+      "sni": "www.volumeroot.com",
+      "alpn": [
+        "http/1.1"
+      ],
+      "skip-cert-verify": false,
+      "network": "ws",
+      "ws-opts": {
+        "path": "/assignment",
+        "headers": {
+          "Host": "www.volumeroot.com"
+        }
+      },
+      "delay_ms": 1020
+    }
+  ],
   "failed": [
-    "未知 SS-484 | free-nodes",
-    "未知 SS-514 | free-nodes",
-    "未知 SS-515 | free-nodes",
-    "未知 SS-516 | free-nodes",
+    "未知 SS-485 | free-nodes",
+    "未知 SS-513 | free-nodes",
     "未知 SS-517 | free-nodes",
-    "未知 SS-520 | free-nodes",
+    "未知 SS-518 | free-nodes",
+    "未知 SS-519 | free-nodes",
     "未知 SS-522 | free-nodes",
     "未知 SS-523 | free-nodes",
-    "未知 SS-525 | free-nodes",
+    "未知 SS-524 | free-nodes",
+    "未知 SS-526 | free-nodes",
+    "未知 SS-527 | free-nodes",
     "未知 SS-528 | free-nodes",
-    "未知 TROJAN-533 | free-nodes",
-    "未知 TROJAN-537 | free-nodes",
-    "未知 VLESS-543 | free-nodes",
-    "未知 VLESS-544 | free-nodes",
-    "未知 VLESS-549 | free-nodes #2",
+    "未知 TROJAN-534 | free-nodes",
+    "未知 TROJAN-540 | free-nodes",
+    "未知 TROJAN-544 | free-nodes",
+    "未知 VLESS-546 | free-nodes",
+    "未知 VLESS-547 | free-nodes",
     "未知 VLESS-553 | free-nodes",
-    "未知 VLESS-557 | free-nodes",
     "未知 VLESS-559 | free-nodes",
     "未知 VLESS-561 | free-nodes",
     "未知 VLESS-562 | free-nodes",
-    "未知 VLESS-563 | free-nodes",
-    "未知 VLESS-568 | free-nodes"
+    "未知 VLESS-565 | free-nodes"
   ]
 }
