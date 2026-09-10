@@ -1,35 +1,21 @@
 {
   "batch_index": 3,
-  "batch_size": 29,
-  "tested_at": "2026-09-10T05:09:46+08:00",
+  "batch_size": 28,
+  "tested_at": "2026-09-10T12:36:36+08:00",
   "source_file": "clash20260910.yml",
-  "pool_total": 170,
-  "tested": 29,
-  "alive": 1,
-  "new_alive": 1,
+  "pool_total": 171,
+  "tested": 28,
+  "alive": 0,
+  "new_alive": 0,
   "prev_kept": 0,
   "relaxed": false,
-  "nodes": [
-    {
-      "name": "未知 VLESS-771 | free-nodes",
-      "server": "brightharbor.download",
-      "port": 443,
-      "type": "vless",
-      "uuid": "6429d27e-a7d4-4e04-ae57-e88243fbbfe3",
-      "tls": true,
-      "tfo": false,
-      "flow": "xtls-rprx-vision",
-      "skip-cert-verify": false,
-      "reality-opts": {
-        "public-key": "F2VfBr2UmjDTErB_oruvW5aIvzH_xGfM2AW5_w-DF0I"
-      },
-      "servername": "localhost",
-      "client-fingerprint": "chrome",
-      "network": "tcp",
-      "delay_ms": 682
-    }
-  ],
+  "nodes": [],
   "failed": [
+    "未知 VLESS-639 | free-nodes",
+    "未知 VLESS-643 | free-nodes",
+    "未知 VLESS-707 | free-nodes",
+    "未知 VLESS-708 | free-nodes",
+    "未知 VLESS-712 | free-nodes",
     "未知 VLESS-713 | free-nodes",
     "未知 VLESS-715 | free-nodes",
     "未知 VLESS-717 | free-nodes",
@@ -52,11 +38,6 @@
     "未知 VLESS-818 | free-nodes",
     "未知 VLESS-819 | free-nodes",
     "未知 VLESS-822 | free-nodes",
-    "未知 VLESS-919 | free-nodes",
-    "未知 VLESS-922 | free-nodes",
-    "未知 VLESS-926 | free-nodes",
-    "未知 VLESS-928 | free-nodes",
-    "未知 VLESS-931 | free-nodes",
-    "未知 VLESS-936 | free-nodes"
+    "未知 VLESS-919 | free-nodes"
   ]
 }
