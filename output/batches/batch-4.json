@@ -1,18 +1,44 @@
 {
   "batch_index": 4,
-  "batch_size": 29,
-  "tested_at": "2026-09-10T05:12:13+08:00",
+  "batch_size": 28,
+  "tested_at": "2026-09-10T12:36:32+08:00",
   "source_file": "clash20260910.yml",
-  "pool_total": 170,
-  "tested": 29,
-  "alive": 0,
-  "new_alive": 0,
+  "pool_total": 171,
+  "tested": 28,
+  "alive": 1,
+  "new_alive": 1,
   "prev_kept": 0,
   "relaxed": false,
-  "nodes": [],
+  "nodes": [
+    {
+      "name": "未知 VLESS-944 | free-nodes",
+      "server": "185.223.57.16",
+      "port": 33743,
+      "type": "vless",
+      "uuid": "b3a11068-1a7e-4643-85de-7c82cce46943",
+      "tls": true,
+      "tfo": false,
+      "skip-cert-verify": false,
+      "reality-opts": {
+        "public-key": "wGMBs7bvzyzA0-OUiwSkOOTDEMdxEOsSdRzxiP8GGQY"
+      },
+      "servername": "www.google.com",
+      "client-fingerprint": "chrome",
+      "network": "grpc",
+      "grpc-opts": {
+        "grpc-mode": "gun",
+        "grpc-service-name": "TunService"
+      },
+      "delay_ms": 246
+    }
+  ],
   "failed": [
+    "未知 VLESS-922 | free-nodes",
+    "未知 VLESS-926 | free-nodes",
+    "未知 VLESS-928 | free-nodes",
+    "未知 VLESS-931 | free-nodes",
+    "未知 VLESS-936 | free-nodes",
     "未知 VLESS-943 | free-nodes",
-    "未知 VLESS-944 | free-nodes",
     "未知 VLESS-945 | free-nodes",
     "未知 VLESS-946 | free-nodes",
     "未知 VLESS-947 | free-nodes",
@@ -24,7 +50,7 @@
     "未知 VLESS-966 | free-nodes",
     "未知 VLESS-968 | free-nodes",
     "未知 VLESS-973 | free-nodes",
-    "未知 VLESS-975 | free-nodes",
+    "未知 VLESS-975 | free-nodes #2",
     "未知 VLESS-977 | free-nodes",
     "未知 VLESS-981 | free-nodes",
     "未知 VLESS-982 | free-nodes",
@@ -33,12 +59,6 @@
     "未知 VLESS-986 | free-nodes",
     "未知 VLESS-987 | free-nodes",
     "未知 VLESS-988 | free-nodes",
-    "未知 VLESS-991 | free-nodes",
-    "未知 VLESS-998 | free-nodes",
-    "未知 VLESS-1000 | free-nodes",
-    "未知 VLESS-1006 | free-nodes",
-    "未知 VLESS-1008 | free-nodes",
-    "未知 VLESS-1009 | free-nodes",
-    "未知 VLESS-1010 | free-nodes"
+    "未知 VLESS-991 | free-nodes"
   ]
 }
