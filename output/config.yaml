@@ -5,6 +5,21 @@ log-level: info
 unified-delay: true
 tcp-concurrent: true
 proxies:
+- name: 未知 VMESS-1022 | free-nodes
+  server: 112.132.215.108
+  port: 50002
+  type: vmess
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 64
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+- name: 未知 SS-513 | free-nodes
+  server: 64.177.90.30
+  port: 8388
+  type: ss
+  cipher: aes-256-gcm
+  password: BWyPPTusFKhGgzKh
 - name: 未知 VLESS-952 | free-nodes
   server: 178.105.61.61
   port: 2083
@@ -20,66 +35,6 @@ proxies:
   servername: 178.105.61.61
   client-fingerprint: chrome
   network: tcp
-- name: 未知 VLESS-771 | free-nodes
-  server: brightharbor.download
-  port: 443
-  type: vless
-  uuid: 6429d27e-a7d4-4e04-ae57-e88243fbbfe3
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: F2VfBr2UmjDTErB_oruvW5aIvzH_xGfM2AW5_w-DF0I
-  servername: localhost
-  client-fingerprint: chrome
-  network: tcp
-- name: 未知 VLESS-936 | free-nodes
-  server: aljha.typeshoes.online
-  port: 443
-  type: vless
-  uuid: acc591a0-04ae-4676-996a-e6fe01b26ed2
-  tls: true
-  tfo: false
-  skip-cert-verify: false
-  servername: aljha.typeshoes.online
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /kdi
-    headers:
-      Host: aljha.typeshoes.online
-- name: 未知 VLESS-964 | free-nodes
-  server: 94.183.209.59
-  port: 443
-  type: vless
-  uuid: d23cb516-40db-4aa4-8142-6b45ff882f90
-  tls: false
-  tfo: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-- name: 未知 VLESS-687 | free-nodes
-  server: 45.74.158.180
-  port: 443
-  type: vless
-  uuid: 42994234-1689-48bc-8d01-cfb16e7b017a
-  tls: true
-  tfo: false
-  skip-cert-verify: false
-  reality-opts:
-    public-key: MgyA2FY0p2q_VOwoL9T1Z3rzpKEcGjfN61QliGcyHA8
-    short-id: ca41ef1263c02279
-  servername: refersion.com
-  client-fingerprint: chrome
-  network: tcp
-- name: 未知 SS-509 | free-nodes
-  server: 212.192.15.86
-  port: 20111
-  type: ss
-  cipher: aes-256-gcm
-  password: 72553320ae6bcc8f
 - name: 未知 TROJAN-539 | free-nodes
   server: 104.21.70.21
   port: 443
@@ -92,32 +47,42 @@ proxies:
     path: /trojan
     headers:
       Host: id1.nathaya.web.id
+- name: 未知 TROJAN-546 | free-nodes
+  server: 188.42.145.180
+  port: 443
+  type: trojan
+  password: humanity
+  sni: www.volumeroot.com
+  alpn:
+  - http/1.1
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.volumeroot.com
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies:
   - ♻️ 自动选择
   - DIRECT
+  - 未知 VMESS-1022 | free-nodes
+  - 未知 SS-513 | free-nodes
   - 未知 VLESS-952 | free-nodes
-  - 未知 VLESS-771 | free-nodes
-  - 未知 VLESS-936 | free-nodes
-  - 未知 VLESS-964 | free-nodes
-  - 未知 VLESS-687 | free-nodes
-  - 未知 SS-509 | free-nodes
   - 未知 TROJAN-539 | free-nodes
+  - 未知 TROJAN-546 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 1800
   tolerance: 150
   proxies:
+  - 未知 VMESS-1022 | free-nodes
+  - 未知 SS-513 | free-nodes
   - 未知 VLESS-952 | free-nodes
-  - 未知 VLESS-771 | free-nodes
-  - 未知 VLESS-936 | free-nodes
-  - 未知 VLESS-964 | free-nodes
-  - 未知 VLESS-687 | free-nodes
-  - 未知 SS-509 | free-nodes
   - 未知 TROJAN-539 | free-nodes
+  - 未知 TROJAN-546 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve

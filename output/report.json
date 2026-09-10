@@ -1,68 +1,60 @@
 {
-  "tested_at": "2026-09-11T04:15:22+08:00",
+  "tested_at": "2026-09-11T04:52:59+08:00",
   "source": {
-    "source_file": "chunked-probe",
-    "raw_count": 129
+    "source_file": "prescreen+retest",
+    "raw_count": 129,
+    "prescreen": true,
+    "retest_batches": 6
   },
   "candidates": 129,
-  "alive": 7,
-  "new_alive": 1,
-  "prev_kept": 6,
+  "alive": 5,
+  "new_alive": 3,
+  "prev_kept": 2,
   "dual_round_test": false,
   "relaxed": true,
   "nodes": [
+    {
+      "name": "未知 VMESS-1022 | free-nodes",
+      "type": "vmess",
+      "server": "112.132.215.108",
+      "port": 50002,
+      "delay_ms": 91
+    },
+    {
+      "name": "未知 SS-513 | free-nodes",
+      "type": "ss",
+      "server": "64.177.90.30",
+      "port": 8388,
+      "delay_ms": 441
+    },
     {
       "name": "未知 VLESS-952 | free-nodes",
       "type": "vless",
       "server": "178.105.61.61",
       "port": 2083,
-      "delay_ms": 666
-    },
-    {
-      "name": "未知 VLESS-771 | free-nodes",
-      "type": "vless",
-      "server": "brightharbor.download",
-      "port": 443,
-      "delay_ms": 706
-    },
-    {
-      "name": "未知 VLESS-936 | free-nodes",
-      "type": "vless",
-      "server": "aljha.typeshoes.online",
-      "port": 443,
-      "delay_ms": 872
-    },
-    {
-      "name": "未知 VLESS-964 | free-nodes",
-      "type": "vless",
-      "server": "94.183.209.59",
-      "port": 443,
-      "delay_ms": 879
-    },
-    {
-      "name": "未知 VLESS-687 | free-nodes",
-      "type": "vless",
-      "server": "45.74.158.180",
-      "port": 443,
-      "delay_ms": 1047
-    },
-    {
-      "name": "未知 SS-509 | free-nodes",
-      "type": "ss",
-      "server": "212.192.15.86",
-      "port": 20111,
-      "delay_ms": 1309
+      "delay_ms": 645
     },
     {
       "name": "未知 TROJAN-539 | free-nodes",
       "type": "trojan",
       "server": "104.21.70.21",
       "port": 443,
-      "delay_ms": 2229
+      "delay_ms": 1360
+    },
+    {
+      "name": "未知 TROJAN-546 | free-nodes",
+      "type": "trojan",
+      "server": "188.42.145.180",
+      "port": 443,
+      "delay_ms": 2494
     }
   ],
   "failed": [
-    "未知 VMESS-1022 | free-nodes",
+    "未知 VLESS-771 | free-nodes",
+    "未知 VLESS-687 | free-nodes",
+    "未知 SS-509 | free-nodes",
+    "未知 VLESS-964 | free-nodes",
+    "未知 VLESS-936 | free-nodes",
     "未知 VLESS-549 | free-nodes",
     "未知 SS-255 | free-nodes",
     "未知 SS-307 | free-nodes",
@@ -102,7 +94,6 @@
     "未知 SS-482 | free-nodes",
     "未知 SS-484 | free-nodes",
     "未知 SS-507 | free-nodes",
-    "未知 SS-513 | free-nodes",
     "未知 SS-515 | free-nodes",
     "未知 SS-518 | free-nodes",
     "未知 SS-519 | free-nodes",
@@ -114,7 +105,6 @@
     "未知 SS-531 | free-nodes",
     "未知 SS-534 | free-nodes",
     "未知 TROJAN-543 | free-nodes",
-    "未知 TROJAN-546 | free-nodes",
     "未知 TROJAN-547 | free-nodes",
     "未知 VLESS-551 | free-nodes",
     "未知 VLESS-554 | free-nodes",
