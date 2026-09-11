@@ -8,6 +8,21 @@ proxies:
   cipher: auto
   tls: false
   skip-cert-verify: false
+- name: 未知 VLESS-954 | free-nodes
+  server: 188.114.97.6
+  port: 443
+  type: vless
+  uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
+  tls: true
+  tfo: false
+  skip-cert-verify: false
+  servername: a.cwvps.eu.org
+  client-fingerprint: unsafe
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: a.cwvps.eu.org
 - name: 未知 VLESS-821 | free-nodes
   server: 31.59.150.174
   port: 9443
