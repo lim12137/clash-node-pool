@@ -1,20 +1,4 @@
 proxies:
-- name: 未知 VLESS-941 | free-nodes
-  server: 185.223.57.10
-  port: 33743
-  type: vless
-  uuid: b3a11068-1a7e-4643-85de-7c82cce46943
-  tls: true
-  tfo: false
-  skip-cert-verify: false
-  reality-opts:
-    public-key: wGMBs7bvzyzA0-OUiwSkOOTDEMdxEOsSdRzxiP8GGQY
-  servername: www.google.com
-  client-fingerprint: chrome
-  network: grpc
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: TunService
 - name: 未知 VLESS-821 | free-nodes
   server: 31.59.150.174
   port: 9443
