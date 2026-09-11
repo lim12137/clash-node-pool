@@ -1,34 +1,15 @@
 {
   "batch_index": 2,
   "batch_size": 21,
-  "tested_at": "2026-09-12T04:55:08+08:00",
+  "tested_at": "2026-09-12T05:18:51+08:00",
   "source_file": "clash20260911.yml",
-  "pool_total": 113,
+  "pool_total": 124,
   "tested": 21,
-  "alive": 2,
-  "new_alive": 2,
+  "alive": 1,
+  "new_alive": 1,
   "prev_kept": 0,
   "relaxed": false,
   "nodes": [
-    {
-      "name": "未知 VLESS-574 | free-nodes",
-      "server": "144.31.50.236",
-      "port": 443,
-      "type": "vless",
-      "uuid": "1c332eae-7e02-4acd-996d-4eb3e652401c",
-      "tls": true,
-      "tfo": false,
-      "flow": "xtls-rprx-vision",
-      "skip-cert-verify": false,
-      "reality-opts": {
-        "public-key": "uitO4Z8t9TplwwYaqwLqh5rfxDh_X8bOBiNuPbzvaEM",
-        "short-id": "bbe46bd8f6b96839"
-      },
-      "servername": "yandex.ru",
-      "client-fingerprint": "firefox",
-      "network": "tcp",
-      "delay_ms": 1020
-    },
     {
       "name": "未知 TROJAN-540 | free-nodes",
       "server": "104.21.70.21",
@@ -44,28 +25,29 @@
           "Host": "id1.nathaya.web.id"
         }
       },
-      "delay_ms": 1374
+      "delay_ms": 1470
     }
   ],
   "failed": [
+    "未知 SS-476 | free-nodes",
+    "未知 SS-478 | free-nodes",
+    "未知 SS-480 | free-nodes",
+    "未知 SS-481 | free-nodes",
+    "未知 SS-482 | free-nodes",
     "未知 SS-483 | free-nodes",
     "未知 SS-484 | free-nodes",
     "未知 SS-486 | free-nodes",
     "未知 SS-518 | free-nodes",
     "未知 SS-519 | free-nodes",
     "未知 SS-520 | free-nodes",
-    "未知 SS-525 | free-nodes",
+    "未知 SS-521 | free-nodes",
     "未知 SS-526 | free-nodes",
     "未知 SS-527 | free-nodes",
-    "未知 SS-528 | free-nodes",
     "未知 SS-529 | free-nodes",
     "未知 SS-530 | free-nodes",
-    "未知 SS-534 | free-nodes",
+    "未知 SS-532 | free-nodes",
     "未知 SS-535 | free-nodes",
-    "未知 TROJAN-548 | free-nodes",
     "未知 TROJAN-549 | free-nodes",
-    "未知 VLESS-552 | free-nodes",
-    "未知 VLESS-563 | free-nodes",
-    "未知 VLESS-572 | free-nodes"
+    "未知 VLESS-552 | free-nodes"
   ]
 }
