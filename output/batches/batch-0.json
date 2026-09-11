@@ -1,9 +1,9 @@
 {
   "batch_index": 0,
   "batch_size": 21,
-  "tested_at": "2026-09-12T04:55:20+08:00",
+  "tested_at": "2026-09-12T05:17:16+08:00",
   "source_file": "clash20260911.yml",
-  "pool_total": 113,
+  "pool_total": 124,
   "tested": 21,
   "alive": 2,
   "new_alive": 0,
@@ -20,7 +20,7 @@
       "cipher": "auto",
       "tls": false,
       "skip-cert-verify": false,
-      "delay_ms": 2419
+      "delay_ms": 130
     },
     {
       "name": "未知 VLESS-821 | free-nodes",
@@ -39,28 +39,28 @@
       "servername": "hotcoals.aeternavpn.space",
       "client-fingerprint": "firefox",
       "network": "tcp",
-      "delay_ms": 2891
+      "delay_ms": 3789
     }
   ],
   "failed": [
     "未知 SS-513 | free-nodes",
     "未知 VLESS-551 | free-nodes",
+    "未知 VLESS-948 | free-nodes",
     "未知 SS-217 | free-nodes",
+    "未知 SS-218 | free-nodes",
     "未知 SS-223 | free-nodes",
+    "未知 SS-236 | free-nodes",
     "未知 SS-256 | free-nodes",
     "未知 SS-279 | free-nodes",
     "未知 SS-308 | free-nodes",
     "未知 SS-314 | free-nodes",
+    "未知 SS-383 | free-nodes",
     "未知 SS-416 | free-nodes",
+    "未知 SS-421 | free-nodes",
     "未知 SS-430 | free-nodes",
     "未知 SS-434 | free-nodes",
     "未知 SS-443 | free-nodes",
     "未知 SS-444 | free-nodes",
-    "未知 SS-445 | free-nodes",
-    "未知 SS-446 | free-nodes",
-    "未知 SS-447 | free-nodes",
-    "未知 SS-448 | free-nodes",
-    "未知 SS-449 | free-nodes",
-    "未知 SS-450 | free-nodes"
+    "未知 SS-445 | free-nodes"
   ]
 }
