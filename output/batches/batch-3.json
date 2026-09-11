@@ -1,36 +1,56 @@
 {
   "batch_index": 3,
   "batch_size": 21,
-  "tested_at": "2026-09-12T04:56:48+08:00",
+  "tested_at": "2026-09-12T05:17:12+08:00",
   "source_file": "clash20260911.yml",
-  "pool_total": 113,
+  "pool_total": 124,
   "tested": 21,
-  "alive": 0,
-  "new_alive": 0,
+  "alive": 1,
+  "new_alive": 1,
   "prev_kept": 0,
-  "relaxed": false,
-  "nodes": [],
+  "relaxed": true,
+  "nodes": [
+    {
+      "name": "未知 VLESS-722 | free-nodes",
+      "server": "188.114.97.6",
+      "port": 443,
+      "type": "vless",
+      "uuid": "4e4f1f70-5e56-4a76-bb9d-db087f4690c4",
+      "tls": true,
+      "tfo": false,
+      "skip-cert-verify": false,
+      "servername": "jp3.yohototo.top",
+      "client-fingerprint": "unsafe",
+      "network": "ws",
+      "ws-opts": {
+        "path": "/tyxyws",
+        "headers": {
+          "Host": "jp3.yohototo.top"
+        }
+      },
+      "delay_ms": 1772
+    }
+  ],
   "failed": [
+    "未知 VLESS-560 | free-nodes",
+    "未知 VLESS-563 | free-nodes",
+    "未知 VLESS-571 | free-nodes",
+    "未知 VLESS-572 | free-nodes",
+    "未知 VLESS-574 | free-nodes",
     "未知 VLESS-578 | free-nodes",
+    "未知 VLESS-583 | free-nodes",
     "未知 VLESS-638 | free-nodes",
-    "未知 VLESS-641 | free-nodes",
     "未知 VLESS-646 | free-nodes",
     "未知 VLESS-714 | free-nodes",
     "未知 VLESS-718 | free-nodes",
     "未知 VLESS-720 | free-nodes",
-    "未知 VLESS-722 | free-nodes",
     "未知 VLESS-776 | free-nodes",
     "未知 VLESS-791 | free-nodes",
     "未知 VLESS-796 | free-nodes",
     "未知 VLESS-799 | free-nodes",
     "未知 VLESS-801 | free-nodes",
     "未知 VLESS-802 | free-nodes",
-    "未知 VLESS-815 | free-nodes",
-    "未知 VLESS-817 | free-nodes",
-    "未知 VLESS-826 | free-nodes",
-    "未知 VLESS-827 | free-nodes",
-    "未知 VLESS-828 | free-nodes",
-    "未知 VLESS-930 | free-nodes",
-    "未知 VLESS-931 | free-nodes"
+    "未知 VLESS-814 | free-nodes",
+    "未知 VLESS-815 | free-nodes"
   ]
 }
