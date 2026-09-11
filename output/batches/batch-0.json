@@ -1,23 +1,26 @@
 {
   "batch_index": 0,
-  "batch_size": 19,
-  "tested_at": "2026-09-12T00:47:04+08:00",
+  "batch_size": 21,
+  "tested_at": "2026-09-12T04:55:20+08:00",
   "source_file": "clash20260911.yml",
   "pool_total": 113,
-  "tested": 19,
-  "alive": 3,
+  "tested": 21,
+  "alive": 2,
   "new_alive": 0,
-  "prev_kept": 3,
+  "prev_kept": 2,
   "relaxed": false,
   "nodes": [
     {
-      "name": "未知 SS-513 | free-nodes",
-      "server": "64.177.90.30",
-      "port": 8388,
-      "type": "ss",
-      "cipher": "aes-256-gcm",
-      "password": "BWyPPTusFKhGgzKh",
-      "delay_ms": 451
+      "name": "未知 VMESS-1022 | free-nodes",
+      "server": "112.132.215.108",
+      "port": 50002,
+      "type": "vmess",
+      "uuid": "418048af-a293-4b99-9b0c-98ca3580dd24",
+      "alterId": 64,
+      "cipher": "auto",
+      "tls": false,
+      "skip-cert-verify": false,
+      "delay_ms": 2419
     },
     {
       "name": "未知 VLESS-821 | free-nodes",
@@ -36,34 +39,12 @@
       "servername": "hotcoals.aeternavpn.space",
       "client-fingerprint": "firefox",
       "network": "tcp",
-      "delay_ms": 2993
-    },
-    {
-      "name": "未知 VLESS-551 | free-nodes",
-      "server": "lv-irancell.xelfona.ir",
-      "port": 20018,
-      "type": "vless",
-      "uuid": "028f3908-8885-4f06-ba95-777a435074bd",
-      "tls": false,
-      "tfo": false,
-      "skip-cert-verify": false,
-      "network": "http",
-      "http-opts": {
-        "method": "GET",
-        "path": [
-          "/"
-        ],
-        "headers": {
-          "Host": [
-            "play-apps-features.googleusercontent.com"
-          ]
-        }
-      },
-      "delay_ms": 4141
+      "delay_ms": 2891
     }
   ],
   "failed": [
-    "未知 VMESS-1022 | free-nodes",
+    "未知 SS-513 | free-nodes",
+    "未知 VLESS-551 | free-nodes",
     "未知 SS-217 | free-nodes",
     "未知 SS-223 | free-nodes",
     "未知 SS-256 | free-nodes",
@@ -78,6 +59,8 @@
     "未知 SS-445 | free-nodes",
     "未知 SS-446 | free-nodes",
     "未知 SS-447 | free-nodes",
-    "未知 SS-448 | free-nodes"
+    "未知 SS-448 | free-nodes",
+    "未知 SS-449 | free-nodes",
+    "未知 SS-450 | free-nodes"
   ]
 }
