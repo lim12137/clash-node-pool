@@ -1,17 +1,16 @@
 {
   "batch_index": 1,
-  "batch_size": 25,
-  "tested_at": "2026-09-11T05:13:30+08:00",
+  "batch_size": 26,
+  "tested_at": "2026-09-11T12:34:11+08:00",
   "source_file": "clash20260911.yml",
   "pool_total": 145,
-  "tested": 25,
+  "tested": 26,
   "alive": 0,
   "new_alive": 0,
   "prev_kept": 0,
   "relaxed": false,
   "nodes": [],
   "failed": [
-    "未知 SS-450 | free-nodes",
     "未知 SS-451 | free-nodes",
     "未知 SS-452 | free-nodes",
     "未知 SS-453 | free-nodes",
@@ -35,6 +34,8 @@
     "未知 SS-482 | free-nodes",
     "未知 SS-483 | free-nodes",
     "未知 SS-485 | free-nodes",
-    "未知 SS-517 | free-nodes"
+    "未知 SS-517 | free-nodes",
+    "未知 SS-518 | free-nodes",
+    "未知 SS-520 | free-nodes"
   ]
 }
