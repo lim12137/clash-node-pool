@@ -1,37 +1,17 @@
 {
   "batch_index": 5,
   "batch_size": 23,
-  "tested_at": "2026-09-11T19:14:02+08:00",
+  "tested_at": "2026-09-11T19:49:35+08:00",
   "source_file": "clash20260911.yml",
   "pool_total": 152,
   "tested": 23,
-  "alive": 1,
-  "new_alive": 1,
+  "alive": 0,
+  "new_alive": 0,
   "prev_kept": 0,
-  "relaxed": true,
-  "nodes": [
-    {
-      "name": "未知 VLESS-953 | free-nodes",
-      "server": "172.67.217.240",
-      "port": 443,
-      "type": "vless",
-      "uuid": "c4edb87e-8544-4fa4-bd1c-b0cda9a34b46",
-      "tls": true,
-      "tfo": false,
-      "skip-cert-verify": false,
-      "servername": "a.cwvps.eu.org",
-      "client-fingerprint": "unsafe",
-      "network": "ws",
-      "ws-opts": {
-        "path": "/ws",
-        "headers": {
-          "Host": "a.cwvps.eu.org"
-        }
-      },
-      "delay_ms": 2744
-    }
-  ],
+  "relaxed": false,
+  "nodes": [],
   "failed": [
+    "未知 VLESS-953 | free-nodes",
     "未知 VLESS-960 | free-nodes",
     "未知 VLESS-962 | free-nodes",
     "未知 VLESS-963 | free-nodes",
