@@ -1,16 +1,51 @@
 {
   "batch_index": 5,
-  "batch_size": 26,
-  "tested_at": "2026-09-11T13:15:39+08:00",
+  "batch_size": 23,
+  "tested_at": "2026-09-11T19:14:02+08:00",
   "source_file": "clash20260911.yml",
   "pool_total": 152,
-  "tested": 22,
-  "alive": 0,
-  "new_alive": 0,
+  "tested": 23,
+  "alive": 1,
+  "new_alive": 1,
   "prev_kept": 0,
-  "relaxed": false,
-  "nodes": [],
+  "relaxed": true,
+  "nodes": [
+    {
+      "name": "未知 VLESS-953 | free-nodes",
+      "server": "172.67.217.240",
+      "port": 443,
+      "type": "vless",
+      "uuid": "c4edb87e-8544-4fa4-bd1c-b0cda9a34b46",
+      "tls": true,
+      "tfo": false,
+      "skip-cert-verify": false,
+      "servername": "a.cwvps.eu.org",
+      "client-fingerprint": "unsafe",
+      "network": "ws",
+      "ws-opts": {
+        "path": "/ws",
+        "headers": {
+          "Host": "a.cwvps.eu.org"
+        }
+      },
+      "delay_ms": 2744
+    }
+  ],
   "failed": [
+    "未知 VLESS-960 | free-nodes",
+    "未知 VLESS-962 | free-nodes",
+    "未知 VLESS-963 | free-nodes",
+    "未知 VLESS-964 | free-nodes",
+    "未知 VLESS-966 | free-nodes",
+    "未知 VLESS-967 | free-nodes",
+    "未知 VLESS-969 | free-nodes",
+    "未知 VLESS-970 | free-nodes",
+    "未知 VLESS-975 | free-nodes",
+    "未知 VLESS-980 | free-nodes",
+    "未知 VLESS-983 | free-nodes",
+    "未知 VLESS-984 | free-nodes",
+    "未知 VLESS-986 | free-nodes",
+    "未知 VLESS-987 | free-nodes",
     "未知 VLESS-990 | free-nodes",
     "未知 VLESS-997 | free-nodes",
     "未知 VLESS-1004 | free-nodes",
@@ -18,20 +53,6 @@
     "未知 VLESS-1008 | free-nodes",
     "未知 VLESS-1009 | free-nodes",
     "未知 VLESS-1010 | free-nodes",
-    "未知 VLESS-1011 | free-nodes",
-    "未知 VMESS-1025 | free-nodes",
-    "未知 VMESS-1046 | free-nodes",
-    "未知 VMESS-1047 | free-nodes",
-    "未知 VMESS-1049 | free-nodes",
-    "未知 VMESS-1058 | free-nodes",
-    "未知 VMESS-1104 | free-nodes",
-    "未知 VMESS-1112 | free-nodes",
-    "未知 VMESS-1114 | free-nodes",
-    "未知 VMESS-1138 | free-nodes",
-    "未知 VMESS-1142 | free-nodes",
-    "未知 VMESS-1326 | free-nodes",
-    "未知 VMESS-1422 | free-nodes",
-    "未知 VMESS-1485 | free-nodes",
-    "未知 VMESS-1492 | free-nodes"
+    "未知 VLESS-1011 | free-nodes"
   ]
 }
