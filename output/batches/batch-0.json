@@ -1,12 +1,12 @@
 {
   "batch_index": 0,
-  "batch_size": 25,
-  "tested_at": "2026-09-11T05:11:55+08:00",
+  "batch_size": 26,
+  "tested_at": "2026-09-11T12:32:04+08:00",
   "source_file": "clash20260911.yml",
   "pool_total": 145,
-  "tested": 25,
-  "alive": 3,
-  "new_alive": 1,
+  "tested": 26,
+  "alive": 2,
+  "new_alive": 0,
   "prev_kept": 2,
   "relaxed": false,
   "nodes": [
@@ -20,45 +20,37 @@
       "cipher": "auto",
       "tls": false,
       "skip-cert-verify": false,
-      "delay_ms": 116
+      "delay_ms": 102
     },
     {
-      "name": "未知 SS-143 | free-nodes",
-      "server": "146.235.19.129",
-      "port": 56927,
-      "type": "ss",
-      "cipher": "2022-blake3-chacha20-poly1305",
-      "password": "i699dvro3+yyb9U6o3qsojnoZw2MsymfU8jhW6SzVLg=",
-      "delay_ms": 463
-    },
-    {
-      "name": "未知 VLESS-952 | free-nodes",
-      "server": "178.105.61.61",
-      "port": 2083,
+      "name": "未知 VLESS-821 | free-nodes",
+      "server": "31.59.150.174",
+      "port": 9443,
       "type": "vless",
-      "uuid": "cb077bf2-70b7-457b-af42-27cdc3e0e544",
+      "uuid": "92089155-6602-4122-86d4-fe6de20e8c4d",
       "tls": true,
       "tfo": false,
       "flow": "xtls-rprx-vision",
       "skip-cert-verify": false,
       "reality-opts": {
-        "public-key": "H0nCazQFHVhSObfqSUhGLhK7KRwKzTMggIBPjnMMqhk",
-        "short-id": "af04ff8094115e93"
+        "public-key": "RWu6ktBE4DFbUz_prmz-5KuolLhO53ehh19mNxhP-wI",
+        "short-id": "a1b2c3d4"
       },
-      "servername": "178.105.61.61",
-      "client-fingerprint": "chrome",
+      "servername": "hotcoals.aeternavpn.space",
+      "client-fingerprint": "firefox",
       "network": "tcp",
-      "delay_ms": 636
+      "delay_ms": 4478
     }
   ],
   "failed": [
+    "未知 VLESS-952 | free-nodes",
     "未知 VLESS-771 | free-nodes",
+    "未知 VLESS-936 | free-nodes",
+    "未知 VLESS-964 | free-nodes",
     "未知 VLESS-687 | free-nodes",
     "未知 SS-509 | free-nodes",
-    "未知 VLESS-964 | free-nodes",
-    "未知 VLESS-936 | free-nodes",
-    "未知 VLESS-549 | free-nodes",
     "未知 TROJAN-539 | free-nodes",
+    "未知 SS-143 | free-nodes",
     "未知 SS-217 | free-nodes",
     "未知 SS-218 | free-nodes",
     "未知 SS-223 | free-nodes",
@@ -73,6 +65,7 @@
     "未知 SS-446 | free-nodes",
     "未知 SS-447 | free-nodes",
     "未知 SS-448 | free-nodes",
-    "未知 SS-449 | free-nodes"
+    "未知 SS-449 | free-nodes",
+    "未知 SS-450 | free-nodes"
   ]
 }
