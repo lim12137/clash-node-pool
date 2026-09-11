@@ -1,13 +1,15 @@
 {
-  "tested_at": "2026-09-12T03:59:30+08:00",
+  "tested_at": "2026-09-12T04:58:14+08:00",
   "source": {
-    "source_file": "chunked-probe",
-    "raw_count": 113
+    "source_file": "prescreen+retest",
+    "raw_count": 113,
+    "prescreen": true,
+    "retest_batches": 6
   },
   "candidates": 113,
-  "alive": 4,
-  "new_alive": 1,
-  "prev_kept": 3,
+  "alive": 5,
+  "new_alive": 3,
+  "prev_kept": 2,
   "dual_round_test": true,
   "relaxed": false,
   "nodes": [
@@ -16,32 +18,40 @@
       "type": "vless",
       "server": "185.223.57.10",
       "port": 33743,
-      "delay_ms": 229
+      "delay_ms": 223
     },
     {
-      "name": "未知 SS-513 | free-nodes",
-      "type": "ss",
-      "server": "64.177.90.30",
-      "port": 8388,
-      "delay_ms": 451
+      "name": "未知 VLESS-574 | free-nodes",
+      "type": "vless",
+      "server": "144.31.50.236",
+      "port": 443,
+      "delay_ms": 1020
+    },
+    {
+      "name": "未知 TROJAN-540 | free-nodes",
+      "type": "trojan",
+      "server": "104.21.70.21",
+      "port": 443,
+      "delay_ms": 1374
+    },
+    {
+      "name": "未知 VMESS-1022 | free-nodes",
+      "type": "vmess",
+      "server": "112.132.215.108",
+      "port": 50002,
+      "delay_ms": 2419
     },
     {
       "name": "未知 VLESS-821 | free-nodes",
       "type": "vless",
       "server": "31.59.150.174",
       "port": 9443,
-      "delay_ms": 2993
-    },
-    {
-      "name": "未知 VLESS-551 | free-nodes",
-      "type": "vless",
-      "server": "lv-irancell.xelfona.ir",
-      "port": 20018,
-      "delay_ms": 4141
+      "delay_ms": 2891
     }
   ],
   "failed": [
-    "未知 VMESS-1022 | free-nodes",
+    "未知 SS-513 | free-nodes",
+    "未知 VLESS-551 | free-nodes",
     "未知 SS-217 | free-nodes",
     "未知 SS-223 | free-nodes",
     "未知 SS-256 | free-nodes",
@@ -94,13 +104,11 @@
     "未知 SS-530 | free-nodes",
     "未知 SS-534 | free-nodes",
     "未知 SS-535 | free-nodes",
-    "未知 TROJAN-540 | free-nodes",
     "未知 TROJAN-548 | free-nodes",
     "未知 TROJAN-549 | free-nodes",
     "未知 VLESS-552 | free-nodes",
     "未知 VLESS-563 | free-nodes",
     "未知 VLESS-572 | free-nodes",
-    "未知 VLESS-574 | free-nodes",
     "未知 VLESS-578 | free-nodes",
     "未知 VLESS-638 | free-nodes",
     "未知 VLESS-641 | free-nodes",

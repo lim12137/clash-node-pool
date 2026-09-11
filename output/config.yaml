@@ -21,12 +21,42 @@ proxies:
   grpc-opts:
     grpc-mode: gun
     grpc-service-name: TunService
-- name: 未知 SS-513 | free-nodes
-  server: 64.177.90.30
-  port: 8388
-  type: ss
-  cipher: aes-256-gcm
-  password: BWyPPTusFKhGgzKh
+- name: 未知 VLESS-574 | free-nodes
+  server: 144.31.50.236
+  port: 443
+  type: vless
+  uuid: 1c332eae-7e02-4acd-996d-4eb3e652401c
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: uitO4Z8t9TplwwYaqwLqh5rfxDh_X8bOBiNuPbzvaEM
+    short-id: bbe46bd8f6b96839
+  servername: yandex.ru
+  client-fingerprint: firefox
+  network: tcp
+- name: 未知 TROJAN-540 | free-nodes
+  server: 104.21.70.21
+  port: 443
+  type: trojan
+  password: 018b8e7b-7813-4dcb-84a5-3c98f1521e00
+  sni: id1.nathaya.web.id
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /trojan
+    headers:
+      Host: id1.nathaya.web.id
+- name: 未知 VMESS-1022 | free-nodes
+  server: 112.132.215.108
+  port: 50002
+  type: vmess
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 64
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
 - name: 未知 VLESS-821 | free-nodes
   server: 31.59.150.174
   port: 9443
@@ -42,22 +72,6 @@ proxies:
   servername: hotcoals.aeternavpn.space
   client-fingerprint: firefox
   network: tcp
-- name: 未知 VLESS-551 | free-nodes
-  server: lv-irancell.xelfona.ir
-  port: 20018
-  type: vless
-  uuid: 028f3908-8885-4f06-ba95-777a435074bd
-  tls: false
-  tfo: false
-  skip-cert-verify: false
-  network: http
-  http-opts:
-    method: GET
-    path:
-    - /
-    headers:
-      Host:
-      - play-apps-features.googleusercontent.com
 proxy-groups:
 - name: 🚀 节点选择
   type: select
@@ -65,9 +79,10 @@ proxy-groups:
   - ♻️ 自动选择
   - DIRECT
   - 未知 VLESS-948 | free-nodes
-  - 未知 SS-513 | free-nodes
+  - 未知 VLESS-574 | free-nodes
+  - 未知 TROJAN-540 | free-nodes
+  - 未知 VMESS-1022 | free-nodes
   - 未知 VLESS-821 | free-nodes
-  - 未知 VLESS-551 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
@@ -75,9 +90,10 @@ proxy-groups:
   tolerance: 150
   proxies:
   - 未知 VLESS-948 | free-nodes
-  - 未知 SS-513 | free-nodes
+  - 未知 VLESS-574 | free-nodes
+  - 未知 TROJAN-540 | free-nodes
+  - 未知 VMESS-1022 | free-nodes
   - 未知 VLESS-821 | free-nodes
-  - 未知 VLESS-551 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
