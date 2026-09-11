@@ -1,10 +1,8 @@
 {
-  "tested_at": "2026-09-12T00:50:03+08:00",
+  "tested_at": "2026-09-12T03:59:30+08:00",
   "source": {
-    "source_file": "prescreen+retest",
-    "raw_count": 113,
-    "prescreen": true,
-    "retest_batches": 6
+    "source_file": "chunked-probe",
+    "raw_count": 113
   },
   "candidates": 113,
   "alive": 4,
