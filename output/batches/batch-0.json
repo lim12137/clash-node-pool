@@ -1,34 +1,15 @@
 {
   "batch_index": 0,
-  "batch_size": 26,
-  "tested_at": "2026-09-11T13:14:19+08:00",
+  "batch_size": 23,
+  "tested_at": "2026-09-11T19:13:28+08:00",
   "source_file": "clash20260911.yml",
   "pool_total": 152,
-  "tested": 26,
-  "alive": 2,
+  "tested": 23,
+  "alive": 1,
   "new_alive": 0,
-  "prev_kept": 2,
+  "prev_kept": 1,
   "relaxed": false,
   "nodes": [
-    {
-      "name": "未知 VLESS-821 | free-nodes",
-      "server": "31.59.150.174",
-      "port": 9443,
-      "type": "vless",
-      "uuid": "92089155-6602-4122-86d4-fe6de20e8c4d",
-      "tls": true,
-      "tfo": false,
-      "flow": "xtls-rprx-vision",
-      "skip-cert-verify": false,
-      "reality-opts": {
-        "public-key": "RWu6ktBE4DFbUz_prmz-5KuolLhO53ehh19mNxhP-wI",
-        "short-id": "a1b2c3d4"
-      },
-      "servername": "hotcoals.aeternavpn.space",
-      "client-fingerprint": "firefox",
-      "network": "tcp",
-      "delay_ms": 2253
-    },
     {
       "name": "未知 VMESS-1022 | free-nodes",
       "server": "112.132.215.108",
@@ -39,10 +20,11 @@
       "cipher": "auto",
       "tls": false,
       "skip-cert-verify": false,
-      "delay_ms": 3055
+      "delay_ms": 1268
     }
   ],
   "failed": [
+    "未知 VLESS-821 | free-nodes",
     "未知 SS-217 | free-nodes",
     "未知 SS-236 | free-nodes",
     "未知 SS-256 | free-nodes",
@@ -63,9 +45,6 @@
     "未知 SS-450 | free-nodes",
     "未知 SS-451 | free-nodes",
     "未知 SS-452 | free-nodes",
-    "未知 SS-453 | free-nodes",
-    "未知 SS-454 | free-nodes",
-    "未知 SS-455 | free-nodes",
-    "未知 SS-456 | free-nodes"
+    "未知 SS-453 | free-nodes"
   ]
 }
