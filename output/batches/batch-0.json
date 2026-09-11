@@ -1,30 +1,18 @@
 {
   "batch_index": 0,
   "batch_size": 23,
-  "tested_at": "2026-09-11T19:13:28+08:00",
+  "tested_at": "2026-09-11T19:49:43+08:00",
   "source_file": "clash20260911.yml",
   "pool_total": 152,
   "tested": 23,
-  "alive": 1,
+  "alive": 0,
   "new_alive": 0,
-  "prev_kept": 1,
+  "prev_kept": 0,
   "relaxed": false,
-  "nodes": [
-    {
-      "name": "未知 VMESS-1022 | free-nodes",
-      "server": "112.132.215.108",
-      "port": 50002,
-      "type": "vmess",
-      "uuid": "418048af-a293-4b99-9b0c-98ca3580dd24",
-      "alterId": 64,
-      "cipher": "auto",
-      "tls": false,
-      "skip-cert-verify": false,
-      "delay_ms": 1268
-    }
-  ],
+  "nodes": [],
   "failed": [
     "未知 VLESS-821 | free-nodes",
+    "未知 VMESS-1022 | free-nodes",
     "未知 SS-217 | free-nodes",
     "未知 SS-236 | free-nodes",
     "未知 SS-256 | free-nodes",
