@@ -5,30 +5,22 @@ log-level: info
 unified-delay: true
 tcp-concurrent: true
 proxies:
-- name: 未知 VMESS-1022 | free-nodes
-  server: 112.132.215.108
-  port: 50002
-  type: vmess
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 64
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-- name: 未知 VLESS-954 | free-nodes
-  server: 188.114.97.6
-  port: 443
+- name: 未知 VLESS-941 | free-nodes
+  server: 185.223.57.10
+  port: 33743
   type: vless
-  uuid: c4edb87e-8544-4fa4-bd1c-b0cda9a34b46
+  uuid: b3a11068-1a7e-4643-85de-7c82cce46943
   tls: true
   tfo: false
   skip-cert-verify: false
-  servername: a.cwvps.eu.org
-  client-fingerprint: unsafe
-  network: ws
-  ws-opts:
-    path: /ws
-    headers:
-      Host: a.cwvps.eu.org
+  reality-opts:
+    public-key: wGMBs7bvzyzA0-OUiwSkOOTDEMdxEOsSdRzxiP8GGQY
+  servername: www.google.com
+  client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: TunService
 - name: 未知 VLESS-821 | free-nodes
   server: 31.59.150.174
   port: 9443
@@ -44,24 +36,33 @@ proxies:
   servername: hotcoals.aeternavpn.space
   client-fingerprint: firefox
   network: tcp
+- name: 未知 VMESS-1022 | free-nodes
+  server: 112.132.215.108
+  port: 50002
+  type: vmess
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 64
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies:
   - ♻️ 自动选择
   - DIRECT
-  - 未知 VMESS-1022 | free-nodes
-  - 未知 VLESS-954 | free-nodes
+  - 未知 VLESS-941 | free-nodes
   - 未知 VLESS-821 | free-nodes
+  - 未知 VMESS-1022 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 1800
   tolerance: 150
   proxies:
-  - 未知 VMESS-1022 | free-nodes
-  - 未知 VLESS-954 | free-nodes
+  - 未知 VLESS-941 | free-nodes
   - 未知 VLESS-821 | free-nodes
+  - 未知 VMESS-1022 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
