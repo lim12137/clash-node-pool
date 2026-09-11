@@ -29,21 +29,6 @@ proxies:
   servername: hotcoals.aeternavpn.space
   client-fingerprint: firefox
   network: tcp
-- name: 未知 VLESS-717 | free-nodes
-  server: 172.67.217.240
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  tls: true
-  tfo: false
-  skip-cert-verify: false
-  servername: jp3.yohototo.top
-  client-fingerprint: unsafe
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
 proxy-groups:
 - name: 🚀 节点选择
   type: select
@@ -52,7 +37,6 @@ proxy-groups:
   - DIRECT
   - 未知 VMESS-1022 | free-nodes
   - 未知 VLESS-821 | free-nodes
-  - 未知 VLESS-717 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
@@ -61,7 +45,6 @@ proxy-groups:
   proxies:
   - 未知 VMESS-1022 | free-nodes
   - 未知 VLESS-821 | free-nodes
-  - 未知 VLESS-717 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
