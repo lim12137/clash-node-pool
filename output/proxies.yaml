@@ -1,4 +1,41 @@
 proxies:
+- name: 未知 VLESS-948 | free-nodes
+  server: 185.223.57.10
+  port: 33743
+  type: vless
+  uuid: b3a11068-1a7e-4643-85de-7c82cce46943
+  tls: true
+  tfo: false
+  skip-cert-verify: false
+  reality-opts:
+    public-key: wGMBs7bvzyzA0-OUiwSkOOTDEMdxEOsSdRzxiP8GGQY
+  servername: www.google.com
+  client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: TunService
+- name: 未知 SS-513 | free-nodes
+  server: 64.177.90.30
+  port: 8388
+  type: ss
+  cipher: aes-256-gcm
+  password: BWyPPTusFKhGgzKh
+- name: 未知 VLESS-821 | free-nodes
+  server: 31.59.150.174
+  port: 9443
+  type: vless
+  uuid: 92089155-6602-4122-86d4-fe6de20e8c4d
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: RWu6ktBE4DFbUz_prmz-5KuolLhO53ehh19mNxhP-wI
+    short-id: a1b2c3d4
+  servername: hotcoals.aeternavpn.space
+  client-fingerprint: firefox
+  network: tcp
 - name: 未知 VLESS-551 | free-nodes
   server: lv-irancell.xelfona.ir
   port: 20018
@@ -15,12 +52,3 @@ proxies:
     headers:
       Host:
       - play-apps-features.googleusercontent.com
-- name: 未知 VMESS-1022 | free-nodes
-  server: 112.132.215.108
-  port: 50002
-  type: vmess
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 64
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
