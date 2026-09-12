@@ -1,15 +1,27 @@
 {
   "batch_index": 0,
   "batch_size": 24,
-  "tested_at": "2026-09-13T04:32:32+08:00",
-  "source_file": "clash20260912.yml",
-  "pool_total": 154,
+  "tested_at": "2026-09-13T04:56:14+08:00",
+  "source_file": "clash20260913.yml",
+  "pool_total": 142,
   "tested": 24,
-  "alive": 3,
+  "alive": 2,
   "new_alive": 0,
-  "prev_kept": 3,
+  "prev_kept": 2,
   "relaxed": false,
   "nodes": [
+    {
+      "name": "未知 VMESS-1022 | free-nodes",
+      "server": "112.132.215.108",
+      "port": 50002,
+      "type": "vmess",
+      "uuid": "418048af-a293-4b99-9b0c-98ca3580dd24",
+      "alterId": 64,
+      "cipher": "auto",
+      "tls": false,
+      "skip-cert-verify": false,
+      "delay_ms": 123
+    },
     {
       "name": "未知 VLESS-1006 | free-nodes",
       "server": "aldebaran.yokkastars.com",
@@ -26,47 +38,20 @@
       "servername": "deepl.com",
       "client-fingerprint": "chrome",
       "network": "tcp",
-      "delay_ms": 687
-    },
-    {
-      "name": "未知 VLESS-821 | free-nodes",
-      "server": "31.59.150.174",
-      "port": 9443,
-      "type": "vless",
-      "uuid": "92089155-6602-4122-86d4-fe6de20e8c4d",
-      "tls": true,
-      "tfo": false,
-      "flow": "xtls-rprx-vision",
-      "skip-cert-verify": false,
-      "reality-opts": {
-        "public-key": "RWu6ktBE4DFbUz_prmz-5KuolLhO53ehh19mNxhP-wI",
-        "short-id": "a1b2c3d4"
-      },
-      "servername": "hotcoals.aeternavpn.space",
-      "client-fingerprint": "firefox",
-      "network": "tcp",
-      "delay_ms": 1220
-    },
-    {
-      "name": "未知 VMESS-1022 | free-nodes",
-      "server": "112.132.215.108",
-      "port": 50002,
-      "type": "vmess",
-      "uuid": "418048af-a293-4b99-9b0c-98ca3580dd24",
-      "alterId": 64,
-      "cipher": "auto",
-      "tls": false,
-      "skip-cert-verify": false,
-      "delay_ms": 2171
+      "delay_ms": 723
     }
   ],
   "failed": [
-    "未知 SS-221 | free-nodes",
+    "未知 VLESS-821 | free-nodes",
+    "未知 VLESS-803 | free-nodes",
+    "未知 SS-144 | free-nodes",
+    "未知 SS-222 | free-nodes",
     "未知 SS-227 | free-nodes",
-    "未知 SS-261 | free-nodes",
-    "未知 SS-284 | free-nodes",
-    "未知 SS-313 | free-nodes",
-    "未知 SS-421 | free-nodes",
+    "未知 SS-241 | free-nodes",
+    "未知 SS-262 | free-nodes",
+    "未知 SS-285 | free-nodes",
+    "未知 SS-314 | free-nodes",
+    "未知 SS-426 | free-nodes",
     "未知 SS-435 | free-nodes",
     "未知 SS-439 | free-nodes",
     "未知 SS-449 | free-nodes",
@@ -78,9 +63,6 @@
     "未知 SS-455 | free-nodes",
     "未知 SS-456 | free-nodes",
     "未知 SS-457 | free-nodes",
-    "未知 SS-458 | free-nodes",
-    "未知 SS-459 | free-nodes",
-    "未知 SS-460 | free-nodes",
-    "未知 SS-461 | free-nodes"
+    "未知 SS-458 | free-nodes"
   ]
 }
