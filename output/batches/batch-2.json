@@ -1,45 +1,37 @@
 {
   "batch_index": 2,
-  "batch_size": 21,
-  "tested_at": "2026-09-12T05:18:51+08:00",
+  "batch_size": 27,
+  "tested_at": "2026-09-12T12:30:57+08:00",
   "source_file": "clash20260911.yml",
-  "pool_total": 124,
-  "tested": 21,
+  "pool_total": 125,
+  "tested": 27,
   "alive": 1,
   "new_alive": 1,
   "prev_kept": 0,
-  "relaxed": false,
+  "relaxed": true,
   "nodes": [
     {
-      "name": "未知 TROJAN-540 | free-nodes",
-      "server": "104.21.70.21",
+      "name": "未知 VLESS-722 | free-nodes",
+      "server": "188.114.97.6",
       "port": 443,
-      "type": "trojan",
-      "password": "018b8e7b-7813-4dcb-84a5-3c98f1521e00",
-      "sni": "id1.nathaya.web.id",
+      "type": "vless",
+      "uuid": "4e4f1f70-5e56-4a76-bb9d-db087f4690c4",
+      "tls": true,
+      "tfo": false,
       "skip-cert-verify": false,
+      "servername": "jp3.yohototo.top",
+      "client-fingerprint": "unsafe",
       "network": "ws",
       "ws-opts": {
-        "path": "/trojan",
+        "path": "/tyxyws",
         "headers": {
-          "Host": "id1.nathaya.web.id"
+          "Host": "jp3.yohototo.top"
         }
       },
-      "delay_ms": 1470
+      "delay_ms": 2110
     }
   ],
   "failed": [
-    "未知 SS-476 | free-nodes",
-    "未知 SS-478 | free-nodes",
-    "未知 SS-480 | free-nodes",
-    "未知 SS-481 | free-nodes",
-    "未知 SS-482 | free-nodes",
-    "未知 SS-483 | free-nodes",
-    "未知 SS-484 | free-nodes",
-    "未知 SS-486 | free-nodes",
-    "未知 SS-518 | free-nodes",
-    "未知 SS-519 | free-nodes",
-    "未知 SS-520 | free-nodes",
     "未知 SS-521 | free-nodes",
     "未知 SS-526 | free-nodes",
     "未知 SS-527 | free-nodes",
@@ -47,7 +39,24 @@
     "未知 SS-530 | free-nodes",
     "未知 SS-532 | free-nodes",
     "未知 SS-535 | free-nodes",
+    "未知 TROJAN-540 | free-nodes",
     "未知 TROJAN-549 | free-nodes",
-    "未知 VLESS-552 | free-nodes"
+    "未知 VLESS-552 | free-nodes",
+    "未知 VLESS-560 | free-nodes",
+    "未知 VLESS-563 | free-nodes",
+    "未知 VLESS-571 | free-nodes",
+    "未知 VLESS-572 | free-nodes",
+    "未知 VLESS-574 | free-nodes",
+    "未知 VLESS-578 | free-nodes",
+    "未知 VLESS-583 | free-nodes",
+    "未知 VLESS-638 | free-nodes",
+    "未知 VLESS-646 | free-nodes",
+    "未知 VLESS-714 | free-nodes",
+    "未知 VLESS-718 | free-nodes",
+    "未知 VLESS-720 | free-nodes",
+    "未知 VLESS-776 | free-nodes",
+    "未知 VLESS-791 | free-nodes",
+    "未知 VLESS-796 | free-nodes",
+    "未知 VLESS-799 | free-nodes"
   ]
 }
