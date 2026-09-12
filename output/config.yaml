@@ -5,6 +5,35 @@ log-level: info
 unified-delay: true
 tcp-concurrent: true
 proxies:
+- name: 未知 VLESS-803 | free-nodes
+  server: 153.75.89.137
+  port: 443
+  type: vless
+  uuid: 77da6e30-ad4e-11f1-94d5-525400d1d4f7
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: USxaWDRKvJlZ-aHR-OGBT2XwVas2j4_1rhZCCfVNCBY
+  servername: tradingview.com
+  client-fingerprint: edge
+  network: tcp
+- name: 未知 VLESS-821 | free-nodes
+  server: 31.59.150.174
+  port: 9443
+  type: vless
+  uuid: 92089155-6602-4122-86d4-fe6de20e8c4d
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: RWu6ktBE4DFbUz_prmz-5KuolLhO53ehh19mNxhP-wI
+    short-id: a1b2c3d4
+  servername: hotcoals.aeternavpn.space
+  client-fingerprint: firefox
+  network: tcp
 - name: 未知 VMESS-1022 | free-nodes
   server: 112.132.215.108
   port: 50002
@@ -20,6 +49,8 @@ proxy-groups:
   proxies:
   - ♻️ 自动选择
   - DIRECT
+  - 未知 VLESS-803 | free-nodes
+  - 未知 VLESS-821 | free-nodes
   - 未知 VMESS-1022 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
@@ -27,6 +58,8 @@ proxy-groups:
   interval: 1800
   tolerance: 150
   proxies:
+  - 未知 VLESS-803 | free-nodes
+  - 未知 VLESS-821 | free-nodes
   - 未知 VMESS-1022 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
