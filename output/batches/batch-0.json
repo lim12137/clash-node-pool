@@ -1,7 +1,7 @@
 {
   "batch_index": 0,
   "batch_size": 26,
-  "tested_at": "2026-09-12T19:14:40+08:00",
+  "tested_at": "2026-09-12T23:30:33+08:00",
   "source_file": "clash20260912.yml",
   "pool_total": 154,
   "tested": 26,
@@ -20,7 +20,7 @@
       "cipher": "auto",
       "tls": false,
       "skip-cert-verify": false,
-      "delay_ms": 276
+      "delay_ms": 121
     }
   ],
   "failed": [
