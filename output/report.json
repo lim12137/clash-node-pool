@@ -1,8 +1,10 @@
 {
-  "tested_at": "2026-09-12T21:19:47+08:00",
+  "tested_at": "2026-09-12T23:34:42+08:00",
   "source": {
-    "source_file": "chunked-probe",
-    "raw_count": 154
+    "source_file": "prescreen+retest",
+    "raw_count": 154,
+    "prescreen": true,
+    "retest_batches": 6
   },
   "candidates": 154,
   "alive": 1,
@@ -16,7 +18,7 @@
       "type": "vmess",
       "server": "112.132.215.108",
       "port": 50002,
-      "delay_ms": 276
+      "delay_ms": 121
     }
   ],
   "failed": [
