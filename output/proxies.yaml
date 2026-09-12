@@ -1,53 +1,31 @@
 proxies:
-- name: 未知 VLESS-947 | free-nodes
-  server: 193.42.39.10
-  port: 33743
-  type: vless
-  uuid: b3a11068-1a7e-4643-85de-7c82cce46943
-  tls: true
-  tfo: false
+- name: 未知 VMESS-1022 | free-nodes
+  server: 112.132.215.108
+  port: 50002
+  type: vmess
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 64
+  cipher: auto
+  tls: false
   skip-cert-verify: false
-  reality-opts:
-    public-key: wGMBs7bvzyzA0-OUiwSkOOTDEMdxEOsSdRzxiP8GGQY
-  servername: www.google.com
-  client-fingerprint: chrome
-  network: grpc
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: TunService
 - name: 未知 SS-545 | free-nodes
   server: 64.177.32.29
   port: 8388
   type: ss
   cipher: aes-256-gcm
   password: wBYiDjDDyFqcBnNl
-- name: 未知 VLESS-992 | free-nodes
-  server: 56.69.159.191
-  port: 53271
+- name: 未知 VLESS-977 | free-nodes
+  server: 82.39.171.12
+  port: 443
   type: vless
-  uuid: e8358eb5-7210-4cf8-982f-68af141b7694
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   tls: true
   tfo: false
   flow: xtls-rprx-vision
   skip-cert-verify: false
   reality-opts:
-    public-key: 1P58ZYmo81kPDnL4U7SnEUA-aT2R86l-o6dbFXoeDjc
-    short-id: 0a9bd9db19578964
-  servername: www.tesla.com
-  client-fingerprint: firefox
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  servername: yahoo.com
+  client-fingerprint: chrome
   network: tcp
-- name: 未知 VLESS-722 | free-nodes
-  server: 188.114.97.6
-  port: 443
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  tls: true
-  tfo: false
-  skip-cert-verify: false
-  servername: jp3.yohototo.top
-  client-fingerprint: unsafe
-  network: ws
-  ws-opts:
-    path: /tyxyws
-    headers:
-      Host: jp3.yohototo.top
