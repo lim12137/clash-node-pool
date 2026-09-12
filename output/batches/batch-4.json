@@ -1,39 +1,80 @@
 {
   "batch_index": 4,
   "batch_size": 24,
-  "tested_at": "2026-09-13T04:34:31+08:00",
-  "source_file": "clash20260912.yml",
-  "pool_total": 154,
+  "tested_at": "2026-09-13T04:56:13+08:00",
+  "source_file": "clash20260913.yml",
+  "pool_total": 142,
   "tested": 24,
-  "alive": 0,
-  "new_alive": 0,
+  "alive": 2,
+  "new_alive": 2,
   "prev_kept": 0,
   "relaxed": false,
-  "nodes": [],
+  "nodes": [
+    {
+      "name": "未知 VLESS-829 | free-nodes",
+      "server": "170.168.97.8",
+      "port": 8443,
+      "type": "vless",
+      "uuid": "96b44347-cac5-cfae-383b-1724ae9b5aec",
+      "tls": true,
+      "tfo": false,
+      "skip-cert-verify": false,
+      "reality-opts": {
+        "public-key": "QzFNQqkvBnDKIyjXUHJQe9jruaw9G5AV44vDC-qvnlo"
+      },
+      "servername": "www.hp.com",
+      "client-fingerprint": "chrome",
+      "network": "grpc",
+      "grpc-opts": {
+        "grpc-mode": "gun",
+        "grpc-service-name": "TunService"
+      },
+      "delay_ms": 307
+    },
+    {
+      "name": "未知 VLESS-830 | free-nodes",
+      "server": "170.168.99.8",
+      "port": 8443,
+      "type": "vless",
+      "uuid": "96b44347-cac5-cfae-383b-1724ae9b5aec",
+      "tls": true,
+      "tfo": false,
+      "skip-cert-verify": false,
+      "reality-opts": {
+        "public-key": "-GbQJg3bnEGEVFjVaRRu01cgF1f0K_maI4d5MWtMb28"
+      },
+      "servername": "www.epson.com",
+      "client-fingerprint": "chrome",
+      "network": "grpc",
+      "grpc-opts": {
+        "grpc-mode": "gun",
+        "grpc-service-name": "TunService"
+      },
+      "delay_ms": 334
+    }
+  ],
   "failed": [
-    "未知 VLESS-804 | free-nodes",
-    "未知 VLESS-805 | free-nodes",
-    "未知 VLESS-808 | free-nodes",
-    "未知 VLESS-810 | free-nodes",
-    "未知 VLESS-812 | free-nodes",
-    "未知 VLESS-816 | free-nodes",
-    "未知 VLESS-817 | free-nodes",
-    "未知 VLESS-818 | free-nodes",
-    "未知 VLESS-820 | free-nodes",
-    "未知 VLESS-827 | free-nodes",
-    "未知 VLESS-828 | free-nodes",
-    "未知 VLESS-829 | free-nodes",
-    "未知 VLESS-832 | free-nodes",
-    "未知 VLESS-929 | free-nodes",
-    "🇷🇺 RU VLESS-931 | free-nodes",
-    "未知 VLESS-934 | free-nodes",
+    "未知 VLESS-927 | free-nodes",
+    "未知 VLESS-932 | free-nodes",
+    "未知 VLESS-933 | free-nodes",
     "未知 VLESS-935 | free-nodes",
-    "未知 VLESS-937 | free-nodes",
-    "未知 VLESS-950 | free-nodes",
+    "未知 VLESS-947 | free-nodes",
+    "未知 VLESS-948 | free-nodes",
+    "未知 VLESS-949 | free-nodes",
     "未知 VLESS-951 | free-nodes",
     "未知 VLESS-952 | free-nodes",
+    "未知 VLESS-957 | free-nodes",
     "未知 VLESS-958 | free-nodes",
     "未知 VLESS-959 | free-nodes",
-    "未知 VLESS-969 | free-nodes"
+    "🇷🇺 RU VLESS-961 | free-nodes",
+    "未知 VLESS-962 | free-nodes",
+    "未知 VLESS-969 | free-nodes",
+    "未知 VLESS-971 | free-nodes",
+    "未知 VLESS-972 | free-nodes",
+    "未知 VLESS-974 | free-nodes",
+    "未知 VLESS-975 | free-nodes",
+    "未知 VLESS-977 | free-nodes",
+    "未知 VLESS-979 | free-nodes",
+    "未知 VLESS-980 | free-nodes"
   ]
 }
