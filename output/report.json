@@ -1,36 +1,45 @@
 {
-  "tested_at": "2026-09-13T03:52:25+08:00",
+  "tested_at": "2026-09-13T04:35:53+08:00",
   "source": {
-    "source_file": "chunked-probe",
-    "raw_count": 153
+    "source_file": "prescreen+retest",
+    "raw_count": 144,
+    "prescreen": true,
+    "retest_batches": 6
   },
-  "candidates": 153,
-  "alive": 3,
+  "candidates": 144,
+  "alive": 4,
   "new_alive": 1,
-  "prev_kept": 2,
-  "dual_round_test": true,
-  "relaxed": false,
+  "prev_kept": 3,
+  "dual_round_test": false,
+  "relaxed": true,
   "nodes": [
     {
-      "name": "未知 VLESS-803 | free-nodes",
-      "type": "vless",
-      "server": "153.75.89.137",
+      "name": "未知 TROJAN-554 | free-nodes",
+      "type": "trojan",
+      "server": "172.64.229.84",
       "port": 443,
-      "delay_ms": 2372
+      "delay_ms": 254
+    },
+    {
+      "name": "未知 VLESS-1006 | free-nodes",
+      "type": "vless",
+      "server": "aldebaran.yokkastars.com",
+      "port": 40443,
+      "delay_ms": 687
     },
     {
       "name": "未知 VLESS-821 | free-nodes",
       "type": "vless",
       "server": "31.59.150.174",
       "port": 9443,
-      "delay_ms": 3062
+      "delay_ms": 1220
     },
     {
       "name": "未知 VMESS-1022 | free-nodes",
       "type": "vmess",
       "server": "112.132.215.108",
       "port": 50002,
-      "delay_ms": 3647
+      "delay_ms": 2171
     }
   ],
   "failed": [
@@ -95,7 +104,6 @@
     "未知 SS-546 | free-nodes",
     "未知 TROJAN-551 | free-nodes",
     "未知 TROJAN-553 | free-nodes",
-    "未知 TROJAN-554 | free-nodes",
     "未知 TROJAN-559 | free-nodes",
     "未知 TROJAN-560 | free-nodes",
     "未知 VLESS-565 | free-nodes",
@@ -126,6 +134,7 @@
     "未知 VLESS-797 | free-nodes",
     "未知 VLESS-800 | free-nodes",
     "未知 VLESS-802 | free-nodes",
+    "未知 VLESS-803 | free-nodes",
     "未知 VLESS-804 | free-nodes",
     "未知 VLESS-805 | free-nodes",
     "未知 VLESS-808 | free-nodes",
@@ -173,16 +182,6 @@
     "未知 VLESS-1018 | free-nodes",
     "未知 VMESS-1032 | free-nodes",
     "未知 VMESS-1053 | free-nodes",
-    "未知 VMESS-1068 | free-nodes",
-    "未知 VMESS-1114 | free-nodes",
-    "未知 VMESS-1122 | free-nodes",
-    "未知 VMESS-1124 | free-nodes",
-    "未知 VMESS-1127 | free-nodes",
-    "未知 VMESS-1149 | free-nodes",
-    "未知 VMESS-1283 | free-nodes",
-    "未知 VMESS-1458 | free-nodes",
-    "未知 VMESS-1472 | free-nodes",
-    "未知 VMESS-1478 | free-nodes",
-    "未知 VMESS-1518 | free-nodes"
+    "未知 VMESS-1068 | free-nodes"
   ]
 }

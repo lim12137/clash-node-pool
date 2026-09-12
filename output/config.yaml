@@ -5,19 +5,31 @@ log-level: info
 unified-delay: true
 tcp-concurrent: true
 proxies:
-- name: 未知 VLESS-803 | free-nodes
-  server: 153.75.89.137
+- name: 未知 TROJAN-554 | free-nodes
+  server: 172.64.229.84
   port: 443
+  type: trojan
+  password: 62dbcf02-0989-4441-a01a-93f9c3b93525
+  sni: ot.hyas.space
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /x7f9k2m4p8
+    headers:
+      Host: ot.hyas.space
+- name: 未知 VLESS-1006 | free-nodes
+  server: aldebaran.yokkastars.com
+  port: 40443
   type: vless
-  uuid: 77da6e30-ad4e-11f1-94d5-525400d1d4f7
+  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
   tls: true
   tfo: false
-  flow: xtls-rprx-vision
   skip-cert-verify: false
   reality-opts:
-    public-key: USxaWDRKvJlZ-aHR-OGBT2XwVas2j4_1rhZCCfVNCBY
-  servername: tradingview.com
-  client-fingerprint: edge
+    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
+    short-id: '7606'
+  servername: deepl.com
+  client-fingerprint: chrome
   network: tcp
 - name: 未知 VLESS-821 | free-nodes
   server: 31.59.150.174
@@ -49,7 +61,8 @@ proxy-groups:
   proxies:
   - ♻️ 自动选择
   - DIRECT
-  - 未知 VLESS-803 | free-nodes
+  - 未知 TROJAN-554 | free-nodes
+  - 未知 VLESS-1006 | free-nodes
   - 未知 VLESS-821 | free-nodes
   - 未知 VMESS-1022 | free-nodes
 - name: ♻️ 自动选择
@@ -58,7 +71,8 @@ proxy-groups:
   interval: 1800
   tolerance: 150
   proxies:
-  - 未知 VLESS-803 | free-nodes
+  - 未知 TROJAN-554 | free-nodes
+  - 未知 VLESS-1006 | free-nodes
   - 未知 VLESS-821 | free-nodes
   - 未知 VMESS-1022 | free-nodes
 rules:
