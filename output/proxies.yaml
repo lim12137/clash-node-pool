@@ -8,22 +8,6 @@ proxies:
   cipher: auto
   tls: false
   skip-cert-verify: false
-- name: 未知 VLESS-829 | free-nodes
-  server: 170.168.97.8
-  port: 8443
-  type: vless
-  uuid: 96b44347-cac5-cfae-383b-1724ae9b5aec
-  tls: true
-  tfo: false
-  skip-cert-verify: false
-  reality-opts:
-    public-key: QzFNQqkvBnDKIyjXUHJQe9jruaw9G5AV44vDC-qvnlo
-  servername: www.hp.com
-  client-fingerprint: chrome
-  network: grpc
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: TunService
 - name: 未知 VLESS-830 | free-nodes
   server: 170.168.99.8
   port: 8443
@@ -40,6 +24,38 @@ proxies:
   grpc-opts:
     grpc-mode: gun
     grpc-service-name: TunService
+- name: 未知 VLESS-829 | free-nodes
+  server: 170.168.97.8
+  port: 8443
+  type: vless
+  uuid: 96b44347-cac5-cfae-383b-1724ae9b5aec
+  tls: true
+  tfo: false
+  skip-cert-verify: false
+  reality-opts:
+    public-key: QzFNQqkvBnDKIyjXUHJQe9jruaw9G5AV44vDC-qvnlo
+  servername: www.hp.com
+  client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: TunService
+- name: 未知 VLESS-566 | free-nodes
+  server: it.kanzelo.ir
+  port: 8443
+  type: vless
+  uuid: 0ecf2aa4-0ae7-1a4f-5455-b116c864542d
+  tls: false
+  tfo: false
+  skip-cert-verify: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - play-apps-features.googleusercontent.com
 - name: 未知 VLESS-1006 | free-nodes
   server: aldebaran.yokkastars.com
   port: 40443
@@ -53,4 +69,19 @@ proxies:
     short-id: '7606'
   servername: deepl.com
   client-fingerprint: chrome
+  network: tcp
+- name: 未知 VLESS-821 | free-nodes
+  server: 31.59.150.174
+  port: 9443
+  type: vless
+  uuid: 92089155-6602-4122-86d4-fe6de20e8c4d
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: RWu6ktBE4DFbUz_prmz-5KuolLhO53ehh19mNxhP-wI
+    short-id: a1b2c3d4
+  servername: hotcoals.aeternavpn.space
+  client-fingerprint: firefox
   network: tcp
