@@ -8,24 +8,18 @@ proxies:
   cipher: auto
   tls: false
   skip-cert-verify: false
-- name: 未知 SS-545 | free-nodes
-  server: 64.177.32.29
-  port: 8388
-  type: ss
-  cipher: aes-256-gcm
-  password: wBYiDjDDyFqcBnNl
-- name: 未知 VLESS-977 | free-nodes
-  server: 82.39.171.12
-  port: 443
+- name: 未知 VLESS-821 | free-nodes
+  server: 31.59.150.174
+  port: 9443
   type: vless
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  uuid: 92089155-6602-4122-86d4-fe6de20e8c4d
   tls: true
   tfo: false
   flow: xtls-rprx-vision
   skip-cert-verify: false
   reality-opts:
-    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
-    short-id: c39cc7310a
-  servername: yahoo.com
-  client-fingerprint: chrome
+    public-key: RWu6ktBE4DFbUz_prmz-5KuolLhO53ehh19mNxhP-wI
+    short-id: a1b2c3d4
+  servername: hotcoals.aeternavpn.space
+  client-fingerprint: firefox
   network: tcp
