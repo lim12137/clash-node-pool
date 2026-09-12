@@ -1,7 +1,7 @@
 {
   "batch_index": 4,
   "batch_size": 27,
-  "tested_at": "2026-09-12T12:30:54+08:00",
+  "tested_at": "2026-09-12T13:00:07+08:00",
   "source_file": "clash20260912.yml",
   "pool_total": 162,
   "tested": 27,
@@ -11,25 +11,23 @@
   "relaxed": false,
   "nodes": [
     {
-      "name": "未知 VLESS-947 | free-nodes",
-      "server": "193.42.39.10",
-      "port": 33743,
+      "name": "未知 VLESS-977 | free-nodes",
+      "server": "82.39.171.12",
+      "port": 443,
       "type": "vless",
-      "uuid": "b3a11068-1a7e-4643-85de-7c82cce46943",
+      "uuid": "d65cc14c-f53f-4fe2-b262-97856601319c",
       "tls": true,
       "tfo": false,
+      "flow": "xtls-rprx-vision",
       "skip-cert-verify": false,
       "reality-opts": {
-        "public-key": "wGMBs7bvzyzA0-OUiwSkOOTDEMdxEOsSdRzxiP8GGQY"
+        "public-key": "e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg",
+        "short-id": "c39cc7310a"
       },
-      "servername": "www.google.com",
+      "servername": "yahoo.com",
       "client-fingerprint": "chrome",
-      "network": "grpc",
-      "grpc-opts": {
-        "grpc-mode": "gun",
-        "grpc-service-name": "TunService"
-      },
-      "delay_ms": 224
+      "network": "tcp",
+      "delay_ms": 965
     }
   ],
   "failed": [
@@ -41,6 +39,7 @@
     "未知 VLESS-943 | free-nodes",
     "未知 VLESS-945 | free-nodes",
     "未知 VLESS-946 | free-nodes",
+    "未知 VLESS-947 | free-nodes",
     "未知 VLESS-948 | free-nodes",
     "未知 VLESS-953 | free-nodes",
     "未知 VLESS-954 | free-nodes",
@@ -56,7 +55,6 @@
     "未知 VLESS-972 | free-nodes",
     "未知 VLESS-973 | free-nodes",
     "未知 VLESS-975 | free-nodes",
-    "未知 VLESS-977 | free-nodes",
     "未知 VLESS-978 | free-nodes",
     "未知 VLESS-985 | free-nodes"
   ]
