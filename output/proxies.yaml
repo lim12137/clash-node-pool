@@ -1,4 +1,19 @@
 proxies:
+- name: 未知 VMESS-1022 | free-nodes
+  server: 112.132.215.108
+  port: 50002
+  type: vmess
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 64
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+- name: 未知 SS-545 | free-nodes
+  server: 64.177.32.29
+  port: 8388
+  type: ss
+  cipher: aes-256-gcm
+  password: wBYiDjDDyFqcBnNl
 - name: 未知 VLESS-821 | free-nodes
   server: 31.59.150.174
   port: 9443
@@ -14,12 +29,3 @@ proxies:
   servername: hotcoals.aeternavpn.space
   client-fingerprint: firefox
   network: tcp
-- name: 未知 VMESS-1022 | free-nodes
-  server: 112.132.215.108
-  port: 50002
-  type: vmess
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 64
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
