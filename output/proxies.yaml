@@ -1,16 +1,45 @@
 proxies:
-- name: 未知 TROJAN-554 | free-nodes
-  server: 172.64.229.84
-  port: 443
-  type: trojan
-  password: 62dbcf02-0989-4441-a01a-93f9c3b93525
-  sni: ot.hyas.space
+- name: 未知 VMESS-1022 | free-nodes
+  server: 112.132.215.108
+  port: 50002
+  type: vmess
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 64
+  cipher: auto
+  tls: false
   skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /x7f9k2m4p8
-    headers:
-      Host: ot.hyas.space
+- name: 未知 VLESS-829 | free-nodes
+  server: 170.168.97.8
+  port: 8443
+  type: vless
+  uuid: 96b44347-cac5-cfae-383b-1724ae9b5aec
+  tls: true
+  tfo: false
+  skip-cert-verify: false
+  reality-opts:
+    public-key: QzFNQqkvBnDKIyjXUHJQe9jruaw9G5AV44vDC-qvnlo
+  servername: www.hp.com
+  client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: TunService
+- name: 未知 VLESS-830 | free-nodes
+  server: 170.168.99.8
+  port: 8443
+  type: vless
+  uuid: 96b44347-cac5-cfae-383b-1724ae9b5aec
+  tls: true
+  tfo: false
+  skip-cert-verify: false
+  reality-opts:
+    public-key: -GbQJg3bnEGEVFjVaRRu01cgF1f0K_maI4d5MWtMb28
+  servername: www.epson.com
+  client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: TunService
 - name: 未知 VLESS-1006 | free-nodes
   server: aldebaran.yokkastars.com
   port: 40443
@@ -25,27 +54,3 @@ proxies:
   servername: deepl.com
   client-fingerprint: chrome
   network: tcp
-- name: 未知 VLESS-821 | free-nodes
-  server: 31.59.150.174
-  port: 9443
-  type: vless
-  uuid: 92089155-6602-4122-86d4-fe6de20e8c4d
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: RWu6ktBE4DFbUz_prmz-5KuolLhO53ehh19mNxhP-wI
-    short-id: a1b2c3d4
-  servername: hotcoals.aeternavpn.space
-  client-fingerprint: firefox
-  network: tcp
-- name: 未知 VMESS-1022 | free-nodes
-  server: 112.132.215.108
-  port: 50002
-  type: vmess
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 64
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
