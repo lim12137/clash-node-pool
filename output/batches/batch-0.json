@@ -1,15 +1,33 @@
 {
   "batch_index": 0,
-  "batch_size": 26,
-  "tested_at": "2026-09-12T23:49:51+08:00",
+  "batch_size": 24,
+  "tested_at": "2026-09-13T04:32:32+08:00",
   "source_file": "clash20260912.yml",
-  "pool_total": 153,
-  "tested": 26,
-  "alive": 2,
+  "pool_total": 154,
+  "tested": 24,
+  "alive": 3,
   "new_alive": 0,
-  "prev_kept": 2,
+  "prev_kept": 3,
   "relaxed": false,
   "nodes": [
+    {
+      "name": "未知 VLESS-1006 | free-nodes",
+      "server": "aldebaran.yokkastars.com",
+      "port": 40443,
+      "type": "vless",
+      "uuid": "ed91e79c-f6bf-4fba-8cc0-6d45acaec22b",
+      "tls": true,
+      "tfo": false,
+      "skip-cert-verify": false,
+      "reality-opts": {
+        "public-key": "dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4",
+        "short-id": "7606"
+      },
+      "servername": "deepl.com",
+      "client-fingerprint": "chrome",
+      "network": "tcp",
+      "delay_ms": 687
+    },
     {
       "name": "未知 VLESS-821 | free-nodes",
       "server": "31.59.150.174",
@@ -27,7 +45,7 @@
       "servername": "hotcoals.aeternavpn.space",
       "client-fingerprint": "firefox",
       "network": "tcp",
-      "delay_ms": 3062
+      "delay_ms": 1220
     },
     {
       "name": "未知 VMESS-1022 | free-nodes",
@@ -39,7 +57,7 @@
       "cipher": "auto",
       "tls": false,
       "skip-cert-verify": false,
-      "delay_ms": 3647
+      "delay_ms": 2171
     }
   ],
   "failed": [
@@ -63,9 +81,6 @@
     "未知 SS-458 | free-nodes",
     "未知 SS-459 | free-nodes",
     "未知 SS-460 | free-nodes",
-    "未知 SS-461 | free-nodes",
-    "未知 SS-462 | free-nodes",
-    "未知 SS-463 | free-nodes",
-    "未知 SS-464 | free-nodes"
+    "未知 SS-461 | free-nodes"
   ]
 }
