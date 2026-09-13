@@ -5,6 +5,35 @@ log-level: info
 unified-delay: true
 tcp-concurrent: true
 proxies:
+- name: 未知 VMESS-1036 | free-nodes
+  server: 112.132.215.108
+  port: 50002
+  type: vmess
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 64
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+- name: 未知 SS-115 | free-nodes
+  server: 129.151.87.146
+  port: 61312
+  type: ss
+  cipher: 2022-blake3-chacha20-poly1305
+  password: Qye4JK+lHU/8aJtTB5om+IMoxG4r3luE4ogzVo1+Oxk=
+- name: 未知 TROJAN-560 | free-nodes
+  server: 151.101.56.7
+  port: 443
+  type: trojan
+  password: MiTiVPN
+  sni: ssl.fastly.com
+  alpn:
+  - http/1.1
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: '---@VPNine1'
+    headers:
+      Host: mitivpn---ss--s---mitivpn-22.global.ssl.fastly.net
 - name: 未知 VLESS-1006 | free-nodes
   server: aldebaran.yokkastars.com
   port: 40443
@@ -19,20 +48,60 @@ proxies:
   servername: deepl.com
   client-fingerprint: chrome
   network: tcp
+- name: 未知 VLESS-948 | free-nodes
+  server: app-ms-35.ecom-ai-solutions.com
+  port: 443
+  type: vless
+  uuid: a71ad164-3b29-4dbe-aa66-24d095ca7b6d
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: NA5eMfdHkl_L80S75uxQwUirS9nvZ80V2u1s71KeXkc
+    short-id: 2de63d3fd7261b7e
+  servername: assets-ms-35.ecom-ai-solutions.com
+  client-fingerprint: chrome
+  network: tcp
+- name: 未知 VLESS-837 | free-nodes
+  server: 31.59.150.174
+  port: 9443
+  type: vless
+  uuid: 92089155-6602-4122-86d4-fe6de20e8c4d
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: RWu6ktBE4DFbUz_prmz-5KuolLhO53ehh19mNxhP-wI
+    short-id: a1b2c3d4
+  servername: hotcoals.aeternavpn.space
+  client-fingerprint: firefox
+  network: tcp
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies:
   - ♻️ 自动选择
   - DIRECT
+  - 未知 VMESS-1036 | free-nodes
+  - 未知 SS-115 | free-nodes
+  - 未知 TROJAN-560 | free-nodes
   - 未知 VLESS-1006 | free-nodes
+  - 未知 VLESS-948 | free-nodes
+  - 未知 VLESS-837 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 1800
   tolerance: 150
   proxies:
+  - 未知 VMESS-1036 | free-nodes
+  - 未知 SS-115 | free-nodes
+  - 未知 TROJAN-560 | free-nodes
   - 未知 VLESS-1006 | free-nodes
+  - 未知 VLESS-948 | free-nodes
+  - 未知 VLESS-837 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
