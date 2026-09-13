@@ -8,6 +8,22 @@ proxies:
   cipher: auto
   tls: false
   skip-cert-verify: false
+- name: 未知 VLESS-566 | free-nodes
+  server: it.kanzelo.ir
+  port: 8443
+  type: vless
+  uuid: 0ecf2aa4-0ae7-1a4f-5455-b116c864542d
+  tls: false
+  tfo: false
+  skip-cert-verify: false
+  network: http
+  http-opts:
+    method: GET
+    path:
+    - /
+    headers:
+      Host:
+      - play-apps-features.googleusercontent.com
 - name: 未知 VLESS-1006 | free-nodes
   server: aldebaran.yokkastars.com
   port: 40443
