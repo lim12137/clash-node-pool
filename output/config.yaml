@@ -19,6 +19,29 @@ proxies:
   servername: deepl.com
   client-fingerprint: chrome
   network: tcp
+- name: 未知 VMESS-1177 | free-nodes
+  server: 93ucrn4i0pffuabk.v.3dns.vip
+  port: 443
+  type: vmess
+  uuid: f23bb427c1f94373876c2f43e9f790f3
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /ws-vmess
+    headers:
+      Host: 93ucrn4i0PffUAbk.v.3dns.vip
+- name: 未知 VMESS-1036 | free-nodes
+  server: 112.132.215.108
+  port: 50002
+  type: vmess
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 64
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
 proxy-groups:
 - name: 🚀 节点选择
   type: select
@@ -26,6 +49,8 @@ proxy-groups:
   - ♻️ 自动选择
   - DIRECT
   - 未知 VLESS-1006 | free-nodes
+  - 未知 VMESS-1177 | free-nodes
+  - 未知 VMESS-1036 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
@@ -33,6 +58,8 @@ proxy-groups:
   tolerance: 150
   proxies:
   - 未知 VLESS-1006 | free-nodes
+  - 未知 VMESS-1177 | free-nodes
+  - 未知 VMESS-1036 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
