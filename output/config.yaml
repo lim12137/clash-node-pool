@@ -14,26 +14,6 @@ proxies:
   cipher: auto
   tls: false
   skip-cert-verify: false
-- name: 未知 SS-115 | free-nodes
-  server: 129.151.87.146
-  port: 61312
-  type: ss
-  cipher: 2022-blake3-chacha20-poly1305
-  password: Qye4JK+lHU/8aJtTB5om+IMoxG4r3luE4ogzVo1+Oxk=
-- name: 未知 TROJAN-560 | free-nodes
-  server: 151.101.56.7
-  port: 443
-  type: trojan
-  password: MiTiVPN
-  sni: ssl.fastly.com
-  alpn:
-  - http/1.1
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: '---@VPNine1'
-    headers:
-      Host: mitivpn---ss--s---mitivpn-22.global.ssl.fastly.net
 - name: 未知 VLESS-1006 | free-nodes
   server: aldebaran.yokkastars.com
   port: 40443
@@ -48,21 +28,20 @@ proxies:
   servername: deepl.com
   client-fingerprint: chrome
   network: tcp
-- name: 未知 VLESS-948 | free-nodes
-  server: app-ms-35.ecom-ai-solutions.com
+- name: 未知 TROJAN-560 | free-nodes
+  server: 151.101.56.7
   port: 443
-  type: vless
-  uuid: a71ad164-3b29-4dbe-aa66-24d095ca7b6d
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
+  type: trojan
+  password: MiTiVPN
+  sni: ssl.fastly.com
+  alpn:
+  - http/1.1
   skip-cert-verify: false
-  reality-opts:
-    public-key: NA5eMfdHkl_L80S75uxQwUirS9nvZ80V2u1s71KeXkc
-    short-id: 2de63d3fd7261b7e
-  servername: assets-ms-35.ecom-ai-solutions.com
-  client-fingerprint: chrome
-  network: tcp
+  network: ws
+  ws-opts:
+    path: '---@VPNine1'
+    headers:
+      Host: mitivpn---ss--s---mitivpn-22.global.ssl.fastly.net
 - name: 未知 VLESS-837 | free-nodes
   server: 31.59.150.174
   port: 9443
@@ -85,10 +64,8 @@ proxy-groups:
   - ♻️ 自动选择
   - DIRECT
   - 未知 VMESS-1036 | free-nodes
-  - 未知 SS-115 | free-nodes
-  - 未知 TROJAN-560 | free-nodes
   - 未知 VLESS-1006 | free-nodes
-  - 未知 VLESS-948 | free-nodes
+  - 未知 TROJAN-560 | free-nodes
   - 未知 VLESS-837 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
@@ -97,10 +74,8 @@ proxy-groups:
   tolerance: 150
   proxies:
   - 未知 VMESS-1036 | free-nodes
-  - 未知 SS-115 | free-nodes
-  - 未知 TROJAN-560 | free-nodes
   - 未知 VLESS-1006 | free-nodes
-  - 未知 VLESS-948 | free-nodes
+  - 未知 TROJAN-560 | free-nodes
   - 未知 VLESS-837 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
