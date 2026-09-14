@@ -1,13 +1,4 @@
 proxies:
-- name: 未知 VMESS-1036 | free-nodes
-  server: 112.132.215.108
-  port: 50002
-  type: vmess
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 64
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
 - name: 未知 VLESS-1006 | free-nodes
   server: aldebaran.yokkastars.com
   port: 40443
@@ -21,33 +12,4 @@ proxies:
     short-id: '7606'
   servername: deepl.com
   client-fingerprint: chrome
-  network: tcp
-- name: 未知 TROJAN-560 | free-nodes
-  server: 151.101.56.7
-  port: 443
-  type: trojan
-  password: MiTiVPN
-  sni: ssl.fastly.com
-  alpn:
-  - http/1.1
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: '---@VPNine1'
-    headers:
-      Host: mitivpn---ss--s---mitivpn-22.global.ssl.fastly.net
-- name: 未知 VLESS-837 | free-nodes
-  server: 31.59.150.174
-  port: 9443
-  type: vless
-  uuid: 92089155-6602-4122-86d4-fe6de20e8c4d
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: RWu6ktBE4DFbUz_prmz-5KuolLhO53ehh19mNxhP-wI
-    short-id: a1b2c3d4
-  servername: hotcoals.aeternavpn.space
-  client-fingerprint: firefox
   network: tcp
