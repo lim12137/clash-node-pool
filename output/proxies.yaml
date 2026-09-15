@@ -8,35 +8,6 @@ proxies:
   cipher: auto
   tls: false
   skip-cert-verify: false
-- name: 未知 VLESS-1014 | free-nodes
-  server: aldebaran.yokkastars.com
-  port: 40443
-  type: vless
-  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
-  tls: true
-  tfo: false
-  skip-cert-verify: false
-  reality-opts:
-    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
-    short-id: '7606'
-  servername: deepl.com
-  client-fingerprint: chrome
-  network: tcp
-- name: 未知 VLESS-935 | free-nodes
-  server: 51.194.251.114
-  port: 61592
-  type: vless
-  uuid: BD1F7E5E-9E0B-4919-A7F1-84BC9E69426D
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: jnu0rNHECTe_v7H9Fmgg0iUSepHz4QQQRPW0XpX5URs
-    short-id: 1359c9bf9f7442e5
-  servername: store.storeimages.cdn-apple.com
-  client-fingerprint: chrome
-  network: tcp
 - name: 未知 VLESS-974 | free-nodes
   server: 5.35.81.60
   port: 4443
@@ -54,6 +25,51 @@ proxies:
   grpc-opts:
     grpc-mode: gun
     grpc-service-name: snob-grpc-de
+- name: 未知 VLESS-935 | free-nodes
+  server: 51.194.251.114
+  port: 61592
+  type: vless
+  uuid: BD1F7E5E-9E0B-4919-A7F1-84BC9E69426D
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: jnu0rNHECTe_v7H9Fmgg0iUSepHz4QQQRPW0XpX5URs
+    short-id: 1359c9bf9f7442e5
+  servername: store.storeimages.cdn-apple.com
+  client-fingerprint: chrome
+  network: tcp
+- name: 未知 VMESS-1257 | free-nodes
+  server: d3cdy6viklzpq1.cloudfront.net
+  port: 443
+  type: vmess
+  uuid: 4da05f36-7918-488e-b07e-808e4992cee0
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: d3cdy6viklzpq1.cloudfront.net
+  network: ws
+  ws-opts:
+    path: /vmess
+    headers:
+      Host: d3cdy6viklzpq1.cloudfront.net
+- name: 未知 VLESS-946 | free-nodes
+  server: app-ms-35.ecom-ai-solutions.com
+  port: 443
+  type: vless
+  uuid: a71ad164-3b29-4dbe-aa66-24d095ca7b6d
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: NA5eMfdHkl_L80S75uxQwUirS9nvZ80V2u1s71KeXkc
+    short-id: 2de63d3fd7261b7e
+  servername: assets-ms-35.ecom-ai-solutions.com
+  client-fingerprint: chrome
+  network: tcp
 - name: 未知 VLESS-837 | free-nodes
   server: 31.59.150.174
   port: 9443
