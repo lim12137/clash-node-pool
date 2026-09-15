@@ -1,87 +1,15 @@
 proxies:
-- name: 未知 VMESS-1036 | free-nodes
-  server: 112.132.215.108
-  port: 50002
-  type: vmess
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 64
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-- name: 未知 VLESS-974 | free-nodes
-  server: 5.35.81.60
-  port: 4443
+- name: 未知 VLESS-1006 | free-nodes
+  server: aldebaran.yokkastars.com
+  port: 40443
   type: vless
-  uuid: cabd9303-ae32-4d25-86b9-26b312d0f044
+  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
   tls: true
   tfo: false
   skip-cert-verify: false
   reality-opts:
-    public-key: nhvyI4KrKDUSgw9Fa63SDeNATaTsAu9bRZ4qaraydRM
-    short-id: e5f6a1b2
-  servername: maps.apple.com
+    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
+    short-id: '7606'
+  servername: deepl.com
   client-fingerprint: chrome
-  network: grpc
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: snob-grpc-de
-- name: 未知 VLESS-935 | free-nodes
-  server: 51.194.251.114
-  port: 61592
-  type: vless
-  uuid: BD1F7E5E-9E0B-4919-A7F1-84BC9E69426D
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: jnu0rNHECTe_v7H9Fmgg0iUSepHz4QQQRPW0XpX5URs
-    short-id: 1359c9bf9f7442e5
-  servername: store.storeimages.cdn-apple.com
-  client-fingerprint: chrome
-  network: tcp
-- name: 未知 VMESS-1257 | free-nodes
-  server: d3cdy6viklzpq1.cloudfront.net
-  port: 443
-  type: vmess
-  uuid: 4da05f36-7918-488e-b07e-808e4992cee0
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  servername: d3cdy6viklzpq1.cloudfront.net
-  network: ws
-  ws-opts:
-    path: /vmess
-    headers:
-      Host: d3cdy6viklzpq1.cloudfront.net
-- name: 未知 VLESS-946 | free-nodes
-  server: app-ms-35.ecom-ai-solutions.com
-  port: 443
-  type: vless
-  uuid: a71ad164-3b29-4dbe-aa66-24d095ca7b6d
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: NA5eMfdHkl_L80S75uxQwUirS9nvZ80V2u1s71KeXkc
-    short-id: 2de63d3fd7261b7e
-  servername: assets-ms-35.ecom-ai-solutions.com
-  client-fingerprint: chrome
-  network: tcp
-- name: 未知 VLESS-837 | free-nodes
-  server: 31.59.150.174
-  port: 9443
-  type: vless
-  uuid: 92089155-6602-4122-86d4-fe6de20e8c4d
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: RWu6ktBE4DFbUz_prmz-5KuolLhO53ehh19mNxhP-wI
-    short-id: a1b2c3d4
-  servername: hotcoals.aeternavpn.space
-  client-fingerprint: firefox
   network: tcp
