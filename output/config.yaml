@@ -5,34 +5,56 @@ log-level: info
 unified-delay: true
 tcp-concurrent: true
 proxies:
-- name: 未知 VLESS-1006 | free-nodes
-  server: aldebaran.yokkastars.com
-  port: 40443
+- name: 未知 VMESS-1036 | free-nodes
+  server: 112.132.215.108
+  port: 50002
+  type: vmess
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 64
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+- name: 未知 VLESS-662 | free-nodes
+  server: 212.16.92.112
+  port: 443
   type: vless
-  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
+  uuid: 32721515-985b-4773-9e70-5d2e1b88a060
   tls: true
   tfo: false
+  flow: xtls-rprx-vision
   skip-cert-verify: false
   reality-opts:
-    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
-    short-id: '7606'
-  servername: deepl.com
-  client-fingerprint: chrome
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+  servername: jobinvest.ru
+  client-fingerprint: firefox
   network: tcp
+- name: 未知 VMESS-1564 | free-nodes
+  server: 124.151.45.60
+  port: 38320
+  type: vmess
+  uuid: d643d6ea-2e48-4ad5-b96e-d11b889cc6a6
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies:
   - ♻️ 自动选择
   - DIRECT
-  - 未知 VLESS-1006 | free-nodes
+  - 未知 VMESS-1036 | free-nodes
+  - 未知 VLESS-662 | free-nodes
+  - 未知 VMESS-1564 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 1800
   tolerance: 150
   proxies:
-  - 未知 VLESS-1006 | free-nodes
+  - 未知 VMESS-1036 | free-nodes
+  - 未知 VLESS-662 | free-nodes
+  - 未知 VMESS-1564 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
