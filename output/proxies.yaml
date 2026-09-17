@@ -1,15 +1,49 @@
 proxies:
-- name: 未知 VLESS-1006 | free-nodes
-  server: aldebaran.yokkastars.com
-  port: 40443
+- name: 未知 VMESS-1058 | free-nodes
+  server: 112.132.215.108
+  port: 50002
+  type: vmess
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 64
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+- name: 未知 VMESS-1580 | free-nodes
+  server: 7dba81fc3a0b.oylfmxz.cn
+  port: 443
+  type: vmess
+  uuid: d90e4077-bc7e-414d-a650-70bf1baae4d6
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: 7dba81fc3a0b.oylfmxz.cn
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 7dba81fc3a0b.oylfmxz.cn
+- name: 未知 VMESS-1564 | free-nodes
+  server: 124.151.45.60
+  port: 38320
+  type: vmess
+  uuid: d643d6ea-2e48-4ad5-b96e-d11b889cc6a6
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+- name: 未知 VLESS-854 | free-nodes
+  server: 13.143.137.164
+  port: 9443
   type: vless
-  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
+  uuid: 953358cb-82ba-4296-960d-6d2ec3468f4c
   tls: true
   tfo: false
+  flow: xtls-rprx-vision
   skip-cert-verify: false
   reality-opts:
-    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
-    short-id: '7606'
-  servername: deepl.com
-  client-fingerprint: chrome
+    public-key: dZ0rhO_PL67-Ciwc6CHQgtde3a5EUUuReA7M-lRNCDQ
+    short-id: e336c9a786fae301
+  servername: plaincanvas.videoclothing.xyz
+  client-fingerprint: firefox
   network: tcp
