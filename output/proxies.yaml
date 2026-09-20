@@ -8,6 +8,21 @@ proxies:
   cipher: auto
   tls: false
   skip-cert-verify: false
+- name: 未知 VMESS-1329 | free-nodes
+  server: dee2309db4se3g5s1d65g672c6641e25.oylfmxz.cn
+  port: 443
+  type: vmess
+  uuid: d90e4077-bc7e-414d-a650-70bf1baae4d6
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: dee2309db4se3g5s1d65g672c6641e25.oylfmxz.cn
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: dee2309db4se3g5s1d65g672c6641e25.oylfmxz.cn
 - name: 未知 VLESS-828 | free-nodes
   server: 176.109.104.195
   port: 9873
@@ -25,33 +40,17 @@ proxies:
   grpc-opts:
     grpc-mode: gun
     grpc-service-name: grpc-tunnel
-- name: 未知 VLESS-880 | free-nodes
-  server: 13.143.137.164
-  port: 9443
-  type: vless
-  uuid: 953358cb-82ba-4296-960d-6d2ec3468f4c
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
+- name: 未知 VMESS-1141 | free-nodes
+  server: 188.114.96.19
+  port: 80
+  type: vmess
+  uuid: aed88e79-5762-4d2f-86fa-f438f32a7654
+  alterId: 0
+  cipher: auto
+  tls: false
   skip-cert-verify: false
-  reality-opts:
-    public-key: dZ0rhO_PL67-Ciwc6CHQgtde3a5EUUuReA7M-lRNCDQ
-    short-id: e336c9a786fae301
-  servername: plaincanvas.videoclothing.xyz
-  client-fingerprint: firefox
-  network: tcp
-- name: 未知 VLESS-1008 | free-nodes
-  server: 104.16.10.191
-  port: 443
-  type: vless
-  uuid: b8d8a5b0-867f-4491-b4e4-30edc04bb10e
-  tls: true
-  tfo: false
-  skip-cert-verify: false
-  servername: u.srilankangrill.online
-  client-fingerprint: chrome
   network: ws
   ws-opts:
     path: /
     headers:
-      Host: u.srilankangrill.online
+      Host: google.whatsapp.snapp.torob.basalam.hesanid8.ir.
