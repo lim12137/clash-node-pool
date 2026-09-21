@@ -5,132 +5,34 @@ log-level: info
 unified-delay: true
 tcp-concurrent: true
 proxies:
-- name: 未知 VMESS-1058 | free-nodes
-  server: 112.132.215.108
-  port: 50002
-  type: vmess
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  alterId: 64
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-- name: 未知 VLESS-828 | free-nodes
-  server: 176.109.104.195
-  port: 9873
+- name: 未知 VLESS-1006 | free-nodes
+  server: aldebaran.yokkastars.com
+  port: 40443
   type: vless
-  uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
+  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
   tls: true
   tfo: false
   skip-cert-verify: false
   reality-opts:
-    public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
-    short-id: aabb
-  servername: dl.google.com
-  client-fingerprint: qq
-  network: grpc
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: grpc-tunnel
-- name: 未知 VLESS-1023 | free-nodes
-  server: 141.227.137.177
-  port: 2053
-  type: vless
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-  tls: true
-  tfo: false
-  skip-cert-verify: false
-  servername: shuma.ccwu.cc
+    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
+    short-id: '7606'
+  servername: deepl.com
   client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shuma.ccwu.cc
-- name: 未知 VLESS-1024 | free-nodes
-  server: 213.111.177.107
-  port: 443
-  type: vless
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-  tls: true
-  tfo: false
-  skip-cert-verify: false
-  servername: shuma.ccwu.cc
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shuma.ccwu.cc
-- name: 未知 VMESS-1154 | free-nodes
-  server: 188.114.96.19
-  port: 80
-  type: vmess
-  uuid: aed88e79-5762-4d2f-86fa-f438f32a7654
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: google.whatsapp.snapp.torob.basalam.hesanid8.ir.
-- name: 未知 VLESS-881 | free-nodes
-  server: 202.166.187.132
-  port: 443
-  type: vless
-  uuid: 8be20011-59b1-4118-91ed-83e8e6b662cd
-  tls: true
-  tfo: false
-  skip-cert-verify: false
-  servername: f.yoptybla.ru
-  client-fingerprint: firefox
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: f.yoptybla.ru
-- name: 未知 VLESS-1022 | free-nodes
-  server: 103.126.50.196
-  port: 8443
-  type: vless
-  uuid: c18b978e-1c4e-415c-8bea-07942b563a64
-  tls: true
-  tfo: false
-  skip-cert-verify: false
-  servername: shuma.ccwu.cc
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shuma.ccwu.cc
+  network: tcp
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies:
   - ♻️ 自动选择
   - DIRECT
-  - 未知 VMESS-1058 | free-nodes
-  - 未知 VLESS-828 | free-nodes
-  - 未知 VLESS-1023 | free-nodes
-  - 未知 VLESS-1024 | free-nodes
-  - 未知 VMESS-1154 | free-nodes
-  - 未知 VLESS-881 | free-nodes
-  - 未知 VLESS-1022 | free-nodes
+  - 未知 VLESS-1006 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 1800
   tolerance: 150
   proxies:
-  - 未知 VMESS-1058 | free-nodes
-  - 未知 VLESS-828 | free-nodes
-  - 未知 VLESS-1023 | free-nodes
-  - 未知 VLESS-1024 | free-nodes
-  - 未知 VMESS-1154 | free-nodes
-  - 未知 VLESS-881 | free-nodes
-  - 未知 VLESS-1022 | free-nodes
+  - 未知 VLESS-1006 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
