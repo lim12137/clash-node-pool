@@ -1,15 +1,40 @@
 proxies:
-- name: 未知 VLESS-1006 | free-nodes
-  server: aldebaran.yokkastars.com
-  port: 40443
+- name: 未知 VMESS-1058 | free-nodes
+  server: 112.132.215.108
+  port: 50002
+  type: vmess
+  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+  alterId: 64
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+- name: 未知 VLESS-881 | free-nodes
+  server: 202.166.187.132
+  port: 443
   type: vless
-  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
+  uuid: 8be20011-59b1-4118-91ed-83e8e6b662cd
   tls: true
   tfo: false
   skip-cert-verify: false
-  reality-opts:
-    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
-    short-id: '7606'
-  servername: deepl.com
+  servername: f.yoptybla.ru
+  client-fingerprint: firefox
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: f.yoptybla.ru
+- name: 未知 VLESS-64 | free-nodes
+  server: 104.21.8.201
+  port: 2096
+  type: vless
+  uuid: 832c8f42-7fe1-4aa4-9171-eb9dddbf6fef
+  tls: true
+  tfo: false
+  skip-cert-verify: false
+  servername: cdn-sg.skyvora.app
   client-fingerprint: chrome
-  network: tcp
+  network: ws
+  ws-opts:
+    path: /78bc8
+    headers:
+      Host: cdn-sg.skyvora.app
