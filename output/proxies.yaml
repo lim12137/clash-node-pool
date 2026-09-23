@@ -8,35 +8,3 @@ proxies:
   cipher: auto
   tls: false
   skip-cert-verify: false
-- name: 未知 VLESS-76 | free-nodes
-  server: 185.223.57.10
-  port: 33743
-  type: vless
-  uuid: b3a11068-1a7e-4643-85de-7c82cce46943
-  tls: true
-  tfo: false
-  skip-cert-verify: false
-  reality-opts:
-    public-key: wGMBs7bvzyzA0-OUiwSkOOTDEMdxEOsSdRzxiP8GGQY
-  servername: www.google.com
-  client-fingerprint: chrome
-  network: grpc
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: TunService
-- name: 未知 SS-03 | free-nodes
-  server: 130.61.145.33
-  port: 59924
-  type: ss
-  cipher: 2022-blake3-chacha20-poly1305
-  password: 2IhI4JDsLapp7N4PfL+duHVI+taMbdDLJkhaQfTBUZQ=
-- name: 未知 VLESS-69 | free-nodes
-  server: 92.5.236.74
-  port: 62145
-  type: vless
-  uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
-  tls: false
-  tfo: false
-  skip-cert-verify: false
-  servername: 92.5.236.74
-  network: tcp
