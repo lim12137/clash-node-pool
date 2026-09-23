@@ -1,14 +1,14 @@
 meta:
   upstream: free-nodes/clashfree
   source_file: clash20260923.yml
-  source_url: https://api.github.com/repos/free-nodes/clashfree/contents/clash20260923.yml?ref=main
-  fetched_at: '2026-09-23T12:39:11+08:00'
+  source_url: https://cdn.jsdelivr.net/gh/free-nodes/clashfree@main/clash20260923.yml
+  fetched_at: '2026-09-23T19:27:43+08:00'
   raw_count: 140
   merged_count: 139
-  prescreened_at: '2026-09-23T12:39:17+08:00'
+  prescreened_at: '2026-09-23T19:27:48+08:00'
   prescreen_delay_ms: 3000
   prescreen_pool: 140
-  prescreen_survivors: 110
+  prescreen_survivors: 103
 proxies:
 - name: 未知 VMESS-1058 | free-nodes
   server: 112.132.215.108
@@ -19,18 +19,6 @@ proxies:
   cipher: auto
   tls: false
   skip-cert-verify: false
-- name: 未知 SS-01 | free-nodes
-  server: 130.61.145.33
-  port: 59924
-  type: ss
-  cipher: 2022-blake3-chacha20-poly1305
-  password: 2IhI4JDsLapp7N4PfL+duHVI+taMbdDLJkhaQfTBUZQ=
-- name: 未知 SS-02 | free-nodes
-  server: 129.150.45.119
-  port: 56927
-  type: ss
-  cipher: 2022-blake3-chacha20-poly1305
-  password: JWRZ7+0mUkmiBvXBEykz2Qf668TcUwAsRc3vVoTMHmI=
 - name: 未知 SS-05 | free-nodes
   server: r3mrcg001286ek2.cybervena.com
   port: 50099
@@ -97,12 +85,6 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: AxIYWtskJWIIaefW
-- name: 未知 SS-18 | free-nodes
-  server: 38.180.214.110
-  port: 5600
-  type: ss
-  cipher: aes-256-gcm
-  password: Y6R9pAtvxxzmGC
 - name: 未知 SS-19 | free-nodes
   server: 51.222.200.165
   port: 5000
@@ -145,6 +127,18 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: zDNVedRFPQexG9v
+- name: 未知 TROJAN-27 | free-nodes
+  server: 104.21.70.21
+  port: 443
+  type: trojan
+  password: 018b8e7b-7813-4dcb-84a5-3c98f1521e00
+  sni: id1.nathaya.web.id
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /trojan
+    headers:
+      Host: id1.nathaya.web.id
 - name: 未知 TROJAN-29 | free-nodes
   server: 188.42.145.180
   port: 443
@@ -187,22 +181,6 @@ proxies:
     path: /casc
     headers:
       Host: cf3.rumedia-cdn.com
-- name: 未知 VLESS-34 | free-nodes
-  server: 91.107.144.22
-  port: 26437
-  type: vless
-  uuid: 0b05ddba-6e1f-4a77-ac5a-4a9f9d08d543
-  tls: false
-  tfo: false
-  skip-cert-verify: false
-  network: http
-  http-opts:
-    method: GET
-    path:
-    - /@Nap_v2ray---@Nap_v2ray@Nap_v2ray---@Nap_v2ray@Nap_v2ray---@Nap_v2ray@Nap_v2ray---@Nap_v2ray@Nap_v2ray---@Nap_v2ray@Nap_v2ray---@Nap_v2ray@Nap_v2ray---@Nap_v2ray@Nap_v2ray---@Nap_v2ray
-    headers:
-      Host:
-      - play-apps-features.googleusercontent.com
 - name: 未知 VLESS-35 | free-nodes
   server: 151.241.226.201
   port: 2053
@@ -215,21 +193,6 @@ proxies:
     public-key: bYW_MmB_CUHrsyoCAUKviI2LZdHf63yY2yOPXbih104
     short-id: 9e419c0759b54d6f
   servername: www.apple.com
-  client-fingerprint: chrome
-  network: tcp
-- name: 未知 VLESS-36 | free-nodes
-  server: 193.163.203.170
-  port: 443
-  type: vless
-  uuid: 11aabba0-5fd1-4f15-8068-74c1a466cefc
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: GCCZ1ZZjB_nj7yxqFi22bIIWWr_G6rnWUzDcssN_40o
-    short-id: b28db60d77c50b4f
-  servername: yandex.ru
   client-fingerprint: chrome
   network: tcp
 - name: 未知 VLESS-37 | free-nodes
@@ -406,6 +369,21 @@ proxies:
   servername: www.tesla.com
   client-fingerprint: chrome
   network: tcp
+- name: 未知 VLESS-49 | free-nodes
+  server: 104.16.10.185
+  port: 443
+  type: vless
+  uuid: 3c52e091-6714-4915-949f-2149fe69951b
+  tls: true
+  tfo: false
+  skip-cert-verify: false
+  servername: v2ray.simspeedup.com
+  client-fingerprint: unsafe
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: v2ray.simspeedup.com
 - name: 未知 VLESS-50 | free-nodes
   server: us7-2.998998.best
   port: 443
@@ -421,21 +399,6 @@ proxies:
     path: /imnotarealherox
     headers:
       Host: server9.9966338.xyz
-- name: 未知 VLESS-51 | free-nodes
-  server: 150.241.101.80
-  port: 8443
-  type: vless
-  uuid: 47d9b534-8a0a-4bd2-90f1-1d6ade14427e
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
-    short-id: 6ba85179e30d4fc2
-  servername: yandex.net
-  client-fingerprint: chrome
-  network: tcp
 - name: 未知 VLESS-52 | free-nodes
   server: 15.204.97.209
   port: 23576
@@ -521,19 +484,6 @@ proxies:
   servername: sheetpeek.com
   client-fingerprint: firefox
   network: tcp
-- name: 未知 VLESS-59 | free-nodes
-  server: 163.8.195.241
-  port: 2087
-  type: vless
-  uuid: 56ba5d34-ef22-4ba6-8090-4188b807df54
-  tls: false
-  tfo: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /29c8fed7ca22
-    headers:
-      Host: /?--v2rayNplus--v2rayNplus--v2rayNplus--
 - name: 未知 VLESS-61 | free-nodes
   server: 72.56.40.97
   port: 40443
@@ -549,6 +499,23 @@ proxies:
   servername: deepl.com
   client-fingerprint: qq
   network: tcp
+- name: 未知 VLESS-62 | free-nodes
+  server: 176.123.162.100
+  port: 9880
+  type: vless
+  uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
+  tls: true
+  tfo: false
+  skip-cert-verify: false
+  reality-opts:
+    public-key: bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU
+    short-id: aabb
+  servername: dl.google.com
+  client-fingerprint: firefox
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: grpc-tunnel
 - name: 未知 VLESS-63 | free-nodes
   server: 82.24.203.20
   port: 2087
@@ -635,23 +602,6 @@ proxies:
     path: /?TELEGRAM-MARAMBASHI_MARAMBASHI?ed=512
     headers:
       Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
-- name: 未知 VLESS-69 | free-nodes
-  server: 103.31.4.10
-  port: 443
-  type: vless
-  uuid: 77dc177b-79d9-49ac-92e1-2f1011faa5e3
-  tls: true
-  alpn:
-  - http/1.1
-  tfo: false
-  skip-cert-verify: false
-  servername: f871a986.69lover.site
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /api/v2/b8ee4ba356df307c/stream
-    headers:
-      Host: f871a986.69lover.site
 - name: 未知 VLESS-70 | free-nodes
   server: 152.228.139.33
   port: 35108
@@ -802,19 +752,6 @@ proxies:
   servername: www.yahoo.com
   client-fingerprint: chrome
   network: tcp
-- name: 未知 VLESS-84 | free-nodes
-  server: 2.27.205.59
-  port: 443
-  type: vless
-  uuid: c21631d5-36c9-4664-b575-97eca17456be
-  tls: false
-  tfo: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: neth8.lunariai.ru
 - name: 未知 VLESS-85 | free-nodes
   server: 198.251.78.29
   port: 2053
@@ -829,6 +766,21 @@ proxies:
   servername: www.cloudflare.com
   client-fingerprint: firefox
   network: tcp
+- name: 未知 VLESS-86 | free-nodes
+  server: www.terence-tunnel.org
+  port: 443
+  type: vless
+  uuid: c47eb7ab-2c2d-44e0-80cc-bb104f89a137
+  tls: true
+  tfo: false
+  skip-cert-verify: false
+  servername: www.terence-tunnel.org
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /tunnel
+    headers:
+      Host: www.terence-tunnel.org
 - name: 未知 VLESS-87 | free-nodes
   server: 45.95.96.236
   port: 443
@@ -934,20 +886,6 @@ proxies:
   grpc-opts:
     grpc-mode: gun
     grpc-service-name: grpc_common2
-- name: 未知 VLESS-98 | free-nodes
-  server: 95.85.224.17
-  port: 443
-  type: vless
-  uuid: d0f0a880-0df1-48c9-bdf1-5669fb9483ce
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I
-  servername: est1313.ggisopi.su
-  client-fingerprint: chrome
-  network: tcp
 - name: 未知 VLESS-99 | free-nodes
   server: 46.28.67.55
   port: 443
@@ -1286,21 +1224,6 @@ proxies:
     path: /
     headers:
       Host: dee2309db4944c248b6d4372c6641e7b.oylfmxz.cn
-- name: 未知 VMESS-133 | free-nodes
-  server: pahobac.org
-  port: 443
-  type: vmess
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  servername: pahobac.org
-  network: ws
-  ws-opts:
-    path: /linkvws
-    headers:
-      Host: pahobac.org
 - name: 未知 VMESS-137 | free-nodes
   server: 151.243.173.119
   port: 33736
