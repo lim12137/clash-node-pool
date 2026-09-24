@@ -1,10 +1,4 @@
 proxies:
-- name: 未知 SS-01 | free-nodes
-  server: 130.61.180.252
-  port: 59924
-  type: ss
-  cipher: 2022-blake3-chacha20-poly1305
-  password: CJz7/MZF6sW6ylvOCfAE+EmAqYZKN1GnMlS4tGUS3J4=
 - name: 未知 VLESS-66 | free-nodes
   server: 72.56.41.33
   port: 40443
