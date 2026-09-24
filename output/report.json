@@ -1,37 +1,30 @@
 {
-  "tested_at": "2026-09-24T06:10:46+08:00",
+  "tested_at": "2026-09-24T12:10:47+08:00",
   "source": {
     "upstream": "free-nodes/clashfree",
     "source_file": "clash20260923.yml",
     "source_url": "https://api.github.com/repos/free-nodes/clashfree/contents/clash20260923.yml?ref=main",
-    "fetched_at": "2026-09-24T06:10:24+08:00",
+    "fetched_at": "2026-09-24T12:10:26+08:00",
     "raw_count": 158,
     "merged_count": 152
   },
-  "candidates": 153,
-  "alive": 2,
-  "new_alive": 1,
+  "candidates": 152,
+  "alive": 1,
+  "new_alive": 0,
   "prev_kept": 1,
   "dual_round_test": true,
   "relaxed": false,
   "nodes": [
     {
-      "name": "未知 SS-01 | free-nodes",
-      "type": "ss",
-      "server": "130.61.180.252",
-      "port": 59924,
-      "delay_ms": 379
-    },
-    {
       "name": "未知 VLESS-66 | free-nodes",
       "type": "vless",
       "server": "72.56.41.33",
       "port": 40443,
-      "delay_ms": 1763
+      "delay_ms": 4240
     }
   ],
   "failed": [
-    "未知 VMESS-1058 | free-nodes",
+    "未知 SS-01 | free-nodes",
     "未知 SS-02 | free-nodes",
     "未知 SS-03 | free-nodes",
     "未知 SS-04 | free-nodes",
