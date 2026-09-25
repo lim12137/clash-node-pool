@@ -5,48 +5,22 @@ log-level: info
 unified-delay: true
 tcp-concurrent: true
 proxies:
-- name: 未知 VLESS-91 | free-nodes
-  server: support.cloudflare.com
-  port: 2095
+- name: 未知 VLESS-101 | free-nodes
+  server: 185.223.57.10
+  port: 33743
   type: vless
-  uuid: 86c50e3a-5b87-49dd-bd20-03c7f2735e40
-  tls: false
-  tfo: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: llm-api.sofurry.dpdns.org
-- name: 未知 VLESS-121 | free-nodes
-  server: platform115.golnamakcert.top
-  port: 80
-  type: vless
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  tls: false
-  tfo: false
-  skip-cert-verify: false
-  servername: platform115.halalkhor.info
-  network: ws
-  ws-opts:
-    path: /platform115
-    headers:
-      Host: platform115.halalkhor.info
-- name: 未知 VLESS-110 | free-nodes
-  server: 194.93.63.246
-  port: 443
-  type: vless
-  uuid: c5694dc5-39fd-4a92-8430-3837baa522a3
+  uuid: b3a11068-1a7e-4643-85de-7c82cce46943
   tls: true
   tfo: false
-  flow: xtls-rprx-vision
   skip-cert-verify: false
   reality-opts:
-    public-key: GmZv3anSeAeHr_cMFKr-6MPLli-nyKNatnY6P3AFK00
-    short-id: 9c2378562188c3cb
-  servername: pl.bubahero.com
-  client-fingerprint: firefox
-  network: tcp
+    public-key: wGMBs7bvzyzA0-OUiwSkOOTDEMdxEOsSdRzxiP8GGQY
+  servername: www.google.com
+  client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: TunService
 - name: 未知 VLESS-112 | free-nodes
   server: pl.bubahero.com
   port: 443
@@ -62,26 +36,55 @@ proxies:
   servername: pl.bubahero.com
   client-fingerprint: chrome
   network: tcp
+- name: 未知 VLESS-110 | free-nodes
+  server: 194.93.63.246
+  port: 443
+  type: vless
+  uuid: c5694dc5-39fd-4a92-8430-3837baa522a3
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: GmZv3anSeAeHr_cMFKr-6MPLli-nyKNatnY6P3AFK00
+    short-id: 9c2378562188c3cb
+  servername: pl.bubahero.com
+  client-fingerprint: firefox
+  network: tcp
+- name: 未知 VLESS-121 | free-nodes
+  server: platform115.golnamakcert.top
+  port: 80
+  type: vless
+  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  tls: false
+  tfo: false
+  skip-cert-verify: false
+  servername: platform115.halalkhor.info
+  network: ws
+  ws-opts:
+    path: /platform115
+    headers:
+      Host: platform115.halalkhor.info
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies:
   - ♻️ 自动选择
   - DIRECT
-  - 未知 VLESS-91 | free-nodes
-  - 未知 VLESS-121 | free-nodes
-  - 未知 VLESS-110 | free-nodes
+  - 未知 VLESS-101 | free-nodes
   - 未知 VLESS-112 | free-nodes
+  - 未知 VLESS-110 | free-nodes
+  - 未知 VLESS-121 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 1800
   tolerance: 150
   proxies:
-  - 未知 VLESS-91 | free-nodes
-  - 未知 VLESS-121 | free-nodes
-  - 未知 VLESS-110 | free-nodes
+  - 未知 VLESS-101 | free-nodes
   - 未知 VLESS-112 | free-nodes
+  - 未知 VLESS-110 | free-nodes
+  - 未知 VLESS-121 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
