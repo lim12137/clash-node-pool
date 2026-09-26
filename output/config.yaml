@@ -5,19 +5,52 @@ log-level: info
 unified-delay: true
 tcp-concurrent: true
 proxies:
-- name: 未知 VLESS-1006 | free-nodes
-  server: aldebaran.yokkastars.com
-  port: 40443
+- name: 未知 VLESS-60 | free-nodes
+  server: 151.241.138.151
+  port: 8444
   type: vless
-  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
+  uuid: 02bd8b5a-170b-4a79-8e68-9cec710272c7
   tls: true
   tfo: false
+  flow: xtls-rprx-vision
   skip-cert-verify: false
   reality-opts:
-    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
-    short-id: '7606'
+    public-key: sQ9CcspZ6urWlzGNjjmtfp8EuuDll5RVtcsVoq_EfUE
+    short-id: a3f509aa7a4b41cc
+  servername: pl1.gursub.com
+  client-fingerprint: safari
+  network: tcp
+- name: 未知 VLESS-113 | free-nodes
+  server: fbsv6.guardora.pro
+  port: 443
+  type: vless
+  uuid: bc5ec86c-3e65-4272-994c-59a924c72a68
+  tls: true
+  alpn:
+  - http/1.1
+  tfo: false
+  skip-cert-verify: false
+  servername: fbsv6.guardora.pro
+  client-fingerprint: firefox
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: fbsv6.guardora.pro
+- name: 未知 VLESS-92 | free-nodes
+  server: 72.56.41.33
+  port: 40443
+  type: vless
+  uuid: 5be7fb02-b6a5-450f-b041-3243b98e8420
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: Uvj5H9pDJP0HX2bN7NN7sCQwVCrC5N2NbKf-yuy1ikE
+    short-id: ee33
   servername: deepl.com
-  client-fingerprint: chrome
+  client-fingerprint: firefox
   network: tcp
 proxy-groups:
 - name: 🚀 节点选择
@@ -25,14 +58,18 @@ proxy-groups:
   proxies:
   - ♻️ 自动选择
   - DIRECT
-  - 未知 VLESS-1006 | free-nodes
+  - 未知 VLESS-60 | free-nodes
+  - 未知 VLESS-113 | free-nodes
+  - 未知 VLESS-92 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 1800
   tolerance: 150
   proxies:
-  - 未知 VLESS-1006 | free-nodes
+  - 未知 VLESS-60 | free-nodes
+  - 未知 VLESS-113 | free-nodes
+  - 未知 VLESS-92 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
