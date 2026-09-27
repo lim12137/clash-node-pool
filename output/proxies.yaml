@@ -1,15 +1,50 @@
 proxies:
-- name: 未知 VLESS-1006 | free-nodes
-  server: aldebaran.yokkastars.com
-  port: 40443
+- name: 未知 SS-38 | free-nodes
+  server: 124.151.25.50
+  port: 8024
+  type: ss
+  cipher: aes-128-gcm
+  password: 2wsxcde4
+- name: 未知 SS-13 | free-nodes
+  server: 130.61.146.229
+  port: 59924
+  type: ss
+  cipher: 2022-blake3-chacha20-poly1305
+  password: MKHwqx5R2L0MzLTo/BQ7xr5Ve6nfPBPfo0HERkDcG9s=
+- name: 未知 VLESS-97 | free-nodes
+  server: 134.98.147.203
+  port: 62145
   type: vless
-  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
-  tls: true
+  uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
+  tls: false
   tfo: false
   skip-cert-verify: false
+  network: tcp
+- name: 未知 VLESS-120 | free-nodes
+  server: afra4.nimbaha9.ir
+  port: 2052
+  type: vless
+  uuid: e0ff8a9b-dad3-4671-baf4-c8d466d1eb48
+  tls: false
+  tfo: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /eyurri
+    headers:
+      Host: afra4.nimbaha9.ir
+- name: 未知 VLESS-115 | free-nodes
+  server: 94.176.234.161
+  port: 443
+  type: vless
+  uuid: d448490d-4ee6-442f-80e1-5e1c186c4ce1
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
   reality-opts:
-    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
-    short-id: '7606'
-  servername: deepl.com
+    public-key: UpI0XKNUsMJ24XawPQ8g7br1faEsO7BOvmIIGg9Wrm8
+    short-id: dbb2ef1c7c
+  servername: www.intel.com
   client-fingerprint: chrome
   network: tcp
