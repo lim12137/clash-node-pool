@@ -1,15 +1,105 @@
 proxies:
-- name: 未知 VLESS-1006 | free-nodes
-  server: aldebaran.yokkastars.com
+- name: 未知 VLESS-131 | free-nodes
+  server: atatat.failspace.top
+  port: 443
+  type: vless
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision-udp443
+  skip-cert-verify: false
+  servername: atatat.failspace.top
+  client-fingerprint: chrome
+  network: tcp
+- name: 未知 VLESS-60 | free-nodes
+  server: nl2.gursub.com
+  port: 443
+  type: vless
+  uuid: 02bd8b5a-170b-4a79-8e68-9cec710272c7
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: ltHl15Wq549qC2JdAtesy-POs6Hwm_BbrlzuwDkWoUk
+    short-id: a1b2c3d4e5f6a1b2
+  servername: nl2.gursub.com
+  client-fingerprint: chrome
+  network: tcp
+- name: 未知 VLESS-106 | free-nodes
+  server: fbsv6.guardora.pro
+  port: 443
+  type: vless
+  uuid: bc5ec86c-3e65-4272-994c-59a924c72a68
+  tls: true
+  alpn:
+  - http/1.1
+  tfo: false
+  skip-cert-verify: false
+  servername: fbsv6.guardora.pro
+  client-fingerprint: firefox
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: fbsv6.guardora.pro
+- name: 未知 VLESS-118 | free-nodes
+  server: 31.77.13.19
+  port: 2063
+  type: vless
+  uuid: b18d5990-96eb-4587-a386-7f8ef7591e6a
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: MMpt_jWc4J3oySBdf5sPDVRkiWlZmOObth6A1scM9BM
+  servername: rusbid.de
+  client-fingerprint: firefox
+  network: tcp
+- name: 未知 VLESS-95 | free-nodes
+  server: 72.56.41.33
   port: 40443
   type: vless
-  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
+  uuid: 5be7fb02-b6a5-450f-b041-3243b98e8420
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: Uvj5H9pDJP0HX2bN7NN7sCQwVCrC5N2NbKf-yuy1ikE
+    short-id: ee33
+  servername: deepl.com
+  client-fingerprint: edge
+  network: tcp
+- name: '未知 VLESS-84 | free-nodes #2'
+  server: freeman.curtvip.ir
+  port: 20410
+  type: vless
+  uuid: 442581ff-646e-4e99-af3e-a9d9a636a44b
   tls: true
   tfo: false
   skip-cert-verify: false
   reality-opts:
-    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
-    short-id: '7606'
-  servername: deepl.com
+    public-key: BErODvy5h6Cjw5zWfX_CZ5ODH9p1XbZwU-ZEHyVXEGI
+    short-id: e2ce3e050232978c
+  servername: secureconnect-pa.mtls.clients6.google.com
   client-fingerprint: chrome
   network: tcp
+- name: 未知 VLESS-78 | free-nodes
+  server: 95.163.232.171
+  port: 14443
+  type: vless
+  uuid: 365de9e9-ba29-4819-af2d-766f9638e3be
+  tls: true
+  alpn:
+  - http/1.1
+  tfo: false
+  skip-cert-verify: false
+  servername: media-se.compressor.work
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: media-se.compressor.work
