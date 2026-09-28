@@ -5,53 +5,54 @@ log-level: info
 unified-delay: true
 tcp-concurrent: true
 proxies:
+- name: 未知 VLESS-114 | free-nodes
+  server: 31.77.13.19
+  port: 2063
+  type: vless
+  uuid: b18d5990-96eb-4587-a386-7f8ef7591e6a
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: MMpt_jWc4J3oySBdf5sPDVRkiWlZmOObth6A1scM9BM
+  servername: rusbid.de
+  client-fingerprint: chrome
+  network: tcp
+- name: 未知 VLESS-126 | free-nodes
+  server: 31.76.245.63
+  port: 443
+  type: vless
+  uuid: d72f05b0-b182-4783-a6f2-21cecc7d841a
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: SibLV5WBGdljTiUCmKx77KhHQfErCwjDMD_ZLoha3js
+    short-id: a1b2c3d4e5f67890
+  servername: dzen.ru
+  client-fingerprint: firefox
+  network: tcp
 - name: 未知 SS-38 | free-nodes
   server: 124.151.25.50
   port: 8024
   type: ss
   cipher: aes-128-gcm
   password: 2wsxcde4
-- name: 未知 SS-13 | free-nodes
-  server: 130.61.146.229
-  port: 59924
-  type: ss
-  cipher: 2022-blake3-chacha20-poly1305
-  password: MKHwqx5R2L0MzLTo/BQ7xr5Ve6nfPBPfo0HERkDcG9s=
-- name: 未知 VLESS-97 | free-nodes
-  server: 134.98.147.203
-  port: 62145
+- name: 未知 VLESS-92 | free-nodes
+  server: 72.56.41.33
+  port: 40443
   type: vless
-  uuid: 8fb65472-5957-4f64-ba2d-b5812b2f155a
-  tls: false
-  tfo: false
-  skip-cert-verify: false
-  network: tcp
-- name: 未知 VLESS-120 | free-nodes
-  server: afra4.nimbaha9.ir
-  port: 2052
-  type: vless
-  uuid: e0ff8a9b-dad3-4671-baf4-c8d466d1eb48
-  tls: false
-  tfo: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /eyurri
-    headers:
-      Host: afra4.nimbaha9.ir
-- name: 未知 VLESS-115 | free-nodes
-  server: 94.176.234.161
-  port: 443
-  type: vless
-  uuid: d448490d-4ee6-442f-80e1-5e1c186c4ce1
+  uuid: 5be7fb02-b6a5-450f-b041-3243b98e8420
   tls: true
   tfo: false
   flow: xtls-rprx-vision
   skip-cert-verify: false
   reality-opts:
-    public-key: UpI0XKNUsMJ24XawPQ8g7br1faEsO7BOvmIIGg9Wrm8
-    short-id: dbb2ef1c7c
-  servername: www.intel.com
+    public-key: Uvj5H9pDJP0HX2bN7NN7sCQwVCrC5N2NbKf-yuy1ikE
+    short-id: ee33
+  servername: deepl.com
   client-fingerprint: chrome
   network: tcp
 proxy-groups:
@@ -60,22 +61,20 @@ proxy-groups:
   proxies:
   - ♻️ 自动选择
   - DIRECT
+  - 未知 VLESS-114 | free-nodes
+  - 未知 VLESS-126 | free-nodes
   - 未知 SS-38 | free-nodes
-  - 未知 SS-13 | free-nodes
-  - 未知 VLESS-97 | free-nodes
-  - 未知 VLESS-120 | free-nodes
-  - 未知 VLESS-115 | free-nodes
+  - 未知 VLESS-92 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 1800
   tolerance: 150
   proxies:
+  - 未知 VLESS-114 | free-nodes
+  - 未知 VLESS-126 | free-nodes
   - 未知 SS-38 | free-nodes
-  - 未知 SS-13 | free-nodes
-  - 未知 VLESS-97 | free-nodes
-  - 未知 VLESS-120 | free-nodes
-  - 未知 VLESS-115 | free-nodes
+  - 未知 VLESS-92 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
