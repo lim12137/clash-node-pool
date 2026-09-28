@@ -1,93 +1,15 @@
 proxies:
-- name: 未知 VLESS-69 | free-nodes
-  server: 72.4.65.116
-  port: 443
+- name: 未知 VLESS-1006 | free-nodes
+  server: aldebaran.yokkastars.com
+  port: 40443
   type: vless
-  uuid: 0dca2cfe-98eb-4f9d-9a47-cf87510c558b
+  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
   tls: true
   tfo: false
-  skip-cert-verify: false
-  servername: assets-de2.pleiades.codes
-  client-fingerprint: chrome
-  network: grpc
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: cdn.v1.AssetService
-- name: 未知 VLESS-130 | free-nodes
-  server: 31.76.245.63
-  port: 443
-  type: vless
-  uuid: d72f05b0-b182-4783-a6f2-21cecc7d841a
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
   skip-cert-verify: false
   reality-opts:
-    public-key: SibLV5WBGdljTiUCmKx77KhHQfErCwjDMD_ZLoha3js
-    short-id: a1b2c3d4e5f67890
-  servername: dzen.ru
-  client-fingerprint: firefox
-  network: tcp
-- name: 未知 VLESS-126 | free-nodes
-  server: 94.176.234.161
-  port: 443
-  type: vless
-  uuid: d448490d-4ee6-442f-80e1-5e1c186c4ce1
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: UpI0XKNUsMJ24XawPQ8g7br1faEsO7BOvmIIGg9Wrm8
-    short-id: dbb2ef1c7c
-  servername: www.intel.com
-  client-fingerprint: chrome
-  network: tcp
-- name: 未知 VLESS-120 | free-nodes
-  server: fbsv6.guardora.pro
-  port: 443
-  type: vless
-  uuid: bc5ec86c-3e65-4272-994c-59a924c72a68
-  tls: true
-  alpn:
-  - http/1.1
-  tfo: false
-  skip-cert-verify: false
-  servername: fbsv6.guardora.pro
-  client-fingerprint: firefox
-  network: ws
-  ws-opts:
-    path: /ws
-    headers:
-      Host: fbsv6.guardora.pro
-- name: 未知 VLESS-79 | free-nodes
-  server: 95.163.232.171
-  port: 14443
-  type: vless
-  uuid: 365de9e9-ba29-4819-af2d-766f9638e3be
-  tls: true
-  alpn:
-  - http/1.1
-  tfo: false
-  skip-cert-verify: false
-  servername: media-se.compressor.work
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /ws
-    headers:
-      Host: media-se.compressor.work
-- name: 未知 VLESS-118 | free-nodes
-  server: pl-waw.dontblockmepls.com
-  port: 2063
-  type: vless
-  uuid: b18d5990-96eb-4587-a386-7f8ef7591e6a
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: MMpt_jWc4J3oySBdf5sPDVRkiWlZmOObth6A1scM9BM
-  servername: rusbid.de
+    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
+    short-id: '7606'
+  servername: deepl.com
   client-fingerprint: chrome
   network: tcp
