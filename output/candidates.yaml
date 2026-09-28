@@ -2,13 +2,13 @@ meta:
   upstream: free-nodes/clashfree
   source_file: clash20260928.yml
   source_url: https://api.github.com/repos/free-nodes/clashfree/contents/clash20260928.yml?ref=main
-  fetched_at: '2026-09-28T21:45:25+08:00'
+  fetched_at: '2026-09-29T07:12:54+08:00'
   raw_count: 250
   merged_count: 199
-  prescreened_at: '2026-09-28T21:45:31+08:00'
+  prescreened_at: '2026-09-29T07:12:59+08:00'
   prescreen_delay_ms: 3000
   prescreen_pool: 199
-  prescreen_survivors: 84
+  prescreen_survivors: 72
 proxies:
 - name: 未知 VLESS-69 | free-nodes
   server: 72.4.65.116
@@ -24,19 +24,36 @@ proxies:
   grpc-opts:
     grpc-mode: gun
     grpc-service-name: cdn.v1.AssetService
-- name: 未知 VLESS-132 | free-nodes
-  server: afra4.nimbaha9.ir
-  port: 2052
+- name: 未知 VLESS-130 | free-nodes
+  server: 31.76.245.63
+  port: 443
   type: vless
-  uuid: e0ff8a9b-dad3-4671-baf4-c8d466d1eb48
-  tls: false
+  uuid: d72f05b0-b182-4783-a6f2-21cecc7d841a
+  tls: true
   tfo: false
+  flow: xtls-rprx-vision
   skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /eyurri
-    headers:
-      Host: afra4.nimbaha9.ir
+  reality-opts:
+    public-key: SibLV5WBGdljTiUCmKx77KhHQfErCwjDMD_ZLoha3js
+    short-id: a1b2c3d4e5f67890
+  servername: dzen.ru
+  client-fingerprint: firefox
+  network: tcp
+- name: 未知 VLESS-126 | free-nodes
+  server: 94.176.234.161
+  port: 443
+  type: vless
+  uuid: d448490d-4ee6-442f-80e1-5e1c186c4ce1
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: UpI0XKNUsMJ24XawPQ8g7br1faEsO7BOvmIIGg9Wrm8
+    short-id: dbb2ef1c7c
+  servername: www.intel.com
+  client-fingerprint: chrome
+  network: tcp
 - name: 未知 VLESS-120 | free-nodes
   server: fbsv6.guardora.pro
   port: 443
@@ -54,30 +71,49 @@ proxies:
     path: /ws
     headers:
       Host: fbsv6.guardora.pro
-- name: 未知 SS-17 | free-nodes
-  server: 130.61.227.119
-  port: 59924
+- name: 未知 VLESS-79 | free-nodes
+  server: 95.163.232.171
+  port: 14443
+  type: vless
+  uuid: 365de9e9-ba29-4819-af2d-766f9638e3be
+  tls: true
+  alpn:
+  - http/1.1
+  tfo: false
+  skip-cert-verify: false
+  servername: media-se.compressor.work
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: media-se.compressor.work
+- name: 未知 VLESS-118 | free-nodes
+  server: pl-waw.dontblockmepls.com
+  port: 2063
+  type: vless
+  uuid: b18d5990-96eb-4587-a386-7f8ef7591e6a
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: MMpt_jWc4J3oySBdf5sPDVRkiWlZmOObth6A1scM9BM
+  servername: rusbid.de
+  client-fingerprint: chrome
+  network: tcp
+- name: 未知 SS-35 | free-nodes
+  server: r3mrcg001286ek2.cybervena.com
+  port: 50099
   type: ss
-  cipher: 2022-blake3-chacha20-poly1305
-  password: QQyhsWE4kraFnuIyxSx/tfdFnd1+IUu3YrQM92BGVrQ=
-- name: 未知 SS-28 | free-nodes
-  server: 158.101.192.220
-  port: 45819
+  cipher: chacha20-ietf-poly1305
+  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
+- name: 未知 SS-37 | free-nodes
+  server: 45.128.12.20
+  port: 14249
   type: ss
-  cipher: 2022-blake3-chacha20-poly1305
-  password: tWDq/qplPVZPp9FHByeWAK50WfaKq2n77o2RFHUFLGI=
-- name: 未知 SS-30 | free-nodes
-  server: 130.61.85.241
-  port: 59924
-  type: ss
-  cipher: 2022-blake3-chacha20-poly1305
-  password: vxAQDuju4saWX0wdawcE10nQ00PXMgJrQwgI0xdf0So=
-- name: 未知 SS-33 | free-nodes
-  server: 188.225.78.31
-  port: 2053
-  type: ss
-  cipher: 2022-blake3-aes-256-gcm
-  password: g4h/AcJh1+jg9+yonlMK4Wq7fhbFY3NkcOzUVlZ9GjU=
+  cipher: chacha20-ietf-poly1305
+  password: 9epp3o9ng8ej59uv
 - name: 未知 SS-40 | free-nodes
   server: 94.249.187.46
   port: 1080
@@ -96,30 +132,24 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: 未知 SS-44 | free-nodes
+  server: 82.38.31.46
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: 未知 SS-45 | free-nodes
   server: 82.38.31.82
   port: 8080
   type: ss
   cipher: chacha20-ietf-poly1305
   password: oZIoA69Q8yhcQV8ka3Pa3A
-- name: 未知 SS-48 | free-nodes
-  server: 176.32.35.2
-  port: 10090
-  type: ss
-  cipher: aes-256-gcm
-  password: 895b4b796a357570
 - name: 未知 SS-49 | free-nodes
   server: 192.3.247.109
   port: 43579
   type: ss
   cipher: aes-256-gcm
   password: 8c009bb6-08b3-4526-a86b-5af7ddfc567a-4c757b72-6eec-4faf-8c2e-09fd1c7fa936
-- name: 未知 SS-50 | free-nodes
-  server: ce1fc2d8.krkt.hkssip.com
-  port: 49642
-  type: ss
-  cipher: aes-256-gcm
-  password: ac9c0a7b
 - name: 未知 SS-51 | free-nodes
   server: yyz-ca-01.blncvpn4u.cc
   port: 9443
@@ -138,8 +168,8 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: pX0uhU3ZjUcLWYs0Vez55BO3JoQrRlL
-- name: 未知 SS-56 | free-nodes
-  server: 146.59.116.19
+- name: 未知 SS-55 | free-nodes
+  server: 146.190.236.129
   port: 17000
   type: ss
   cipher: aes-256-gcm
@@ -156,13 +186,6 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: pX0uhU3ZjUcLWYs0Vez55BO3JoQrRlL
-- name: 未知 TROJAN-60 | free-nodes
-  server: 34.94.125.227
-  port: 443
-  type: trojan
-  password: M7v%w11Se*
-  sni: mxlo.wsone.icu
-  skip-cert-verify: false
 - name: 未知 VLESS-70 | free-nodes
   server: assets-nl.pleiades.codes
   port: 443
@@ -266,23 +289,6 @@ proxies:
   servername: www.apple.com
   client-fingerprint: chrome
   network: tcp
-- name: 未知 VLESS-79 | free-nodes
-  server: 95.163.232.171
-  port: 14443
-  type: vless
-  uuid: 365de9e9-ba29-4819-af2d-766f9638e3be
-  tls: true
-  alpn:
-  - http/1.1
-  tfo: false
-  skip-cert-verify: false
-  servername: media-se.compressor.work
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /ws
-    headers:
-      Host: media-se.compressor.work
 - name: 未知 VLESS-83 | free-nodes
   server: 146.70.124.85
   port: 443
@@ -403,20 +409,20 @@ proxies:
   servername: tomaz1337shellbuy.vvzzkontaktezzvv.garden
   client-fingerprint: chrome
   network: tcp
-- name: 未知 VLESS-102 | free-nodes
-  server: 78.153.155.121
-  port: 443
+- name: 未知 VLESS-100 | free-nodes
+  server: 72.56.41.33
+  port: 40443
   type: vless
-  uuid: 61da8f4b-6ab1-4ca7-bae0-1cec4f9be2f8
+  uuid: 5be7fb02-b6a5-450f-b041-3243b98e8420
   tls: true
   tfo: false
   flow: xtls-rprx-vision
   skip-cert-verify: false
   reality-opts:
-    public-key: hYoIx98zfa-cDdgG6mzuh96wQ3BxSA9CVy7NpNGkJRk
-    short-id: 035dc6023ca8ae88
-  servername: unpkg.com
-  client-fingerprint: safari
+    public-key: Uvj5H9pDJP0HX2bN7NN7sCQwVCrC5N2NbKf-yuy1ikE
+    short-id: ee33
+  servername: deepl.com
+  client-fingerprint: chrome
   network: tcp
 - name: 未知 VLESS-103 | free-nodes
   server: 91.193.58.57
@@ -465,20 +471,46 @@ proxies:
   servername: www.nvidia.com
   client-fingerprint: firefox
   network: tcp
-- name: 未知 VLESS-109 | free-nodes
-  server: 5.34.178.120
+- name: 🇬🇧 GB VLESS-106 | free-nodes
+  server: ccs2g.pai50288.uk
   port: 443
   type: vless
-  uuid: 9063f9fb-e88a-4ee0-b4a4-a92ca7316a9f
+  uuid: 8be461cb-a0df-47cf-bc0d-4d9e6a22fa74
   tls: true
   tfo: false
-  flow: xtls-rprx-vision
   skip-cert-verify: false
-  reality-opts:
-    public-key: EVhq2BxKuw2Cody1DmF_HPvUYKwzdXbHP47blUv-eRM
-    short-id: 55ab5559e3a6d10a
-  servername: www.cloudflare.com
+  servername: ccs2g.pai50288.uk
   client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /pai50288
+    headers:
+      Host: ccs2g.pai50288.uk
+- name: 未知 VLESS-110 | free-nodes
+  server: 104.20.30.10
+  port: 443
+  type: vless
+  uuid: 91d28760-ecf1-450b-9170-d310111a0e6d
+  tls: true
+  alpn:
+  - http/1.1
+  tfo: false
+  skip-cert-verify: false
+  servername: us9.69lover.my
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /api/v2/63e9687fa53e441c/stream
+    headers:
+      Host: us9.69lover.my
+- name: 未知 VLESS-115 | free-nodes
+  server: test.keoplentuio.xyz
+  port: 2053
+  type: vless
+  uuid: 9ef61079-6f7d-4911-9608-943da85d8e6f
+  tls: false
+  tfo: false
+  skip-cert-verify: false
   network: tcp
 - name: 未知 VLESS-116 | free-nodes
   server: 137.74.16.237
@@ -624,19 +656,6 @@ proxies:
     path: /platform101
     headers:
       Host: platform101.halalkhor.info
-- name: 未知 VLESS-136 | free-nodes
-  server: platform102.golnamakcert.top
-  port: 80
-  type: vless
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  tls: false
-  tfo: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /platform102
-    headers:
-      Host: platform102.halalkhor.info
 - name: 未知 VLESS-138 | free-nodes
   server: platform103.golnamakcert.top
   port: 80
@@ -651,114 +670,6 @@ proxies:
     path: /platform103
     headers:
       Host: platform103.halalkhor.info
-- name: 未知 VLESS-140 | free-nodes
-  server: platform106.golnamakcert.top
-  port: 80
-  type: vless
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  tls: false
-  tfo: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /platform106
-    headers:
-      Host: platform106.halalkhor.info
-- name: 未知 VLESS-142 | free-nodes
-  server: platform107.golnamakcert.top
-  port: 80
-  type: vless
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  tls: false
-  tfo: false
-  skip-cert-verify: false
-  servername: platform107.halalkhor.info
-  network: ws
-  ws-opts:
-    path: /platform107
-    headers:
-      Host: platform107.halalkhor.info
-- name: 未知 VLESS-144 | free-nodes
-  server: platform108.golnamakcert.top
-  port: 80
-  type: vless
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  tls: false
-  tfo: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /platform108
-    headers:
-      Host: platform108.halalkhor.info
-- name: 未知 VLESS-146 | free-nodes
-  server: platform109.golnamakcert.top
-  port: 80
-  type: vless
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  tls: false
-  tfo: false
-  skip-cert-verify: false
-  servername: platform109.halalkhor.info
-  network: ws
-  ws-opts:
-    path: /platform109
-    headers:
-      Host: platform109.halalkhor.info
-- name: 未知 VLESS-147 | free-nodes
-  server: platform113.golnamakcert.top
-  port: 80
-  type: vless
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  tls: false
-  tfo: false
-  skip-cert-verify: false
-  servername: platform113.halalkhor.info
-  network: ws
-  ws-opts:
-    path: /platform113
-    headers:
-      Host: platform113.halalkhor.info
-- name: 未知 VLESS-149 | free-nodes
-  server: platform115.golnamakcert.top
-  port: 80
-  type: vless
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  tls: false
-  tfo: false
-  skip-cert-verify: false
-  servername: platform115.halalkhor.info
-  network: ws
-  ws-opts:
-    path: /platform115
-    headers:
-      Host: platform115.halalkhor.info
-- name: 未知 VLESS-151 | free-nodes
-  server: platform117.golnamakcert.top
-  port: 80
-  type: vless
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  tls: false
-  tfo: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /platform117
-    headers:
-      Host: platform117.halalkhor.info
-- name: 未知 VLESS-153 | free-nodes
-  server: platform118.golnamakcert.top
-  port: 80
-  type: vless
-  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
-  tls: false
-  tfo: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /platform118
-    headers:
-      Host: platform118.halalkhor.info
 - name: 未知 VLESS-155 | free-nodes
   server: 104.21.70.21
   port: 443
@@ -775,21 +686,6 @@ proxies:
     path: /raccoonwsvless
     headers:
       Host: playlux.homes
-- name: 未知 VLESS-156 | free-nodes
-  server: 185.171.202.106
-  port: 443
-  type: vless
-  uuid: f495298f-2bdb-4fd8-9ac9-5dd33d1b482a
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: W-zf_ncm9sYALF5EqvUsxqTkYGdAw-tQczT2SqwVMGE
-    short-id: ff776ff77be48b88
-  servername: fra2.loozerp.wiki
-  client-fingerprint: firefox
-  network: tcp
 - name: 未知 VMESS-162 | free-nodes
   server: 158.51.123.42
   port: 22324
@@ -871,6 +767,15 @@ proxies:
   cipher: auto
   tls: false
   skip-cert-verify: false
+- name: 未知 VMESS-181 | free-nodes
+  server: 47.85.188.30
+  port: 12004
+  type: vmess
+  uuid: 8b5552bd-4cc7-4cac-af08-81c21686fd4f
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
 - name: 未知 VMESS-182 | free-nodes
   server: 64.176.51.214
   port: 23462
@@ -892,15 +797,6 @@ proxies:
   cipher: auto
   tls: false
   skip-cert-verify: false
-- name: 未知 VMESS-185 | free-nodes
-  server: 66.163.118.73
-  port: 22324
-  type: vmess
-  uuid: 04621bae-ab36-11ec-b909-0242ac120002
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
 - name: 未知 VMESS-192 | free-nodes
   server: 89.41.172.85
   port: 22324
@@ -910,48 +806,36 @@ proxies:
   cipher: auto
   tls: false
   skip-cert-verify: false
-- name: 未知 VMESS-193 | free-nodes
-  server: aidrivercat.org
+- name: 未知 VMESS-212 | free-nodes
+  server: i2psm3knof5qjjix.v.3dns.vip
   port: 443
   type: vmess
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  uuid: f23bb427c1f94373876c2f43e9f790f3
   alterId: 0
   cipher: auto
   tls: true
   skip-cert-verify: false
-  servername: aidrivercat.org
+  servername: i2psm3knof5qjjix.v.3dns.vip
   network: ws
   ws-opts:
-    path: /linkvws
+    path: /ws-vmess
     headers:
-      Host: aidrivercat.org
-- name: 未知 VMESS-205 | free-nodes
-  server: dog-hk.kunlun01dns.com
-  port: 21021
+      Host: i2psm3knof5qjjix.v.3dns.vip
+- name: 未知 VMESS-215 | free-nodes
+  server: lcv8v9l7oyamxxfz.v.3dns.vip
+  port: 443
   type: vmess
-  uuid: 9464ca40-dd75-3742-a628-d931a9f413b2
+  uuid: f23bb427c1f94373876c2f43e9f790f3
   alterId: 0
   cipher: auto
-  tls: false
+  tls: true
   skip-cert-verify: false
-- name: 未知 VMESS-207 | free-nodes
-  server: dog-hk.kunlun01dns.com
-  port: 21022
-  type: vmess
-  uuid: 9464ca40-dd75-3742-a628-d931a9f413b2
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-- name: 未知 VMESS-208 | free-nodes
-  server: dog-jp.kunlun01dns.com
-  port: 21016
-  type: vmess
-  uuid: 9464ca40-dd75-3742-a628-d931a9f413b2
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
+  servername: lcv8v9l7oyamxxfz.v.3dns.vip
+  network: ws
+  ws-opts:
+    path: /ws-vmess
+    headers:
+      Host: lcv8v9l7oyamxxfz.v.3dns.vip
 - name: 未知 VMESS-221 | free-nodes
   server: mygptagent.org
   port: 443
@@ -967,6 +851,21 @@ proxies:
     path: /linkvws
     headers:
       Host: mygptagent.org
+- name: 未知 VMESS-230 | free-nodes
+  server: or.521166.xyz
+  port: 2083
+  type: vmess
+  uuid: ac251237-576f-40c8-a543-554960c958b1
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: or.521166.xyz
+  network: ws
+  ws-opts:
+    path: /or3
+    headers:
+      Host: or.521166.xyz
 - name: 未知 VMESS-231 | free-nodes
   server: pahobac.org
   port: 443
@@ -982,12 +881,3 @@ proxies:
     path: /linkvws
     headers:
       Host: pahobac.org
-- name: 未知 VMESS-236 | free-nodes
-  server: zfd-hkv2.kunlun01dns.com
-  port: 16115
-  type: vmess
-  uuid: 0802ac03-7973-39ef-a019-ba02de6c01e1
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
