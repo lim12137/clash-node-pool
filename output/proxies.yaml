@@ -1,30 +1,15 @@
 proxies:
-- name: 未知 VLESS-69 | free-nodes
-  server: 72.4.65.116
-  port: 443
+- name: 未知 VLESS-1006 | free-nodes
+  server: aldebaran.yokkastars.com
+  port: 40443
   type: vless
-  uuid: 0dca2cfe-98eb-4f9d-9a47-cf87510c558b
+  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
   tls: true
   tfo: false
   skip-cert-verify: false
-  servername: assets-de2.pleiades.codes
+  reality-opts:
+    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
+    short-id: '7606'
+  servername: deepl.com
   client-fingerprint: chrome
-  network: grpc
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: cdn.v1.AssetService
-- name: 未知 VLESS-64 | free-nodes
-  server: 45.82.244.40
-  port: 443
-  type: vless
-  uuid: 0250424c-ae75-4b6b-890f-3fe26fae36c3
-  tls: true
-  tfo: false
-  skip-cert-verify: false
-  servername: hk.152568.xyz
-  client-fingerprint: edge
-  network: ws
-  ws-opts:
-    path: /cdn/packages/runtime-core.tar.gz
-    headers:
-      Host: hk.152568.xyz
+  network: tcp
