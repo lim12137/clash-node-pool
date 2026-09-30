@@ -5,48 +5,18 @@ log-level: info
 unified-delay: true
 tcp-concurrent: true
 proxies:
-- name: 🇬🇧 GB VMESS-244 | free-nodes
-  server: cdn.sfacg.uk
-  port: 2083
-  type: vmess
-  uuid: ac251237-576f-40c8-a543-554960c958b1
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /or3
-    headers:
-      Host: or3.sfacg.uk
-- name: 未知 VLESS-139 | free-nodes
-  server: 158.247.240.138
-  port: 443
+- name: 未知 VLESS-1006 | free-nodes
+  server: aldebaran.yokkastars.com
+  port: 40443
   type: vless
-  uuid: ab61daa1-b7fb-486e-8946-b1da9a444685
+  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
   tls: true
   tfo: false
-  skip-cert-verify: false
-  servername: cf2us.3rr0r.online
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /proxyip=ProxyIP.KR.CMLiussss.Net
-    headers:
-      Host: cf2us.3rr0r.online
-- name: 未知 VLESS-97 | free-nodes
-  server: 62.77.158.1
-  port: 443
-  type: vless
-  uuid: 2eceaf2b-a775-5a9c-9990-dad2b3660fb6
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
   skip-cert-verify: false
   reality-opts:
-    public-key: sVhkyiMXvpofflCdSszxQmsqOXV1kg1Ldxq1a9mOPjs
-    short-id: 6a
-  servername: online.1c.ru
+    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
+    short-id: '7606'
+  servername: deepl.com
   client-fingerprint: chrome
   network: tcp
 proxy-groups:
@@ -55,18 +25,14 @@ proxy-groups:
   proxies:
   - ♻️ 自动选择
   - DIRECT
-  - 🇬🇧 GB VMESS-244 | free-nodes
-  - 未知 VLESS-139 | free-nodes
-  - 未知 VLESS-97 | free-nodes
+  - 未知 VLESS-1006 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 1800
   tolerance: 150
   proxies:
-  - 🇬🇧 GB VMESS-244 | free-nodes
-  - 未知 VLESS-139 | free-nodes
-  - 未知 VLESS-97 | free-nodes
+  - 未知 VLESS-1006 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
