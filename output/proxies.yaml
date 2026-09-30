@@ -1,15 +1,16 @@
 proxies:
-- name: 未知 VLESS-1006 | free-nodes
-  server: aldebaran.yokkastars.com
-  port: 40443
+- name: 未知 VLESS-97 | free-nodes
+  server: 62.77.158.1
+  port: 443
   type: vless
-  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
+  uuid: 2eceaf2b-a775-5a9c-9990-dad2b3660fb6
   tls: true
   tfo: false
+  flow: xtls-rprx-vision
   skip-cert-verify: false
   reality-opts:
-    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
-    short-id: '7606'
-  servername: deepl.com
+    public-key: sVhkyiMXvpofflCdSszxQmsqOXV1kg1Ldxq1a9mOPjs
+    short-id: 6a
+  servername: online.1c.ru
   client-fingerprint: chrome
   network: tcp
