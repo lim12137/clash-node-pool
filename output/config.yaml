@@ -5,34 +5,140 @@ log-level: info
 unified-delay: true
 tcp-concurrent: true
 proxies:
-- name: 未知 VLESS-1006 | free-nodes
-  server: aldebaran.yokkastars.com
-  port: 40443
+- name: 未知 TROJAN-89 | free-nodes
+  server: desired-boxer.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: desired-boxer.rooster465.autos
+  skip-cert-verify: false
+- name: 未知 TROJAN-106 | free-nodes
+  server: real-cardinal.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: real-cardinal.rooster465.autos
+  skip-cert-verify: false
+- name: 未知 TROJAN-102 | free-nodes
+  server: organic-caribou.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: organic-caribou.rooster465.autos
+  skip-cert-verify: false
+- name: 未知 TROJAN-107 | free-nodes
+  server: winning-marten.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: winning-marten.rooster465.autos
+  skip-cert-verify: false
+- name: 未知 TROJAN-84 | free-nodes
+  server: 31.77.168.33
+  port: 443
+  type: trojan
+  password: MDYVt6HgSqB7d537GPQXjk6Rk0E4RxWo
+  sni: d3-de2.cloud-cdn.xyz
+  alpn:
+  - h2
+  skip-cert-verify: false
+  network: grpc
+  grpc-opts:
+    grpc-service-name: ajv
+- name: 未知 VLESS-151 | free-nodes
+  server: 87.58.201.211
+  port: 443
   type: vless
-  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
+  uuid: 87fd990d-ca93-440a-bbd4-e8281c4a0910
   tls: true
+  alpn:
+  - h2
   tfo: false
   skip-cert-verify: false
-  reality-opts:
-    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
-    short-id: '7606'
-  servername: deepl.com
-  client-fingerprint: chrome
-  network: tcp
+  servername: d3-nl1.cloud-cdn.xyz
+  client-fingerprint: edge
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: vlgrpc
+- name: 未知 TROJAN-101 | free-nodes
+  server: optimum-snapper.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: optimum-snapper.rooster465.autos
+  skip-cert-verify: false
+- name: 未知 TROJAN-96 | free-nodes
+  server: liked-eft.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: liked-eft.rooster465.autos
+  skip-cert-verify: false
+- name: 未知 TROJAN-91 | free-nodes
+  server: evolving-ewe.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: evolving-ewe.rooster465.autos
+  skip-cert-verify: false
+- name: 未知 TROJAN-95 | free-nodes
+  server: kind-stork.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: kind-stork.rooster465.autos
+  skip-cert-verify: false
+- name: 未知 TROJAN-99 | free-nodes
+  server: noted-cougar.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: noted-cougar.rooster465.autos
+  skip-cert-verify: false
+- name: 未知 TROJAN-94 | free-nodes
+  server: happy-gibbon.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: happy-gibbon.rooster465.autos
+  skip-cert-verify: false
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies:
   - ♻️ 自动选择
   - DIRECT
-  - 未知 VLESS-1006 | free-nodes
+  - 未知 TROJAN-89 | free-nodes
+  - 未知 TROJAN-106 | free-nodes
+  - 未知 TROJAN-102 | free-nodes
+  - 未知 TROJAN-107 | free-nodes
+  - 未知 TROJAN-84 | free-nodes
+  - 未知 VLESS-151 | free-nodes
+  - 未知 TROJAN-101 | free-nodes
+  - 未知 TROJAN-96 | free-nodes
+  - 未知 TROJAN-91 | free-nodes
+  - 未知 TROJAN-95 | free-nodes
+  - 未知 TROJAN-99 | free-nodes
+  - 未知 TROJAN-94 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 1800
   tolerance: 150
   proxies:
-  - 未知 VLESS-1006 | free-nodes
+  - 未知 TROJAN-89 | free-nodes
+  - 未知 TROJAN-106 | free-nodes
+  - 未知 TROJAN-102 | free-nodes
+  - 未知 TROJAN-107 | free-nodes
+  - 未知 TROJAN-84 | free-nodes
+  - 未知 VLESS-151 | free-nodes
+  - 未知 TROJAN-101 | free-nodes
+  - 未知 TROJAN-96 | free-nodes
+  - 未知 TROJAN-91 | free-nodes
+  - 未知 TROJAN-95 | free-nodes
+  - 未知 TROJAN-99 | free-nodes
+  - 未知 TROJAN-94 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
