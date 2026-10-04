@@ -5,80 +5,34 @@ log-level: info
 unified-delay: true
 tcp-concurrent: true
 proxies:
-- name: 未知 VLESS-112 | free-nodes
-  server: 27.44.143.169
-  port: 14343
+- name: 未知 VLESS-1006 | free-nodes
+  server: aldebaran.yokkastars.com
+  port: 40443
   type: vless
-  uuid: 1b60cff4-49ce-4bf3-9027-e4f9c47d6158
+  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
   tls: true
   tfo: false
-  flow: xtls-rprx-vision
   skip-cert-verify: false
-  servername: thuk.huaweiyouxuan.com
+  reality-opts:
+    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
+    short-id: '7606'
+  servername: deepl.com
   client-fingerprint: chrome
   network: tcp
-- name: 未知 TROJAN-84 | free-nodes
-  server: 31.77.168.33
-  port: 443
-  type: trojan
-  password: MDYVt6HgSqB7d537GPQXjk6Rk0E4RxWo
-  sni: d3-de2.cloud-cdn.xyz
-  alpn:
-  - h2
-  skip-cert-verify: false
-  network: grpc
-  grpc-opts:
-    grpc-service-name: ajv
-- name: 未知 VLESS-151 | free-nodes
-  server: 87.58.201.211
-  port: 443
-  type: vless
-  uuid: 87fd990d-ca93-440a-bbd4-e8281c4a0910
-  tls: true
-  alpn:
-  - h2
-  tfo: false
-  skip-cert-verify: false
-  servername: d3-nl1.cloud-cdn.xyz
-  client-fingerprint: edge
-  network: grpc
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: vlgrpc
-- name: 未知 VLESS-175 | free-nodes
-  server: 201.34.159.221
-  port: 443
-  type: vless
-  uuid: e0b9fb0f-1bbd-478b-9580-c2294778338b
-  tls: true
-  tfo: false
-  skip-cert-verify: false
-  servername: us1.g4m1.biz
-  client-fingerprint: firefox
-  network: grpc
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: cdn.v1.AssetService
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies:
   - ♻️ 自动选择
   - DIRECT
-  - 未知 VLESS-112 | free-nodes
-  - 未知 TROJAN-84 | free-nodes
-  - 未知 VLESS-151 | free-nodes
-  - 未知 VLESS-175 | free-nodes
+  - 未知 VLESS-1006 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 1800
   tolerance: 150
   proxies:
-  - 未知 VLESS-112 | free-nodes
-  - 未知 TROJAN-84 | free-nodes
-  - 未知 VLESS-151 | free-nodes
-  - 未知 VLESS-175 | free-nodes
+  - 未知 VLESS-1006 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
