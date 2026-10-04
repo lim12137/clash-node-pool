@@ -5,88 +5,34 @@ log-level: info
 unified-delay: true
 tcp-concurrent: true
 proxies:
-- name: 未知 TROJAN-113 | free-nodes
-  server: pet-antelope.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: pet-antelope.rooster465.autos
-  skip-cert-verify: false
-- name: 未知 VLESS-112 | free-nodes
-  server: 27.44.143.169
-  port: 14343
+- name: 未知 VLESS-1006 | free-nodes
+  server: aldebaran.yokkastars.com
+  port: 40443
   type: vless
-  uuid: 1b60cff4-49ce-4bf3-9027-e4f9c47d6158
+  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
   tls: true
   tfo: false
-  flow: xtls-rprx-vision
   skip-cert-verify: false
-  servername: thuk.huaweiyouxuan.com
+  reality-opts:
+    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
+    short-id: '7606'
+  servername: deepl.com
   client-fingerprint: chrome
   network: tcp
-- name: 未知 TROJAN-86 | free-nodes
-  server: 31.77.168.21
-  port: 443
-  type: trojan
-  password: MDYVt6HgSqB7d537GPQXjk6Rk0E4RxWo
-  sni: d3-de2.cloud-cdn.xyz
-  alpn:
-  - h2
-  skip-cert-verify: false
-  network: grpc
-  grpc-opts:
-    grpc-service-name: ajv
-- name: 未知 TROJAN-89 | free-nodes
-  server: amazing-peacock.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: amazing-peacock.rooster465.autos
-  skip-cert-verify: false
-- name: 未知 VLESS-155 | free-nodes
-  server: s11.shahankhan.ir
-  port: 8080
-  type: vless
-  uuid: 6fddf57a-313c-4d4a-8ae1-939b207a1588
-  tls: false
-  tfo: false
-  skip-cert-verify: false
-  network: tcp
-- name: 未知 TROJAN-119 | free-nodes
-  server: cz-musicc.moritech.net
-  port: 443
-  type: trojan
-  password: f8b-U5TxjNRYKLvU0Js_6YeMCdj_82km
-  alpn:
-  - h2
-  skip-cert-verify: false
-  network: grpc
-  grpc-opts:
-    grpc-service-name: grpcbeast
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies:
   - ♻️ 自动选择
   - DIRECT
-  - 未知 TROJAN-113 | free-nodes
-  - 未知 VLESS-112 | free-nodes
-  - 未知 TROJAN-86 | free-nodes
-  - 未知 TROJAN-89 | free-nodes
-  - 未知 VLESS-155 | free-nodes
-  - 未知 TROJAN-119 | free-nodes
+  - 未知 VLESS-1006 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 1800
   tolerance: 150
   proxies:
-  - 未知 TROJAN-113 | free-nodes
-  - 未知 VLESS-112 | free-nodes
-  - 未知 TROJAN-86 | free-nodes
-  - 未知 TROJAN-89 | free-nodes
-  - 未知 VLESS-155 | free-nodes
-  - 未知 TROJAN-119 | free-nodes
+  - 未知 VLESS-1006 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
