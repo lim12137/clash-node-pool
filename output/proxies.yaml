@@ -1,18 +1,30 @@
 proxies:
-- name: 未知 VLESS-112 | free-nodes
-  server: 27.44.143.169
-  port: 14343
-  type: vless
-  uuid: 1b60cff4-49ce-4bf3-9027-e4f9c47d6158
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
+- name: 未知 VMESS-267 | free-nodes
+  server: 39.108.113.127
+  port: 10086
+  type: vmess
+  uuid: fde10e39-48bb-4dcf-b3ba-71d711323a54
+  alterId: 0
+  cipher: auto
+  tls: false
   skip-cert-verify: false
-  servername: thuk.huaweiyouxuan.com
-  client-fingerprint: chrome
-  network: tcp
+  network: ws
+  ws-opts:
+    path: /
 - name: 未知 TROJAN-86 | free-nodes
   server: 31.77.168.21
+  port: 443
+  type: trojan
+  password: MDYVt6HgSqB7d537GPQXjk6Rk0E4RxWo
+  sni: d3-de2.cloud-cdn.xyz
+  alpn:
+  - h2
+  skip-cert-verify: false
+  network: grpc
+  grpc-opts:
+    grpc-service-name: ajv
+- name: 未知 TROJAN-87 | free-nodes
+  server: 31.77.168.35
   port: 443
   type: trojan
   password: MDYVt6HgSqB7d537GPQXjk6Rk0E4RxWo
@@ -38,14 +50,15 @@ proxies:
     path: /api/v1/gpu-stream/socket
     headers:
       Host: renderer-stream-1-832.mirra.now
-- name: 未知 TROJAN-119 | free-nodes
-  server: cz-musicc.moritech.net
-  port: 443
-  type: trojan
-  password: f8b-U5TxjNRYKLvU0Js_6YeMCdj_82km
-  alpn:
-  - h2
+- name: 未知 VLESS-112 | free-nodes
+  server: 27.44.143.169
+  port: 14343
+  type: vless
+  uuid: 1b60cff4-49ce-4bf3-9027-e4f9c47d6158
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
   skip-cert-verify: false
-  network: grpc
-  grpc-opts:
-    grpc-service-name: grpcbeast
+  servername: thuk.huaweiyouxuan.com
+  client-fingerprint: chrome
+  network: tcp
