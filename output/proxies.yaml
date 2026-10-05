@@ -1,28 +1,15 @@
 proxies:
-- name: 未知 VLESS-112 | free-nodes
-  server: 27.44.143.169
-  port: 14343
+- name: 未知 VLESS-1006 | free-nodes
+  server: aldebaran.yokkastars.com
+  port: 40443
   type: vless
-  uuid: 1b60cff4-49ce-4bf3-9027-e4f9c47d6158
+  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
   tls: true
   tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  servername: thuk.huaweiyouxuan.com
-  client-fingerprint: chrome
-  network: tcp
-- name: 未知 VLESS-150 | free-nodes
-  server: tk1.high-speed-test-56424.me
-  port: 443
-  type: vless
-  uuid: 37615d66-5467-44a3-bc23-f2c3bef7f761
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
   skip-cert-verify: false
   reality-opts:
-    public-key: p8VhFzvFOBAhWAEAeWmwDxT3xBSRsGYixqi0qnLFnBM
-    short-id: 21270a66
-  servername: aws.amazon.com
+    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
+    short-id: '7606'
+  servername: deepl.com
   client-fingerprint: chrome
   network: tcp
