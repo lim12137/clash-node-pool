@@ -1,15 +1,90 @@
 proxies:
-- name: 未知 VLESS-1006 | free-nodes
-  server: aldebaran.yokkastars.com
-  port: 40443
+- name: 🇷🇺 RU VLESS-157 | free-nodes
+  server: de2.srv.vbuste.ru
+  port: 443
   type: vless
-  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
+  uuid: 318c935d-c195-41d3-99ad-9bbcfdab3386
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
+    short-id: 4be4110078ebed4a
+  servername: de2.srv.vbuste.ru
+  client-fingerprint: randomized
+  network: tcp
+- name: 未知 VLESS-188 | free-nodes
+  server: 31.77.109.35
+  port: 443
+  type: vless
+  uuid: 87fd990d-ca93-440a-bbd4-e8281c4a0910
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: SPyieysl8w1lo950icthB72kn_ElyJXkpCdKqmnjGEY
+    short-id: 494afdc75f8c2fa8
+  servername: d3-de1.cloud-cdn.xyz
+  client-fingerprint: chrome
+  network: tcp
+- name: 未知 VLESS-187 | free-nodes
+  server: 163.245.52.91
+  port: 443
+  type: vless
+  uuid: 87fd990d-ca93-440a-bbd4-e8281c4a0910
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: g36Z7YIqJMJP-uv3DBr72X5jvfjyW1qIAxa8TkWmpmQ
+    short-id: ad6e08b22389abd2
+  servername: d3-ee1.cloud-cdn.xyz
+  client-fingerprint: chrome
+  network: tcp
+- name: 未知 VLESS-210 | free-nodes
+  server: 157.228.160.166
+  port: 443
+  type: vless
+  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: NOw-idkk3OCn-N0IRS93leujH4ik-E749O2T5BYJQ0M
+    short-id: 3cef317b
+  servername: addons.mozilla.org
+  client-fingerprint: randomized
+  network: tcp
+- name: 🇺🇸 US VLESS-179 | free-nodes
+  server: news.zoom.us
+  port: 8443
+  type: vless
+  uuid: 799b1006-3255-4e36-8ea0-64fe24d2bfa7
   tls: true
   tfo: false
   skip-cert-verify: false
+  servername: asia.csmaster.site
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: asia.csmaster.site
+- name: 未知 VLESS-197 | free-nodes
+  server: pl-waw.dontblockmepls.com
+  port: 2063
+  type: vless
+  uuid: b18d5990-96eb-4587-a386-7f8ef7591e6a
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
   reality-opts:
-    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
-    short-id: '7606'
-  servername: deepl.com
+    public-key: MMpt_jWc4J3oySBdf5sPDVRkiWlZmOObth6A1scM9BM
+  servername: rusbid.de
   client-fingerprint: chrome
   network: tcp
