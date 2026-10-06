@@ -1,15 +1,15 @@
 proxies:
-- name: 未知 VLESS-197 | free-nodes
-  server: pl-waw.dontblockmepls.com
-  port: 2063
+- name: 未知 VLESS-1006 | free-nodes
+  server: aldebaran.yokkastars.com
+  port: 40443
   type: vless
-  uuid: b18d5990-96eb-4587-a386-7f8ef7591e6a
+  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
   tls: true
   tfo: false
-  flow: xtls-rprx-vision
   skip-cert-verify: false
   reality-opts:
-    public-key: MMpt_jWc4J3oySBdf5sPDVRkiWlZmOObth6A1scM9BM
-  servername: rusbid.de
+    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
+    short-id: '7606'
+  servername: deepl.com
   client-fingerprint: chrome
   network: tcp
