@@ -19,36 +19,6 @@ proxies:
   servername: rusbid.de
   client-fingerprint: chrome
   network: tcp
-- name: 未知 VLESS-181 | free-nodes
-  server: 163.245.52.91
-  port: 443
-  type: vless
-  uuid: 87fd990d-ca93-440a-bbd4-e8281c4a0910
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: g36Z7YIqJMJP-uv3DBr72X5jvfjyW1qIAxa8TkWmpmQ
-    short-id: ad6e08b22389abd2
-  servername: d3-ee1.cloud-cdn.xyz
-  client-fingerprint: chrome
-  network: tcp
-- name: 未知 VLESS-182 | free-nodes
-  server: 31.77.109.35
-  port: 443
-  type: vless
-  uuid: 87fd990d-ca93-440a-bbd4-e8281c4a0910
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: SPyieysl8w1lo950icthB72kn_ElyJXkpCdKqmnjGEY
-    short-id: 494afdc75f8c2fa8
-  servername: d3-de1.cloud-cdn.xyz
-  client-fingerprint: chrome
-  network: tcp
 proxy-groups:
 - name: 🚀 节点选择
   type: select
@@ -56,8 +26,6 @@ proxy-groups:
   - ♻️ 自动选择
   - DIRECT
   - 未知 VLESS-197 | free-nodes
-  - 未知 VLESS-181 | free-nodes
-  - 未知 VLESS-182 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
@@ -65,8 +33,6 @@ proxy-groups:
   tolerance: 150
   proxies:
   - 未知 VLESS-197 | free-nodes
-  - 未知 VLESS-181 | free-nodes
-  - 未知 VLESS-182 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
