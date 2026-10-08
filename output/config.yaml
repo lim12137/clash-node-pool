@@ -5,19 +5,118 @@ log-level: info
 unified-delay: true
 tcp-concurrent: true
 proxies:
-- name: 未知 VLESS-1006 | free-nodes
-  server: aldebaran.yokkastars.com
-  port: 40443
+- name: 未知 VMESS-295 | free-nodes
+  server: 39.108.113.127
+  port: 10086
+  type: vmess
+  uuid: fde10e39-48bb-4dcf-b3ba-71d711323a54
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+- name: 未知 VMESS-358 | free-nodes
+  server: dog-hk.kunlun01dns.com
+  port: 21022
+  type: vmess
+  uuid: 9464ca40-dd75-3742-a628-d931a9f413b2
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+- name: 未知 VMESS-354 | free-nodes
+  server: dog-hk.kunlun01dns.com
+  port: 21020
+  type: vmess
+  uuid: 9464ca40-dd75-3742-a628-d931a9f413b2
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+- name: 未知 VMESS-451 | free-nodes
+  server: zfd-hkv2.kunlun01dns.com
+  port: 16115
+  type: vmess
+  uuid: 0802ac03-7973-39ef-a019-ba02de6c01e1
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+- name: 未知 VMESS-355 | free-nodes
+  server: dog-hk.kunlun01dns.com
+  port: 21021
+  type: vmess
+  uuid: 9464ca40-dd75-3742-a628-d931a9f413b2
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+- name: 未知 SS-87 | free-nodes
+  server: 176.32.39.52
+  port: 20880
+  type: ss
+  cipher: aes-256-gcm
+  password: 8ad9d72a5571df86
+- name: 未知 VLESS-160 | free-nodes
+  server: tk1.high-speed-test-56424.me
+  port: 443
   type: vless
-  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
+  uuid: 37615d66-5467-44a3-bc23-f2c3bef7f761
   tls: true
   tfo: false
+  flow: xtls-rprx-vision
   skip-cert-verify: false
   reality-opts:
-    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
-    short-id: '7606'
-  servername: deepl.com
+    public-key: p8VhFzvFOBAhWAEAeWmwDxT3xBSRsGYixqi0qnLFnBM
+    short-id: 21270a66
+  servername: aws.amazon.com
   client-fingerprint: chrome
+  network: tcp
+- name: 未知 VMESS-405 | free-nodes
+  server: nl-2a972c8052.shamanapp.online
+  port: 33736
+  type: vmess
+  uuid: 1281acca-f21d-475c-bf04-eccbee7f8df2
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /vmess-ws
+    headers:
+      Host: nl-2a972c8052.shamanapp.online
+- name: 🇷🇺 RU VLESS-158 | free-nodes
+  server: de2.srv.vbuste.ru
+  port: 443
+  type: vless
+  uuid: 318c935d-c195-41d3-99ad-9bbcfdab3386
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
+    short-id: 4be4110078ebed4a
+  servername: de2.srv.vbuste.ru
+  client-fingerprint: chrome
+  network: tcp
+- name: 未知 VLESS-214 | free-nodes
+  server: 157.228.160.166
+  port: 443
+  type: vless
+  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: NOw-idkk3OCn-N0IRS93leujH4ik-E749O2T5BYJQ0M
+    short-id: 3cef317b
+  servername: addons.mozilla.org
+  client-fingerprint: randomized
   network: tcp
 proxy-groups:
 - name: 🚀 节点选择
@@ -25,14 +124,32 @@ proxy-groups:
   proxies:
   - ♻️ 自动选择
   - DIRECT
-  - 未知 VLESS-1006 | free-nodes
+  - 未知 VMESS-295 | free-nodes
+  - 未知 VMESS-358 | free-nodes
+  - 未知 VMESS-354 | free-nodes
+  - 未知 VMESS-451 | free-nodes
+  - 未知 VMESS-355 | free-nodes
+  - 未知 SS-87 | free-nodes
+  - 未知 VLESS-160 | free-nodes
+  - 未知 VMESS-405 | free-nodes
+  - 🇷🇺 RU VLESS-158 | free-nodes
+  - 未知 VLESS-214 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 1800
   tolerance: 150
   proxies:
-  - 未知 VLESS-1006 | free-nodes
+  - 未知 VMESS-295 | free-nodes
+  - 未知 VMESS-358 | free-nodes
+  - 未知 VMESS-354 | free-nodes
+  - 未知 VMESS-451 | free-nodes
+  - 未知 VMESS-355 | free-nodes
+  - 未知 SS-87 | free-nodes
+  - 未知 VLESS-160 | free-nodes
+  - 未知 VMESS-405 | free-nodes
+  - 🇷🇺 RU VLESS-158 | free-nodes
+  - 未知 VLESS-214 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
