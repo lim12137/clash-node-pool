@@ -1,6 +1,13 @@
 proxies:
-- name: 未知 VMESS-295 | free-nodes
-  server: 39.108.113.127
+- name: 未知 TROJAN-132 | free-nodes
+  server: musical-mouse.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: musical-mouse.rooster465.autos
+  skip-cert-verify: false
+- name: 未知 VMESS-285 | free-nodes
+  server: 120.48.133.162
   port: 10086
   type: vmess
   uuid: fde10e39-48bb-4dcf-b3ba-71d711323a54
@@ -10,21 +17,13 @@ proxies:
   skip-cert-verify: false
   network: ws
   ws-opts:
-    path: /
-- name: 未知 VLESS-202 | free-nodes
-  server: swidenlanzerotte.live
+    path: /?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
+- name: 未知 SS-05 | free-nodes
+  server: 47.85.168.157
   port: 443
-  type: vless
-  uuid: 56de13ac-086e-4789-8e1e-1bf2bd90216b
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: MQrvfivvEfLGzDee7h0j5uC-DwaD_38_NXOY9-NhqxM
-  servername: swidenlanzerotte.live
-  client-fingerprint: chrome
-  network: tcp
+  type: ss
+  cipher: 2022-blake3-chacha20-poly1305
+  password: 3NBsnBLanPfG6i3S2GTHineswr6EeSJPb0PCeMQoGoA=
 - name: 未知 VLESS-212 | free-nodes
   server: 157.228.128.59
   port: 443
@@ -40,9 +39,3 @@ proxies:
   servername: addons.mozilla.org
   client-fingerprint: chrome
   network: tcp
-- name: 未知 SS-05 | free-nodes
-  server: 47.85.168.157
-  port: 443
-  type: ss
-  cipher: 2022-blake3-chacha20-poly1305
-  password: 3NBsnBLanPfG6i3S2GTHineswr6EeSJPb0PCeMQoGoA=
