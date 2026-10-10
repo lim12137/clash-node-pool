@@ -1,78 +1,68 @@
 {
-  "tested_at": "2026-10-10T06:11:10+08:00",
+  "tested_at": "2026-10-10T12:10:59+08:00",
   "source": {
     "upstream": "free-nodes/clashfree",
     "source_file": "clash20261010.yml",
     "source_url": "https://api.github.com/repos/free-nodes/clashfree/contents/clash20261010.yml?ref=main",
-    "fetched_at": "2026-10-10T06:10:33+08:00",
+    "fetched_at": "2026-10-10T12:10:18+08:00",
     "raw_count": 570,
     "merged_count": 407
   },
   "candidates": 407,
-  "alive": 8,
-  "new_alive": 4,
+  "alive": 6,
+  "new_alive": 2,
   "prev_kept": 4,
   "dual_round_test": true,
   "relaxed": false,
   "nodes": [
     {
-      "name": "未知 TROJAN-126 | free-nodes",
-      "type": "trojan",
-      "server": "fond-mammoth.rooster465.autos",
-      "port": 443,
-      "delay_ms": 164
-    },
-    {
       "name": "未知 VMESS-285 | free-nodes",
       "type": "vmess",
       "server": "120.48.133.162",
       "port": 10086,
-      "delay_ms": 211
-    },
-    {
-      "name": "未知 SS-05 | free-nodes",
-      "type": "ss",
-      "server": "47.85.168.157",
-      "port": 443,
-      "delay_ms": 603
-    },
-    {
-      "name": "未知 VLESS-230 | free-nodes",
-      "type": "vless",
-      "server": "gw1.edgemedia.lol",
-      "port": 13443,
-      "delay_ms": 930
-    },
-    {
-      "name": "未知 VLESS-212 | free-nodes",
-      "type": "vless",
-      "server": "157.228.128.59",
-      "port": 443,
-      "delay_ms": 1200
+      "delay_ms": 170
     },
     {
       "name": "未知 VLESS-243 | free-nodes",
       "type": "vless",
       "server": "157.228.160.166",
       "port": 443,
-      "delay_ms": 1947
+      "delay_ms": 679
+    },
+    {
+      "name": "未知 VLESS-212 | free-nodes",
+      "type": "vless",
+      "server": "157.228.128.59",
+      "port": 443,
+      "delay_ms": 806
+    },
+    {
+      "name": "未知 VMESS-468 | free-nodes",
+      "type": "vmess",
+      "server": "yg1.ygkkk.dpdns.org",
+      "port": 443,
+      "delay_ms": 1670
+    },
+    {
+      "name": "未知 VLESS-234 | free-nodes",
+      "type": "vless",
+      "server": "pl-waw.dontblockmepls.com",
+      "port": 2063,
+      "delay_ms": 2286
     },
     {
       "name": "未知 VMESS-427 | free-nodes",
       "type": "vmess",
       "server": "nl-2a972c8052.shamanapp.online",
       "port": 33736,
-      "delay_ms": 4492
-    },
-    {
-      "name": "未知 TROJAN-132 | free-nodes",
-      "type": "trojan",
-      "server": "musical-mouse.rooster465.autos",
-      "port": 443,
-      "delay_ms": 4588
+      "delay_ms": 4750
     }
   ],
   "failed": [
+    "未知 TROJAN-126 | free-nodes",
+    "未知 SS-05 | free-nodes",
+    "未知 VLESS-230 | free-nodes",
+    "未知 TROJAN-132 | free-nodes",
     "未知 SS-01 | free-nodes",
     "未知 SS-02 | free-nodes",
     "未知 SS-03 | free-nodes",
@@ -288,7 +278,6 @@
     "未知 VLESS-231 | free-nodes",
     "未知 VLESS-232 | free-nodes",
     "未知 VLESS-233 | free-nodes",
-    "未知 VLESS-234 | free-nodes",
     "🇺🇸 US VLESS-235 | free-nodes",
     "未知 VLESS-236 | free-nodes",
     "未知 VLESS-237 | free-nodes",
@@ -405,7 +394,6 @@
     "未知 VMESS-462 | free-nodes",
     "未知 VMESS-464 | free-nodes",
     "未知 VMESS-466 | free-nodes",
-    "未知 VMESS-468 | free-nodes",
     "未知 VMESS-476 | free-nodes",
     "未知 VMESS-477 | free-nodes",
     "未知 VMESS-480 | free-nodes",
