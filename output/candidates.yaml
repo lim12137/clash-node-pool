@@ -2,13 +2,13 @@ meta:
   upstream: free-nodes/clashfree
   source_file: clash20261010.yml
   source_url: https://api.github.com/repos/free-nodes/clashfree/contents/clash20261010.yml?ref=main
-  fetched_at: '2026-10-10T13:43:51+08:00'
-  raw_count: 570
+  fetched_at: '2026-10-10T20:24:06+08:00'
+  raw_count: 568
   merged_count: 407
-  prescreened_at: '2026-10-10T13:43:58+08:00'
+  prescreened_at: '2026-10-10T20:24:13+08:00'
   prescreen_delay_ms: 3000
   prescreen_pool: 407
-  prescreen_survivors: 132
+  prescreen_survivors: 115
 proxies:
 - name: 未知 VMESS-285 | free-nodes
   server: 120.48.133.162
@@ -22,34 +22,16 @@ proxies:
   network: ws
   ws-opts:
     path: /?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
-- name: 未知 VLESS-243 | free-nodes
-  server: 157.228.160.166
-  port: 443
+- name: 未知 VLESS-215 | free-nodes
+  server: nl.alpheratzz.org
+  port: 8443
   type: vless
-  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
+  uuid: 8de76932-518a-4ac8-ac92-be6b1f17ddd8
   tls: true
   tfo: false
   flow: xtls-rprx-vision
   skip-cert-verify: false
-  reality-opts:
-    public-key: NOw-idkk3OCn-N0IRS93leujH4ik-E749O2T5BYJQ0M
-    short-id: 3cef317b
-  servername: addons.mozilla.org
-  client-fingerprint: randomized
-  network: tcp
-- name: 未知 VLESS-212 | free-nodes
-  server: 157.228.128.59
-  port: 443
-  type: vless
-  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: QnxkyscHouhaLDJHT47beyenVd4LHi62yfJIeRV01Ws
-    short-id: 06e00e7c
-  servername: addons.mozilla.org
+  servername: api-v1-6ac7858f.vmagnum.win
   client-fingerprint: chrome
   network: tcp
 - name: 未知 VMESS-468 | free-nodes
@@ -67,20 +49,6 @@ proxies:
     path: /b2ba4a73-3123-479e-aa96-5973a9ecd0c0-vm
     headers:
       Host: jmp1.907737.xyz
-- name: 未知 VLESS-234 | free-nodes
-  server: pl-waw.dontblockmepls.com
-  port: 2063
-  type: vless
-  uuid: b18d5990-96eb-4587-a386-7f8ef7591e6a
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: MMpt_jWc4J3oySBdf5sPDVRkiWlZmOObth6A1scM9BM
-  servername: rusbid.de
-  client-fingerprint: chrome
-  network: tcp
 - name: 未知 VMESS-427 | free-nodes
   server: nl-2a972c8052.shamanapp.online
   port: 33736
@@ -95,24 +63,33 @@ proxies:
     path: /vmess-ws
     headers:
       Host: nl-2a972c8052.shamanapp.online
-- name: 未知 SS-05 | free-nodes
-  server: 47.85.168.157
+- name: 未知 VLESS-243 | free-nodes
+  server: 157.228.160.166
   port: 443
-  type: ss
-  cipher: 2022-blake3-chacha20-poly1305
-  password: 3NBsnBLanPfG6i3S2GTHineswr6EeSJPb0PCeMQoGoA=
+  type: vless
+  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: NOw-idkk3OCn-N0IRS93leujH4ik-E749O2T5BYJQ0M
+    short-id: 3cef317b
+  servername: addons.mozilla.org
+  client-fingerprint: randomized
+  network: tcp
 - name: 未知 SS-46 | free-nodes
   server: 103.11.76.248
   port: 28679
   type: ss
   cipher: 2022-blake3-aes-128-gcm
   password: NzJlOTQ5NWYtM2ZkYi00Cg==
-- name: 未知 SS-70 | free-nodes
-  server: c3.nastuh.link
-  port: 443
+- name: 未知 SS-53 | free-nodes
+  server: 45.76.9.57
+  port: 8389
   type: ss
   cipher: chacha20-ietf-poly1305
-  password: y7KeRTzmH0vXT2kp
+  password: 6054f059036c3ff1e907aeb51377b2ac54e61ceb666226fd
 - name: 未知 SS-73 | free-nodes
   server: 57.129.113.16
   port: 8388
@@ -155,24 +132,37 @@ proxies:
   type: ss
   cipher: chacha20-ietf-poly1305
   password: oZIoA69Q8yhcQV8ka3Pa3A
+- name: 未知 SS-81 | free-nodes
+  server: 82.38.31.82
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
 - name: 未知 SS-84 | free-nodes
   server: 64.74.163.69
   port: 18766
   type: ss
   cipher: aes-128-gcm
   password: 4efe1af272e7292139b889f6a63ee071
-- name: 未知 SS-91 | free-nodes
-  server: 66.23.204.214
-  port: 16999
+- name: 未知 SS-98 | free-nodes
+  server: pphfree2.mvpnpvpn.de5.net
+  port: 52351
   type: ss
-  cipher: aes-128-gcm
-  password: 89d3a0375a279f6e743fea76e72952a8
+  cipher: aes-256-gcm
+  password: sxajCTwrlK0zl+zmHpX0p0jXIfatnzlLzWlSQ950L1c=
 - name: 未知 TROJAN-107 | free-nodes
   server: 34.94.125.227
   port: 443
   type: trojan
   password: M7v%w11Se*
   sni: mxlo.wsone.icu
+  skip-cert-verify: false
+- name: 未知 TROJAN-108 | free-nodes
+  server: 3.34.131.153
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: pretty-rat.rooster465.autos
   skip-cert-verify: false
 - name: 未知 TROJAN-109 | free-nodes
   server: accurate-frog.rooster465.autos
@@ -258,54 +248,47 @@ proxies:
   password: UX82473651
   sni: delicate-buck.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-121 | free-nodes
-  server: dynamic-imp.rooster465.autos
+- name: 未知 TROJAN-122 | free-nodes
+  server: engaging-toucan.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
-  sni: dynamic-imp.rooster465.autos
+  sni: engaging-toucan.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-122 | free-nodes
+- name: 未知 TROJAN-123 | free-nodes
   server: equipped-stingray.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: equipped-stingray.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-123 | free-nodes
+- name: 未知 TROJAN-124 | free-nodes
   server: evolving-platypus.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: evolving-platypus.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-124 | free-nodes
+- name: 未知 TROJAN-125 | free-nodes
   server: fancy-javelin.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: fancy-javelin.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-125 | free-nodes
+- name: 未知 TROJAN-126 | free-nodes
   server: fancy-skink.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: fancy-skink.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-126 | free-nodes
+- name: 未知 TROJAN-127 | free-nodes
   server: fond-mammoth.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: fond-mammoth.rooster465.autos
-  skip-cert-verify: false
-- name: 未知 TROJAN-127 | free-nodes
-  server: full-egret.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: full-egret.rooster465.autos
   skip-cert-verify: false
 - name: 未知 TROJAN-128 | free-nodes
   server: glorious-lark.rooster465.autos
@@ -315,97 +298,90 @@ proxies:
   sni: glorious-lark.rooster465.autos
   skip-cert-verify: false
 - name: 未知 TROJAN-129 | free-nodes
-  server: glowing-marmoset.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: glowing-marmoset.rooster465.autos
-  skip-cert-verify: false
-- name: 未知 TROJAN-130 | free-nodes
   server: guided-ferret.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: guided-ferret.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-131 | free-nodes
+- name: 未知 TROJAN-130 | free-nodes
   server: holy-lamb.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: holy-lamb.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-132 | free-nodes
+- name: 未知 TROJAN-131 | free-nodes
   server: integral-rodent.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: integral-rodent.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-133 | free-nodes
+- name: 未知 TROJAN-132 | free-nodes
   server: inviting-ferret.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: inviting-ferret.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-134 | free-nodes
+- name: 未知 TROJAN-133 | free-nodes
   server: inviting-rabbit.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: inviting-rabbit.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-135 | free-nodes
+- name: 未知 TROJAN-134 | free-nodes
   server: kind-stork.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: kind-stork.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-136 | free-nodes
+- name: 未知 TROJAN-135 | free-nodes
   server: legible-ram.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: legible-ram.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-137 | free-nodes
+- name: 未知 TROJAN-136 | free-nodes
   server: live-stallion.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: live-stallion.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-138 | free-nodes
+- name: 未知 TROJAN-137 | free-nodes
   server: loved-shark.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: loved-shark.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-139 | free-nodes
+- name: 未知 TROJAN-138 | free-nodes
   server: main-fawn.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: main-fawn.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-140 | free-nodes
+- name: 未知 TROJAN-139 | free-nodes
   server: meet-goshawk.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: meet-goshawk.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-141 | free-nodes
+- name: 未知 TROJAN-140 | free-nodes
   server: moral-basilisk.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: moral-basilisk.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-142 | free-nodes
+- name: 未知 TROJAN-141 | free-nodes
   server: musical-mouse.rooster465.autos
   port: 443
   type: trojan
@@ -413,223 +389,161 @@ proxies:
   sni: musical-mouse.rooster465.autos
   skip-cert-verify: false
 - name: 未知 TROJAN-143 | free-nodes
-  server: musical-terrier.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: musical-terrier.rooster465.autos
-  skip-cert-verify: false
-- name: 未知 TROJAN-144 | free-nodes
   server: normal-macaque.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: normal-macaque.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-145 | free-nodes
+- name: 未知 TROJAN-144 | free-nodes
   server: noted-cougar.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: noted-cougar.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-146 | free-nodes
+- name: 未知 TROJAN-145 | free-nodes
   server: obliging-louse.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: obliging-louse.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-147 | free-nodes
+- name: 未知 TROJAN-146 | free-nodes
   server: optimal-penguin.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: optimal-penguin.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-148 | free-nodes
+- name: 未知 TROJAN-147 | free-nodes
   server: optimum-snapper.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: optimum-snapper.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-149 | free-nodes
+- name: 未知 TROJAN-148 | free-nodes
   server: organic-caribou.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: organic-caribou.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-150 | free-nodes
+- name: 未知 TROJAN-149 | free-nodes
   server: pet-antelope.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: pet-antelope.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-152 | free-nodes
+- name: 未知 TROJAN-150 | free-nodes
+  server: pleased-albacore.rooster465.autos
+  port: 443
+  type: trojan
+  password: UX82473651
+  sni: pleased-albacore.rooster465.autos
+  skip-cert-verify: false
+- name: 未知 TROJAN-151 | free-nodes
   server: present-ram.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: present-ram.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-153 | free-nodes
-  server: pretty-rat.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: pretty-rat.rooster465.autos
-  skip-cert-verify: false
-- name: 未知 TROJAN-154 | free-nodes
+- name: 未知 TROJAN-152 | free-nodes
   server: prime-corgi.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: prime-corgi.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-155 | free-nodes
-  server: pro-mako.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: pro-mako.rooster465.autos
-  skip-cert-verify: false
-- name: 未知 TROJAN-156 | free-nodes
+- name: 未知 TROJAN-153 | free-nodes
   server: promoted-rattler.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: promoted-rattler.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-157 | free-nodes
+- name: 未知 TROJAN-154 | free-nodes
   server: pure-kodiak.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: pure-kodiak.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-158 | free-nodes
+- name: 未知 TROJAN-155 | free-nodes
   server: real-cardinal.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: real-cardinal.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-159 | free-nodes
+- name: 未知 TROJAN-156 | free-nodes
   server: rested-seahorse.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: rested-seahorse.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-160 | free-nodes
-  server: sacred-anemone.rooster465.autos
-  port: 443
-  type: trojan
-  password: UX82473651
-  sni: sacred-anemone.rooster465.autos
-  skip-cert-verify: false
-- name: 未知 TROJAN-161 | free-nodes
+- name: 未知 TROJAN-158 | free-nodes
   server: stable-python.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: stable-python.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-162 | free-nodes
+- name: 未知 TROJAN-159 | free-nodes
   server: warm-krill.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: warm-krill.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-163 | free-nodes
+- name: 未知 TROJAN-160 | free-nodes
   server: winning-marten.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: winning-marten.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-164 | free-nodes
+- name: 未知 TROJAN-161 | free-nodes
   server: working-tomcat.rooster465.autos
   port: 443
   type: trojan
   password: UX82473651
   sni: working-tomcat.rooster465.autos
   skip-cert-verify: false
-- name: 未知 TROJAN-168 | free-nodes
-  server: ger6.fytpn.com
-  port: 2097
-  type: trojan
-  password: gHncxmRjWEJ7apX5XuXsHw4kGexMH_gU
-  sni: ger6.fytpn.com
-  skip-cert-verify: false
-- name: 未知 TROJAN-169 | free-nodes
-  server: lit.fytpn.com
-  port: 2097
-  type: trojan
-  password: gHncxmRjWEJ7apX5XuXsHw4kGexMH_gU
-  sni: lit.fytpn.com
-  skip-cert-verify: false
-- name: 未知 TROJAN-170 | free-nodes
-  server: pol2.fytpn.com
-  port: 2097
-  type: trojan
-  password: gHncxmRjWEJ7apX5XuXsHw4kGexMH_gU
-  sni: pol2.fytpn.com
-  skip-cert-verify: false
-- name: 未知 TROJAN-171 | free-nodes
-  server: stoniy.fytpn.com
-  port: 2097
-  type: trojan
-  password: gHncxmRjWEJ7apX5XuXsHw4kGexMH_gU
-  sni: stoniy.fytpn.com
-  skip-cert-verify: false
-- name: 未知 VLESS-173 | free-nodes
-  server: hinet1.2yly.com
-  port: 24215
-  type: vless
-  uuid: 19d5a678-8396-4e3b-93da-ece618d0e83a
-  tls: true
-  tfo: false
-  skip-cert-verify: false
-  reality-opts:
-    public-key: mdWKUPMVTtTbDqK10BPb89OcqBC2-Lx-4NOYtqc1GWE
-  servername: addons.mozilla.org
-  client-fingerprint: chrome
-  network: tcp
-- name: 未知 VLESS-174 | free-nodes
-  server: 95.216.27.15
-  port: 2053
-  type: vless
-  uuid: 1c81f6d3-5771-4c5d-9fdd-1655eff50634
-  tls: true
-  tfo: false
-  skip-cert-verify: false
-  reality-opts:
-    public-key: 4nfogj5mHqNowtSn_2sXS3xTX8vcH75rFEU2BWvyekM
-    short-id: d368b94e275ab080
-  servername: www.google.com
-  client-fingerprint: chrome
-  network: tcp
-- name: 未知 VLESS-175 | free-nodes
-  server: 78.135.73.47
+- name: 未知 VLESS-168 | free-nodes
+  server: 103.27.157.120
   port: 443
   type: vless
-  uuid: 25e16692-d097-4e69-9e2d-8415609c1968
+  uuid: 025a80fb-233b-4714-b02d-f4384c653d58
   tls: true
   tfo: false
   flow: xtls-rprx-vision
   skip-cert-verify: false
   reality-opts:
-    public-key: sZAJkAu23wp1WKY-qeaeiwR38izP5OyfhumoE9xhbB8
-    short-id: f46cd3ea3d1eb72d
-  servername: www.datadoghq.com
-  client-fingerprint: chrome
+    public-key: k0883nIGfstbzb8hES-dQ1yPcBwbUbnsyg4w-UA5gkA
+    short-id: 68aaa5222092bbea
+  servername: download.amd.com
+  client-fingerprint: qq
   network: tcp
-- name: 未知 VLESS-176 | free-nodes
+- name: 未知 VLESS-170 | free-nodes
+  server: 163.245.43.50
+  port: 443
+  type: vless
+  uuid: 203d434a-2a92-45df-8973-ca80434ecf73
+  tls: true
+  tfo: false
+  skip-cert-verify: false
+  servername: se-twitch.global-cdn.org
+  client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-mode: gun
+    grpc-service-name: content.v1.Feed
+- name: 未知 VLESS-171 | free-nodes
   server: 104.243.33.154
   port: 45299
   type: vless
@@ -638,7 +552,7 @@ proxies:
   tfo: false
   skip-cert-verify: false
   network: tcp
-- name: 未知 VLESS-177 | free-nodes
+- name: 未知 VLESS-172 | free-nodes
   server: 13.143.166.245
   port: 443
   type: vless
@@ -653,7 +567,7 @@ proxies:
   servername: cdn.jsdelivr.net
   client-fingerprint: chrome
   network: tcp
-- name: 未知 VLESS-193 | free-nodes
+- name: 未知 VLESS-188 | free-nodes
   server: 144.31.62.242
   port: 443
   type: vless
@@ -666,9 +580,9 @@ proxies:
     public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
     short-id: 4be4110078ebed4a
   servername: de2.srv.vbuste.ru
-  client-fingerprint: chrome
+  client-fingerprint: firefox
   network: tcp
-- name: 未知 VLESS-195 | free-nodes
+- name: 未知 VLESS-189 | free-nodes
   server: 179.61.145.245
   port: 443
   type: vless
@@ -683,7 +597,7 @@ proxies:
   servername: de2.srv.vbuste.ru
   client-fingerprint: chrome
   network: tcp
-- name: 未知 VLESS-200 | free-nodes
+- name: 未知 VLESS-193 | free-nodes
   server: tk1.high-speed-test-56424.me
   port: 443
   type: vless
@@ -698,23 +612,7 @@ proxies:
   servername: aws.amazon.com
   client-fingerprint: chrome
   network: tcp
-- name: 未知 VLESS-206 | free-nodes
-  server: 91.107.151.122
-  port: 8080
-  type: vless
-  uuid: 39098241-9c6e-4fe7-abbd-7f6f6ed4512c
-  tls: false
-  tfo: false
-  skip-cert-verify: false
-  network: http
-  http-opts:
-    method: GET
-    path:
-    - /
-    headers:
-      Host:
-      - play.google.com
-- name: 未知 VLESS-207 | free-nodes
+- name: 未知 VLESS-199 | free-nodes
   server: 103.172.197.2
   port: 29172
   type: vless
@@ -728,7 +626,7 @@ proxies:
   servername: aws.amazon.com
   client-fingerprint: chrome
   network: tcp
-- name: 未知 VLESS-214 | free-nodes
+- name: 未知 VLESS-205 | free-nodes
   server: tomaz1337shellbuy.vvzzkontaktezzvv.garden
   port: 443
   type: vless
@@ -743,7 +641,37 @@ proxies:
   servername: tomaz1337shellbuy.vvzzkontaktezzvv.garden
   client-fingerprint: chrome
   network: tcp
-- name: 未知 VLESS-218 | free-nodes
+- name: 未知 VLESS-206 | free-nodes
+  server: 177.1.192.72
+  port: 443
+  type: vless
+  uuid: 4d852af3-a121-41aa-9aed-4ca40a6f7b4d
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: y3YCXTqEVks0nGfiSwJ43ol4pY69-mWFUZsdmveoVDM
+    short-id: 46455ff0
+  servername: addons.mozilla.org
+  client-fingerprint: chrome
+  network: tcp
+- name: 未知 VLESS-207 | free-nodes
+  server: 177.1.192.74
+  port: 443
+  type: vless
+  uuid: 4d852af3-a121-41aa-9aed-4ca40a6f7b4d
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: qC0g7Y0pwyLFTGAPG2zfZNuo64Cda695wdKgLU4KkF8
+    short-id: 770618b6
+  servername: addons.mozilla.org
+  client-fingerprint: chrome
+  network: tcp
+- name: 未知 VLESS-208 | free-nodes
   server: pl.flen-vpn.xyz
   port: 8443
   type: vless
@@ -753,21 +681,7 @@ proxies:
   skip-cert-verify: false
   servername: pl.flen-vpn.xyz
   network: tcp
-- name: 未知 VLESS-219 | free-nodes
-  server: swidenlanzerotte.live
-  port: 443
-  type: vless
-  uuid: 56de13ac-086e-4789-8e1e-1bf2bd90216b
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: MQrvfivvEfLGzDee7h0j5uC-DwaD_38_NXOY9-NhqxM
-  servername: swidenlanzerotte.live
-  client-fingerprint: chrome
-  network: tcp
-- name: 未知 VLESS-222 | free-nodes
+- name: 未知 VLESS-209 | free-nodes
   server: milo.rubinaz.xyz
   port: 8080
   type: vless
@@ -776,7 +690,68 @@ proxies:
   tfo: false
   skip-cert-verify: false
   network: tcp
-- name: 未知 VLESS-224 | free-nodes
+- name: 未知 VLESS-210 | free-nodes
+  server: 89.125.96.81
+  port: 2053
+  type: vless
+  uuid: 6c713691-3ca2-0008-ad25-113d1bed6b03
+  tls: true
+  alpn:
+  - http/1.1
+  tfo: false
+  skip-cert-verify: false
+  servername: wss.zazazuza.ru
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /vpn-wss/fluxor/59011/
+    headers:
+      Host: wss.zazazuza.ru
+- name: 未知 VLESS-211 | free-nodes
+  server: 77.72.85.247
+  port: 8443
+  type: vless
+  uuid: 6c713691-3ca2-4446-ad25-113d1bed6b03
+  tls: true
+  tfo: false
+  skip-cert-verify: false
+  servername: fdghyt.com
+  network: ws
+  ws-opts:
+    path: /vpn-wss/fluxor/59011/
+    headers:
+      Host: fdghyt.com
+- name: 未知 VLESS-213 | free-nodes
+  server: 2.24.124.64
+  port: 443
+  type: vless
+  uuid: 719b9354-45e2-4718-8709-d965b64554db
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: zpXR6Y36C8qUCIVk2p_j8C9KGeBk5xisLw66j3WFOls
+    short-id: 9f1fc5a631ef3126
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
+  network: tcp
+- name: 未知 VLESS-214 | free-nodes
+  server: 31.70.111.146
+  port: 443
+  type: vless
+  uuid: 84ed0e09-6803-4ef9-a977-74b657d971e5
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: ZNmuzIn-zyJi2C0sWRpL9fsMYCgYauXpJElXTqY_LEE
+    short-id: d7de3a6ff4018957
+  servername: www.apple.com
+  client-fingerprint: chrome
+  network: tcp
+- name: 未知 VLESS-216 | free-nodes
   server: 51.89.194.151
   port: 2053
   type: vless
@@ -790,7 +765,22 @@ proxies:
   servername: www.apple.com
   client-fingerprint: firefox
   network: tcp
-- name: 未知 VLESS-226 | free-nodes
+- name: 未知 VLESS-217 | free-nodes
+  server: 144.31.215.227
+  port: 443
+  type: vless
+  uuid: 91d734be-a3d0-4d50-83ab-74cf7b6966fa
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: LEoyslGYLVf2XWq9Bkq8Hod-EsB3ZoTlvR5AKK3rciQ
+    short-id: c885e8f8
+  servername: cdn-de.bulkavpn.top
+  client-fingerprint: chrome
+  network: tcp
+- name: 未知 VLESS-218 | free-nodes
   server: 185.166.154.111
   port: 443
   type: vless
@@ -803,9 +793,9 @@ proxies:
     public-key: bQZcMViJWXus9rMSTOa-ZAaUJC0mIlPx7XmzrLp8GQU
     short-id: 94f32cfc
   servername: cdn.bulkavpn.top
-  client-fingerprint: firefox
+  client-fingerprint: chrome
   network: tcp
-- name: 未知 VLESS-228 | free-nodes
+- name: 未知 VLESS-220 | free-nodes
   server: 36a466g.fi1.h1clayd.click
   port: 443
   type: vless
@@ -822,37 +812,40 @@ proxies:
   grpc-opts:
     grpc-mode: gun
     grpc-service-name: 0adb9638509b
-- name: 未知 VLESS-232 | free-nodes
-  server: 78.17.159.90
-  port: 443
+- name: 未知 VLESS-222 | free-nodes
+  server: gw1.edgemedia.lol
+  port: 13443
   type: vless
-  uuid: a889fba5-5472-4022-a6b4-9710157fda2f
+  uuid: 9ebf4fda-7395-4800-b42f-b2dda649880a
   tls: true
   tfo: false
   flow: xtls-rprx-vision
   skip-cert-verify: false
   reality-opts:
-    public-key: OxUvNHe0yPn3OfNl7ThhzYO0YcntrPNwYMqwjOYK8nI
-    short-id: a2aa
-  servername: github.com
+    public-key: 1MLoHw7RVkGefh7XUyuGg4ndxwv4vDU9en-f9JxpXRQ
+    short-id: d2061bb1
+  servername: ya.ru
   client-fingerprint: chrome
   network: tcp
-- name: 未知 VLESS-236 | free-nodes
-  server: arcturus.yokkastars.com
-  port: 40443
+- name: 未知 VLESS-223 | free-nodes
+  server: 212.100.171.154
+  port: 443
   type: vless
-  uuid: bb0f1ed0-0298-40a1-adb1-1f5d6ab33d54
+  uuid: a5ce10af-5e95-4eb3-ab87-bf4f95cb059b
   tls: true
+  alpn:
+  - h2
+  - http/1.1
   tfo: false
   flow: xtls-rprx-vision
   skip-cert-verify: false
   reality-opts:
-    public-key: w4AYHvQnQS6olDqoG9ptLOtgehaWOsv9HQhDax5bLA4
-    short-id: db46e2946fc466fd
-  servername: deepl.com
-  client-fingerprint: qq
+    public-key: 8u8r2iWMt8Isz2ZNRbn3g4cfldhcePRB-1hxGYLTnSg
+    short-id: aa6582cf25e243ce
+  servername: www.google.com
+  client-fingerprint: chrome
   network: tcp
-- name: 未知 VLESS-237 | free-nodes
+- name: 未知 VLESS-230 | free-nodes
   server: 47.237.74.17
   port: 16263
   type: vless
@@ -861,22 +854,22 @@ proxies:
   tfo: false
   skip-cert-verify: false
   network: tcp
-- name: 未知 VLESS-239 | free-nodes
-  server: 23.95.225.10
-  port: 8443
+- name: 未知 VLESS-232 | free-nodes
+  server: 157.228.128.59
+  port: 443
   type: vless
-  uuid: d342d11e-d224-4463-b982-532309285094
+  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
   tls: true
   tfo: false
+  flow: xtls-rprx-vision
   skip-cert-verify: false
-  servername: ccc.010304.xyz
+  reality-opts:
+    public-key: QnxkyscHouhaLDJHT47beyenVd4LHi62yfJIeRV01Ws
+    short-id: 06e00e7c
+  servername: addons.mozilla.org
   client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ccc.010304.xyz
-- name: 未知 VLESS-241 | free-nodes
+  network: tcp
+- name: 未知 VLESS-233 | free-nodes
   server: 157.228.155.185
   port: 443
   type: vless
@@ -891,7 +884,7 @@ proxies:
   servername: addons.mozilla.org
   client-fingerprint: chrome
   network: tcp
-- name: 未知 VLESS-242 | free-nodes
+- name: 未知 VLESS-234 | free-nodes
   server: 157.228.155.238
   port: 443
   type: vless
@@ -906,8 +899,23 @@ proxies:
   servername: addons.mozilla.org
   client-fingerprint: chrome
   network: tcp
-- name: 未知 VLESS-244 | free-nodes
-  server: 2.27.35.55
+- name: 未知 VLESS-237 | free-nodes
+  server: 2.27.69.117
+  port: 443
+  type: vless
+  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: -bn-69fLm8-ZIN4AWcFJTvliohVXnevdOK6E0HJF90Y
+    short-id: 123c2bff
+  servername: addons.mozilla.org
+  client-fingerprint: randomized
+  network: tcp
+- name: 未知 VLESS-238 | free-nodes
+  server: 2.27.69.128
   port: 443
   type: vless
   uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
@@ -921,7 +929,7 @@ proxies:
   servername: addons.mozilla.org
   client-fingerprint: chrome
   network: tcp
-- name: 未知 VLESS-245 | free-nodes
+- name: 未知 VLESS-240 | free-nodes
   server: platform101.golnamakcert.top
   port: 80
   type: vless
@@ -934,7 +942,7 @@ proxies:
     path: /platform101
     headers:
       Host: platform101.halalkhor.info
-- name: 未知 VLESS-249 | free-nodes
+- name: 未知 VLESS-244 | free-nodes
   server: platform102.golnamakcert.top
   port: 80
   type: vless
@@ -947,7 +955,7 @@ proxies:
     path: /platform102
     headers:
       Host: platform102.halalkhor.info
-- name: 未知 VLESS-256 | free-nodes
+- name: 未知 VLESS-251 | free-nodes
   server: platform103.golnamakcert.top
   port: 80
   type: vless
@@ -961,7 +969,20 @@ proxies:
     path: /platform103
     headers:
       Host: platform103.halalkhor.info
-- name: 未知 VLESS-273 | free-nodes
+- name: 未知 VLESS-255 | free-nodes
+  server: platform106.golnamakcert.top
+  port: 80
+  type: vless
+  uuid: e13cf851-b4fd-413b-8d49-146e6eb8e5d4
+  tls: false
+  tfo: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /platform106
+    headers:
+      Host: platform106.halalkhor.info
+- name: 未知 VLESS-268 | free-nodes
   server: platform109.golnamakcert.top
   port: 80
   type: vless
@@ -975,7 +996,7 @@ proxies:
     path: /platform109
     headers:
       Host: platform109.halalkhor.info
-- name: 未知 VLESS-279 | free-nodes
+- name: 未知 VLESS-274 | free-nodes
   server: platform115.golnamakcert.top
   port: 80
   type: vless
@@ -989,7 +1010,7 @@ proxies:
     path: /platform115
     headers:
       Host: platform115.halalkhor.info
-- name: 未知 VLESS-282 | free-nodes
+- name: 未知 VLESS-277 | free-nodes
   server: platform117.golnamakcert.top
   port: 80
   type: vless
@@ -1002,7 +1023,7 @@ proxies:
     path: /platform117
     headers:
       Host: platform117.halalkhor.info
-- name: 未知 VLESS-285 | free-nodes
+- name: 未知 VLESS-280 | free-nodes
   server: platform118.golnamakcert.top
   port: 80
   type: vless
@@ -1015,7 +1036,32 @@ proxies:
     path: /platform118
     headers:
       Host: platform118.halalkhor.info
-- name: 未知 VLESS-290 | free-nodes
+- name: 未知 VLESS-283 | free-nodes
+  server: 162.35.242.252
+  port: 443
+  type: vless
+  uuid: e3e9805a-6c8b-4edd-8ee8-621df79806eb
+  tls: true
+  tfo: false
+  skip-cert-verify: false
+  reality-opts:
+    public-key: ClG6fvriBTK8donGsTlKusJ0dwRCgVDDTAGzAtZzJDY
+    short-id: 82c2b7d5e70ff000
+  servername: nl.aksay.pro
+  client-fingerprint: firefox
+  network: tcp
+- name: 未知 VLESS-285 | free-nodes
+  server: 141.98.7.193
+  port: 2083
+  type: vless
+  uuid: e9e60f73-1618-491c-a85b-477bdc959ae6
+  tls: true
+  tfo: false
+  skip-cert-verify: false
+  servername: 141.98.7.193
+  client-fingerprint: chrome
+  network: tcp
+- name: 未知 VLESS-286 | free-nodes
   server: 95.85.253.241
   port: 2083
   type: vless
@@ -1024,38 +1070,9 @@ proxies:
   tfo: false
   skip-cert-verify: false
   servername: 95.85.253.241
+  client-fingerprint: chrome
   network: tcp
 - name: 未知 VLESS-292 | free-nodes
-  server: 179.198.49.99
-  port: 443
-  type: vless
-  uuid: ee18d188-14cc-417e-beb1-70e4add6d023
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: iwHKqXfMtE61bupFq0qdpc8_uGwQswGc3JpLvDVB9Wo
-    short-id: 088b263ae349cc97
-  servername: pl1.nztvpn.com
-  client-fingerprint: safari
-  network: tcp
-- name: 未知 VLESS-293 | free-nodes
-  server: 185.112.59.210
-  port: 443
-  type: vless
-  uuid: ee18d188-14cc-417e-beb1-70e4add6d023
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: MTYXgxLIK9PzmQGAjuCmhI1FikCNlvU66NKgQ5g14Bc
-    short-id: 0b135481ea1283fc
-  servername: nl2.nztvpn.com
-  client-fingerprint: safari
-  network: tcp
-- name: 未知 VLESS-295 | free-nodes
   server: 103.172.197.3
   port: 16006
   type: vless
@@ -1069,162 +1086,7 @@ proxies:
   servername: www.cloudflare.com
   client-fingerprint: chrome
   network: tcp
-- name: 未知 VMESS-322 | free-nodes
-  server: 20.235.220.189
-  port: 443
-  type: vmess
-  uuid: f23bb427-c1f9-4373-876c-2f43e9f790f3
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  servername: 6JDvArazgU3qQR6Q.v.3dns.vip
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-    headers:
-      Host: 6JDvArazgU3qQR6Q.v.3dns.vip
-- name: 未知 VMESS-326 | free-nodes
-  server: 2b9hwy8ocx7q74nm.v.3dns.vip
-  port: 443
-  type: vmess
-  uuid: f23bb427c1f94373876c2f43e9f790f3
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-    headers:
-      Host: 2b9hwY8oCx7Q74NM.v.3dns.vip
-- name: 未知 VMESS-329 | free-nodes
-  server: 31.76.11.83
-  port: 55969
-  type: vmess
-  uuid: 049a57b9-4913-4f9f-9cda-a861989ee59d
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-- name: 未知 VMESS-339 | free-nodes
-  server: 47.243.153.153
-  port: 443
-  type: vmess
-  uuid: f23bb427-c1f9-4373-876c-2f43e9f790f3
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  servername: i2psm3knof5qjjix.v.3dns.vip
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-    headers:
-      Host: i2psm3knof5qjjix.v.3dns.vip
-- name: 未知 VMESS-348 | free-nodes
-  server: 6jdvarazgu3qqr6q.v.3dns.vip
-  port: 443
-  type: vmess
-  uuid: f23bb427c1f94373876c2f43e9f790f3
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  servername: 6jdvarazgu3qqr6q.v.3dns.vip
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-    headers:
-      Host: 6jdvarazgu3qqr6q.v.3dns.vip
-- name: 未知 VMESS-353 | free-nodes
-  server: 6jdvarazgu3qqr6q.v.3dns.vip
-  port: 443
-  type: vmess
-  uuid: f23bb427-c1f9-4373-876c-2f43e9f790f3
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  servername: 6JDvArazgU3qQR6Q.v.3dns.vip
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-    headers:
-      Host: 6JDvArazgU3qQR6Q.v.3dns.vip
-- name: 未知 VMESS-356 | free-nodes
-  server: 8.217.254.88
-  port: 443
-  type: vmess
-  uuid: f23bb427c1f94373876c2f43e9f790f3
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  servername: 2b9hwy8ocx7q74nm.v.3dns.vip
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-    headers:
-      Host: 2b9hwY8oCx7Q74NM.v.3dns.vip
-- name: 未知 VMESS-383 | free-nodes
-  server: dog-hk.kunlun01dns.com
-  port: 21021
-  type: vmess
-  uuid: 9464ca40-dd75-3742-a628-d931a9f413b2
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-- name: 未知 VMESS-386 | free-nodes
-  server: dog-hk.kunlun01dns.com
-  port: 21022
-  type: vmess
-  uuid: 9464ca40-dd75-3742-a628-d931a9f413b2
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-- name: 未知 VMESS-388 | free-nodes
-  server: dog-jp.kunlun01dns.com
-  port: 21017
-  type: vmess
-  uuid: 9464ca40-dd75-3742-a628-d931a9f413b2
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-- name: 未知 VMESS-402 | free-nodes
-  server: i2psm3knof5qjjix.v.3dns.vip
-  port: 443
-  type: vmess
-  uuid: f23bb427c1f94373876c2f43e9f790f3
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  servername: i2psm3knof5qjjix.v.3dns.vip
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-    headers:
-      Host: i2psm3knof5qjjix.v.3dns.vip
-- name: 未知 VMESS-454 | free-nodes
-  server: qtkdr8jxe3wefxjm.v.3dns.vip
-  port: 443
-  type: vmess
-  uuid: f23bb427-c1f9-4373-876c-2f43e9f790f3
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  servername: qtkdr8jxe3wefxjm.v.3dns.vip
-  network: ws
-  ws-opts:
-    path: /ws-vmess
-    headers:
-      Host: qTKDR8jXE3wEFxJM.v.3dns.vip
-- name: 未知 VMESS-458 | free-nodes
+- name: 未知 VMESS-455 | free-nodes
   server: uk2-2.998998.best
   port: 443
   type: vmess
@@ -1239,22 +1101,7 @@ proxies:
     path: /waetasiuofguiwer?ed=2560
     headers:
       Host: server3.9966338.xyz
-- name: 未知 VMESS-462 | free-nodes
-  server: uk3-2.998998.best
-  port: 443
-  type: vmess
-  uuid: 5504eaa8-1395-402f-8e0e-75ecd762e627
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  servername: server22.9966338.xyz
-  network: ws
-  ws-opts:
-    path: /serhrdftshg?ed=2560
-    headers:
-      Host: server22.9966338.xyz
-- name: 未知 VMESS-464 | free-nodes
+- name: 未知 VMESS-460 | free-nodes
   server: us5-1.998998.best
   port: 443
   type: vmess
@@ -1270,15 +1117,15 @@ proxies:
     headers:
       Host: server4.9966338.xyz
 - name: 未知 VMESS-488 | free-nodes
-  server: zfd-jpv2.kunlun01dns.com
-  port: 16122
+  server: jp121.vatilon.cc
+  port: 10001
   type: vmess
-  uuid: 0802ac03-7973-39ef-a019-ba02de6c01e1
+  uuid: aec8e5e3-bb81-4b22-8802-0b88c54997b3
   alterId: 0
   cipher: auto
   tls: false
   skip-cert-verify: false
-- name: 未知 VLESS-539 | free-nodes
+- name: 未知 VLESS-538 | free-nodes
   server: 104.27.0.121
   port: 443
   type: vless
@@ -1295,24 +1142,7 @@ proxies:
   xhttp-opts:
     path: e0d9cd6ea04ecda957b4ca0869e038af
     host: b33ec4a1s226.fuhuovps.xyz
-- name: 未知 VLESS-554 | free-nodes
-  server: 104.21.207.202
-  port: 443
-  type: vless
-  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
-  tls: true
-  alpn:
-  - h2
-  - http/1.1
-  tfo: false
-  skip-cert-verify: false
-  servername: b33ec4a1s226.fuhuovps.xyz
-  client-fingerprint: ios
-  network: xhttp
-  xhttp-opts:
-    path: e0d9cd6ea04ecda957b4ca0869e038af
-    host: b33ec4a1s226.fuhuovps.xyz
-- name: 未知 VLESS-557 | free-nodes
+- name: 未知 VLESS-556 | free-nodes
   server: 104.19.12.0
   port: 443
   type: vless
