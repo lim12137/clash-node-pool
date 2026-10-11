@@ -5,19 +5,118 @@ log-level: info
 unified-delay: true
 tcp-concurrent: true
 proxies:
-- name: 未知 VLESS-1006 | free-nodes
-  server: aldebaran.yokkastars.com
-  port: 40443
+- name: 未知 VMESS-362 | free-nodes
+  server: 654168416355441.d6f54hd1j.cc
+  port: 443
+  type: vmess
+  uuid: ecdc303d-bcbf-4129-bc02-dd67703f7081
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 654168416355441.d6f54hd1j.cc
+- name: 未知 VMESS-285 | free-nodes
+  server: 120.48.133.162
+  port: 10086
+  type: vmess
+  uuid: fde10e39-48bb-4dcf-b3ba-71d711323a54
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
+- name: 未知 SS-101 | free-nodes
+  server: ruot.ayucloudservices.nl
+  port: 22073
+  type: ss
+  cipher: aes-256-gcm
+  password: bd962c9a-d6f2-4561-bd80-34206c4d5279
+- name: 未知 SS-100 | free-nodes
+  server: ruot.ayucloudservices.nl
+  port: 22069
+  type: ss
+  cipher: aes-256-gcm
+  password: bd962c9a-d6f2-4561-bd80-34206c4d5279
+- name: 未知 VLESS-232 | free-nodes
+  server: de2.manticore-vpn.lol
+  port: 443
   type: vless
-  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
+  uuid: b1936288-a353-4ff1-89b3-edaead599c6b
   tls: true
   tfo: false
+  flow: xtls-rprx-vision
   skip-cert-verify: false
   reality-opts:
-    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
-    short-id: '7606'
-  servername: deepl.com
+    public-key: pXwkQ1rn3miSop9LpI9f6UwhSLtF18uUkKbQD2Kz2Vo
+    short-id: f4940939dff6f31b
+  servername: www.lovelive-anime.jp
   client-fingerprint: chrome
+  network: tcp
+- name: 未知 VLESS-308 | free-nodes
+  server: fi.pythonsetupbib.online
+  port: 443
+  type: vless
+  uuid: f8d52ece-fad4-478d-875d-df6eed3befa7
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: ZqVz1kWNxh_5zQ5PPkoPHoaXQOvppM0ZyIo8uKp2dCg
+    short-id: bdf5852d1423e694
+  servername: fi.pythonsetupbib.online
+  client-fingerprint: chrome
+  network: tcp
+- name: 未知 VLESS-242 | free-nodes
+  server: 157.228.128.59
+  port: 443
+  type: vless
+  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: QnxkyscHouhaLDJHT47beyenVd4LHi62yfJIeRV01Ws
+    short-id: 06e00e7c
+  servername: addons.mozilla.org
+  client-fingerprint: chrome
+  network: tcp
+- name: 未知 VLESS-243 | free-nodes
+  server: 157.228.150.34
+  port: 443
+  type: vless
+  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: NOw-idkk3OCn-N0IRS93leujH4ik-E749O2T5BYJQ0M
+    short-id: 3cef317b
+  servername: addons.mozilla.org
+  client-fingerprint: chrome
+  network: tcp
+- name: 🇷🇺 RU VLESS-189 | free-nodes
+  server: de2.srv.vbuste.ru
+  port: 443
+  type: vless
+  uuid: 318c935d-c195-41d3-99ad-9bbcfdab3386
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
+    short-id: 4be4110078ebed4a
+  servername: de2.srv.vbuste.ru
+  client-fingerprint: randomized
   network: tcp
 proxy-groups:
 - name: 🚀 节点选择
@@ -25,14 +124,30 @@ proxy-groups:
   proxies:
   - ♻️ 自动选择
   - DIRECT
-  - 未知 VLESS-1006 | free-nodes
+  - 未知 VMESS-362 | free-nodes
+  - 未知 VMESS-285 | free-nodes
+  - 未知 SS-101 | free-nodes
+  - 未知 SS-100 | free-nodes
+  - 未知 VLESS-232 | free-nodes
+  - 未知 VLESS-308 | free-nodes
+  - 未知 VLESS-242 | free-nodes
+  - 未知 VLESS-243 | free-nodes
+  - 🇷🇺 RU VLESS-189 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 1800
   tolerance: 150
   proxies:
-  - 未知 VLESS-1006 | free-nodes
+  - 未知 VMESS-362 | free-nodes
+  - 未知 VMESS-285 | free-nodes
+  - 未知 SS-101 | free-nodes
+  - 未知 SS-100 | free-nodes
+  - 未知 VLESS-232 | free-nodes
+  - 未知 VLESS-308 | free-nodes
+  - 未知 VLESS-242 | free-nodes
+  - 未知 VLESS-243 | free-nodes
+  - 🇷🇺 RU VLESS-189 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
