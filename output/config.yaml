@@ -17,12 +17,36 @@ proxies:
   network: ws
   ws-opts:
     path: /?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
-- name: 未知 SS-65 | free-nodes
-  server: 54.179.192.171
-  port: 8443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 7e68e32f-8015-4f37-9082-70e8b0b58043
+- name: 未知 VLESS-246 | free-nodes
+  server: 157.228.128.59
+  port: 443
+  type: vless
+  uuid: df53b6c2-8005-475c-9eb9-74e1be785dc8
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: QnxkyscHouhaLDJHT47beyenVd4LHi62yfJIeRV01Ws
+    short-id: 06e00e7c
+  servername: addons.mozilla.org
+  client-fingerprint: chrome
+  network: tcp
+- name: 🇷🇺 RU VLESS-197 | free-nodes
+  server: de2.srv.vbuste.ru
+  port: 443
+  type: vless
+  uuid: 318c935d-c195-41d3-99ad-9bbcfdab3386
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
+    short-id: 4be4110078ebed4a
+  servername: de2.srv.vbuste.ru
+  client-fingerprint: chrome
+  network: tcp
 proxy-groups:
 - name: 🚀 节点选择
   type: select
@@ -30,7 +54,8 @@ proxy-groups:
   - ♻️ 自动选择
   - DIRECT
   - 未知 VMESS-285 | free-nodes
-  - 未知 SS-65 | free-nodes
+  - 未知 VLESS-246 | free-nodes
+  - 🇷🇺 RU VLESS-197 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
@@ -38,7 +63,8 @@ proxy-groups:
   tolerance: 150
   proxies:
   - 未知 VMESS-285 | free-nodes
-  - 未知 SS-65 | free-nodes
+  - 未知 VLESS-246 | free-nodes
+  - 🇷🇺 RU VLESS-197 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
