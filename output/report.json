@@ -1,16 +1,16 @@
 {
-  "tested_at": "2026-10-12T18:10:57+08:00",
+  "tested_at": "2026-10-13T00:11:15+08:00",
   "source": {
     "upstream": "free-nodes/clashfree",
     "source_file": "clash20261012.yml",
     "source_url": "https://api.github.com/repos/free-nodes/clashfree/contents/clash20261012.yml?ref=main",
-    "fetched_at": "2026-10-12T18:10:20+08:00",
+    "fetched_at": "2026-10-13T00:10:51+08:00",
     "raw_count": 598,
     "merged_count": 426
   },
   "candidates": 427,
-  "alive": 2,
-  "new_alive": 1,
+  "alive": 3,
+  "new_alive": 2,
   "prev_kept": 1,
   "dual_round_test": true,
   "relaxed": false,
@@ -20,14 +20,21 @@
       "type": "vmess",
       "server": "120.48.133.162",
       "port": 10086,
-      "delay_ms": 220
+      "delay_ms": 168
     },
     {
-      "name": "未知 SS-65 | free-nodes",
-      "type": "ss",
-      "server": "54.179.192.171",
-      "port": 8443,
-      "delay_ms": 509
+      "name": "未知 VLESS-246 | free-nodes",
+      "type": "vless",
+      "server": "157.228.128.59",
+      "port": 443,
+      "delay_ms": 1580
+    },
+    {
+      "name": "🇷🇺 RU VLESS-197 | free-nodes",
+      "type": "vless",
+      "server": "de2.srv.vbuste.ru",
+      "port": 443,
+      "delay_ms": 3646
     }
   ],
   "failed": [
@@ -96,6 +103,7 @@
     "未知 SS-62 | free-nodes",
     "未知 SS-63 | free-nodes",
     "未知 SS-64 | free-nodes",
+    "未知 SS-65 | free-nodes",
     "未知 SS-66 | free-nodes",
     "未知 SS-67 | free-nodes",
     "未知 SS-69 | free-nodes",
@@ -222,7 +230,6 @@
     "未知 VLESS-194 | free-nodes",
     "未知 VLESS-195 | free-nodes",
     "未知 VLESS-196 | free-nodes",
-    "🇷🇺 RU VLESS-197 | free-nodes",
     "未知 VLESS-198 | free-nodes",
     "未知 VLESS-199 | free-nodes",
     "未知 VLESS-200 | free-nodes",
@@ -262,7 +269,6 @@
     "未知 VLESS-243 | free-nodes #2",
     "未知 VLESS-244 | free-nodes",
     "未知 VLESS-245 | free-nodes",
-    "未知 VLESS-246 | free-nodes",
     "未知 VLESS-247 | free-nodes",
     "未知 VLESS-248 | free-nodes",
     "未知 VLESS-249 | free-nodes",
