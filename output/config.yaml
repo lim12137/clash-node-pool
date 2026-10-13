@@ -30,21 +30,21 @@ proxies:
   servername: pl-1-1.unturned-rust-dead.lol
   client-fingerprint: random
   network: tcp
-- name: 未知 VLESS-172 | free-nodes
-  server: 86153507-1976-48f1-ac86-e8ab274470a8.fly.dev
+- name: 未知 VLESS-198 | free-nodes
+  server: 177.1.187.251
   port: 443
   type: vless
-  uuid: 0b3c3f4f-843a-5b0a-98fe-132c88fbefc0
+  uuid: 318c935d-c195-41d3-99ad-9bbcfdab3386
   tls: true
   tfo: false
+  flow: xtls-rprx-vision
   skip-cert-verify: false
-  servername: 86153507-1976-48f1-ac86-e8ab274470a8.fly.dev
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /ws/0b3c3f4f-843a-5b0a-98fe-132c88fbefc0
-    headers:
-      Host: 86153507-1976-48f1-ac86-e8ab274470a8.fly.dev
+  reality-opts:
+    public-key: 0-or5ogGhYbBgsVSrSC2Fhxyp2BN97Y9pqIdg61Qd08
+    short-id: 4be4110078ebed4a
+  servername: de2.srv.vbuste.ru
+  client-fingerprint: randomized
+  network: tcp
 proxy-groups:
 - name: 🚀 节点选择
   type: select
@@ -53,7 +53,7 @@ proxy-groups:
   - DIRECT
   - 未知 VMESS-285 | free-nodes
   - 未知 VLESS-233 | free-nodes
-  - 未知 VLESS-172 | free-nodes
+  - 未知 VLESS-198 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
@@ -62,7 +62,7 @@ proxy-groups:
   proxies:
   - 未知 VMESS-285 | free-nodes
   - 未知 VLESS-233 | free-nodes
-  - 未知 VLESS-172 | free-nodes
+  - 未知 VLESS-198 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
