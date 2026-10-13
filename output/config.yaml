@@ -17,21 +17,24 @@ proxies:
   network: ws
   ws-opts:
     path: /?Telegram---PLANB_NET---PLANB_NET---PLANB_NET---PLANB_NET
-- name: 未知 VLESS-308 | free-nodes
-  server: 162.159.128.96
+- name: 未知 VLESS-233 | free-nodes
+  server: e8439083-5b1f-4a9a-8003-9c143de96941.fly.dev
   port: 443
   type: vless
-  uuid: f90e2825-6433-46b0-91a2-971f335b887a
+  uuid: b8e59255-d392-c427-535d-bc1f8f444c4e
   tls: true
+  alpn:
+  - h3
+  - http/1.1
   tfo: false
   skip-cert-verify: false
-  servername: ws-japan-ga-01.xyy123.bid
+  servername: e8439083-5b1f-4a9a-8003-9c143de96941.fly.dev
   client-fingerprint: chrome
   network: ws
   ws-opts:
-    path: /
+    path: /ws/b8e59255-d392-c427-535d-bc1f8f444c4e
     headers:
-      Host: ws-japan-ga-01.xyy123.bid
+      Host: e8439083-5b1f-4a9a-8003-9c143de96941.fly.dev
 proxy-groups:
 - name: 🚀 节点选择
   type: select
@@ -39,7 +42,7 @@ proxy-groups:
   - ♻️ 自动选择
   - DIRECT
   - 未知 VMESS-285 | free-nodes
-  - 未知 VLESS-308 | free-nodes
+  - 未知 VLESS-233 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
@@ -47,7 +50,7 @@ proxy-groups:
   tolerance: 150
   proxies:
   - 未知 VMESS-285 | free-nodes
-  - 未知 VLESS-308 | free-nodes
+  - 未知 VLESS-233 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
