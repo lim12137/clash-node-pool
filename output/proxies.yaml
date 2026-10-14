@@ -1,15 +1,37 @@
 proxies:
-- name: 未知 VLESS-1006 | free-nodes
-  server: aldebaran.yokkastars.com
-  port: 40443
+- name: 未知 SS-96 | free-nodes
+  server: ruot.ayucloudservices.nl
+  port: 35031
+  type: ss
+  cipher: aes-128-gcm
+  password: 85590bd2-807b-49b9-af20-1101c18b9eda
+- name: 未知 VLESS-232 | free-nodes
+  server: 177.1.187.139
+  port: 1984
   type: vless
-  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
+  uuid: d9eb02da-a469-44a7-a393-ba1c5fbbc8c4
   tls: true
   tfo: false
+  flow: xtls-rprx-vision
   skip-cert-verify: false
   reality-opts:
-    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
-    short-id: '7606'
-  servername: deepl.com
+    public-key: ikKnBJfcuPy1U0O3Cb71zv_G1liM5QcAYhR10A0Ech0
+    short-id: 0f00666a
+  servername: ruori.ai
   client-fingerprint: chrome
+  network: tcp
+- name: 未知 VLESS-213 | free-nodes
+  server: tr.datanode-internal.net
+  port: 443
+  type: vless
+  uuid: 93996a55-febe-4183-9366-df6cb11a34dd
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: r6lN34m1nN-xQZ458j5NPD5xJ3_QBF2bGzY4KJEo4ic
+    short-id: abbcd128
+  servername: sun9-38.userapi.com
+  client-fingerprint: random
   network: tcp
