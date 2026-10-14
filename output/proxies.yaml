@@ -1,21 +1,4 @@
 proxies:
-- name: 未知 VLESS-280 | free-nodes
-  server: 140.225.208.50
-  port: 2083
-  type: vless
-  uuid: e3c3b722-1264-4cdc-a97c-b0a1bb73cd67
-  tls: true
-  alpn:
-  - http/1.1
-  tfo: false
-  skip-cert-verify: false
-  servername: speedtestmark.com
-  client-fingerprint: random
-  network: ws
-  ws-opts:
-    path: /vless-ws
-    headers:
-      Host: speedtestmark.com
 - name: 未知 VLESS-213 | free-nodes
   server: tr.datanode-internal.net
   port: 443
@@ -31,36 +14,6 @@ proxies:
   servername: sun9-38.userapi.com
   client-fingerprint: random
   network: tcp
-- name: 未知 VLESS-209 | free-nodes
-  server: 3696b38bsg.murphyweb.sbs
-  port: 32134
-  type: vless
-  uuid: 5b01dc2d-6892-49b8-8289-3f73a32e00e4
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: OdTELUjAUKO_qr-O-uihaAZJAhA8GyIWVI6CpozVCU4
-    short-id: 6c6c7c97
-  servername: buylite.music.apple.com
-  client-fingerprint: safari
-  network: tcp
-- name: 未知 VLESS-156 | free-nodes
-  server: 86153507-1976-48f1-ac86-e8ab274470a8.fly.dev
-  port: 443
-  type: vless
-  uuid: 0b3c3f4f-843a-5b0a-98fe-132c88fbefc0
-  tls: true
-  tfo: false
-  skip-cert-verify: false
-  servername: 86153507-1976-48f1-ac86-e8ab274470a8.fly.dev
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /ws/0b3c3f4f-843a-5b0a-98fe-132c88fbefc0
-    headers:
-      Host: 86153507-1976-48f1-ac86-e8ab274470a8.fly.dev
 - name: 未知 VLESS-233 | free-nodes
   server: e8439083-5b1f-4a9a-8003-9c143de96941.fly.dev
   port: 443
