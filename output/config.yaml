@@ -5,35 +5,20 @@ log-level: info
 unified-delay: true
 tcp-concurrent: true
 proxies:
-- name: 未知 VMESS-553 | free-nodes
-  server: fujrdt.d6f54hd1j.cc
-  port: 443
+- name: 未知 VMESS-309 | free-nodes
+  server: 104.17.147.222
+  port: 80
   type: vmess
-  uuid: d877dc6f-7323-4b47-a7dd-14228cbae854
+  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
   alterId: 0
   cipher: auto
-  tls: true
+  tls: false
   skip-cert-verify: false
   network: ws
   ws-opts:
-    path: /
+    path: /ws?ed=2048
     headers:
-      Host: fujrdt.d6f54hd1j.cc
-- name: 未知 VLESS-232 | free-nodes
-  server: 177.1.187.139
-  port: 1984
-  type: vless
-  uuid: d9eb02da-a469-44a7-a393-ba1c5fbbc8c4
-  tls: true
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  reality-opts:
-    public-key: ikKnBJfcuPy1U0O3Cb71zv_G1liM5QcAYhR10A0Ech0
-    short-id: 0f00666a
-  servername: ruori.ai
-  client-fingerprint: chrome
-  network: tcp
+      Host: vmess.lbw666.dpdns.org
 - name: 未知 VLESS-204 | free-nodes
   server: 152.233.71.81
   port: 443
@@ -64,59 +49,41 @@ proxies:
   servername: sun9-38.userapi.com
   client-fingerprint: random
   network: tcp
-- name: 未知 VMESS-475 | free-nodes
-  server: node8.liudonghoe.com
-  port: 443
-  type: vmess
-  uuid: 47050e4e-965d-41ca-976d-73c1f11e6905
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  servername: node8.liudonghoe.com
-  network: ws
-  ws-opts:
-    path: /hoe8
-    headers:
-      Host: node8.liudonghoe.com
-- name: 未知 VLESS-288 | free-nodes
-  server: 91.196.163.140
-  port: 14430
+- name: 未知 VLESS-232 | free-nodes
+  server: 177.1.187.139
+  port: 1984
   type: vless
-  uuid: e86a3662-9b31-4d59-bc80-9e8644749b95
-  tls: false
+  uuid: d9eb02da-a469-44a7-a393-ba1c5fbbc8c4
+  tls: true
   tfo: false
+  flow: xtls-rprx-vision
   skip-cert-verify: false
-  servername: 91.196.163.140
-  network: ws
-  ws-opts:
-    path: /vless
-    headers:
-      Host: 91.196.163.140
+  reality-opts:
+    public-key: ikKnBJfcuPy1U0O3Cb71zv_G1liM5QcAYhR10A0Ech0
+    short-id: 0f00666a
+  servername: ruori.ai
+  client-fingerprint: chrome
+  network: tcp
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies:
   - ♻️ 自动选择
   - DIRECT
-  - 未知 VMESS-553 | free-nodes
-  - 未知 VLESS-232 | free-nodes
+  - 未知 VMESS-309 | free-nodes
   - 未知 VLESS-204 | free-nodes
   - 未知 VLESS-213 | free-nodes
-  - 未知 VMESS-475 | free-nodes
-  - 未知 VLESS-288 | free-nodes
+  - 未知 VLESS-232 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 1800
   tolerance: 150
   proxies:
-  - 未知 VMESS-553 | free-nodes
-  - 未知 VLESS-232 | free-nodes
+  - 未知 VMESS-309 | free-nodes
   - 未知 VLESS-204 | free-nodes
   - 未知 VLESS-213 | free-nodes
-  - 未知 VMESS-475 | free-nodes
-  - 未知 VLESS-288 | free-nodes
+  - 未知 VLESS-232 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
