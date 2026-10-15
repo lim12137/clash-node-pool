@@ -1,15 +1,72 @@
 proxies:
-- name: 未知 VLESS-1006 | free-nodes
-  server: aldebaran.yokkastars.com
-  port: 40443
+- name: 未知 VMESS-362 | free-nodes
+  server: 39.108.113.127
+  port: 10086
+  type: vmess
+  uuid: 2b910c43-51e3-4b15-9be8-b658106ba35e
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+- name: 未知 VLESS-204 | free-nodes
+  server: 152.233.71.81
+  port: 443
   type: vless
-  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
+  uuid: 741809be-e44e-000b-b411-bf66f0ae3860
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: 6VMgXXhZdJCiOG05EyK_zTHh00kpFGrZJeZIEPgqhjY
+    short-id: 1c3e8241a8743df9
+  servername: brointelengence.com
+  client-fingerprint: random
+  network: tcp
+- name: 未知 VLESS-213 | free-nodes
+  server: tr.datanode-internal.net
+  port: 443
+  type: vless
+  uuid: 93996a55-febe-4183-9366-df6cb11a34dd
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: r6lN34m1nN-xQZ458j5NPD5xJ3_QBF2bGzY4KJEo4ic
+    short-id: abbcd128
+  servername: sun9-38.userapi.com
+  client-fingerprint: random
+  network: tcp
+- name: 未知 VLESS-232 | free-nodes
+  server: 177.1.187.139
+  port: 1984
+  type: vless
+  uuid: d9eb02da-a469-44a7-a393-ba1c5fbbc8c4
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: ikKnBJfcuPy1U0O3Cb71zv_G1liM5QcAYhR10A0Ech0
+    short-id: 0f00666a
+  servername: ruori.ai
+  client-fingerprint: chrome
+  network: tcp
+- name: 未知 VLESS-153 | free-nodes
+  server: pl4.h1cloud.net
+  port: 25080
+  type: vless
+  uuid: 0c3ad9d5-cffd-4748-b8df-ab145288144b
   tls: true
   tfo: false
   skip-cert-verify: false
   reality-opts:
-    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
-    short-id: '7606'
-  servername: deepl.com
+    public-key: CMAkhR1kevtK85rK9B5nmQtFZATsLOIq6nuG83BA8lI
+    short-id: 103d1dc5ed8eaf4c
+  servername: www.ceneo.pl
   client-fingerprint: chrome
   network: tcp
