@@ -5,18 +5,6 @@ log-level: info
 unified-delay: true
 tcp-concurrent: true
 proxies:
-- name: 未知 VMESS-362 | free-nodes
-  server: 39.108.113.127
-  port: 10086
-  type: vmess
-  uuid: 2b910c43-51e3-4b15-9be8-b658106ba35e
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
 - name: 未知 VMESS-312 | free-nodes
   server: 120.48.133.162
   port: 10086
@@ -29,16 +17,6 @@ proxies:
   network: ws
   ws-opts:
     path: /
-- name: '未知 VLESS-232 | free-nodes #2'
-  server: 45.138.100.248
-  port: 10443
-  type: vless
-  uuid: ae908ff5-f749-402c-af25-e6e9aef4d6bb
-  tls: false
-  tfo: false
-  skip-cert-verify: false
-  servername: 45.138.100.248
-  network: tcp
 - name: 未知 VLESS-204 | free-nodes
   server: 152.233.71.81
   port: 443
@@ -54,38 +32,22 @@ proxies:
   servername: brointelengence.com
   client-fingerprint: random
   network: tcp
-- name: 未知 VLESS-157 | free-nodes
-  server: 77.221.157.213
-  port: 10443
-  type: vless
-  uuid: 1d006ad5-1de1-4520-a5f4-875dae1b0a5d
-  tls: false
-  tfo: false
-  skip-cert-verify: false
-  servername: 77.221.157.213
-  network: tcp
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies:
   - ♻️ 自动选择
   - DIRECT
-  - 未知 VMESS-362 | free-nodes
   - 未知 VMESS-312 | free-nodes
-  - '未知 VLESS-232 | free-nodes #2'
   - 未知 VLESS-204 | free-nodes
-  - 未知 VLESS-157 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 1800
   tolerance: 150
   proxies:
-  - 未知 VMESS-362 | free-nodes
   - 未知 VMESS-312 | free-nodes
-  - '未知 VLESS-232 | free-nodes #2'
   - 未知 VLESS-204 | free-nodes
-  - 未知 VLESS-157 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
