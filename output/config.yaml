@@ -5,43 +5,34 @@ log-level: info
 unified-delay: true
 tcp-concurrent: true
 proxies:
-- name: 未知 VLESS-204 | free-nodes
-  server: 152.233.71.81
-  port: 443
+- name: 未知 VLESS-1006 | free-nodes
+  server: aldebaran.yokkastars.com
+  port: 40443
   type: vless
-  uuid: 741809be-e44e-000b-b411-bf66f0ae3860
+  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
   tls: true
   tfo: false
-  flow: xtls-rprx-vision
   skip-cert-verify: false
   reality-opts:
-    public-key: 6VMgXXhZdJCiOG05EyK_zTHh00kpFGrZJeZIEPgqhjY
-    short-id: 1c3e8241a8743df9
-  servername: brointelengence.com
-  client-fingerprint: random
+    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
+    short-id: '7606'
+  servername: deepl.com
+  client-fingerprint: chrome
   network: tcp
-- name: 未知 SS-115 | free-nodes
-  server: 154.36.158.197
-  port: 8388
-  type: ss
-  cipher: aes-256-gcm
-  password: BeaUf9c0AEWH40Pu
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies:
   - ♻️ 自动选择
   - DIRECT
-  - 未知 VLESS-204 | free-nodes
-  - 未知 SS-115 | free-nodes
+  - 未知 VLESS-1006 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 1800
   tolerance: 150
   proxies:
-  - 未知 VLESS-204 | free-nodes
-  - 未知 SS-115 | free-nodes
+  - 未知 VLESS-1006 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
