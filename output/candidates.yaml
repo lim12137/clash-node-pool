@@ -2,10 +2,10 @@ meta:
   upstream: free-nodes/clashfree
   source_file: clash20261019.yml
   source_url: https://api.github.com/repos/free-nodes/clashfree/contents/clash20261019.yml?ref=main
-  fetched_at: '2026-10-19T04:35:19+08:00'
+  fetched_at: '2026-10-19T12:31:56+08:00'
   raw_count: 81
   merged_count: 65
-  prescreened_at: '2026-10-19T04:39:55+08:00'
+  prescreened_at: '2026-10-19T12:36:27+08:00'
   prescreen_delay_ms: 3000
   prescreen_pool: 66
   prescreen_survivors: 1
