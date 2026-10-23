@@ -1,10 +1,10 @@
 {
-  "tested_at": "2026-10-23T06:10:33+08:00",
+  "tested_at": "2026-10-23T12:10:53+08:00",
   "source": {
     "upstream": "free-nodes/clashfree",
     "source_file": "clash20261023.yml",
     "source_url": "https://api.github.com/repos/free-nodes/clashfree/contents/clash20261023.yml?ref=main",
-    "fetched_at": "2026-10-23T06:10:26+08:00",
+    "fetched_at": "2026-10-23T12:10:47+08:00",
     "raw_count": 81,
     "merged_count": 65
   },
@@ -20,7 +20,7 @@
       "type": "ss",
       "server": "154.36.158.197",
       "port": 8388,
-      "delay_ms": 127
+      "delay_ms": 113
     }
   ],
   "failed": [
