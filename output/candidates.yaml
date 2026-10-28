@@ -1,11 +1,11 @@
 meta:
   upstream: free-nodes/clashfree
-  source_file: clash20261028.yml
-  source_url: https://api.github.com/repos/free-nodes/clashfree/contents/clash20261028.yml?ref=main
-  fetched_at: '2026-10-28T13:30:07+08:00'
+  source_file: clash20261026.yml
+  source_url: https://api.github.com/repos/free-nodes/clashfree/contents/clash20261026.yml?ref=main
+  fetched_at: '2026-10-28T20:43:19+08:00'
   raw_count: 81
   merged_count: 65
-  prescreened_at: '2026-10-28T13:30:14+08:00'
+  prescreened_at: '2026-10-28T20:43:25+08:00'
   prescreen_delay_ms: 3000
   prescreen_pool: 66
   prescreen_survivors: 1
