@@ -1,17 +1,17 @@
 {
-  "tested_at": "2026-11-02T18:11:12+08:00",
+  "tested_at": "2026-11-03T00:14:08+08:00",
   "source": {
     "upstream": "free-nodes/clashfree",
     "source_file": "clash20261102.yml",
     "source_url": "https://api.github.com/repos/free-nodes/clashfree/contents/clash20261102.yml?ref=main",
-    "fetched_at": "2026-11-02T18:10:35+08:00",
+    "fetched_at": "2026-11-03T00:13:12+08:00",
     "raw_count": 13,
     "merged_count": 13
   },
   "candidates": 14,
-  "alive": 11,
-  "new_alive": 10,
-  "prev_kept": 1,
+  "alive": 9,
+  "new_alive": 2,
+  "prev_kept": 7,
   "dual_round_test": true,
   "relaxed": false,
   "nodes": [
@@ -20,82 +20,70 @@
       "type": "ss",
       "server": "154.36.158.197",
       "port": 8388,
-      "delay_ms": 441
-    },
-    {
-      "name": "未知 SS-03 | free-nodes",
-      "type": "ss",
-      "server": "202.50.253.27",
-      "port": 19999,
-      "delay_ms": 536
-    },
-    {
-      "name": "🇷🇺 RU SS-13 | free-nodes",
-      "type": "ss",
-      "server": "46.17.46.27",
-      "port": 18443,
-      "delay_ms": 869
-    },
-    {
-      "name": "🇷🇺 RU VLESS-12 | free-nodes",
-      "type": "vless",
-      "server": "87.242.119.253",
-      "port": 443,
-      "delay_ms": 904
-    },
-    {
-      "name": "未知 SS-06 | free-nodes",
-      "type": "ss",
-      "server": "202.50.253.36",
-      "port": 19999,
-      "delay_ms": 1014
-    },
-    {
-      "name": "未知 SS-05 | free-nodes",
-      "type": "ss",
-      "server": "202.50.253.45",
-      "port": 19999,
-      "delay_ms": 1502
-    },
-    {
-      "name": "未知 SS-01 | free-nodes",
-      "type": "ss",
-      "server": "202.50.253.54",
-      "port": 19999,
-      "delay_ms": 1542
-    },
-    {
-      "name": "未知 SS-11 | free-nodes",
-      "type": "ss",
-      "server": "202.50.253.81",
-      "port": 19999,
-      "delay_ms": 1964
+      "delay_ms": 573
     },
     {
       "name": "未知 SS-04 | free-nodes",
       "type": "ss",
       "server": "202.50.253.90",
       "port": 19999,
-      "delay_ms": 2165
+      "delay_ms": 1071
     },
     {
-      "name": "未知 SS-07 | free-nodes",
+      "name": "未知 SS-09 | free-nodes",
       "type": "ss",
-      "server": "202.50.253.18",
+      "server": "202.50.253.72",
       "port": 19999,
-      "delay_ms": 4772
+      "delay_ms": 1432
     },
     {
-      "name": "未知 SS-10 | free-nodes",
+      "name": "未知 SS-01 | free-nodes",
       "type": "ss",
-      "server": "202.50.253.99",
+      "server": "202.50.253.54",
       "port": 19999,
-      "delay_ms": 4890
+      "delay_ms": 1447
+    },
+    {
+      "name": "未知 SS-06 | free-nodes",
+      "type": "ss",
+      "server": "202.50.253.36",
+      "port": 19999,
+      "delay_ms": 1870
+    },
+    {
+      "name": "🇷🇺 RU SS-13 | free-nodes",
+      "type": "ss",
+      "server": "46.17.46.27",
+      "port": 18443,
+      "delay_ms": 2588
+    },
+    {
+      "name": "未知 SS-03 | free-nodes",
+      "type": "ss",
+      "server": "202.50.253.27",
+      "port": 19999,
+      "delay_ms": 3574
+    },
+    {
+      "name": "未知 SS-05 | free-nodes",
+      "type": "ss",
+      "server": "202.50.253.45",
+      "port": 19999,
+      "delay_ms": 3595
+    },
+    {
+      "name": "未知 SS-08 | free-nodes",
+      "type": "ss",
+      "server": "202.50.253.63",
+      "port": 19999,
+      "delay_ms": 4675
     }
   ],
   "failed": [
-    "🇨🇦 CA VMESS-02 | free-nodes",
-    "未知 SS-08 | free-nodes",
-    "未知 SS-09 | free-nodes"
+    "🇷🇺 RU VLESS-12 | free-nodes",
+    "未知 SS-11 | free-nodes",
+    "未知 SS-07 | free-nodes",
+    "未知 SS-10 | free-nodes",
+    "🇨🇦 CA VMESS-02 | free-nodes"
   ]
 }
