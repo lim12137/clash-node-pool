@@ -5,34 +5,114 @@ log-level: info
 unified-delay: true
 tcp-concurrent: true
 proxies:
-- name: 未知 VLESS-1006 | free-nodes
-  server: aldebaran.yokkastars.com
-  port: 40443
+- name: 未知 SS-115 | free-nodes
+  server: 154.36.158.197
+  port: 8388
+  type: ss
+  cipher: aes-256-gcm
+  password: BeaUf9c0AEWH40Pu
+- name: 未知 SS-03 | free-nodes
+  server: 202.50.253.27
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇷🇺 RU SS-13 | free-nodes
+  server: 46.17.46.27
+  port: 18443
+  type: ss
+  cipher: aes-256-gcm
+  password: cCMJgJTA3BA489YUYrFq7XHXSiSpWlLa
+- name: 🇷🇺 RU VLESS-12 | free-nodes
+  server: 87.242.119.253
+  port: 443
   type: vless
-  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
+  uuid: aba9cdd4-026c-0001-87a9-9b3e5f24dd82
   tls: true
+  alpn:
+  - http/1.1
+  - h2
   tfo: false
   skip-cert-verify: false
-  reality-opts:
-    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
-    short-id: '7606'
-  servername: deepl.com
-  client-fingerprint: chrome
+  servername: hvtlr-ru-47sb.fade.mom
+  client-fingerprint: qq
   network: tcp
+- name: 未知 SS-06 | free-nodes
+  server: 202.50.253.36
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 未知 SS-05 | free-nodes
+  server: 202.50.253.45
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 未知 SS-01 | free-nodes
+  server: 202.50.253.54
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 未知 SS-11 | free-nodes
+  server: 202.50.253.81
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 未知 SS-04 | free-nodes
+  server: 202.50.253.90
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 未知 SS-07 | free-nodes
+  server: 202.50.253.18
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 未知 SS-10 | free-nodes
+  server: 202.50.253.99
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 proxy-groups:
 - name: 🚀 节点选择
   type: select
   proxies:
   - ♻️ 自动选择
   - DIRECT
-  - 未知 VLESS-1006 | free-nodes
+  - 未知 SS-115 | free-nodes
+  - 未知 SS-03 | free-nodes
+  - 🇷🇺 RU SS-13 | free-nodes
+  - 🇷🇺 RU VLESS-12 | free-nodes
+  - 未知 SS-06 | free-nodes
+  - 未知 SS-05 | free-nodes
+  - 未知 SS-01 | free-nodes
+  - 未知 SS-11 | free-nodes
+  - 未知 SS-04 | free-nodes
+  - 未知 SS-07 | free-nodes
+  - 未知 SS-10 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 1800
   tolerance: 150
   proxies:
-  - 未知 VLESS-1006 | free-nodes
+  - 未知 SS-115 | free-nodes
+  - 未知 SS-03 | free-nodes
+  - 🇷🇺 RU SS-13 | free-nodes
+  - 🇷🇺 RU VLESS-12 | free-nodes
+  - 未知 SS-06 | free-nodes
+  - 未知 SS-05 | free-nodes
+  - 未知 SS-01 | free-nodes
+  - 未知 SS-11 | free-nodes
+  - 未知 SS-04 | free-nodes
+  - 未知 SS-07 | free-nodes
+  - 未知 SS-10 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
