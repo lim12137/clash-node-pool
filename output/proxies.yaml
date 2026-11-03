@@ -1,30 +1,6 @@
 proxies:
-- name: 未知 SS-11 | free-nodes
-  server: 202.50.253.81
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 未知 SS-06 | free-nodes
-  server: 202.50.253.36
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 未知 SS-09 | free-nodes
-  server: 202.50.253.72
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 未知 SS-03 | free-nodes
-  server: 202.50.253.27
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 未知 SS-04 | free-nodes
-  server: 202.50.253.90
+- name: 未知 SS-01 | free-nodes
+  server: 202.50.253.54
   port: 19999
   type: ss
   cipher: aes-256-gcm
@@ -35,20 +11,8 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 未知 SS-01 | free-nodes
-  server: 202.50.253.54
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 未知 SS-07 | free-nodes
-  server: 202.50.253.18
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 未知 SS-10 | free-nodes
-  server: 202.50.253.99
+- name: 未知 SS-11 | free-nodes
+  server: 202.50.253.81
   port: 19999
   type: ss
   cipher: aes-256-gcm
@@ -69,6 +33,36 @@ proxies:
   xhttp-opts:
     path: f00757d3fec0e7aca102e554fb32f21e
     host: f0c5bfd6s394.fuhuovps.xyz
+- name: 🇷🇺 RU SS-13 | free-nodes
+  server: 46.17.46.27
+  port: 18443
+  type: ss
+  cipher: aes-256-gcm
+  password: cCMJgJTA3BA489YUYrFq7XHXSiSpWlLa
+- name: 🇩🇪 DE VLESS-18 | free-nodes
+  server: 875f9760-be1a-4dfe-8c2b-3f080b5ab158.node1.runet.network
+  port: 20065
+  type: vless
+  uuid: 2446e2e2-1ce3-4502-9050-1dd32bacc68c
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  servername: 875f9760-be1a-4dfe-8c2b-3f080b5ab158.node1.runet.network
+  client-fingerprint: chrome
+  network: tcp
+- name: 未知 SS-06 | free-nodes
+  server: 202.50.253.36
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 未知 SS-09 | free-nodes
+  server: 202.50.253.72
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: 🇨🇦 CA VMESS-02 | free-nodes
   server: guanwang.awsno.com
   port: 443
@@ -83,15 +77,69 @@ proxies:
     path: /hls/cctv5phd.m3u8
     headers:
       Host: guanwang.awsno.com
-- name: 🇷🇺 RU SS-13 | free-nodes
-  server: 46.17.46.27
-  port: 18443
+- name: 未知 SS-10 | free-nodes
+  server: 202.50.253.99
+  port: 19999
   type: ss
   cipher: aes-256-gcm
-  password: cCMJgJTA3BA489YUYrFq7XHXSiSpWlLa
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 未知 VLESS-13 | free-nodes
+  server: 79.182.39.57
+  port: 443
+  type: vless
+  uuid: 056405e8-de9f-4d0d-8145-956f13cc34da
+  tls: true
+  tfo: false
+  skip-cert-verify: false
+  reality-opts:
+    public-key: 5-9YzvyXcZ4J5Z4OaVTUbxUU2InvnwT17m0XY-Jse1E
+    short-id: 257420d9d430152a
+  servername: a0688bt.us4.h1clayd.click
+  client-fingerprint: firefox
+  network: tcp
 - name: 未知 SS-05 | free-nodes
   server: 202.50.253.45
   port: 19999
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 未知 VLESS-15 | free-nodes
+  server: de15.h1cloud.net
+  port: 25362
+  type: vless
+  uuid: 36fb6650-8a50-42b5-9f66-06538806f32c
+  tls: true
+  tfo: false
+  skip-cert-verify: false
+  reality-opts:
+    public-key: hFee7zTreqlv_wccK_8zxN5v23hj9u-DshByvGf-KAA
+    short-id: 23732d14a527990d
+  servername: www.chip.de
+  client-fingerprint: chrome
+  network: tcp
+- name: 未知 SS-04 | free-nodes
+  server: 202.50.253.90
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 未知 SS-03 | free-nodes
+  server: 202.50.253.27
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 未知 VLESS-12 | free-nodes
+  server: 79.182.39.236
+  port: 25362
+  type: vless
+  uuid: 36fb6650-8a50-42b5-9f66-06538806f32c
+  tls: true
+  tfo: false
+  skip-cert-verify: false
+  reality-opts:
+    public-key: hFee7zTreqlv_wccK_8zxN5v23hj9u-DshByvGf-KAA
+    short-id: 23732d14a527990d
+  servername: www.chip.de
+  client-fingerprint: firefox
+  network: tcp
