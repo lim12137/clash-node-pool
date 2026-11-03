@@ -5,19 +5,114 @@ log-level: info
 unified-delay: true
 tcp-concurrent: true
 proxies:
-- name: 未知 VLESS-1006 | free-nodes
-  server: aldebaran.yokkastars.com
-  port: 40443
+- name: '未知 SS-10 | free-nodes #2'
+  server: 202.50.253.18
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 未知 SS-03 | free-nodes
+  server: 202.50.253.27
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 未知 SS-08 | free-nodes
+  server: 202.50.253.63
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 未知 SS-09 | free-nodes
+  server: 202.50.253.72
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 未知 SS-05 | free-nodes
+  server: 202.50.253.45
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 未知 SS-10 | free-nodes
+  server: 202.50.253.99
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 未知 SS-04 | free-nodes
+  server: 202.50.253.90
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 未知 SS-06 | free-nodes
+  server: 202.50.253.36
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 未知 SS-11 | free-nodes
+  server: 202.50.253.81
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇨🇦 CA VMESS-02 | free-nodes
+  server: guanwang.awsno.com
+  port: 443
+  type: vmess
+  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /hls/cctv5phd.m3u8
+    headers:
+      Host: guanwang.awsno.com
+- name: 🇷🇺 RU VLESS-22 | free-nodes
+  server: 147.45.161.4
+  port: 443
   type: vless
-  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
+  uuid: 7ad63b26-bf70-4872-8fab-ebaf73a1e19d
+  tls: true
+  tfo: false
+  flow: xtls-rprx-vision
+  skip-cert-verify: false
+  reality-opts:
+    public-key: xTePrM5IyjR8o52B2mRAO2nNivfyMpBZxya93MQk4Qc
+    short-id: 2a40b6d6495debf3
+  servername: defs-68.topp-con.xyz
+  client-fingerprint: firefox
+  network: tcp
+- name: 🇭🇰 HK SS-20 | free-nodes
+  server: xunlinknode.csdjhajkshdjkas.com
+  port: 40006
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 28789988-887e-4e41-83cd-27bbfb7999ad
+- name: 未知 SS-01 | free-nodes
+  server: 202.50.253.54
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 未知 VLESS-13 | free-nodes
+  server: 79.182.39.57
+  port: 443
+  type: vless
+  uuid: 056405e8-de9f-4d0d-8145-956f13cc34da
   tls: true
   tfo: false
   skip-cert-verify: false
   reality-opts:
-    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
-    short-id: '7606'
-  servername: deepl.com
-  client-fingerprint: chrome
+    public-key: 5-9YzvyXcZ4J5Z4OaVTUbxUU2InvnwT17m0XY-Jse1E
+    short-id: 257420d9d430152a
+  servername: a0688bt.us4.h1clayd.click
+  client-fingerprint: firefox
   network: tcp
 proxy-groups:
 - name: 🚀 节点选择
@@ -25,14 +120,40 @@ proxy-groups:
   proxies:
   - ♻️ 自动选择
   - DIRECT
-  - 未知 VLESS-1006 | free-nodes
+  - '未知 SS-10 | free-nodes #2'
+  - 未知 SS-03 | free-nodes
+  - 未知 SS-08 | free-nodes
+  - 未知 SS-09 | free-nodes
+  - 未知 SS-05 | free-nodes
+  - 未知 SS-10 | free-nodes
+  - 未知 SS-04 | free-nodes
+  - 未知 SS-06 | free-nodes
+  - 未知 SS-11 | free-nodes
+  - 🇨🇦 CA VMESS-02 | free-nodes
+  - 🇷🇺 RU VLESS-22 | free-nodes
+  - 🇭🇰 HK SS-20 | free-nodes
+  - 未知 SS-01 | free-nodes
+  - 未知 VLESS-13 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 1800
   tolerance: 150
   proxies:
-  - 未知 VLESS-1006 | free-nodes
+  - '未知 SS-10 | free-nodes #2'
+  - 未知 SS-03 | free-nodes
+  - 未知 SS-08 | free-nodes
+  - 未知 SS-09 | free-nodes
+  - 未知 SS-05 | free-nodes
+  - 未知 SS-10 | free-nodes
+  - 未知 SS-04 | free-nodes
+  - 未知 SS-06 | free-nodes
+  - 未知 SS-11 | free-nodes
+  - 🇨🇦 CA VMESS-02 | free-nodes
+  - 🇷🇺 RU VLESS-22 | free-nodes
+  - 🇭🇰 HK SS-20 | free-nodes
+  - 未知 SS-01 | free-nodes
+  - 未知 VLESS-13 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
