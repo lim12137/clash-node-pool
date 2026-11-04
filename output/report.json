@@ -1,150 +1,168 @@
 {
-  "tested_at": "2026-11-04T18:11:26+08:00",
+  "tested_at": "2026-11-05T00:12:54+08:00",
   "source": {
     "upstream": "free-nodes/clashfree",
-    "source_file": "clash20261104.yml",
-    "source_url": "https://api.github.com/repos/free-nodes/clashfree/contents/clash20261104.yml?ref=main",
-    "fetched_at": "2026-11-04T18:10:36+08:00",
-    "raw_count": 103,
-    "merged_count": 63
+    "source_file": "clash20261103.yml",
+    "source_url": "https://api.github.com/repos/free-nodes/clashfree/contents/clash20261103.yml?ref=main",
+    "fetched_at": "2026-11-05T00:12:21+08:00",
+    "raw_count": 109,
+    "merged_count": 69
   },
-  "candidates": 63,
-  "alive": 11,
-  "new_alive": 1,
-  "prev_kept": 10,
+  "candidates": 69,
+  "alive": 13,
+  "new_alive": 2,
+  "prev_kept": 11,
   "dual_round_test": true,
   "relaxed": false,
   "nodes": [
-    {
-      "name": "未知 SS-08 | free-nodes",
-      "type": "ss",
-      "server": "202.50.253.63",
-      "port": 19999,
-      "delay_ms": 492
-    },
-    {
-      "name": "未知 SS-01 | free-nodes #2",
-      "type": "ss",
-      "server": "202.50.253.27",
-      "port": 19999,
-      "delay_ms": 498
-    },
-    {
-      "name": "未知 SS-07 | free-nodes",
-      "type": "ss",
-      "server": "202.50.253.36",
-      "port": 19999,
-      "delay_ms": 535
-    },
-    {
-      "name": "未知 SS-02 | free-nodes",
-      "type": "ss",
-      "server": "202.50.253.90",
-      "port": 19999,
-      "delay_ms": 980
-    },
     {
       "name": "未知 SS-10 | free-nodes",
       "type": "ss",
       "server": "202.50.253.99",
       "port": 19999,
-      "delay_ms": 1022
+      "delay_ms": 847
     },
     {
-      "name": "未知 SS-01 | free-nodes",
+      "name": "🇷🇺 RU SS-26 | free-nodes",
       "type": "ss",
-      "server": "202.50.253.54",
-      "port": 19999,
-      "delay_ms": 1273
+      "server": "46.17.46.27",
+      "port": 18443,
+      "delay_ms": 883
     },
     {
       "name": "未知 SS-10 | free-nodes #2",
       "type": "ss",
       "server": "202.50.253.18",
       "port": 19999,
-      "delay_ms": 1289
+      "delay_ms": 951
+    },
+    {
+      "name": "未知 SS-08 | free-nodes",
+      "type": "ss",
+      "server": "202.50.253.63",
+      "port": 19999,
+      "delay_ms": 1118
+    },
+    {
+      "name": "未知 VLESS-13 | free-nodes",
+      "type": "vless",
+      "server": "79.182.39.57",
+      "port": 443,
+      "delay_ms": 1173
     },
     {
       "name": "未知 SS-11 | free-nodes",
       "type": "ss",
       "server": "202.50.253.81",
       "port": 19999,
-      "delay_ms": 1537
-    },
-    {
-      "name": "🇨🇦 CA VMESS-02 | free-nodes",
-      "type": "vmess",
-      "server": "guanwang.awsno.com",
-      "port": 443,
-      "delay_ms": 2410
+      "delay_ms": 1225
     },
     {
       "name": "未知 SS-09 | free-nodes",
       "type": "ss",
       "server": "202.50.253.72",
       "port": 19999,
-      "delay_ms": 4373
+      "delay_ms": 1578
+    },
+    {
+      "name": "未知 SS-01 | free-nodes #2",
+      "type": "ss",
+      "server": "202.50.253.27",
+      "port": 19999,
+      "delay_ms": 1619
+    },
+    {
+      "name": "未知 SS-01 | free-nodes",
+      "type": "ss",
+      "server": "202.50.253.54",
+      "port": 19999,
+      "delay_ms": 1623
+    },
+    {
+      "name": "未知 SS-07 | free-nodes",
+      "type": "ss",
+      "server": "202.50.253.36",
+      "port": 19999,
+      "delay_ms": 1726
+    },
+    {
+      "name": "🇨🇦 CA VMESS-02 | free-nodes",
+      "type": "vmess",
+      "server": "guanwang.awsno.com",
+      "port": 443,
+      "delay_ms": 2321
     },
     {
       "name": "未知 SS-05 | free-nodes",
       "type": "ss",
       "server": "202.50.253.45",
       "port": 19999,
-      "delay_ms": 4398
+      "delay_ms": 2382
+    },
+    {
+      "name": "未知 SS-02 | free-nodes",
+      "type": "ss",
+      "server": "202.50.253.90",
+      "port": 19999,
+      "delay_ms": 3142
     }
   ],
   "failed": [
-    "🇷🇺 RU VLESS-19 | free-nodes",
-    "🇷🇺 RU SS-26 | free-nodes",
-    "未知 VLESS-13 | free-nodes",
-    "🇷🇺 RU VLESS-03 | free-nodes",
-    "🇭🇰 HK SS-11 | free-nodes",
+    "未知 VLESS-12 | free-nodes",
+    "🇷🇺 RU VLESS-14 | free-nodes",
     "未知 VLESS-15 | free-nodes",
-    "🇨🇦 CA VLESS-16 | free-nodes",
-    "🇺🇸 US VLESS-18 | free-nodes",
-    "🇨🇦 CA VLESS-20 | free-nodes",
-    "未知 VMESS-21 | free-nodes",
+    "🇷🇺 RU VLESS-16 | free-nodes",
+    "🇷🇺 RU VLESS-17 | free-nodes",
+    "🇩🇪 DE VLESS-18 | free-nodes",
+    "未知 VLESS-19 | free-nodes",
+    "🇭🇰 HK SS-20 | free-nodes",
+    "未知 VLESS-21 | free-nodes",
+    "🇷🇺 RU VLESS-22 | free-nodes",
+    "🇨🇦 CA VLESS-23 | free-nodes",
+    "🇺🇸 US VLESS-24 | free-nodes",
     "🇺🇸 US VLESS-25 | free-nodes",
-    "🇷🇺 RU VLESS-26 | free-nodes",
-    "🇷🇺 RU VLESS-28 | free-nodes",
-    "🇬🇧 GB VLESS-29 | free-nodes",
-    "🇺🇸 US VLESS-32 | free-nodes",
-    "🇭🇰 HK VLESS-34 | free-nodes",
-    "🇬🇧 GB VLESS-37 | free-nodes",
+    "未知 VMESS-27 | free-nodes",
+    "🇺🇸 US VLESS-31 | free-nodes",
+    "🇷🇺 RU VLESS-32 | free-nodes",
+    "🇷🇺 RU VLESS-33 | free-nodes",
+    "🇬🇧 GB VLESS-35 | free-nodes",
     "🇺🇸 US VLESS-38 | free-nodes",
-    "🇺🇸 US VLESS-39 | free-nodes",
-    "🇩🇪 DE VLESS-40 | free-nodes",
+    "🇭🇰 HK VLESS-40 | free-nodes",
     "未知 VLESS-42 | free-nodes",
-    "🇬🇧 GB VLESS-46 | free-nodes",
-    "🇺🇸 US VLESS-48 | free-nodes",
-    "🇷🇺 RU VLESS-49 | free-nodes",
-    "🇭🇰 HK VLESS-50 | free-nodes",
+    "🇬🇧 GB VLESS-43 | free-nodes",
+    "🇺🇸 US VLESS-44 | free-nodes",
+    "🇺🇸 US VLESS-45 | free-nodes",
+    "🇩🇪 DE VLESS-46 | free-nodes",
+    "未知 VLESS-48 | free-nodes",
     "🇬🇧 GB VLESS-52 | free-nodes",
-    "🇩🇪 DE VLESS-55 | free-nodes",
-    "🇺🇸 US VLESS-56 | free-nodes",
-    "🇺🇸 US VLESS-57 | free-nodes",
-    "🇭🇰 HK VLESS-58 | free-nodes",
-    "🇷🇺 RU VLESS-59 | free-nodes",
-    "🇩🇪 DE VLESS-60 | free-nodes",
+    "🇺🇸 US VLESS-54 | free-nodes",
+    "🇷🇺 RU VLESS-55 | free-nodes",
+    "🇭🇰 HK VLESS-56 | free-nodes",
+    "🇬🇧 GB VLESS-58 | free-nodes",
     "🇩🇪 DE VLESS-61 | free-nodes",
-    "未知 VLESS-62 | free-nodes",
-    "🇷🇺 RU VLESS-64 | free-nodes",
-    "🇺🇸 US VLESS-66 | free-nodes",
-    "🇭🇰 HK VLESS-68 | free-nodes",
-    "未知 VLESS-69 | free-nodes",
-    "🇺🇸 US VLESS-73 | free-nodes",
-    "🇷🇺 RU VLESS-80 | free-nodes",
-    "🇬🇧 GB VLESS-81 | free-nodes",
-    "🇺🇸 US VLESS-82 | free-nodes",
-    "🇬🇧 GB VLESS-84 | free-nodes",
-    "🇺🇸 US VLESS-87 | free-nodes",
-    "🇺🇸 US VLESS-89 | free-nodes",
-    "🇺🇸 US VLESS-91 | free-nodes",
-    "🇷🇺 RU VLESS-92 | free-nodes",
-    "🇬🇧 GB VLESS-94 | free-nodes",
+    "🇺🇸 US VLESS-62 | free-nodes",
+    "🇺🇸 US VLESS-63 | free-nodes",
+    "🇭🇰 HK VLESS-64 | free-nodes",
+    "🇩🇪 DE VLESS-66 | free-nodes",
+    "🇩🇪 DE VLESS-67 | free-nodes",
+    "未知 VLESS-68 | free-nodes",
+    "🇷🇺 RU VLESS-70 | free-nodes",
+    "🇺🇸 US VLESS-72 | free-nodes",
+    "未知 VLESS-74 | free-nodes",
+    "🇭🇰 HK VLESS-75 | free-nodes",
+    "🇺🇸 US VLESS-79 | free-nodes",
+    "🇷🇺 RU VLESS-86 | free-nodes",
+    "🇬🇧 GB VLESS-87 | free-nodes",
+    "🇺🇸 US VLESS-88 | free-nodes",
+    "🇬🇧 GB VLESS-90 | free-nodes",
+    "🇺🇸 US VLESS-93 | free-nodes",
     "🇺🇸 US VLESS-95 | free-nodes",
-    "🇺🇸 US VLESS-98 | free-nodes",
+    "🇺🇸 US VLESS-97 | free-nodes",
+    "🇷🇺 RU VLESS-98 | free-nodes",
+    "🇬🇧 GB VLESS-100 | free-nodes",
     "🇺🇸 US VLESS-101 | free-nodes",
-    "🇺🇸 US VLESS-103 | free-nodes"
+    "🇺🇸 US VLESS-104 | free-nodes",
+    "🇺🇸 US VLESS-107 | free-nodes",
+    "🇺🇸 US VLESS-109 | free-nodes"
   ]
 }
