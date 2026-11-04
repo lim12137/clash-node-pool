@@ -5,8 +5,52 @@ log-level: info
 unified-delay: true
 tcp-concurrent: true
 proxies:
+- name: 未知 SS-10 | free-nodes
+  server: 202.50.253.99
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇷🇺 RU SS-26 | free-nodes
+  server: 46.17.46.27
+  port: 18443
+  type: ss
+  cipher: aes-256-gcm
+  password: cCMJgJTA3BA489YUYrFq7XHXSiSpWlLa
+- name: '未知 SS-10 | free-nodes #2'
+  server: 202.50.253.18
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: 未知 SS-08 | free-nodes
   server: 202.50.253.63
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 未知 VLESS-13 | free-nodes
+  server: 79.182.39.57
+  port: 443
+  type: vless
+  uuid: 056405e8-de9f-4d0d-8145-956f13cc34da
+  tls: true
+  tfo: false
+  skip-cert-verify: false
+  reality-opts:
+    public-key: 5-9YzvyXcZ4J5Z4OaVTUbxUU2InvnwT17m0XY-Jse1E
+    short-id: 257420d9d430152a
+  servername: a0688bt.us4.h1clayd.click
+  client-fingerprint: firefox
+  network: tcp
+- name: 未知 SS-11 | free-nodes
+  server: 202.50.253.81
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 未知 SS-09 | free-nodes
+  server: 202.50.253.72
   port: 19999
   type: ss
   cipher: aes-256-gcm
@@ -17,38 +61,14 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 未知 SS-07 | free-nodes
-  server: 202.50.253.36
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 未知 SS-02 | free-nodes
-  server: 202.50.253.90
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 未知 SS-10 | free-nodes
-  server: 202.50.253.99
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: 未知 SS-01 | free-nodes
   server: 202.50.253.54
   port: 19999
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: '未知 SS-10 | free-nodes #2'
-  server: 202.50.253.18
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 未知 SS-11 | free-nodes
-  server: 202.50.253.81
+- name: 未知 SS-07 | free-nodes
+  server: 202.50.253.36
   port: 19999
   type: ss
   cipher: aes-256-gcm
@@ -67,14 +87,14 @@ proxies:
     path: /hls/cctv5phd.m3u8
     headers:
       Host: guanwang.awsno.com
-- name: 未知 SS-09 | free-nodes
-  server: 202.50.253.72
+- name: 未知 SS-05 | free-nodes
+  server: 202.50.253.45
   port: 19999
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 未知 SS-05 | free-nodes
-  server: 202.50.253.45
+- name: 未知 SS-02 | free-nodes
+  server: 202.50.253.90
   port: 19999
   type: ss
   cipher: aes-256-gcm
@@ -85,34 +105,38 @@ proxy-groups:
   proxies:
   - ♻️ 自动选择
   - DIRECT
-  - 未知 SS-08 | free-nodes
-  - '未知 SS-01 | free-nodes #2'
-  - 未知 SS-07 | free-nodes
-  - 未知 SS-02 | free-nodes
   - 未知 SS-10 | free-nodes
-  - 未知 SS-01 | free-nodes
+  - 🇷🇺 RU SS-26 | free-nodes
   - '未知 SS-10 | free-nodes #2'
+  - 未知 SS-08 | free-nodes
+  - 未知 VLESS-13 | free-nodes
   - 未知 SS-11 | free-nodes
-  - 🇨🇦 CA VMESS-02 | free-nodes
   - 未知 SS-09 | free-nodes
+  - '未知 SS-01 | free-nodes #2'
+  - 未知 SS-01 | free-nodes
+  - 未知 SS-07 | free-nodes
+  - 🇨🇦 CA VMESS-02 | free-nodes
   - 未知 SS-05 | free-nodes
+  - 未知 SS-02 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 1800
   tolerance: 150
   proxies:
-  - 未知 SS-08 | free-nodes
-  - '未知 SS-01 | free-nodes #2'
-  - 未知 SS-07 | free-nodes
-  - 未知 SS-02 | free-nodes
   - 未知 SS-10 | free-nodes
-  - 未知 SS-01 | free-nodes
+  - 🇷🇺 RU SS-26 | free-nodes
   - '未知 SS-10 | free-nodes #2'
+  - 未知 SS-08 | free-nodes
+  - 未知 VLESS-13 | free-nodes
   - 未知 SS-11 | free-nodes
-  - 🇨🇦 CA VMESS-02 | free-nodes
   - 未知 SS-09 | free-nodes
+  - '未知 SS-01 | free-nodes #2'
+  - 未知 SS-01 | free-nodes
+  - 未知 SS-07 | free-nodes
+  - 🇨🇦 CA VMESS-02 | free-nodes
   - 未知 SS-05 | free-nodes
+  - 未知 SS-02 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
