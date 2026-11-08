@@ -1,72 +1,72 @@
 {
-  "tested_at": "2026-11-08T18:11:07+08:00",
+  "tested_at": "2026-11-09T00:12:44+08:00",
   "source": {
     "upstream": "free-nodes/clashfree",
     "source_file": "clash20261108.yml",
     "source_url": "https://api.github.com/repos/free-nodes/clashfree/contents/clash20261108.yml?ref=main",
-    "fetched_at": "2026-11-08T18:10:45+08:00",
+    "fetched_at": "2026-11-09T00:12:18+08:00",
     "raw_count": 83,
     "merged_count": 28
   },
   "candidates": 34,
   "alive": 7,
-  "new_alive": 0,
-  "prev_kept": 7,
+  "new_alive": 1,
+  "prev_kept": 6,
   "dual_round_test": true,
   "relaxed": false,
   "nodes": [
-    {
-      "name": "未知 SS-08 | free-nodes",
-      "type": "ss",
-      "server": "202.50.253.63",
-      "port": 19999,
-      "delay_ms": 502
-    },
     {
       "name": "未知 SS-02 | free-nodes",
       "type": "ss",
       "server": "202.50.253.90",
       "port": 19999,
-      "delay_ms": 517
-    },
-    {
-      "name": "未知 SS-10 | free-nodes #2",
-      "type": "ss",
-      "server": "202.50.253.18",
-      "port": 19999,
-      "delay_ms": 531
-    },
-    {
-      "name": "🇺🇸 US VLESS-07 | free-nodes",
-      "type": "vless",
-      "server": "cf.090227.xyz",
-      "port": 443,
-      "delay_ms": 1436
+      "delay_ms": 523
     },
     {
       "name": "未知 SS-01 | free-nodes",
       "type": "ss",
       "server": "202.50.253.54",
       "port": 19999,
-      "delay_ms": 1542
+      "delay_ms": 607
     },
     {
-      "name": "未知 SS-05 | free-nodes",
-      "type": "ss",
-      "server": "202.50.253.45",
-      "port": 19999,
-      "delay_ms": 3684
+      "name": "🇬🇧 GB VLESS-17 | free-nodes",
+      "type": "vless",
+      "server": "cf-cname.xingpingcn.top",
+      "port": 443,
+      "delay_ms": 874
     },
     {
       "name": "未知 SS-10 | free-nodes",
       "type": "ss",
       "server": "202.50.253.99",
       "port": 19999,
-      "delay_ms": 4197
+      "delay_ms": 996
+    },
+    {
+      "name": "🇺🇸 US VLESS-07 | free-nodes",
+      "type": "vless",
+      "server": "cf.090227.xyz",
+      "port": 443,
+      "delay_ms": 1623
+    },
+    {
+      "name": "未知 SS-08 | free-nodes",
+      "type": "ss",
+      "server": "202.50.253.63",
+      "port": 19999,
+      "delay_ms": 1766
+    },
+    {
+      "name": "未知 SS-10 | free-nodes #2",
+      "type": "ss",
+      "server": "202.50.253.18",
+      "port": 19999,
+      "delay_ms": 3572
     }
   ],
   "failed": [
-    "🇬🇧 GB VLESS-17 | free-nodes",
+    "未知 SS-05 | free-nodes",
     "未知 VMESS-01 | free-nodes",
     "未知 VLESS-05 | free-nodes",
     "未知 VLESS-08 | free-nodes",
