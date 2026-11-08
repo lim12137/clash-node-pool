@@ -5,20 +5,44 @@ log-level: info
 unified-delay: true
 tcp-concurrent: true
 proxies:
-- name: 未知 SS-08 | free-nodes
-  server: 202.50.253.63
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: 未知 SS-02 | free-nodes
   server: 202.50.253.90
   port: 19999
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: '未知 SS-10 | free-nodes #2'
-  server: 202.50.253.18
+- name: 未知 SS-01 | free-nodes
+  server: 202.50.253.54
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇬🇧 GB VLESS-17 | free-nodes
+  server: cf-cname.xingpingcn.top
+  port: 443
+  type: vless
+  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
+  tls: true
+  alpn:
+  - h2
+  - http/1.1
+  tfo: false
+  skip-cert-verify: false
+  servername: a16f22cds861.kuback.top
+  network: xhttp
+  xhttp-opts:
+    path: e5cd832964ff5385df8fd301ac09aef0
+    host: a16f22cds861.kuback.top
+    sc-max-each-post-bytes: 500000-1000000
+    sc-min-posts-interval-ms: 30-80
+    x-padding-bytes: 100-1000
+    x-padding-header: X-Cache
+    x-padding-key: ts
+    x-padding-method: tokenish
+    x-padding-obfs-mode: true
+    x-padding-placement: queryInHeader
+- name: 未知 SS-10 | free-nodes
+  server: 202.50.253.99
   port: 19999
   type: ss
   cipher: aes-256-gcm
@@ -47,20 +71,14 @@ proxies:
     x-padding-method: tokenish
     x-padding-obfs-mode: true
     x-padding-placement: queryInHeader
-- name: 未知 SS-01 | free-nodes
-  server: 202.50.253.54
+- name: 未知 SS-08 | free-nodes
+  server: 202.50.253.63
   port: 19999
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 未知 SS-05 | free-nodes
-  server: 202.50.253.45
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 未知 SS-10 | free-nodes
-  server: 202.50.253.99
+- name: '未知 SS-10 | free-nodes #2'
+  server: 202.50.253.18
   port: 19999
   type: ss
   cipher: aes-256-gcm
@@ -71,26 +89,26 @@ proxy-groups:
   proxies:
   - ♻️ 自动选择
   - DIRECT
-  - 未知 SS-08 | free-nodes
   - 未知 SS-02 | free-nodes
-  - '未知 SS-10 | free-nodes #2'
-  - 🇺🇸 US VLESS-07 | free-nodes
   - 未知 SS-01 | free-nodes
-  - 未知 SS-05 | free-nodes
+  - 🇬🇧 GB VLESS-17 | free-nodes
   - 未知 SS-10 | free-nodes
+  - 🇺🇸 US VLESS-07 | free-nodes
+  - 未知 SS-08 | free-nodes
+  - '未知 SS-10 | free-nodes #2'
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 1800
   tolerance: 150
   proxies:
-  - 未知 SS-08 | free-nodes
   - 未知 SS-02 | free-nodes
-  - '未知 SS-10 | free-nodes #2'
-  - 🇺🇸 US VLESS-07 | free-nodes
   - 未知 SS-01 | free-nodes
-  - 未知 SS-05 | free-nodes
+  - 🇬🇧 GB VLESS-17 | free-nodes
   - 未知 SS-10 | free-nodes
+  - 🇺🇸 US VLESS-07 | free-nodes
+  - 未知 SS-08 | free-nodes
+  - '未知 SS-10 | free-nodes #2'
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
