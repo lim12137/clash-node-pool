@@ -2,46 +2,16 @@ meta:
   upstream: free-nodes/clashfree
   source_file: clash20261108.yml
   source_url: https://api.github.com/repos/free-nodes/clashfree/contents/clash20261108.yml?ref=main
-  fetched_at: '2026-11-08T13:53:25+08:00'
+  fetched_at: '2026-11-08T21:14:56+08:00'
   raw_count: 83
   merged_count: 28
-  prescreened_at: '2026-11-08T13:53:31+08:00'
+  prescreened_at: '2026-11-08T21:15:01+08:00'
   prescreen_delay_ms: 3000
   prescreen_pool: 34
   prescreen_survivors: 12
 proxies:
-- name: 🇬🇧 GB VLESS-17 | free-nodes
-  server: cf-cname.xingpingcn.top
-  port: 443
-  type: vless
-  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
-  tls: true
-  alpn:
-  - h2
-  - http/1.1
-  tfo: false
-  skip-cert-verify: false
-  servername: a16f22cds861.kuback.top
-  network: xhttp
-  xhttp-opts:
-    path: e5cd832964ff5385df8fd301ac09aef0
-    host: a16f22cds861.kuback.top
-    sc-max-each-post-bytes: 500000-1000000
-    sc-min-posts-interval-ms: 30-80
-    x-padding-bytes: 100-1000
-    x-padding-header: X-Cache
-    x-padding-key: ts
-    x-padding-method: tokenish
-    x-padding-obfs-mode: true
-    x-padding-placement: queryInHeader
-- name: '未知 SS-10 | free-nodes #2'
-  server: 202.50.253.18
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 未知 SS-01 | free-nodes
-  server: 202.50.253.54
+- name: 未知 SS-08 | free-nodes
+  server: 202.50.253.63
   port: 19999
   type: ss
   cipher: aes-256-gcm
@@ -52,20 +22,8 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 未知 SS-10 | free-nodes
-  server: 202.50.253.99
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 未知 SS-05 | free-nodes
-  server: 202.50.253.45
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 未知 SS-08 | free-nodes
-  server: 202.50.253.63
+- name: '未知 SS-10 | free-nodes #2'
+  server: 202.50.253.18
   port: 19999
   type: ss
   cipher: aes-256-gcm
@@ -94,6 +52,24 @@ proxies:
     x-padding-method: tokenish
     x-padding-obfs-mode: true
     x-padding-placement: queryInHeader
+- name: 未知 SS-01 | free-nodes
+  server: 202.50.253.54
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 未知 SS-05 | free-nodes
+  server: 202.50.253.45
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 未知 SS-10 | free-nodes
+  server: 202.50.253.99
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: 未知 VLESS-08 | free-nodes
   server: s8748.xxti.top
   port: 443
@@ -111,6 +87,30 @@ proxies:
   xhttp-opts:
     path: 4d71d1f35cb411d631a066ab9390b905
     host: u695098ufe65960bs8746.fuhuovps.xyz
+- name: 🇬🇧 GB VLESS-17 | free-nodes
+  server: cf-cname.xingpingcn.top
+  port: 443
+  type: vless
+  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
+  tls: true
+  alpn:
+  - h2
+  - http/1.1
+  tfo: false
+  skip-cert-verify: false
+  servername: a16f22cds861.kuback.top
+  network: xhttp
+  xhttp-opts:
+    path: e5cd832964ff5385df8fd301ac09aef0
+    host: a16f22cds861.kuback.top
+    sc-max-each-post-bytes: 500000-1000000
+    sc-min-posts-interval-ms: 30-80
+    x-padding-bytes: 100-1000
+    x-padding-header: X-Cache
+    x-padding-key: ts
+    x-padding-method: tokenish
+    x-padding-obfs-mode: true
+    x-padding-placement: queryInHeader
 - name: 未知 VLESS-22 | free-nodes
   server: s8747.xxti.top
   port: 443
