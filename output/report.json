@@ -1,10 +1,10 @@
 {
-  "tested_at": "2026-11-09T18:11:11+08:00",
+  "tested_at": "2026-11-10T00:13:42+08:00",
   "source": {
     "upstream": "free-nodes/clashfree",
     "source_file": "clash20261109.yml",
     "source_url": "https://api.github.com/repos/free-nodes/clashfree/contents/clash20261109.yml?ref=main",
-    "fetched_at": "2026-11-09T18:10:55+08:00",
+    "fetched_at": "2026-11-10T00:13:19+08:00",
     "raw_count": 89,
     "merged_count": 35
   },
@@ -20,52 +20,53 @@
       "type": "ss",
       "server": "202.50.253.63",
       "port": 19999,
-      "delay_ms": 500
+      "delay_ms": 504
     },
     {
       "name": "未知 SS-02 | free-nodes",
       "type": "ss",
       "server": "202.50.253.90",
       "port": 19999,
-      "delay_ms": 531
-    },
-    {
-      "name": "未知 SS-01 | free-nodes",
-      "type": "ss",
-      "server": "202.50.253.54",
-      "port": 19999,
-      "delay_ms": 537
-    },
-    {
-      "name": "未知 SS-10 | free-nodes",
-      "type": "ss",
-      "server": "202.50.253.99",
-      "port": 19999,
-      "delay_ms": 542
+      "delay_ms": 544
     },
     {
       "name": "未知 SS-10 | free-nodes #2",
       "type": "ss",
       "server": "202.50.253.18",
       "port": 19999,
-      "delay_ms": 1290
+      "delay_ms": 663
+    },
+    {
+      "name": "未知 SS-10 | free-nodes",
+      "type": "ss",
+      "server": "202.50.253.99",
+      "port": 19999,
+      "delay_ms": 1052
     },
     {
       "name": "🇺🇸 US VLESS-07 | free-nodes",
       "type": "vless",
       "server": "cf.090227.xyz",
       "port": 443,
-      "delay_ms": 1383
+      "delay_ms": 1120
     },
     {
-      "name": "🇺🇸 US VLESS-11 | free-nodes",
+      "name": "🇯🇵 JP VLESS-20 | free-nodes",
       "type": "vless",
-      "server": "cf-cname.xingpingcn.top",
+      "server": "s2523.fuhuovps.xyz",
       "port": 443,
-      "delay_ms": 2865
+      "delay_ms": 1809
+    },
+    {
+      "name": "未知 SS-01 | free-nodes",
+      "type": "ss",
+      "server": "202.50.253.54",
+      "port": 19999,
+      "delay_ms": 2910
     }
   ],
   "failed": [
+    "🇺🇸 US VLESS-11 | free-nodes",
     "未知 VMESS-01 | free-nodes",
     "🇰🇷 KR VLESS-05 | free-nodes",
     "未知 VLESS-08 | free-nodes",
@@ -74,7 +75,6 @@
     "🇯🇵 JP VLESS-16 | free-nodes",
     "🇯🇵 JP VLESS-18 | free-nodes",
     "🇯🇵 JP VLESS-19 | free-nodes",
-    "🇯🇵 JP VLESS-20 | free-nodes",
     "🇯🇵 JP VLESS-21 | free-nodes",
     "🇯🇵 JP VLESS-25 | free-nodes",
     "🇰🇷 KR VLESS-27 | free-nodes",
