@@ -2,13 +2,13 @@ meta:
   upstream: free-nodes/clashfree
   source_file: clash20261110.yml
   source_url: https://api.github.com/repos/free-nodes/clashfree/contents/clash20261110.yml?ref=main
-  fetched_at: '2026-11-10T06:15:56+08:00'
+  fetched_at: '2026-11-10T15:08:15+08:00'
   raw_count: 95
   merged_count: 47
-  prescreened_at: '2026-11-10T06:16:02+08:00'
+  prescreened_at: '2026-11-10T15:08:20+08:00'
   prescreen_delay_ms: 3000
   prescreen_pool: 52
-  prescreen_survivors: 26
+  prescreen_survivors: 19
 proxies:
 - name: 🇰🇷 KR HY2-10 | free-nodes
   server: s2595.fuhuovps.xyz
@@ -20,6 +20,23 @@ proxies:
   skip-cert-verify: false
   alpn:
   - h3
+- name: 🇯🇵 JP VLESS-05 | free-nodes
+  server: s2572.sspcccdn.xyz
+  port: 443
+  type: vless
+  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
+  tls: true
+  alpn:
+  - h2
+  - http/1.1
+  tfo: false
+  skip-cert-verify: false
+  servername: u695098u77c95bees2571.xxti.top
+  client-fingerprint: firefox
+  network: xhttp
+  xhttp-opts:
+    path: aa34e53cdd078631ce7430da06d64c09
+    host: u695098u77c95bees2571.xxti.top
 - name: 🇺🇸 US VLESS-07 | free-nodes
   server: cf.090227.xyz
   port: 443
@@ -44,20 +61,14 @@ proxies:
     x-padding-method: tokenish
     x-padding-obfs-mode: true
     x-padding-placement: queryInHeader
-- name: 未知 SS-02 | free-nodes
-  server: 202.50.253.90
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: 未知 SS-08 | free-nodes
   server: 202.50.253.63
   port: 19999
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: '未知 SS-10 | free-nodes #2'
-  server: 202.50.253.18
+- name: 未知 SS-02 | free-nodes
+  server: 202.50.253.90
   port: 19999
   type: ss
   cipher: aes-256-gcm
@@ -68,46 +79,18 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: '未知 SS-10 | free-nodes #2'
+  server: 202.50.253.18
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: 未知 SS-01 | free-nodes
   server: 202.50.253.54
   port: 19999
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇯🇵 JP VLESS-26 | free-nodes
-  server: s2573.csgfw.top
-  port: 443
-  type: vless
-  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
-  tls: true
-  alpn:
-  - h2
-  - http/1.1
-  tfo: false
-  skip-cert-verify: false
-  servername: u695098u77c95bees2571.xxti.top
-  client-fingerprint: firefox
-  network: xhttp
-  xhttp-opts:
-    path: aa34e53cdd078631ce7430da06d64c09
-    host: u695098u77c95bees2571.xxti.top
-- name: 🇯🇵 JP VLESS-20 | free-nodes
-  server: s2523.fuhuovps.xyz
-  port: 443
-  type: vless
-  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
-  tls: true
-  alpn:
-  - h2
-  - http/1.1
-  tfo: false
-  skip-cert-verify: false
-  servername: u695098u6b0550c8s2521.xxti.top
-  client-fingerprint: firefox
-  network: xhttp
-  xhttp-opts:
-    path: 356257a80f246d77bb43c7d9d7f98d05
-    host: u695098u6b0550c8s2521.xxti.top
 - name: 🇰🇷 KR VLESS-40 | free-nodes
   server: s2606.wagahaha.xyz
   port: 443
@@ -142,40 +125,6 @@ proxies:
   xhttp-opts:
     path: f46d1b21213998b3c5ccf1bd63aea58f
     host: u695098u23f9aae1s2604.xxti.top
-- name: 🇯🇵 JP VLESS-93 | free-nodes
-  server: s2641.gogocs.xyz
-  port: 443
-  type: vless
-  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
-  tls: true
-  alpn:
-  - h2
-  - http/1.1
-  tfo: false
-  skip-cert-verify: false
-  servername: u695098u4a88067fs2640.xxti.top
-  client-fingerprint: firefox
-  network: xhttp
-  xhttp-opts:
-    path: aa5ea189ea3ab5344f936fda07ec35b3
-    host: u695098u4a88067fs2640.xxti.top
-- name: 🇯🇵 JP VLESS-05 | free-nodes
-  server: s2572.sspcccdn.xyz
-  port: 443
-  type: vless
-  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
-  tls: true
-  alpn:
-  - h2
-  - http/1.1
-  tfo: false
-  skip-cert-verify: false
-  servername: u695098u77c95bees2571.xxti.top
-  client-fingerprint: firefox
-  network: xhttp
-  xhttp-opts:
-    path: aa34e53cdd078631ce7430da06d64c09
-    host: u695098u77c95bees2571.xxti.top
 - name: 🇯🇵 JP VLESS-45 | free-nodes
   server: s2623.ccgfw.online
   port: 443
@@ -193,6 +142,40 @@ proxies:
   xhttp-opts:
     path: fd528e38b5e1d0a1c8dadad0d1c2e84b
     host: u695098ud4a1e126s2622.xxti.top
+- name: 🇯🇵 JP VLESS-20 | free-nodes
+  server: s2523.fuhuovps.xyz
+  port: 443
+  type: vless
+  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
+  tls: true
+  alpn:
+  - h2
+  - http/1.1
+  tfo: false
+  skip-cert-verify: false
+  servername: u695098u6b0550c8s2521.xxti.top
+  client-fingerprint: firefox
+  network: xhttp
+  xhttp-opts:
+    path: 356257a80f246d77bb43c7d9d7f98d05
+    host: u695098u6b0550c8s2521.xxti.top
+- name: 🇯🇵 JP VLESS-26 | free-nodes
+  server: s2573.csgfw.top
+  port: 443
+  type: vless
+  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
+  tls: true
+  alpn:
+  - h2
+  - http/1.1
+  tfo: false
+  skip-cert-verify: false
+  servername: u695098u77c95bees2571.xxti.top
+  client-fingerprint: firefox
+  network: xhttp
+  xhttp-opts:
+    path: aa34e53cdd078631ce7430da06d64c09
+    host: u695098u77c95bees2571.xxti.top
 - name: 未知 VLESS-07 | free-nodes
   server: www.codex2api.com
   port: 443
@@ -217,8 +200,8 @@ proxies:
     x-padding-method: tokenish
     x-padding-obfs-mode: true
     x-padding-placement: queryInHeader
-- name: 🇺🇸 US VLESS-06 | free-nodes
-  server: s2582.wagahaha.xyz
+- name: 🇯🇵 JP VLESS-93 | free-nodes
+  server: s2641.gogocs.xyz
   port: 443
   type: vless
   uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
@@ -228,12 +211,12 @@ proxies:
   - http/1.1
   tfo: false
   skip-cert-verify: false
-  servername: u695098u58eae533s2570.xxti.top
+  servername: u695098u4a88067fs2640.xxti.top
   client-fingerprint: firefox
   network: xhttp
   xhttp-opts:
-    path: 64477e52343cfc0449eb5319593538ee
-    host: u695098u58eae533s2570.xxti.top
+    path: aa5ea189ea3ab5344f936fda07ec35b3
+    host: u695098u4a88067fs2640.xxti.top
 - name: 未知 VLESS-08 | free-nodes
   server: cf-cname.xingpingcn.top
   port: 443
@@ -292,16 +275,6 @@ proxies:
   xhttp-opts:
     path: 4d71d1f35cb411d631a066ab9390b905
     host: u695098ufe65960bs8746.fuhuovps.xyz
-- name: 🇯🇵 JP HY2-46 | free-nodes
-  server: s2634.uugfw.top
-  port: 443
-  type: hysteria2
-  password: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
-  auth: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
-  sni: u695098u0be8742as2628.xxti.top
-  skip-cert-verify: false
-  alpn:
-  - h3
 - name: 🇺🇸 US VLESS-54 | free-nodes
   server: s2317.gogocs.xyz
   port: 443
@@ -319,80 +292,3 @@ proxies:
   xhttp-opts:
     path: d299cd2149b1adf9e9ad034d1ecadb4f
     host: u695098uf215742bs2316.fuhuovps.xyz
-- name: 🇺🇸 US VLESS-72 | free-nodes
-  server: s2581.gogocs.xyz
-  port: 443
-  type: vless
-  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
-  tls: true
-  alpn:
-  - h2
-  - http/1.1
-  tfo: false
-  skip-cert-verify: false
-  servername: u695098u58eae533s2570.xxti.top
-  client-fingerprint: firefox
-  network: xhttp
-  xhttp-opts:
-    path: 64477e52343cfc0449eb5319593538ee
-    host: u695098u58eae533s2570.xxti.top
-- name: 🇰🇷 KR VLESS-73 | free-nodes
-  server: s2599.ccgfw.online
-  port: 443
-  type: vless
-  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
-  tls: true
-  alpn:
-  - h2
-  - http/1.1
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  servername: u695098uc01145cas2593.xxti.top
-  client-fingerprint: firefox
-  network: tcp
-- name: 🇯🇵 JP VLESS-78 | free-nodes
-  server: s2617.gogocs.xyz
-  port: 443
-  type: vless
-  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
-  tls: true
-  alpn:
-  - h2
-  - http/1.1
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  servername: u695098ud3f75663s2616.xxti.top
-  client-fingerprint: firefox
-  network: tcp
-- name: 🇯🇵 JP VLESS-79 | free-nodes
-  server: s2618.wagahaha.xyz
-  port: 443
-  type: vless
-  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
-  tls: true
-  alpn:
-  - h2
-  - http/1.1
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  servername: u695098ud3f75663s2616.xxti.top
-  client-fingerprint: firefox
-  network: tcp
-- name: 未知 VLESS-87 | free-nodes
-  server: s2586.uugfw.top
-  port: 443
-  type: vless
-  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
-  tls: true
-  alpn:
-  - h2
-  - http/1.1
-  tfo: false
-  flow: xtls-rprx-vision
-  skip-cert-verify: false
-  servername: u695098uf4ce604as2569.xxti.top
-  client-fingerprint: firefox
-  network: tcp
