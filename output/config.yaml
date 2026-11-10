@@ -15,6 +15,23 @@ proxies:
   skip-cert-verify: false
   alpn:
   - h3
+- name: 🇯🇵 JP VLESS-05 | free-nodes
+  server: s2572.sspcccdn.xyz
+  port: 443
+  type: vless
+  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
+  tls: true
+  alpn:
+  - h2
+  - http/1.1
+  tfo: false
+  skip-cert-verify: false
+  servername: u695098u77c95bees2571.xxti.top
+  client-fingerprint: firefox
+  network: xhttp
+  xhttp-opts:
+    path: aa34e53cdd078631ce7430da06d64c09
+    host: u695098u77c95bees2571.xxti.top
 - name: 🇺🇸 US VLESS-07 | free-nodes
   server: cf.090227.xyz
   port: 443
@@ -39,20 +56,14 @@ proxies:
     x-padding-method: tokenish
     x-padding-obfs-mode: true
     x-padding-placement: queryInHeader
-- name: 未知 SS-02 | free-nodes
-  server: 202.50.253.90
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: 未知 SS-08 | free-nodes
   server: 202.50.253.63
   port: 19999
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: '未知 SS-10 | free-nodes #2'
-  server: 202.50.253.18
+- name: 未知 SS-02 | free-nodes
+  server: 202.50.253.90
   port: 19999
   type: ss
   cipher: aes-256-gcm
@@ -63,46 +74,18 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: '未知 SS-10 | free-nodes #2'
+  server: 202.50.253.18
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: 未知 SS-01 | free-nodes
   server: 202.50.253.54
   port: 19999
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇯🇵 JP VLESS-26 | free-nodes
-  server: s2573.csgfw.top
-  port: 443
-  type: vless
-  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
-  tls: true
-  alpn:
-  - h2
-  - http/1.1
-  tfo: false
-  skip-cert-verify: false
-  servername: u695098u77c95bees2571.xxti.top
-  client-fingerprint: firefox
-  network: xhttp
-  xhttp-opts:
-    path: aa34e53cdd078631ce7430da06d64c09
-    host: u695098u77c95bees2571.xxti.top
-- name: 🇯🇵 JP VLESS-20 | free-nodes
-  server: s2523.fuhuovps.xyz
-  port: 443
-  type: vless
-  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
-  tls: true
-  alpn:
-  - h2
-  - http/1.1
-  tfo: false
-  skip-cert-verify: false
-  servername: u695098u6b0550c8s2521.xxti.top
-  client-fingerprint: firefox
-  network: xhttp
-  xhttp-opts:
-    path: 356257a80f246d77bb43c7d9d7f98d05
-    host: u695098u6b0550c8s2521.xxti.top
 - name: 🇰🇷 KR VLESS-40 | free-nodes
   server: s2606.wagahaha.xyz
   port: 443
@@ -137,40 +120,6 @@ proxies:
   xhttp-opts:
     path: f46d1b21213998b3c5ccf1bd63aea58f
     host: u695098u23f9aae1s2604.xxti.top
-- name: 🇯🇵 JP VLESS-93 | free-nodes
-  server: s2641.gogocs.xyz
-  port: 443
-  type: vless
-  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
-  tls: true
-  alpn:
-  - h2
-  - http/1.1
-  tfo: false
-  skip-cert-verify: false
-  servername: u695098u4a88067fs2640.xxti.top
-  client-fingerprint: firefox
-  network: xhttp
-  xhttp-opts:
-    path: aa5ea189ea3ab5344f936fda07ec35b3
-    host: u695098u4a88067fs2640.xxti.top
-- name: 🇯🇵 JP VLESS-05 | free-nodes
-  server: s2572.sspcccdn.xyz
-  port: 443
-  type: vless
-  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
-  tls: true
-  alpn:
-  - h2
-  - http/1.1
-  tfo: false
-  skip-cert-verify: false
-  servername: u695098u77c95bees2571.xxti.top
-  client-fingerprint: firefox
-  network: xhttp
-  xhttp-opts:
-    path: aa34e53cdd078631ce7430da06d64c09
-    host: u695098u77c95bees2571.xxti.top
 - name: 🇯🇵 JP VLESS-45 | free-nodes
   server: s2623.ccgfw.online
   port: 443
@@ -188,6 +137,40 @@ proxies:
   xhttp-opts:
     path: fd528e38b5e1d0a1c8dadad0d1c2e84b
     host: u695098ud4a1e126s2622.xxti.top
+- name: 🇯🇵 JP VLESS-20 | free-nodes
+  server: s2523.fuhuovps.xyz
+  port: 443
+  type: vless
+  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
+  tls: true
+  alpn:
+  - h2
+  - http/1.1
+  tfo: false
+  skip-cert-verify: false
+  servername: u695098u6b0550c8s2521.xxti.top
+  client-fingerprint: firefox
+  network: xhttp
+  xhttp-opts:
+    path: 356257a80f246d77bb43c7d9d7f98d05
+    host: u695098u6b0550c8s2521.xxti.top
+- name: 🇯🇵 JP VLESS-26 | free-nodes
+  server: s2573.csgfw.top
+  port: 443
+  type: vless
+  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
+  tls: true
+  alpn:
+  - h2
+  - http/1.1
+  tfo: false
+  skip-cert-verify: false
+  servername: u695098u77c95bees2571.xxti.top
+  client-fingerprint: firefox
+  network: xhttp
+  xhttp-opts:
+    path: aa34e53cdd078631ce7430da06d64c09
+    host: u695098u77c95bees2571.xxti.top
 - name: 未知 VLESS-07 | free-nodes
   server: www.codex2api.com
   port: 443
@@ -212,6 +195,23 @@ proxies:
     x-padding-method: tokenish
     x-padding-obfs-mode: true
     x-padding-placement: queryInHeader
+- name: 🇯🇵 JP VLESS-93 | free-nodes
+  server: s2641.gogocs.xyz
+  port: 443
+  type: vless
+  uuid: 30e52776-55ac-3cb4-8d36-e2910f07e2c3
+  tls: true
+  alpn:
+  - h2
+  - http/1.1
+  tfo: false
+  skip-cert-verify: false
+  servername: u695098u4a88067fs2640.xxti.top
+  client-fingerprint: firefox
+  network: xhttp
+  xhttp-opts:
+    path: aa5ea189ea3ab5344f936fda07ec35b3
+    host: u695098u4a88067fs2640.xxti.top
 proxy-groups:
 - name: 🚀 节点选择
   type: select
@@ -219,20 +219,20 @@ proxy-groups:
   - ♻️ 自动选择
   - DIRECT
   - 🇰🇷 KR HY2-10 | free-nodes
+  - 🇯🇵 JP VLESS-05 | free-nodes
   - 🇺🇸 US VLESS-07 | free-nodes
-  - 未知 SS-02 | free-nodes
   - 未知 SS-08 | free-nodes
-  - '未知 SS-10 | free-nodes #2'
+  - 未知 SS-02 | free-nodes
   - 未知 SS-10 | free-nodes
+  - '未知 SS-10 | free-nodes #2'
   - 未知 SS-01 | free-nodes
-  - 🇯🇵 JP VLESS-26 | free-nodes
-  - 🇯🇵 JP VLESS-20 | free-nodes
   - 🇰🇷 KR VLESS-40 | free-nodes
   - 🇰🇷 KR VLESS-89 | free-nodes
-  - 🇯🇵 JP VLESS-93 | free-nodes
-  - 🇯🇵 JP VLESS-05 | free-nodes
   - 🇯🇵 JP VLESS-45 | free-nodes
+  - 🇯🇵 JP VLESS-20 | free-nodes
+  - 🇯🇵 JP VLESS-26 | free-nodes
   - 未知 VLESS-07 | free-nodes
+  - 🇯🇵 JP VLESS-93 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
@@ -240,20 +240,20 @@ proxy-groups:
   tolerance: 150
   proxies:
   - 🇰🇷 KR HY2-10 | free-nodes
+  - 🇯🇵 JP VLESS-05 | free-nodes
   - 🇺🇸 US VLESS-07 | free-nodes
-  - 未知 SS-02 | free-nodes
   - 未知 SS-08 | free-nodes
-  - '未知 SS-10 | free-nodes #2'
+  - 未知 SS-02 | free-nodes
   - 未知 SS-10 | free-nodes
+  - '未知 SS-10 | free-nodes #2'
   - 未知 SS-01 | free-nodes
-  - 🇯🇵 JP VLESS-26 | free-nodes
-  - 🇯🇵 JP VLESS-20 | free-nodes
   - 🇰🇷 KR VLESS-40 | free-nodes
   - 🇰🇷 KR VLESS-89 | free-nodes
-  - 🇯🇵 JP VLESS-93 | free-nodes
-  - 🇯🇵 JP VLESS-05 | free-nodes
   - 🇯🇵 JP VLESS-45 | free-nodes
+  - 🇯🇵 JP VLESS-20 | free-nodes
+  - 🇯🇵 JP VLESS-26 | free-nodes
   - 未知 VLESS-07 | free-nodes
+  - 🇯🇵 JP VLESS-93 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
