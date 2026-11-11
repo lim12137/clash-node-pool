@@ -1,114 +1,107 @@
 {
-  "tested_at": "2026-11-11T18:11:05+08:00",
+  "tested_at": "2026-11-12T00:12:31+08:00",
   "source": {
     "upstream": "free-nodes/clashfree",
     "source_file": "clash20261111.yml",
     "source_url": "https://cdn.jsdelivr.net/gh/free-nodes/clashfree@main/clash20261111.yml",
-    "fetched_at": "2026-11-11T18:10:35+08:00",
+    "fetched_at": "2026-11-12T00:11:59+08:00",
     "raw_count": 102,
     "merged_count": 66
   },
   "candidates": 71,
-  "alive": 13,
+  "alive": 12,
   "new_alive": 0,
-  "prev_kept": 13,
+  "prev_kept": 12,
   "dual_round_test": true,
   "relaxed": false,
   "nodes": [
     {
-      "name": "未知 SS-08 | free-nodes",
-      "type": "ss",
-      "server": "202.50.253.63",
-      "port": 19999,
-      "delay_ms": 493
+      "name": "🇯🇵 JP VLESS-20 | free-nodes",
+      "type": "vless",
+      "server": "s2523.fuhuovps.xyz",
+      "port": 443,
+      "delay_ms": 501
     },
     {
       "name": "未知 SS-02 | free-nodes",
       "type": "ss",
       "server": "202.50.253.90",
       "port": 19999,
-      "delay_ms": 497
-    },
-    {
-      "name": "未知 SS-10 | free-nodes",
-      "type": "ss",
-      "server": "202.50.253.99",
-      "port": 19999,
-      "delay_ms": 516
+      "delay_ms": 533
     },
     {
       "name": "未知 SS-10 | free-nodes #2",
       "type": "ss",
       "server": "202.50.253.18",
       "port": 19999,
-      "delay_ms": 519
+      "delay_ms": 542
+    },
+    {
+      "name": "未知 SS-10 | free-nodes",
+      "type": "ss",
+      "server": "202.50.253.99",
+      "port": 19999,
+      "delay_ms": 555
     },
     {
       "name": "未知 SS-01 | free-nodes",
       "type": "ss",
       "server": "202.50.253.54",
       "port": 19999,
-      "delay_ms": 544
-    },
-    {
-      "name": "🇺🇸 US VLESS-13 | free-nodes",
-      "type": "vless",
-      "server": "s554.wagahaha.xyz",
-      "port": 443,
-      "delay_ms": 722
-    },
-    {
-      "name": "🇯🇵 JP VLESS-20 | free-nodes",
-      "type": "vless",
-      "server": "s2523.fuhuovps.xyz",
-      "port": 443,
-      "delay_ms": 814
-    },
-    {
-      "name": "未知 VLESS-07 | free-nodes",
-      "type": "vless",
-      "server": "www.codex2api.com",
-      "port": 443,
-      "delay_ms": 974
-    },
-    {
-      "name": "未知 VLESS-73 | free-nodes",
-      "type": "vless",
-      "server": "s2671.ccgfw.online",
-      "port": 443,
-      "delay_ms": 998
+      "delay_ms": 690
     },
     {
       "name": "🇺🇸 US VLESS-23 | free-nodes",
       "type": "vless",
       "server": "s5015.xxti.top",
       "port": 443,
-      "delay_ms": 1167
+      "delay_ms": 1120
+    },
+    {
+      "name": "未知 SS-08 | free-nodes",
+      "type": "ss",
+      "server": "202.50.253.63",
+      "port": 19999,
+      "delay_ms": 1211
     },
     {
       "name": "🇺🇸 US VLESS-44 | free-nodes",
       "type": "vless",
       "server": "s553.gogocs.xyz",
       "port": 443,
-      "delay_ms": 1611
+      "delay_ms": 1378
     },
     {
-      "name": "🇺🇸 US VLESS-75 | free-nodes",
+      "name": "未知 VLESS-07 | free-nodes",
       "type": "vless",
-      "server": "s5016.xxti.top",
+      "server": "www.codex2api.com",
       "port": 443,
-      "delay_ms": 1655
+      "delay_ms": 1384
     },
     {
       "name": "🇬🇧 GB VLESS-16 | free-nodes",
       "type": "vless",
       "server": "cf.090227.xyz",
       "port": 443,
-      "delay_ms": 4056
+      "delay_ms": 1407
+    },
+    {
+      "name": "未知 VLESS-73 | free-nodes",
+      "type": "vless",
+      "server": "s2671.ccgfw.online",
+      "port": 443,
+      "delay_ms": 1417
+    },
+    {
+      "name": "🇺🇸 US VLESS-13 | free-nodes",
+      "type": "vless",
+      "server": "s554.wagahaha.xyz",
+      "port": 443,
+      "delay_ms": 3368
     }
   ],
   "failed": [
-    "🇰🇷 KR VLESS-79 | free-nodes",
+    "🇺🇸 US VLESS-75 | free-nodes",
     "未知 VMESS-01 | free-nodes",
     "🇰🇷 KR VLESS-05 | free-nodes",
     "🇯🇵 JP VLESS-07 | free-nodes",
@@ -153,6 +146,7 @@
     "🇯🇵 JP HY2-70 | free-nodes",
     "🇯🇵 JP VLESS-71 | free-nodes",
     "🇰🇷 KR VLESS-74 | free-nodes",
+    "🇰🇷 KR VLESS-79 | free-nodes",
     "🇯🇵 JP VLESS-80 | free-nodes",
     "🇺🇸 US VLESS-81 | free-nodes",
     "🇯🇵 JP VLESS-83 | free-nodes",
