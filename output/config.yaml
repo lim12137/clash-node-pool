@@ -17,6 +17,12 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 未知 SS-08 | free-nodes
+  server: 202.50.253.63
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: '未知 SS-10 | free-nodes #2'
   server: 202.50.253.18
   port: 19999
@@ -29,12 +35,6 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 未知 SS-08 | free-nodes
-  server: 202.50.253.63
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 proxy-groups:
 - name: 🚀 节点选择
   type: select
@@ -43,9 +43,9 @@ proxy-groups:
   - DIRECT
   - 未知 SS-10 | free-nodes
   - 未知 SS-02 | free-nodes
+  - 未知 SS-08 | free-nodes
   - '未知 SS-10 | free-nodes #2'
   - 未知 SS-01 | free-nodes
-  - 未知 SS-08 | free-nodes
 - name: ♻️ 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
@@ -54,9 +54,9 @@ proxy-groups:
   proxies:
   - 未知 SS-10 | free-nodes
   - 未知 SS-02 | free-nodes
+  - 未知 SS-08 | free-nodes
   - '未知 SS-10 | free-nodes #2'
   - 未知 SS-01 | free-nodes
-  - 未知 SS-08 | free-nodes
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
