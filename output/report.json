@@ -1,10 +1,10 @@
 {
-  "tested_at": "2026-11-13T06:10:26+08:00",
+  "tested_at": "2026-11-13T12:11:05+08:00",
   "source": {
     "upstream": "free-nodes/clashfree",
     "source_file": "clash20261113.yml",
     "source_url": "https://api.github.com/repos/free-nodes/clashfree/contents/clash20261113.yml?ref=main",
-    "fetched_at": "2026-11-13T06:10:16+08:00",
+    "fetched_at": "2026-11-13T12:10:53+08:00",
     "raw_count": 1,
     "merged_count": 1
   },
@@ -16,39 +16,39 @@
   "relaxed": false,
   "nodes": [
     {
-      "name": "未知 SS-10 | free-nodes",
+      "name": "未知 SS-08 | free-nodes",
       "type": "ss",
-      "server": "202.50.253.99",
+      "server": "202.50.253.63",
       "port": 19999,
       "delay_ms": 483
-    },
-    {
-      "name": "未知 SS-10 | free-nodes #2",
-      "type": "ss",
-      "server": "202.50.253.18",
-      "port": 19999,
-      "delay_ms": 485
     },
     {
       "name": "未知 SS-02 | free-nodes",
       "type": "ss",
       "server": "202.50.253.90",
       "port": 19999,
-      "delay_ms": 492
+      "delay_ms": 522
     },
     {
-      "name": "未知 SS-08 | free-nodes",
+      "name": "未知 SS-10 | free-nodes #2",
       "type": "ss",
-      "server": "202.50.253.63",
+      "server": "202.50.253.18",
       "port": 19999,
-      "delay_ms": 513
+      "delay_ms": 541
+    },
+    {
+      "name": "未知 SS-10 | free-nodes",
+      "type": "ss",
+      "server": "202.50.253.99",
+      "port": 19999,
+      "delay_ms": 541
     },
     {
       "name": "未知 SS-01 | free-nodes",
       "type": "ss",
       "server": "202.50.253.54",
       "port": 19999,
-      "delay_ms": 533
+      "delay_ms": 564
     }
   ],
   "failed": [
