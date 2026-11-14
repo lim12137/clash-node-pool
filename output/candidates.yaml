@@ -1,17 +1,17 @@
 meta:
   upstream: free-nodes/clashfree
   source_file: clash20261114.yml
-  source_url: https://api.github.com/repos/free-nodes/clashfree/contents/clash20261114.yml?ref=main
-  fetched_at: '2026-11-14T14:09:42+08:00'
+  source_url: https://cdn.jsdelivr.net/gh/free-nodes/clashfree@main/clash20261114.yml
+  fetched_at: '2026-11-14T21:28:57+08:00'
   raw_count: 1
   merged_count: 1
-  prescreened_at: '2026-11-14T14:09:47+08:00'
+  prescreened_at: '2026-11-14T21:29:02+08:00'
   prescreen_delay_ms: 3000
   prescreen_pool: 6
   prescreen_survivors: 5
 proxies:
-- name: 未知 SS-08 | free-nodes
-  server: 202.50.253.63
+- name: 未知 SS-01 | free-nodes
+  server: 202.50.253.54
   port: 19999
   type: ss
   cipher: aes-256-gcm
@@ -22,20 +22,20 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 未知 SS-10 | free-nodes
-  server: 202.50.253.99
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: '未知 SS-10 | free-nodes #2'
   server: 202.50.253.18
   port: 19999
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 未知 SS-01 | free-nodes
-  server: 202.50.253.54
+- name: 未知 SS-08 | free-nodes
+  server: 202.50.253.63
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 未知 SS-10 | free-nodes
+  server: 202.50.253.99
   port: 19999
   type: ss
   cipher: aes-256-gcm
