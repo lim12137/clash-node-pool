@@ -1,10 +1,10 @@
 {
-  "tested_at": "2026-11-24T18:11:23+08:00",
+  "tested_at": "2026-11-25T00:12:28+08:00",
   "source": {
     "upstream": "free-nodes/clashfree",
     "source_file": "clash20261124.yml",
     "source_url": "https://api.github.com/repos/free-nodes/clashfree/contents/clash20261124.yml?ref=main",
-    "fetched_at": "2026-11-24T18:11:13+08:00",
+    "fetched_at": "2026-11-25T00:12:20+08:00",
     "raw_count": 1,
     "merged_count": 1
   },
@@ -20,14 +20,14 @@
       "type": "ss",
       "server": "202.50.253.99",
       "port": 19999,
-      "delay_ms": 548
+      "delay_ms": 520
     },
     {
       "name": "未知 SS-10 | free-nodes #2",
       "type": "ss",
       "server": "202.50.253.18",
       "port": 19999,
-      "delay_ms": 635
+      "delay_ms": 1220
     }
   ],
   "failed": [
